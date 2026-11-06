@@ -15,21 +15,33 @@ DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 @lru_cache(maxsize=2)
 def load_embedding_model(model_name: str | None = None) -> SentenceTransformer:
-    """Load from the local cache only; model downloads are an explicit setup step."""
-    resolved_name = model_name or os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL)
-    local_path = Path(resolved_name).expanduser()
-    if local_path.exists():
-        model_path = str(local_path.resolve())
-    else:
-        # Resolve the cached snapshot explicitly. Some Hub/library combinations
-        # fail to discover an existing snapshot from the repository ID alone.
-        repo_cache = Path(constants.HF_HUB_CACHE) / f"models--{resolved_name.replace('/', '--')}"
+    """Load from the local cache with fallback to DEFAULT_MODEL."""
+    candidates: list[str] = []
+    if model_name:
+        candidates.append(model_name)
+    env_model = os.getenv("EMBEDDING_MODEL")
+    if env_model and env_model not in candidates:
+        candidates.append(env_model)
+    if DEFAULT_MODEL not in candidates:
+        candidates.append(DEFAULT_MODEL)
+
+    for candidate in candidates:
+        local_path = Path(candidate).expanduser()
+        if local_path.exists():
+            return SentenceTransformer(str(local_path.resolve()), local_files_only=True, trust_remote_code=False)
+        repo_cache = Path(constants.HF_HUB_CACHE) / f"models--{candidate.replace('/', '--')}"
         ref_file = repo_cache / "refs" / "main"
         snapshot = repo_cache / "snapshots" / ref_file.read_text(encoding="utf-8").strip() if ref_file.exists() else None
         if snapshot is not None and (snapshot / "modules.json").is_file() and (snapshot / "config.json").is_file():
-            model_path = str(snapshot)
-        else:
-            model_path = snapshot_download(repo_id=resolved_name, local_files_only=True)
+            return SentenceTransformer(str(snapshot), local_files_only=True, trust_remote_code=False)
+        try:
+            model_path = snapshot_download(repo_id=candidate, local_files_only=True)
+            return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
+        except Exception:
+            continue
+
+    # If none found locally, try downloading online
+    model_path = snapshot_download(repo_id=candidates[0], local_files_only=False)
     return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
 
 

@@ -552,6 +552,21 @@ def render_pipeline_overview() -> None:
 
 def main() -> None:
     st.sidebar.markdown("<div class='eyebrow'>PROJECT CONSOLE</div>", unsafe_allow_html=True)
+
+    st.sidebar.markdown("### Navigation")
+    selected_page = st.sidebar.radio(
+        "Navigation Menu",
+        [
+            "Investigation workbench",
+            "Data explorer",
+            "RAG evaluation lab",
+            "Agents & data flow",
+        ],
+        index=0,
+        label_visibility="collapsed",
+    )
+
+    st.sidebar.markdown("---")
     st.sidebar.markdown("### Connection")
     configured_api_url = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").strip().rstrip("/")
     api_url_locked = os.getenv("API_BASE_URL_LOCKED", "false").strip().lower() in {"1", "true", "yes"}
@@ -571,20 +586,40 @@ def main() -> None:
             key="api_base_url",
             help="For local use, keep FastAPI bound to 127.0.0.1.",
         ).strip().rstrip("/")
-    support_token = st.sidebar.text_input(
-        "Support bearer token",
-        value=os.getenv("WORKFLOW_API_TOKEN", ""),
-        type="password",
-        key="support_token",
-    )
-    st.sidebar.text_input(
-        "Reviewer bearer token",
-        value=os.getenv("WORKFLOW_REVIEWER_TOKEN", ""),
-        type="password",
-        key="reviewer_token",
-        help="Use a different identity/token from the workflow creator.",
-    )
-    st.sidebar.caption("Tokens are used for API calls and are not written to this project by the UI.")
+
+    # Automatic token discovery: st.secrets -> os.getenv -> manual input fallback
+    def get_token(key: str) -> str:
+        try:
+            if key in st.secrets:
+                return str(st.secrets[key]).strip()
+        except Exception:
+            pass
+        return os.getenv(key, "").strip()
+
+    support_token = get_token("WORKFLOW_API_TOKEN")
+    reviewer_token = get_token("WORKFLOW_REVIEWER_TOKEN")
+
+    if support_token and reviewer_token:
+        st.sidebar.caption("🔒 Tokens loaded from secrets/environment.")
+    else:
+        if not support_token:
+            support_token = st.sidebar.text_input(
+                "Support bearer token",
+                type="password",
+                key="manual_support_token",
+                help="Can be configured in st.secrets['WORKFLOW_API_TOKEN'].",
+            ).strip()
+        if not reviewer_token:
+            reviewer_token = st.sidebar.text_input(
+                "Reviewer bearer token",
+                type="password",
+                key="manual_reviewer_token",
+                help="Can be configured in st.secrets['WORKFLOW_REVIEWER_TOKEN'].",
+            ).strip()
+
+    st.session_state.support_token = support_token
+    st.session_state.reviewer_token = reviewer_token
+
     if st.sidebar.button("Check API health", width="stretch"):
         try:
             health = api_request("GET", "/health", base_url=base_url, timeout=4)
@@ -598,13 +633,8 @@ def main() -> None:
         "<div class='subhead'>Investigate a ticket, watch the specialist workflow advance, inspect the evidence, and review a proposed outcome in one place.</div></div>",
         unsafe_allow_html=True,
     )
-    st.caption("Run the FastAPI service and Laya on your computer first. Workflow routes require a support token; review decisions require a separate reviewer token.")
 
-    workbench_tab, data_tab, rag_tab, architecture_tab = st.tabs(
-        ["Investigation workbench", "Data explorer", "RAG evaluation lab", "Agents & data flow"]
-    )
-
-    with workbench_tab:
+    if selected_page == "Investigation workbench":
         left, right = st.columns([.9, 1.1], gap="large")
         with left:
             st.markdown("### Start a controlled investigation")
@@ -649,7 +679,7 @@ def main() -> None:
             st.markdown("### Processing view")
             render_workflow_panel(base_url, support_token)
 
-    with data_tab:
+    elif selected_page == "Data explorer":
         st.markdown("### Inspect the underlying read-only tools")
         st.markdown("<span class='badge badge-amber'>LOCAL FIXTURE ENDPOINTS</span> &nbsp; These calls use the project's existing local-development API surface.", unsafe_allow_html=True)
         ticket_tool_tab, order_tool_tab, policy_tool_tab = st.tabs(["Ticket tools", "Order & delivery", "Policy retrieval"])
@@ -778,7 +808,7 @@ def main() -> None:
                 st.caption("Search results are evidence candidates; draft development policies do not establish customer eligibility.")
                 render_policy_hits(st.session_state.policy_search_result) # type: ignore
 
-    with rag_tab:
+    elif selected_page == "RAG evaluation lab":
         st.markdown("### Evaluate retrieval quality")
         st.caption("Compare semantic and keyword results, inspect citations, and run the checked-in labeled evaluation set.")
         single_tab, batch_tab = st.tabs(["Single query", "Labeled set"])
@@ -829,7 +859,7 @@ def main() -> None:
             if st.session_state.get("rag_batch_result"):
                 render_evaluation(st.session_state.rag_batch_result) # type: ignore
 
-    with architecture_tab:
+    elif selected_page == "Agents & data flow":
         render_pipeline_overview()
 
 
