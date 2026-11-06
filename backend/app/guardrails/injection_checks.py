@@ -11,6 +11,14 @@ import re
 
 _OVERRIDE_PATTERNS = (
     re.compile(
+        r"\b(?:without|skip|bypass|disable|ignore)\b.{0,50}\b(?:human|reviewer|approval|authorization)\b",
+        flags=re.IGNORECASE | re.DOTALL,
+    ),
+    re.compile(
+        r"\b(?:reveal|print|show|dump|expose|send)\b.{0,100}\b(?:api[ _-]?key|access[ _-]?token|password|bearer token)s?\b",
+        flags=re.IGNORECASE | re.DOTALL,
+    ),
+    re.compile(
         r"\b(ignore|disregard|forget|override|bypass|break)\b.{0,160}\b"
         r"(previous|prior|all|system|developer|safety|security|the)\b.{0,80}\b"
         r"(instruction|policy|rule|prompt|restriction|guardrail)s?\b",

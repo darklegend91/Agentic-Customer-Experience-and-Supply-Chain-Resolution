@@ -3,19 +3,31 @@
 from __future__ import annotations
 
 import html
+import hashlib
 import json
 import os
+import sys
 import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote, urlparse
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+FRONTEND_DIR = Path(__file__).resolve().parent
+for directory in (str(PROJECT_ROOT), str(FRONTEND_DIR)):
+    if directory not in sys.path:
+        sys.path.insert(0, directory)
+
 import httpx
 import streamlit as st
 from dotenv import load_dotenv
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+try:
+    from frontend.chat_context import resolve_order_context
+except ModuleNotFoundError:
+    from chat_context import resolve_order_context
+
 load_dotenv(PROJECT_ROOT / ".env", override=False)
 
 st.set_page_config(
@@ -64,6 +76,10 @@ st.markdown(
     .stButton > button[kind="primary"]:hover { background:#73e7cb; color:#071715; }
     div[data-testid="stTabs"] button { font-weight:600; }
     .small-note { color:var(--muted); font-size:.78rem; line-height:1.5; }
+    /* Chat panel */
+    [data-testid="stChatMessage"] { border-radius:14px; padding:4px 2px; }
+    [data-testid="stChatMessageContent"] p { font-size:.93rem; line-height:1.6; }
+    [data-testid="stChatInput"] textarea { background:#111c27 !important; border:1px solid #2a3f52 !important; border-radius:12px !important; color:var(--ink) !important; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -74,6 +90,12 @@ class ApiError(RuntimeError):
     def __init__(self, message: str, status_code: int | None = None):
         super().__init__(message)
         self.status_code = status_code
+
+
+@st.cache_resource
+def api_client() -> httpx.Client:
+    """Reuse local API connections across fragment polls; credentials stay per call."""
+    return httpx.Client(limits=httpx.Limits(max_connections=12, max_keepalive_connections=6))
 
 
 def api_request(
@@ -92,7 +114,7 @@ def api_request(
     if extra_headers:
         headers.update(extra_headers)
     try:
-        response = httpx.request(
+        response = api_client().request(
             method,
             f"{base_url.rstrip('/')}{path}",
             headers=headers,
@@ -115,18 +137,30 @@ def api_request(
 
 
 def loopback_api(base_url: str) -> bool:
-    return urlparse(base_url).hostname in {"127.0.0.1", "localhost", "::1"}
+    hostname = (urlparse(base_url).hostname or "").lower()
+    return (
+        hostname in {"127.0.0.1", "localhost", "::1"}
+        or hostname.endswith(".onrender.com")
+        or bool(os.getenv("ALLOW_REMOTE_API"))
+    )
 
 
-def local_api_request(method: str, path: str, *, base_url: str, payload: dict[str, Any] | None = None) -> Any:
+def local_api_request(method: str, path: str, *, base_url: str, payload: dict[str, Any] | None = None, timeout: float = 60.0) -> Any:
     if not loopback_api(base_url):
         raise ApiError("This local fixture endpoint is only enabled when the API URL points to this computer.")
-    return api_request(method, path, base_url=base_url, payload=payload)
+    return api_request(method, path, base_url=base_url, payload=payload, timeout=timeout)
 
 
 def show_json_result(title: str, payload: Any) -> None:
     st.markdown(f"#### {title}")
     st.json(payload, expanded=False)
+
+
+def classification_score(classification: dict[str, Any]) -> str:
+    if classification.get("classifier_provider") == "deterministic_rule":
+        return "Rule match"
+    score = classification.get("confidence")
+    return f"{score:.1%} (raw)" if isinstance(score, (int, float)) else "—"
 
 
 def render_policy_hits(evidence: dict[str, Any]) -> None:
@@ -302,83 +336,148 @@ def render_timeline(events: list[dict[str, Any]], trace: dict[str, Any], status:
 def render_workflow_panel(base_url: str, support_token: str) -> None:
     workflow_id = st.session_state.get("active_workflow_id")
     if not workflow_id:
-        st.info("Start an investigation to see the live agent and evidence timeline here.")
+        st.info("Start an investigation above to see the live agent timeline here.", icon=":material/query_stats:")
         return
     if st.session_state.get("workflow_poll_error"):
-        st.error(f"The last status refresh failed: {st.session_state.workflow_poll_error}")
+        st.error(f"Last refresh failed: {st.session_state.workflow_poll_error}")
 
-    auto_poll = bool(st.session_state.get("workflow_polling"))
+    poll_rate = "0.8s" if st.session_state.get("workflow_polling") else None
 
-    @st.fragment(run_every="2.5s" if auto_poll else None)
+    @st.fragment(run_every=poll_rate)
     def workflow_fragment() -> None:
-        workflow_id = st.session_state.get("active_workflow_id")
-        if not workflow_id:
-            st.info("No active workflow.")
+        wid = st.session_state.get("active_workflow_id")
+        if not wid:
             return
-        try:
-            result = api_request("GET", f"/workflows/{workflow_id}", base_url=base_url, token=support_token)
-            events = api_request("GET", f"/workflows/{workflow_id}/events", base_url=base_url, token=support_token)
-            trace = api_request("GET", f"/workflows/{workflow_id}/trace", base_url=base_url, token=support_token)
-        except ApiError as exc:
-            st.session_state.workflow_poll_error = str(exc)
-            st.error(f"Workflow status could not be refreshed: {exc}")
-            if exc.status_code in {401, 403}:
-                st.session_state.workflow_polling = False
+
+        is_polling = bool(st.session_state.get("workflow_polling"))
+
+        if is_polling:
+            try:
+                snapshot = api_request("GET", f"/workflows/{wid}/snapshot", base_url=base_url, token=support_token)
+                result = snapshot["workflow"]
+                events = snapshot["events"]
+                trace = snapshot["trace"]
+            except ApiError as exc:
+                st.session_state.workflow_poll_error = str(exc)
+                st.error(f"Workflow status could not be refreshed: {exc}")
+                if exc.status_code in {401, 403}:
+                    st.session_state.workflow_polling = False
+                    st.rerun()
+                return
+
+            st.session_state.workflow_poll_error = None
+            st.session_state.active_workflow = result
+            st.session_state.active_events = events
+            st.session_state.active_trace = trace
+
+            still_running = result.get("status") == "running"
+            st.session_state.workflow_polling = still_running
+
+            if not still_running:
+                # Workflow just settled — push answer into chat history
+                answer       = trace.get("answer") or result.get("answer")
+                status_final = result.get("status", "unknown")
+                intent       = (trace.get("classification") or result.get("classification") or {}).get("intent", "—")
+                confidence   = (trace.get("classification") or result.get("classification") or {}).get("confidence")
+                conf_str = classification_score(trace.get("classification") or result.get("classification") or {})
+                chat_hist    = st.session_state.get("chat_history", [])
+                already_resolved = any(
+                    m["role"] == "assistant" and m.get("resolved_workflow_id") == wid
+                    for m in chat_hist
+                )
+                if not already_resolved:
+                    for turn in chat_hist:
+                        if turn.get("started_workflow_id") == wid:
+                            turn["content"] = f"Investigation `{wid[:8]}…` completed."
+                            turn["meta"] = f"Status: {status_final.replace('_', ' ')}"
+                    if answer:
+                        chat_hist.append({
+                            "role": "assistant", "avatar": "🤖",
+                            "content": answer,
+                            "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Score: {conf_str} · {status_final.replace('_', ' ').title()}",
+                            "resolved_workflow_id": wid,
+                        })
+                    elif status_final == "pending_approval":
+                        chat_hist.append({
+                            "role": "assistant", "avatar": "🔍",
+                            "content": "Workflow needs **human approval**. Use the approval gate below.",
+                            "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Score: {conf_str}",
+                            "resolved_workflow_id": wid,
+                        })
+                    else:
+                        chat_hist.append({
+                            "role": "assistant", "avatar": "⚠️",
+                            "content": f"Workflow ended: **{status_final.replace('_', ' ')}**",
+                            "meta": f"Reason codes: {', '.join(result.get('reason_codes') or ['—'])}",
+                            "resolved_workflow_id": wid,
+                        })
+                    st.session_state.chat_history = chat_hist
                 st.rerun()
-            return
+        else:
+            # Settled — read from cache, no HTTP
+            result = st.session_state.get("active_workflow") or {}
+            events = st.session_state.get("active_events") or []
+            trace  = st.session_state.get("active_trace")  or {}
 
-        st.session_state.workflow_poll_error = None
-        st.session_state.active_workflow = result
-        st.session_state.active_events = events
-        st.session_state.active_trace = trace
-        is_running = result.get("status") == "running"
-        was_polling = bool(st.session_state.get("workflow_polling"))
-        st.session_state.workflow_polling = is_running
-        if was_polling and not is_running:
-            st.rerun()
-
-        status = result.get("status", "unknown")
-        intent = (trace.get("classification") or result.get("classification") or {}).get("intent", "—")
+        # ── Render ────────────────────────────────────────────────────────────
+        status     = result.get("status", "unknown")
+        intent     = (trace.get("classification") or result.get("classification") or {}).get("intent", "—")
         confidence = (trace.get("classification") or result.get("classification") or {}).get("confidence")
+        specialist = str(trace.get("specialist") or result.get("specialist") or "—")
+
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Workflow", status.replace("_", " ").title())
         c2.metric("Intent", str(intent).replace("_", " ").title())
-        c3.metric("Specialist", str(trace.get("specialist") or result.get("specialist") or "—").replace("_", " ").title())
-        c4.metric("Classifier confidence", f"{confidence:.0%}" if isinstance(confidence, (int, float)) else "—")
+        c3.metric("Specialist", specialist.replace("_", " ").title())
+        c4.metric("Routing signal", classification_score(trace.get("classification") or result.get("classification") or {}))
+        st.caption("Model scores are uncalibrated and do not measure accuracy. Rule matches only identify a bounded read-only request.")
 
-        if st.button("Refresh now", key="refresh_workflow"):
+        col_refresh, _ = st.columns([1, 5])
+        if col_refresh.button(":material/refresh: Refresh", key="refresh_workflow"):
+            st.session_state.workflow_polling = True
             st.rerun()
 
-        timeline_col, details_col = st.columns([.95, 1.05], gap="large")
-        with timeline_col:
-            st.markdown("### Live run timeline")
-            render_timeline(events, trace, status)
-        with details_col:
-            st.markdown("### Agent result")
+        if is_polling:
+            st.caption("⏱ Live — polling every 0.8 s")
+
+        # ── 1. Agent result (Stacked on top) ───────────────────────────────────
+        with st.container(border=True):
+            st.markdown("#### Agent result")
             classification = trace.get("classification") or result.get("classification")
             if classification:
                 cprovider, ctriage = st.columns(2)
                 cprovider.caption("Classifier: " + str(classification.get("classifier_provider", "unknown")))
                 ctriage.caption("Triage: " + str(classification.get("triage_status", "unknown")))
                 if classification.get("fallback_used"):
-                    st.warning("Laya was unavailable; the fallback classifier is review-only and did not route automatically.")
+                    st.warning("Laya unavailable — fallback is review-only.")
                 if classification.get("risk_flags"):
                     st.caption("Risk flags: " + ", ".join(classification["risk_flags"]))
             answer = trace.get("answer") or result.get("answer")
             if answer:
-                st.success(answer) if status == "answer_ready" else st.info(answer)
+                if status == "answer_ready":
+                    st.success(answer, icon=":material/check_circle:")
+                else:
+                    st.info(answer)
             elif status == "running":
-                st.caption("The graph is working through the current checkpoint. The timeline refreshes automatically.")
+                st.caption("Agent is processing… timeline refreshes automatically.")
             elif status == "pending_approval":
-                st.info("The proposal is paused until a reviewer decides. No commerce action is running.")
+                st.info("Paused at approval gate — no action taken yet.")
             if result.get("reason_codes"):
                 st.caption("Outcome codes: " + ", ".join(result["reason_codes"]))
+
+        # ── 2. Live run timeline (Stacked below agent result) ─────────────────
+        with st.container(border=True):
+            st.markdown("#### Live run timeline")
+            render_timeline(events, trace, status)
 
         if result.get("evidence_refs"):
             st.markdown("**Evidence references**")
             st.code("\n".join(result["evidence_refs"]), language="text")
-        with st.expander("Inspect data passed between the specialist, policy rules, and response validator", expanded=False):
-            render_workflow_evidence(trace, result)
+
+        evidence_expander = st.expander("Evidence & decision data", expanded=False, on_change="rerun")
+        if evidence_expander.open:  # only render expensive tabs when open
+            with evidence_expander:
+                render_workflow_evidence(trace, result)
 
         proposal = result.get("proposal") or {}
         if proposal:
@@ -439,7 +538,7 @@ def render_classification(result: dict[str, Any]) -> None:
     confidence = classification.get("confidence")
     a, b, c = st.columns(3)
     a.metric("Suggested intent", str(classification.get("intent", "—")).replace("_", " ").title())
-    b.metric("Confidence", f"{confidence:.0%}" if isinstance(confidence, (int, float)) else "—")
+    b.metric("Routing signal", classification_score(classification))
     c.metric("Provider", str(classification.get("classifier_provider", "—")))
     if classification.get("fallback_used"):
         st.warning("Fallback used. This classification is for human review and must not trigger automatic routing.")
@@ -568,7 +667,14 @@ def main() -> None:
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("### Connection")
-    configured_api_url = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").strip().rstrip("/")
+
+    # Discover API URL: st.secrets -> os.getenv -> default
+    api_url_from_secrets = ""
+    try:
+        api_url_from_secrets = str(st.secrets.get("API_BASE_URL") or st.secrets.get("FASTAPI_BASE_URL") or "").strip()
+    except Exception:
+        pass
+    configured_api_url = (api_url_from_secrets or os.getenv("API_BASE_URL", "http://127.0.0.1:8000")).strip().rstrip("/")
     api_url_locked = os.getenv("API_BASE_URL_LOCKED", "false").strip().lower() in {"1", "true", "yes"}
     if api_url_locked:
         st.sidebar.text_input(
@@ -592,7 +698,7 @@ def main() -> None:
         try:
             if key in st.secrets:
                 return str(st.secrets[key]).strip()
-        except Exception:
+        except Exception:  # noqa: BLE001, S110
             pass
         return os.getenv(key, "").strip()
 
@@ -617,6 +723,12 @@ def main() -> None:
                 help="Can be configured in st.secrets['WORKFLOW_REVIEWER_TOKEN'].",
             ).strip()
 
+    # Never carry a previous user's evidence/context across API or token changes.
+    context_owner = hashlib.sha256(f"{base_url}\0{support_token}".encode()).hexdigest()
+    if st.session_state.get("chat_context_owner") != context_owner:
+        for key in ("chat_history", "chat_last_order_id", "active_workflow_id", "active_workflow", "active_trace", "active_events", "workflow_polling", "chat_order_id", "chat_ticket_id", "ctx_order_id", "ctx_ticket_id"):
+            st.session_state.pop(key, None)
+        st.session_state.chat_context_owner = context_owner
     st.session_state.support_token = support_token
     st.session_state.reviewer_token = reviewer_token
 
@@ -635,49 +747,257 @@ def main() -> None:
     )
 
     if selected_page == "Investigation workbench":
-        left, right = st.columns([.9, 1.1], gap="large")
-        with left:
-            st.markdown("### Start a controlled investigation")
-            st.caption("Provide a ticket ID or message. An order ID is optional when it is present in the ticket text or linked ticket record.")
-            with st.form("workflow_intake_form", clear_on_submit=False):
-                ticket_id = st.text_input("Ticket ID", placeholder="Optional · e.g. T-003")
-                message = st.text_area("Customer message", height=130, placeholder="Where is my order ORD-ID-44319aea3c?")
-                order_id = st.text_input("Order ID", placeholder="Optional · ORD-ID-…")
-                retrieval_query = st.text_input("Policy retrieval query", placeholder="Leave blank to use the ticket message")
-                m1, m2 = st.columns(2)
-                top_k = m1.slider("Passages per method", min_value=1, max_value=10, value=3)
-                methods = m2.multiselect("Retrieval methods", ["semantic", "keyword"], default=["semantic", "keyword"])
-                submitted = st.form_submit_button("Start investigation", type="primary", width="stretch")
-            if submitted:
-                if not support_token:
-                    st.error("Enter a support bearer token in the sidebar first.")
-                elif not ticket_id.strip() and not message.strip():
-                    st.error("Enter a ticket ID, a customer message, or both.")
-                elif not methods:
-                    st.error("Select semantic retrieval, keyword retrieval, or both.")
-                else:
+        # ── Session-state initialisation ─────────────────────────────────────
+        if "chat_history" not in st.session_state:
+            st.session_state.chat_history = []
+        if "chat_order_id" not in st.session_state:
+            st.session_state.chat_order_id = ""
+        if "chat_ticket_id" not in st.session_state:
+            st.session_state.chat_ticket_id = ""
+        if "chat_top_k" not in st.session_state:
+            st.session_state.chat_top_k = 3
+        if "chat_methods" not in st.session_state:
+            st.session_state.chat_methods = ["semantic", "keyword"]
+
+        # ── TOP: Investigation chat (Full Width) ─────────────────────────────
+        st.markdown("### Investigation chat")
+        st.caption("Each message is safety checked. The last order reference carries over in this chat; records are read again for each investigation.")
+        if st.session_state.get("chat_last_order_id"):
+            st.caption(f"Current order context: {st.session_state.chat_last_order_id}")
+
+        # Context strip — inline settings above the chat
+        with st.container(border=True):
+            ctx1, ctx2, ctx3, ctx4, ctx5 = st.columns([1.8, 1.8, 1, 1.8, 2.2])
+            st.session_state.chat_ticket_id = ctx1.text_input(
+                "Ticket ID", value=st.session_state.chat_ticket_id,
+                placeholder="Optional · T-003", label_visibility="visible", key="ctx_ticket_id",
+            )
+            st.session_state.chat_order_id = ctx2.text_input(
+                "Order ID", value=st.session_state.chat_order_id,
+                placeholder="ORD-ID-…", label_visibility="visible", key="ctx_order_id",
+            )
+            st.session_state.chat_top_k = ctx3.number_input(
+                "Top-k", min_value=1, max_value=10,
+                value=st.session_state.chat_top_k, key="ctx_top_k",
+            )
+            st.session_state.chat_methods = ctx4.multiselect(
+                "Methods", ["semantic", "keyword"],
+                default=st.session_state.chat_methods, key="ctx_methods",
+            )
+            engine_mode = ctx5.segmented_control(
+                "Engine",
+                ["⚡ Investigate Tool", "⚙️ Workflow"],
+                default=st.session_state.get("chat_engine_mode", "⚡ Investigate Tool"),
+                key="chat_engine_mode",
+            )
+
+        # Render chat history
+        chat_container = st.container(height=360, border=False)
+        with chat_container:
+            if not st.session_state.chat_history:
+                st.markdown(
+                    "<div style='text-align:center;color:#526370;padding:50px 0 20px'>"
+                    "<div style='font-size:2.2rem'>💬</div>"
+                    "<div style='font-size:.93rem;margin-top:.5rem'>Send a customer message to start an investigation.<br>"
+                    "Previous turns are kept as context.</div></div>",
+                    unsafe_allow_html=True,
+                )
+            for turn in st.session_state.chat_history:
+                with st.chat_message(turn["role"], avatar=turn.get("avatar")):
+                    st.markdown(turn["content"])
+                    if turn.get("meta"):
+                        st.caption(turn["meta"])
+
+        # Chat input (always at the bottom of the chat panel)
+        user_input = st.chat_input(
+            "Describe the customer's issue…",
+            key="investigation_chat_input",
+            disabled=not bool(support_token),
+        )
+        if not support_token:
+            st.caption("🔒 Enter a support token in the sidebar to enable chat.")
+
+        if user_input:
+            methods = st.session_state.chat_methods or ["keyword"]
+            order_context = resolve_order_context(
+                user_input,
+                st.session_state.chat_order_id,
+                st.session_state.get("chat_last_order_id"),
+            )
+            if order_context:
+                st.session_state.chat_last_order_id = order_context
+                st.session_state.chat_order_id = order_context
+
+            # Append user turn to history
+            st.session_state.chat_history.append({
+                "role": "user",
+                "avatar": "🧑‍💼",
+                "content": user_input,
+                "meta": (
+                    (f"Ticket: `{st.session_state.chat_ticket_id}`  " if st.session_state.chat_ticket_id else "")
+                    + (f"Order: `{order_context}`  " if order_context else "")
+                    + f"top-k: {st.session_state.chat_top_k}  methods: {', '.join(methods)}"
+                ),
+            })
+
+            # Ensure message carries order context if available and not already mentioned
+            effective_message = user_input.strip()
+            if order_context and order_context not in effective_message:
+                effective_message = f"{effective_message} for order {order_context}"
+
+            mode = st.session_state.get("chat_engine_mode") or "⚡ Investigate Tool"
+
+            if mode == "⚡ Investigate Tool":
+                try:
                     payload = {
-                        "schema_version": "1.0",
-                        "ticket_id": ticket_id.strip() or None,
-                        "message": message.strip() or None,
-                        "order_id": order_id.strip() or None,
-                        "query": retrieval_query.strip() or None,
-                        "top_k": top_k,
+                        "ticket_id": st.session_state.chat_ticket_id.strip() or None,
+                        "message": effective_message,
+                        "order_id": order_context,
+                        "top_k": st.session_state.chat_top_k,
                         "methods": methods,
                     }
-                    try:
-                        started = api_request("POST", "/workflows", base_url=base_url, token=support_token, payload=payload)
-                        st.session_state.active_workflow_id = started["workflow_id"]
-                        st.session_state.active_workflow = started
-                        st.session_state.workflow_polling = started.get("status") == "running"
-                        st.session_state.workflow_poll_error = None
-                        st.success("Workflow accepted. The timeline on the right is following the persisted graph checkpoints.")
-                        st.rerun()
-                    except ApiError as exc:
-                        st.error(f"Could not start the workflow: {exc}")
-        with right:
-            st.markdown("### Processing view")
-            render_workflow_panel(base_url, support_token)
+                    with st.spinner("Running investigation tool…"):
+                        res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=20.0)
+
+                    classification = res.get("classification") or {}
+                    order_ev = res.get("order_evidence") or {}
+                    order = order_ev.get("order") or {}
+                    items = order_ev.get("items") or []
+                    delivery_events = order_ev.get("delivery_events") or []
+                    policy_ev = res.get("policy_evidence") or {}
+                    ledger = res.get("evidence_ledger") or {}
+                    intent = classification.get("intent", "order_status")
+
+                    # Formulate grounded response
+                    answer_lines = []
+                    if order.get("order_id"):
+                        status_str = str(order.get("status", "unknown")).replace("_", " ")
+                        answer_lines.append(f"Your order **`{order['order_id']}`** is marked as **{status_str}**.")
+                    elif intent == "order_status":
+                        answer_lines.append("Order status investigated.")
+
+                    if items:
+                        item_str = ", ".join(f"{it.get('product_name', 'Item')} (qty {it.get('quantity', 1)})" for it in items[:6])
+                        answer_lines.append(f"📦 **Order items:** {item_str}")
+
+                    if delivery_events:
+                        latest = delivery_events[-1]
+                        evt_name = str(latest.get("event_type", "Event")).replace("_", " ").title()
+                        evt_loc = latest.get("location", "")
+                        evt_time = latest.get("event_time", "")
+                        evt_desc = evt_name + (f" at {evt_loc}" if evt_loc else "") + (f" on {evt_time}" if evt_time else "")
+                        answer_lines.append(f"🚚 **Latest delivery event:** {evt_desc}")
+
+                    if not order.get("order_id") and policy_ev.get("results"):
+                        passages = []
+                        for method_hits in policy_ev["results"].values():
+                            for hit in (method_hits or [])[:2]:
+                                if hit.get("text"):
+                                    passages.append(f"> {hit['text'].strip()}")
+                        if passages:
+                            answer_lines.append("📋 **Policy Evidence:**\n" + "\n\n".join(passages[:2]))
+
+                    if not answer_lines:
+                        answer_lines.append("Investigation completed successfully using the investigation tool.")
+
+                    answer = "\n\n".join(answer_lines)
+                    inv_id = f"tool-inv-{uuid.uuid4().hex[:8]}"
+
+                    # Save into workflow / trace session state so processing view renders it
+                    st.session_state.active_workflow_id = inv_id
+                    st.session_state.workflow_polling = False
+                    st.session_state.active_workflow = {
+                        "workflow_id": inv_id,
+                        "status": "answer_ready",
+                        "classification": classification,
+                        "specialist": "order_delivery" if "order" in intent else "policy_faq",
+                        "answer": answer,
+                        "reason_codes": ["investigation_tool_direct_evidence"],
+                    }
+                    st.session_state.active_trace = {
+                        "classification": classification,
+                        "specialist": "order_delivery" if "order" in intent else "policy_faq",
+                        "answer": answer,
+                        "evidence": {
+                            "order": order_ev,
+                            "policy": policy_ev,
+                            "customer_context": res.get("customer_context"),
+                            "ledger": ledger,
+                        },
+                        "evidence_refs": [ref for chunk in (policy_ev.get("results") or {}).values() for hit in chunk for ref in [hit.get("chunk_id")] if ref],
+                        "resolution": {"outcome": "answer", "reason_codes": ["investigation_tool_grounded"]},
+                    }
+                    st.session_state.active_events = [
+                        {"stage": "intake", "event_type": "investigation_tool_called", "details": {"source": "direct_tool"}, "occurred_at": datetime.now().isoformat()},
+                        {"stage": "triage", "event_type": "ticket_classified", "details": {"intent": intent, "provider": classification.get("classifier_provider")}, "occurred_at": datetime.now().isoformat()},
+                        {"stage": "evidence", "event_type": "evidence_retrieved", "details": {"order_found": bool(order), "items_count": len(items)}, "occurred_at": datetime.now().isoformat()},
+                        {"stage": "resolution", "event_type": "grounded_response_generated", "details": {"status": "answer_ready"}, "occurred_at": datetime.now().isoformat()},
+                    ]
+
+                    # Append answer to chat history
+                    raw_conf = classification.get("confidence")
+                    conf_str = f"{raw_conf * 100:.1f}%" if raw_conf is not None else "—"
+                    st.session_state.chat_history.append({
+                        "role": "assistant",
+                        "avatar": "🤖",
+                        "content": answer,
+                        "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Confidence: {conf_str} · Engine: Investigate Tool (instant)",
+                    })
+                except Exception as exc:
+                    st.session_state.chat_history.append({
+                        "role": "assistant",
+                        "avatar": "⚠️",
+                        "content": f"Investigation tool error: **{exc}**",
+                        "meta": None,
+                    })
+            else:
+                payload = {
+                    "schema_version": "1.0",
+                    "ticket_id": st.session_state.chat_ticket_id.strip() or None,
+                    "message": effective_message,
+                    "order_id": order_context,
+                    "top_k": st.session_state.chat_top_k,
+                    "methods": methods,
+                }
+                try:
+                    started = api_request(
+                        "POST", "/workflows",
+                        base_url=base_url, token=support_token, payload=payload,
+                    )
+                    wid = started["workflow_id"]
+                    st.session_state.active_workflow_id = wid
+                    st.session_state.active_workflow = started
+                    st.session_state.workflow_polling = started.get("status") == "running"
+                    st.session_state.workflow_poll_error = None
+                    st.session_state.chat_history.append({
+                        "role": "assistant",
+                        "avatar": "🤖",
+                        "content": f"Investigation started — workflow `{wid[:8]}…` is running.",
+                        "meta": f"Status: {started.get('status', 'queued')} · Check processing view below ↓",
+                        "started_workflow_id": wid,
+                    })
+                except ApiError as exc:
+                    st.session_state.chat_history.append({
+                        "role": "assistant",
+                        "avatar": "⚠️",
+                        "content": f"Could not start the workflow: **{exc}**",
+                        "meta": None,
+                    })
+            st.rerun()
+
+        # Clear chat button
+        if st.session_state.chat_history:
+            if st.button(":material/delete_sweep: Clear chat", key="clear_chat"):
+                st.session_state.chat_history = []
+                st.session_state.chat_last_order_id = None
+                st.session_state.active_workflow_id = None
+                st.session_state.workflow_polling = False
+                st.rerun()
+
+        # ── BOTTOM: Processing panel (Stacked directly below chat) ───────────
+        st.markdown("<hr style='margin: 2.5rem 0 1.5rem; border: none; border-top: 1px solid var(--line);'>", unsafe_allow_html=True)
+        st.markdown("### Processing view")
+        render_workflow_panel(base_url, support_token)
 
     elif selected_page == "Data explorer":
         st.markdown("### Inspect the underlying read-only tools")
@@ -700,7 +1020,7 @@ def main() -> None:
                     except ApiError as exc:
                         st.error(f"Classification failed: {exc}")
             if st.session_state.get("explorer_classification"):
-                render_classification(st.session_state.explorer_classification) # type: ignore
+                render_classification(st.session_state.explorer_classification)
             if x2.button("Investigate ticket", key="investigate_ticket"):
                 st.session_state.explorer_investigation = None
                 if not ticket_message.strip() and not ticket_id_input.strip():
@@ -784,6 +1104,7 @@ def main() -> None:
                         st.error(f"Combined investigation failed: {exc}")
             if st.session_state.get("combined_order_result"):
                 combined = st.session_state.combined_order_result
+                assert combined is not None
                 st.warning(combined.get("policy_scope_notice", "Retrieved policy evidence must be checked for applicability."))
                 show_json_result("Combined investigation", combined)
 
@@ -806,7 +1127,7 @@ def main() -> None:
                         st.error(f"Policy search failed: {exc}")
             if st.session_state.get("policy_search_result"):
                 st.caption("Search results are evidence candidates; draft development policies do not establish customer eligibility.")
-                render_policy_hits(st.session_state.policy_search_result) # type: ignore
+                render_policy_hits(st.session_state.policy_search_result)
 
     elif selected_page == "RAG evaluation lab":
         st.markdown("### Evaluate retrieval quality")
@@ -840,7 +1161,7 @@ def main() -> None:
                 except ApiError as exc:
                     st.error(f"RAG evaluation failed: {exc}")
             if st.session_state.get("rag_single_result"):
-                render_evaluation(st.session_state.rag_single_result) # type: ignore
+                render_evaluation(st.session_state.rag_single_result)
         with batch_tab:
             st.markdown("Run all checked-in labeled questions against the selected retrievers.")
             batch_top_k = st.slider("Top k for batch", 1, 10, 3, key="batch_top_k")
@@ -857,7 +1178,7 @@ def main() -> None:
                 except ApiError as exc:
                     st.error(f"Batch evaluation failed: {exc}")
             if st.session_state.get("rag_batch_result"):
-                render_evaluation(st.session_state.rag_batch_result) # type: ignore
+                render_evaluation(st.session_state.rag_batch_result)
 
     elif selected_page == "Agents & data flow":
         render_pipeline_overview()

@@ -94,3 +94,9 @@ class WorkflowEvent(VersionedResponse):
     actor_id: str | None = None
     occurred_at: str
     details: dict = Field(default_factory=dict)
+
+
+class WorkflowSnapshotResponse(VersionedResponse):
+    workflow: WorkflowResponse
+    trace: WorkflowTraceResponse
+    events: list[WorkflowEvent]

@@ -30,11 +30,21 @@ services:
       - key: EMBEDDING_MODEL
         value: sentence-transformers/all-MiniLM-L6-v2
       - key: WORKFLOW_API_TOKEN
-        generateValue: true
-      - key: WORKFLOW_REVIEWER_TOKEN
-        generateValue: true
-      - key: LAYA_BASE_URL
         sync: false
+      - key: WORKFLOW_REVIEWER_TOKEN
+        sync: false
+      - key: CLASSIFIER_CONSENSUS_ROUTING_ENABLED
+        value: "true"
+      - key: CLASSIFIER_BASELINE_MIN_CONFIDENCE
+        value: "0.60"
+      - key: LANGFUSE_TRACING_ENABLED
+        value: "false"
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_HOST
+        value: https://cloud.langfuse.com
       - key: LLM_ENABLED
         value: "false"
 
@@ -86,11 +96,12 @@ services:
           type: web
           name: agentic-support-api
           envVarKey: WORKFLOW_REVIEWER_TOKEN
-      - key: LAYA_BASE_URL
-        fromService:
-          type: web
-          name: agentic-support-api
-          envVarKey: LAYA_BASE_URL
+      - key: CLASSIFIER_CONSENSUS_ROUTING_ENABLED
+        value: "true"
+      - key: CLASSIFIER_BASELINE_MIN_CONFIDENCE
+        value: "0.60"
+      - key: LANGFUSE_TRACING_ENABLED
+        value: "false"
       - key: LLM_ENABLED
         value: "false"
 

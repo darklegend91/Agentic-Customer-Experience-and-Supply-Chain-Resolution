@@ -6,6 +6,7 @@ import asyncio
 import logging
 import os
 import time
+from contextlib import nullcontext
 from uuid import uuid4
 
 from fastapi import Request
@@ -13,6 +14,7 @@ from fastapi.responses import JSONResponse, Response
 
 from ..runtime import LocalDevelopmentOnly, require_local_development
 from ..observability.logging import log_request_complete
+from ..observability.tracing import trace_stage, update_trace_span
 
 
 logger = logging.getLogger("agentic_customer_support.requests")
@@ -56,8 +58,20 @@ def install_request_middleware(app) -> None:
 
         if response is None:
             try:
-                async with asyncio.timeout(_request_timeout_seconds()):
-                    response = await call_next(request)
+                # Health and status polling keep their existing latency logs,
+                # without creating a cloud trace on every UI refresh.
+                monitor = request.url.path != "/health" and not (
+                    request.method == "GET" and request.url.path.startswith("/workflows/")
+                )
+                context = trace_stage("api.request", {"request_id": request_id, "method": request.method}) if monitor else nullcontext(None)
+                with context as span:
+                    async with asyncio.timeout(_request_timeout_seconds()):
+                        response = await call_next(request)
+                    update_trace_span(span, output={
+                        "status_code": response.status_code,
+                        "route": getattr(request.scope.get("route"), "path", "unmatched"),
+                        "latency_ms": round((time.perf_counter() - started) * 1000, 2),
+                    })
             except TimeoutError:
                 error_type = "request_timeout"
                 response = JSONResponse(

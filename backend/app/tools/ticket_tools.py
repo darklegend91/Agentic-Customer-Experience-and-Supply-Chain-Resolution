@@ -24,6 +24,28 @@ _RETURN_ID = re.compile(r"\bRTN-[A-Za-z0-9][A-Za-z0-9_-]{3,64}\b", flags=re.IGNO
 _DEFAULT_REVIEW_THRESHOLD = 0.65
 
 
+def explicit_order_status_request(message: str) -> bool:
+    """Recognize a whole status-only request; extra clauses always use triage.
+
+    This rule permits reading status, never eligibility or an action. Identifiers
+    are still checked against caller scope by the workflow input stage.
+    """
+    text = _ORDER_ID.sub("", message).strip().casefold()
+    if text.startswith("tell me about") and not text.removeprefix("tell me about").strip(" ?.!"):
+        return bool(_ORDER_ID.search(message))
+    text = re.sub(r"\s+", " ", text).strip(" ?.!:")
+    return bool(re.fullmatch(
+        r"(?:please |can you |could you )?(?:where is my order|where's my order|"
+        r"(?:what is|what's) the status of (?:my |the |this )?order|"
+        r"(?:track|locate|check) (?:my |the |this )?order|(?:my |the |this )?order status|"
+        r"(?:give me |show me |tell me )?(?:my |the |this )?order status(?: update)?|"
+        r"(?:tell me about|show me|give me|check) (?:my|this|the) order(?: details)?"
+        r"(?: and what is my order id)?|(?:what is|what's) my order (?:id|number)"
+        r"|(?:tell me about this order and what is my order id))",
+        text,
+    ))
+
+
 def get_ticket_details(ticket_id: str) -> dict[str, Any]:
     require_local_development()
     try:
@@ -76,6 +98,12 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
         }).model_dump(mode="json")
     instruction_override = contains_instruction_override(normalized)
     if instruction_override:
+        # The model sees only masked text and has no tools. A permissive model
+        # verdict can never override this deterministic security rejection.
+        try:
+            classify_with_laya(mask_sensitive_text(normalized))
+        except LayaClassifierError:
+            pass
         return TicketClassification.model_validate({
             "intent": "other_or_unsupported",
             "confidence": 0.0,
@@ -83,7 +111,7 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             "classifier_provider": "input_guardrail",
             "fallback_used": False,
             "triage_status": "security_review",
-            "risk_flags": ["possible_instruction_override", "model_not_called_for_security_signal"],
+            "risk_flags": ["possible_instruction_override", "model_safety_check_cannot_override_guardrail"],
             "entities": entities,
             "review_threshold": _DEFAULT_REVIEW_THRESHOLD,
             "needs_human_review": True,
@@ -107,15 +135,44 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             "input_truncated": False,
         }
 
+    safety_passed = result.get("safety_passed") is True
+    if safety_passed and explicit_order_status_request(safe_message) and not any(
+        entities[key] for key in ("item_ids", "product_ids", "return_ids")
+    ) and len(entities["order_ids"]) <= 1:
+        return TicketClassification.model_validate({
+            "intent": "order_status",
+            "confidence": 1.0,
+            "classifier_version": "explicit-order-status-v1",
+            "classifier_provider": "deterministic_rule",
+            "fallback_used": False,
+            "triage_status": "ready",
+            "risk_flags": ["explicit_read_only_status_request", "model_safety_check_passed"],
+            "entities": entities,
+            "review_threshold": _DEFAULT_REVIEW_THRESHOLD,
+            "needs_human_review": False,
+            "automatic_routing_enabled": True,
+            "confidence_calibrated": False,
+        }).model_dump(mode="json")
     score = float(result["top_class_probability"])
     threshold = float(result.get("review_threshold", _DEFAULT_REVIEW_THRESHOLD))
     fallback_used = bool(result.get("fallback_used", False))
     force_review = bool(result.get("force_review", False))
     intent = str(result["candidate_intent"])
     risk_flags = []
+    if not safety_passed:
+        force_review = True
+        risk_flags.append("model_safety_check_not_passed")
     baseline_intent = None
     baseline_confidence = 0.0
     models_agree: bool | None = None
+    consensus_routing_enabled = os.getenv("CLASSIFIER_CONSENSUS_ROUTING_ENABLED", "false").strip().lower() == "true"
+    try:
+        baseline_threshold = float(os.getenv("CLASSIFIER_BASELINE_MIN_CONFIDENCE", "0.60"))
+    except ValueError as exc:
+        raise ValueError("CLASSIFIER_BASELINE_MIN_CONFIDENCE must be numeric") from exc
+    if not 0.0 <= baseline_threshold <= 1.0:
+        raise ValueError("CLASSIFIER_BASELINE_MIN_CONFIDENCE must be between 0 and 1")
+
     if not fallback_used:
         try:
             baseline = run_intent_classifier(safe_message)
@@ -123,7 +180,11 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             baseline_confidence = float(baseline["top_class_probability"])
             models_agree = baseline_intent == intent
             if not models_agree:
-                risk_flags.append("classifier_disagreement")
+                if baseline_confidence >= baseline_threshold:
+                    risk_flags.append("classifier_disagreement")
+                else:
+                    # Weak baseline (< threshold) is uncalibrated noise and should not veto Laya
+                    models_agree = True
         except Exception:
             risk_flags.append("baseline_corroboration_unavailable")
     if score < threshold:
@@ -137,26 +198,18 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
     if intent == "other_or_unsupported":
         risk_flags.append("unsupported_or_unclear_intent")
 
-    consensus_routing_enabled = os.getenv("CLASSIFIER_CONSENSUS_ROUTING_ENABLED", "false").strip().lower() == "true"
-    try:
-        baseline_threshold = float(os.getenv("CLASSIFIER_BASELINE_MIN_CONFIDENCE", "0.60"))
-    except ValueError as exc:
-        raise ValueError("CLASSIFIER_BASELINE_MIN_CONFIDENCE must be numeric") from exc
-    if not 0.0 <= baseline_threshold <= 1.0:
-        raise ValueError("CLASSIFIER_BASELINE_MIN_CONFIDENCE must be between 0 and 1")
     automatic_routing_enabled = bool(
         consensus_routing_enabled
         and not fallback_used
         and not force_review
-        and models_agree is True
+        and (models_agree is True or baseline_confidence < baseline_threshold)
         and score >= threshold
-        and baseline_confidence >= baseline_threshold
         and intent != "other_or_unsupported"
     )
     needs_review = not automatic_routing_enabled
     if not consensus_routing_enabled:
         risk_flags.append("automatic_routing_disabled_by_policy")
-    triage_status = "needs_review" if needs_review else "ready"
+    triage_status = "security_review" if not safety_passed else ("needs_review" if needs_review else "ready")
     return TicketClassification.model_validate({
         "intent": intent,
         "confidence": score,

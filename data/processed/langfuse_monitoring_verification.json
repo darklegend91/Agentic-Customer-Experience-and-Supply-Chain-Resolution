@@ -1,0 +1,70 @@
+{
+  "project_id": "cmvurpf7c00yzad0et37ns5zr",
+  "project_name": "Agentic_support",
+  "workflow_id": "238fe142-3303-4188-b85b-12d0887bef85",
+  "trace_id": "ed57fb74a72068c47d6c06f552581064",
+  "verified_via": "Langfuse Observations API v2",
+  "observation_count": 12,
+  "observations": [
+    {
+      "name": "finalize",
+      "seconds": 1.58,
+      "parent_observation_id": "1abf36e94ae1b835"
+    },
+    {
+      "name": "response.draft",
+      "seconds": 0.0,
+      "parent_observation_id": "5a9cd2a2413ce927"
+    },
+    {
+      "name": "rules.deterministic_checks",
+      "seconds": 0.0,
+      "parent_observation_id": "5a9cd2a2413ce927"
+    },
+    {
+      "name": "response.validation",
+      "seconds": 0.001,
+      "parent_observation_id": "5a9cd2a2413ce927"
+    },
+    {
+      "name": "tools.order_lookup",
+      "seconds": 3.522,
+      "parent_observation_id": "5a9cd2a2413ce927"
+    },
+    {
+      "name": "read_only_order",
+      "seconds": 5.03,
+      "parent_observation_id": "1abf36e94ae1b835"
+    },
+    {
+      "name": "select_route",
+      "seconds": 0.001,
+      "parent_observation_id": "9510347fe9dc694e"
+    },
+    {
+      "name": "laya.intent_classification",
+      "seconds": 0.117,
+      "parent_observation_id": "9510347fe9dc694e"
+    },
+    {
+      "name": "laya.input_safety",
+      "seconds": 0.605,
+      "parent_observation_id": "9510347fe9dc694e"
+    },
+    {
+      "name": "laya.model_selection_and_load",
+      "seconds": 4.253,
+      "parent_observation_id": "9510347fe9dc694e"
+    },
+    {
+      "name": "assess_request",
+      "seconds": 7.475,
+      "parent_observation_id": "1abf36e94ae1b835"
+    },
+    {
+      "name": "customer-support-investigation",
+      "seconds": 18.089,
+      "parent_observation_id": null
+    }
+  ]
+}

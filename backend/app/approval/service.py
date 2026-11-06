@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import logging
+import hashlib
+import psycopg
 import uuid
 from typing import Any
 
@@ -10,7 +12,7 @@ from langgraph.types import Command
 
 from ..agents.graph import get_workflow_graph
 from ..agents.investigation import gather_specialist_evidence
-from ..api.schemas.workflow import WorkflowResponse
+from ..api.schemas.workflow import WorkflowResponse, WorkflowTraceResponse
 from ..observability.logging import log_safe_error
 from ..security.pii_masking import mask_sensitive_text
 from .permissions import WorkflowActor
@@ -27,12 +29,37 @@ from .workflow_state import (
     record_approval_decision,
     update_workflow,
 )
+from ..observability.tracing import get_langfuse_callback
 
 logger = logging.getLogger(__name__)
 
 
-def _graph_config(thread_id: str) -> dict[str, Any]:
-    return {"configurable": {"thread_id": thread_id}}
+def _graph_config(
+    thread_id: str,
+    *,
+    workflow_id: str | None = None,
+    user_id: str | None = None,
+    tags: list[str] | None = None,
+    metadata: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    config: dict[str, Any] = {"configurable": {"thread_id": thread_id}}
+    handler = get_langfuse_callback(
+        session_id=workflow_id or thread_id,
+        user_id=user_id,
+        tags=tags or ["customer-support-workflow"],
+        metadata=metadata or {},
+    )
+    if handler is not None:
+        config["callbacks"] = [handler]
+        config["run_name"] = "customer-support-investigation"
+        config["metadata"] = {
+            "workflow_id": workflow_id or thread_id,
+            "request_id": (metadata or {}).get("request_id"),
+            "langfuse_session_id": workflow_id or thread_id,
+            "langfuse_tags": tags or ["customer-support-workflow"],
+            "langfuse_user_id": hashlib.sha256(user_id.encode()).hexdigest()[:24] if user_id else "system",
+        }
+    return config
 
 
 def _summary_response(
@@ -150,7 +177,7 @@ def queue_workflow(
     return response, state
 
 
-def execute_workflow(state: dict[str, Any]) -> None:
+def execute_workflow(state: dict[str, Any], *, resume: bool = False) -> None:
     """Execute a persisted workflow payload; safe to retry from its LangGraph checkpoint."""
     workflow_id = str(state["workflow_id"])
     thread_id = str(state["thread_id"])
@@ -159,7 +186,21 @@ def execute_workflow(state: dict[str, Any]) -> None:
         current = get_workflow(workflow_id)
         if current.get("status") != "running":
             return
-        get_workflow_graph().invoke(state, _graph_config(thread_id))
+        config = _graph_config(
+            thread_id,
+            workflow_id=workflow_id,
+            user_id=str(state.get("created_by") or "system"),
+            tags=["workflow-execution", str(state.get("locale") or "en-IN")],
+            metadata={"workflow_id": workflow_id, "request_id": request_id},
+        )
+        graph = get_workflow_graph()
+        # Resume a partially checkpointed attempt after transient DB failure.
+        checkpoint = graph.get_state(config) if resume else None
+        graph.invoke(None if checkpoint is not None and checkpoint.next else state, config)
+    except (psycopg.OperationalError, WorkflowStoreUnavailable):
+        # The durable worker owns bounded retries. Do not permanently fail a
+        # read-only investigation because a pooled connection dropped once.
+        raise
     except Exception as exc:
         log_safe_error(
             logger,
@@ -216,8 +257,8 @@ def start_workflow(
     return get_workflow_response(response["workflow_id"])
 
 
-def get_workflow_response(workflow_id: str) -> dict[str, Any]:
-    row = get_workflow(workflow_id)
+def get_workflow_response(workflow_id: str, *, row: dict[str, Any] | None = None) -> dict[str, Any]:
+    row = get_workflow(workflow_id) if row is None else row
     proposal_row = get_proposal(str(row["proposal_id"])) if row.get("proposal_id") else None
     return _summary_response(
         workflow_id=str(row["workflow_id"]),
@@ -229,6 +270,8 @@ def get_workflow_response(workflow_id: str) -> dict[str, Any]:
 
 
 _NODE_LABELS = {
+    "assess_request": "Validate access, screen the message and select a specialist",
+    "read_only_order": "Read order facts and validate the answer",
     "prepare_input": "Validate and mask ticket input",
     "triage": "Classify intent with Laya",
     "supervisor": "Supervisor selects an allowlisted specialist",
@@ -248,9 +291,14 @@ _NODE_LABELS = {
 }
 
 
-def get_workflow_trace(workflow_id: str) -> dict[str, Any]:
+def get_workflow_trace(workflow_id: str, *, row: dict[str, Any] | None = None) -> dict[str, Any]:
     """Return the latest checkpoint's active node and safe, useful working outputs."""
-    row = get_workflow(workflow_id)
+    row = get_workflow(workflow_id) if row is None else row
+    completed = (row.get("summary_json") or {}).get("completed_trace")
+    if (row.get("status") == "answer_ready" and isinstance(completed, dict)
+        and completed.get("status") == "answer_ready"
+        and completed.get("workflow_id") == workflow_id):
+        return WorkflowTraceResponse.model_validate(completed).model_dump(mode="json")
     checkpoint = get_workflow_graph().get_state(_graph_config(str(row["thread_id"])))
     state = dict(checkpoint.values or {})
     next_nodes = list(checkpoint.next or ())
@@ -321,7 +369,13 @@ def decide_proposal(
         }
 
     graph = get_workflow_graph()
-    config = _graph_config(thread_id)
+    config = _graph_config(
+        thread_id,
+        workflow_id=workflow_id,
+        user_id=actor.subject,
+        tags=["proposal-decision", decision],
+        metadata={"workflow_id": workflow_id, "proposal_id": proposal_id, "decision": decision},
+    )
     checkpoint = graph.get_state(config)
     state = dict(checkpoint.values or {})
     state_proposal = state.get("proposal") or {}

@@ -45,4 +45,4 @@ USER appuser
 
 EXPOSE 8000 8501
 
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+CMD ["sh", "/app/deploy/start.sh", "all"]

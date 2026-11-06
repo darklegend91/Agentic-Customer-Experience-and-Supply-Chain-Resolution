@@ -88,7 +88,7 @@ class Day5WorkflowTests(unittest.TestCase):
 
         self.assertEqual(result["status"], "answer_ready")
         self.assertEqual(result["specialist"], "order_delivery")
-        self.assertIn("status 'shipped'", result["answer"])
+        self.assertIn("is marked as shipped", result["answer"])
         self.assertIn(f"order:{ORDER_ID}", result["evidence_refs"])
 
     def test_unscoped_order_is_rejected_before_classification(self):

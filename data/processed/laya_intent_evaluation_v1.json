@@ -1,0 +1,228 @@
+{
+  "evaluation_set": "data/processed/intent_evaluation.csv",
+  "evaluation_grouping": "linked customer or normalized message-template groups",
+  "case_count": 46,
+  "label_count": 23,
+  "labels": [
+    "address_change",
+    "damaged_item",
+    "delivery_delay",
+    "delivery_dispute",
+    "exchange_request",
+    "incorrect_item",
+    "invoice_request",
+    "late_refund",
+    "loyalty_points",
+    "missing_accessory",
+    "non_delivery",
+    "order_cancellation",
+    "order_status",
+    "partial_delivery",
+    "payment_question",
+    "price_difference",
+    "product_question",
+    "refund_status",
+    "return_eligibility",
+    "return_pickup",
+    "return_status",
+    "reward_expiry",
+    "reward_redemption"
+  ],
+  "laya_successful_calls": 46,
+  "laya_errors": 0,
+  "laya_accuracy": 0.43478260869565216,
+  "laya_macro_f1": 0.395376121463078,
+  "laya_classification_report": {
+    "address_change": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "damaged_item": {
+      "precision": 0.4,
+      "recall": 1.0,
+      "f1-score": 0.5714285714285714,
+      "support": 2.0
+    },
+    "delivery_delay": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "delivery_dispute": {
+      "precision": 0.14285714285714285,
+      "recall": 0.5,
+      "f1-score": 0.2222222222222222,
+      "support": 2.0
+    },
+    "exchange_request": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "incorrect_item": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "invoice_request": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2.0
+    },
+    "late_refund": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "loyalty_points": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1-score": 0.8,
+      "support": 2.0
+    },
+    "missing_accessory": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "non_delivery": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "order_cancellation": {
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "order_status": {
+      "precision": 0.1,
+      "recall": 0.5,
+      "f1-score": 0.16666666666666666,
+      "support": 2.0
+    },
+    "partial_delivery": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "payment_question": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "price_difference": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "product_question": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "refund_status": {
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "return_eligibility": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "return_pickup": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "return_status": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "reward_expiry": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 2.0
+    },
+    "reward_redemption": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "micro avg": {
+      "precision": 0.4444444444444444,
+      "recall": 0.43478260869565216,
+      "f1-score": 0.43956043956043955,
+      "support": 46.0
+    },
+    "macro avg": {
+      "precision": 0.44824016563147,
+      "recall": 0.43478260869565216,
+      "f1-score": 0.395376121463078,
+      "support": 46.0
+    },
+    "weighted avg": {
+      "precision": 0.44824016563147,
+      "recall": 0.43478260869565216,
+      "f1-score": 0.395376121463078,
+      "support": 46.0
+    }
+  },
+  "mean_top_probability": 0.8650695652173913,
+  "high_confidence_accepted_count": 37,
+  "high_confidence_accepted_accuracy": 0.4864864864864865,
+  "high_confidence_errors": 19,
+  "strict_consensus_candidate_count": 13,
+  "strict_consensus_accuracy": 1.0,
+  "average_latency_seconds": 0.8024606385417586,
+  "intent_counts": {
+    "address_change": 2,
+    "damaged_item": 2,
+    "delivery_delay": 2,
+    "delivery_dispute": 2,
+    "exchange_request": 2,
+    "incorrect_item": 2,
+    "invoice_request": 2,
+    "late_refund": 2,
+    "loyalty_points": 2,
+    "missing_accessory": 2,
+    "non_delivery": 2,
+    "order_cancellation": 2,
+    "order_status": 2,
+    "partial_delivery": 2,
+    "payment_question": 2,
+    "price_difference": 2,
+    "product_question": 2,
+    "refund_status": 2,
+    "return_eligibility": 2,
+    "return_pickup": 2,
+    "return_status": 2,
+    "reward_expiry": 2,
+    "reward_redemption": 2
+  },
+  "confidence_calibrated": false,
+  "automatic_routing_enabled": false,
+  "interpretation": "Small synthetic evaluation only. Laya probability is not calibrated; a high score is not proof of correctness. Consensus candidates must still be reviewed until a production-approved labeled set validates selective risk."
+}

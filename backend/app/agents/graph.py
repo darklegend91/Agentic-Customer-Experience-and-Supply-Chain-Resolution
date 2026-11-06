@@ -6,7 +6,12 @@ import logging
 import os
 import threading
 import uuid
-from typing import Any, TypedDict
+from contextlib import contextmanager
+from contextvars import ContextVar
+from datetime import datetime, timezone
+from typing import Any
+from collections.abc import Mapping
+from typing_extensions import TypedDict
 
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
@@ -15,6 +20,7 @@ from ..approval.workflow_state import (
     WorkflowStoreUnavailable,
     evidence_fingerprint,
     record_stage_event,
+    record_stage_events,
     save_proposal,
     update_workflow,
     update_workflow_order_scope,
@@ -26,6 +32,7 @@ from ..guardrails.evidence_validation import (
 )
 from ..guardrails.output_validation import validate_draft
 from ..observability.logging import log_safe_error
+from ..observability.tracing import trace_stage, traced_stage
 from .investigation import (
     loyalty_rewards_specialist,
     order_delivery_specialist,
@@ -125,8 +132,26 @@ def _response_refs(state: dict[str, Any]) -> set[str]:
 def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool = True):
     """Build the graph; pass an in-memory checkpointer in tests only."""
 
-    def event(state: dict[str, Any], stage: str, event_type: str, details: dict[str, Any] | None = None) -> None:
+    pending_events: ContextVar[list[dict[str, Any]] | None] = ContextVar("workflow_audit_batch", default=None)
+
+    @contextmanager
+    def audit_batch(workflow_id: str):
+        entries: list[dict[str, Any]] = []
+        token = pending_events.set(entries)
+        try:
+            yield
+        finally:
+            pending_events.reset(token)
+            if persistence_enabled:
+                record_stage_events(workflow_id, entries)
+
+    def event(state: Mapping[str, Any], stage: str, event_type: str, details: dict[str, Any] | None = None) -> None:
         if persistence_enabled:
+            batch = pending_events.get()
+            if batch is not None:
+                batch.append({"stage": stage, "event_type": event_type, "details": details,
+                              "occurred_at": datetime.now(timezone.utc)})
+                return
             record_stage_event(
                 str(state["workflow_id"]),
                 stage=stage,
@@ -134,7 +159,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
                 details=details,
             )
 
-    def input_node(state: WorkflowState) -> dict[str, Any]:
+    def input_node(state: Mapping[str, Any]) -> dict[str, Any]:
         result = prepare_input(dict(state))
         if result.get("input_error_code"):
             status = result.get("status", "failed_safe")
@@ -145,7 +170,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         event(state, "input", "input_validated", {"order_reference_present": bool(result.get("order_id"))})
         return result
 
-    def triage_node(state: WorkflowState) -> dict[str, Any]:
+    def triage_node(state: Mapping[str, Any]) -> dict[str, Any]:
         try:
             result = triage_ticket(dict(state))
         except Exception as exc:
@@ -172,12 +197,12 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         })
         return result
 
-    def supervisor_node(state: WorkflowState) -> dict[str, Any]:
+    def supervisor_node(state: Mapping[str, Any]) -> dict[str, Any]:
         result = supervisor_route(dict(state))
         event(state, "supervisor", "specialist_selected", {"specialist": result["specialist"]})
         return result
 
-    def specialist_node(state: WorkflowState, name: str, handler) -> dict[str, Any]:
+    def specialist_node(state: Mapping[str, Any], name: str, handler) -> dict[str, Any]:
         result = handler(dict(state))
         evidence = result.get("evidence") or {}
         order = evidence.get("order") or {}
@@ -192,7 +217,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         })
         return result
 
-    def consolidate_node(state: WorkflowState) -> dict[str, Any]:
+    def consolidate_node(state: Mapping[str, Any]) -> dict[str, Any]:
         if state.get("specialist_error_code"):
             return {
                 "status": "failed_safe",
@@ -216,8 +241,9 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             "status": "running",
         }
 
-    def resolution_node(state: WorkflowState) -> dict[str, Any]:
-        resolution = evaluate_resolution(dict(state))
+    def resolution_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        with trace_stage("rules.deterministic_checks"):
+            resolution = evaluate_resolution(dict(state))
         event(state, "policy_rules", "deterministic_rules_evaluated", {
             "outcome": resolution.get("outcome"),
             "reason_codes": resolution.get("reason_codes", []),
@@ -230,9 +256,10 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             "reason_codes": resolution.get("reason_codes", []),
         }
 
-    def draft_node(state: WorkflowState) -> dict[str, Any]:
+    def draft_node(state: Mapping[str, Any]) -> dict[str, Any]:
         try:
-            result = draft_grounded_response(dict(state))
+            with trace_stage("response.draft"):
+                result = draft_grounded_response(dict(state))
         except Exception as exc:
             log_safe_error(
                 logger,
@@ -246,7 +273,8 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         event(state, "response", "response_drafted", {"provider": result.get("draft_provider")})
         return result
 
-    def validate_node(state: WorkflowState) -> dict[str, Any]:
+    @traced_stage("response.validation")
+    def validate_node(state: Mapping[str, Any]) -> dict[str, Any]:
         if state.get("draft_error_code"):
             errors = ["response_drafting_failed"]
         else:
@@ -280,7 +308,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             "error_code": None,
         }
 
-    def fallback_node(state: WorkflowState) -> dict[str, Any]:
+    def fallback_node(state: Mapping[str, Any]) -> dict[str, Any]:
         current = state.get("status")
         if current not in {"needs_information", "escalated", "failed_safe"}:
             codes = list(state.get("reason_codes") or []) + list(state.get("triage_reason_codes") or [])
@@ -302,10 +330,17 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             codes = list(state.get("triage_reason_codes") or [])
         if state.get("error_code") and state["error_code"] not in codes:
             codes.append(state["error_code"])
+        if current == "escalated" and state.get("specialist") == "manual_review":
+            if "model_safety_check_not_passed" in codes or "possible_instruction_override" in codes:
+                answer = "The input safety check flagged this message or could not verify it safely. A support agent needs to review it before any investigation tools are used."
+            elif "classifier_disagreement" in codes:
+                answer = "The intent classifiers disagree, so I paused before investigating. A support agent needs to confirm the request type."
+            elif "automatic_routing_disabled_by_policy" in codes:
+                answer = "This request requires a support agent to confirm its type before investigation because automatic model routing is disabled."
         event(state, "fallback", "safe_fallback_selected", {"status": current, "reason_codes": codes})
         return {"status": current, "answer": answer, "reason_codes": sorted(set(codes))}
 
-    def proposal_node(state: WorkflowState) -> dict[str, Any]:
+    def proposal_node(state: Mapping[str, Any]) -> dict[str, Any]:
         resolution = state.get("resolution") or {}
         candidate = resolution.get("proposal") or {}
         if (
@@ -314,7 +349,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         ):
             raise ValueError("Only non-executing simulation proposals may enter human approval")
         proposal_id = str(uuid.uuid4())
-        proposal = {
+        proposal: dict[str, Any] = {
             "schema_version": "1.0",
             "proposal_id": proposal_id,
             "proposal_version": 1,
@@ -349,7 +384,7 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         })
         return {"proposal": proposal, "status": "pending_approval", "disposition": "proposal"}
 
-    def approval_node(state: WorkflowState) -> dict[str, Any]:
+    def approval_node(state: Mapping[str, Any]) -> dict[str, Any]:
         proposal = state.get("proposal") or {}
         # interrupt() is the first side effect in this node; resume cannot repeat writes.
         decision = interrupt({
@@ -378,9 +413,18 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         })
         return {"approval_decision": decision, "status": status, "answer": answer}
 
-    def finalize_node(state: WorkflowState) -> dict[str, Any]:
+    def finalize_node(state: Mapping[str, Any]) -> dict[str, Any]:
         status = str(state.get("status") or "failed_safe")
         summary = _safe_summary(dict(state))
+        if status == "answer_ready":
+            # Persist the already validated presentation beside the summary so
+            # the UI does not reopen the checkpoint merely to display an answer.
+            summary["completed_trace"] = {
+                "workflow_id": str(state["workflow_id"]), "status": status,
+                "current_node": None, "current_step": None,
+                **{key: state.get(key) for key in ("classification", "specialist", "answer")},
+                **{key: state.get(key) or {} for key in ("evidence", "resolution", "draft")},
+            }
         if persistence_enabled:
             update_workflow(
                 str(state["workflow_id"]),
@@ -395,7 +439,49 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             )
         return {"status": status}
 
+    def assess_request_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        working = dict(state)
+        with audit_batch(str(state["workflow_id"])):
+            working.update(input_node(working))
+            if not working.get("input_error_code"):
+                working.update(triage_node(working))
+                working.update(supervisor_node(working))
+                if select_route(working) == "read_only_order":
+                    event(working, "order_delivery", "read_only_investigation_started")
+        return working
+
+    def select_route(state: Mapping[str, Any]) -> str:
+        if state.get("input_error_code"):
+            return "safe_fallback"
+        classification = state.get("classification") or {}
+        if (state.get("triage_ready") is True
+            and state.get("specialist") == "order_delivery"
+            and classification.get("intent") == "order_status"
+            and classification.get("classifier_provider") == "deterministic_rule"
+            and "model_safety_check_passed" in (classification.get("risk_flags") or [])):
+            return "read_only_order"
+        return str(state.get("specialist") or "manual_review")
+
+    def read_only_order_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        # These stages have no external mutations or approval interrupts. Retry
+        # may replay the whole node; preserve checks and audit entries while
+        # checkpointing only the completed evidence/answer boundary.
+        working = dict(state)
+        with audit_batch(str(state["workflow_id"])):
+            working.update(specialist_node(working, "order_delivery", order_delivery_specialist))
+            working.update(consolidate_node(working))
+            if not working.get("specialist_error_code"):
+                working.update(resolution_node(working))
+                if (working.get("resolution") or {}).get("outcome") == "answer":
+                    working.update(draft_node(working))
+                    working.update(validate_node(working))
+            if working.get("status") != "answer_ready":
+                working.update(fallback_node(working))
+        return working
+
     builder = StateGraph(WorkflowState)
+    builder.add_node("assess_request", assess_request_node)
+    builder.add_node("read_only_order", read_only_order_node)
     builder.add_node("prepare_input", input_node)
     builder.add_node("triage", triage_node)
     builder.add_node("supervisor", supervisor_node)
@@ -414,7 +500,13 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
     builder.add_node("approval_interrupt", approval_node)
     builder.add_node("finalize", finalize_node)
 
-    builder.add_edge(START, "prepare_input")
+    builder.add_edge(START, "assess_request")
+    builder.add_conditional_edges("assess_request", select_route, {
+        name: name for name in ("read_only_order", "policy_faq", "order_delivery", "return_refund",
+                                "loyalty_rewards", "product_issue", "manual_review", "safe_fallback")
+    })
+    builder.add_edge("read_only_order", "finalize")
+    # Retain old node names/edges so an existing checkpoint can still resume.
     builder.add_conditional_edges(
         "prepare_input",
         lambda state: "fallback" if state.get("input_error_code") else "triage",
@@ -472,13 +564,16 @@ def get_workflow_graph():
         try:
             from langgraph.checkpoint.postgres import PostgresSaver
             from psycopg_pool import ConnectionPool
+            import psycopg
+            from psycopg.rows import dict_row
 
             os.environ.setdefault("LANGGRAPH_STRICT_MSGPACK", "true")
-            _CHECKPOINT_POOL = ConnectionPool(
+            _CHECKPOINT_POOL = ConnectionPool[psycopg.Connection[dict[str, Any]]](
                 conninfo=dsn,
                 min_size=1,
                 max_size=4,
-                kwargs={"connect_timeout": 5, "application_name": "agentic-support-langgraph-checkpointer"},
+                kwargs={"connect_timeout": 5, "application_name": "agentic-support-langgraph-checkpointer",
+                        "autocommit": True, "prepare_threshold": 0, "row_factory": dict_row},
                 open=True,
             )
             checkpointer = PostgresSaver(_CHECKPOINT_POOL)

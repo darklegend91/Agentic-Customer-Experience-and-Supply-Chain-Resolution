@@ -26,6 +26,8 @@ from backend.app.api.routes.workflows import router as workflows_router
 from backend.app.api.routes.proposals import router as proposals_router
 from backend.app.api.routes.approvals import router as approvals_router
 from backend.app.agents.graph import close_workflow_graph
+from backend.app.approval.workflow_state import close_workflow_pool
+from backend.app.observability.tracing import shutdown_langfuse
 from backend.app.middleware.error_handler import install_error_handlers
 from backend.app.middleware.request_id import install_request_middleware
 from backend.app.milvus_index import collection_name
@@ -51,10 +53,24 @@ DEFAULT_EVALUATION_SET = PROJECT_ROOT / "data" / "processed" / "rag_policy_evalu
 
 @asynccontextmanager
 async def lifespan(_app):
+    import threading
+
+    def _warmup_classifiers():
+        try:
+            from backend.app.classification.laya import classify_with_laya
+            classify_with_laya("Where is my order")
+            logger.info("Laya classifier warmed up in background thread")
+        except Exception as exc:
+            logger.warning("Laya warmup skipped: %s", exc)
+
+    threading.Thread(target=_warmup_classifiers, daemon=True, name="classifier-warmup").start()
+
     try:
         yield
     finally:
+        shutdown_langfuse()
         close_workflow_graph()
+        close_workflow_pool()
         close_policy_retrievers()
 
 

@@ -33,6 +33,31 @@ Before production use, the business and security owners still need to approve th
 
 ## Run the project locally
 
+### Langfuse monitoring
+
+The backend supports Langfuse SDK 5.2. Set `LANGFUSE_PUBLIC_KEY`,
+`LANGFUSE_SECRET_KEY`, and `LANGFUSE_BASE_URL=https://cloud.langfuse.com` in the
+root `.env` for both FastAPI and the workflow worker, then restart both processes.
+`LANGFUSE_HOST` remains supported as a fallback. Set `LANGFUSE_TRACING_ENABLED=false`
+to disable exports. These credentials are not needed in Streamlit.
+
+Open the [Agentic_support trace dashboard](https://cloud.langfuse.com/project/cmvurpf7c00yzad0et37ns5zr/traces).
+Submit a new investigation and look for `customer-support-investigation`;
+its session ID is the workflow UUID. Expand the trace to inspect model loading,
+input safety, intent classification, SQL lookup, deterministic rules, drafting,
+and output validation. `api.request` traces show endpoint response times and
+request IDs. Health checks and workflow-status polling keep local latency logs
+without generating a cloud trace for every refresh.
+
+Exports are batched in the background; request handlers do not call `flush()`.
+Monitoring failures do not bypass checks or fail investigations. Trace payloads
+include diagnostic status/classification fields; customer messages, answers,
+business records, credentials, and raw exception details are omitted. Actor IDs
+are hashed. Full evidence remains in the authorized application workflow view.
+No token or cost totals are fabricated for local Laya inference.
+
+### Start the services
+
 Run these commands from this repository root, which is also the project root. The application follows the documented folders directly (`backend/`, `data/`, `docs/`, and so on); there is no nested `agentic_customer_support/` source folder. Use Python 3.11 or newer. The API expects a development Neon database, a Milvus development collection, and the `sentence-transformers/all-MiniLM-L6-v2` model to be available locally. It does not create database tables or index policies when the API starts.
 
 Create a virtual environment if you do not already have one, then install the project dependencies:

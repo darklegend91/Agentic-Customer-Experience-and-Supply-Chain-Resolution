@@ -19,13 +19,13 @@ require_value() {
 }
 
 case "$service_role" in
-    api|worker)
+    api|worker|all)
         [ "${APP_ENV:-}" = "local" ] || {
             echo "This Compose profile is for private synthetic-data demos; set APP_ENV=local." >&2
             exit 64
         }
         for name in DATABASE_URL WORKFLOW_DATABASE_URL MILVUS_URI MILVUS_TOKEN \
-            LAYA_BASE_URL WORKFLOW_API_TOKEN WORKFLOW_REVIEWER_TOKEN; do
+            WORKFLOW_API_TOKEN WORKFLOW_REVIEWER_TOKEN; do
             require_value "$name"
         done
         case "$DATABASE_URL" in
@@ -48,12 +48,15 @@ case "$service_role" in
             echo "Use random support and reviewer tokens with at least 32 characters." >&2
             exit 64
         }
-        case "$LAYA_BASE_URL" in
-            http://127.0.0.1*|https://127.0.0.1*|http://localhost*|https://localhost*|http://\[::1\]*|https://\[::1\]*)
-                echo "LAYA_BASE_URL must be reachable from the API container; loopback points at the container." >&2
-                exit 64
-                ;;
-        esac
+        # LAYA_BASE_URL is optional; Laya runs in-process when not set.
+        if [ -n "${LAYA_BASE_URL:-}" ]; then
+            case "$LAYA_BASE_URL" in
+                http://127.0.0.1*|https://127.0.0.1*|http://localhost*|https://localhost*|http://\[::1\]*|https://\[::1\]*)
+                    echo "LAYA_BASE_URL must be reachable from the API container; loopback points at the container." >&2
+                    exit 64
+                    ;;
+            esac
+        fi
         ;;
     *)
         echo "Unknown container role: $service_role" >&2
@@ -63,6 +66,25 @@ esac
 
 if [ "$service_role" = "worker" ]; then
     exec python -m backend.app.worker
+fi
+
+if [ "$service_role" = "ui" ]; then
+    exec streamlit run frontend/app.py --server.port "${PORT:-8501}" --server.address 0.0.0.0 --server.headless true
+fi
+
+if [ "$service_role" = "all" ]; then
+    echo "Starting background services..."
+    uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --workers 1 &
+    API_PID=$!
+
+    python -m backend.app.worker &
+    WORKER_PID=$!
+
+    trap 'kill $API_PID $WORKER_PID 2>/dev/null || true' INT TERM EXIT
+
+    echo "Starting Streamlit control room on port ${PORT:-8501}..."
+    export API_BASE_URL="http://127.0.0.1:8000"
+    exec streamlit run frontend/app.py --server.port "${PORT:-8501}" --server.address 0.0.0.0 --server.headless true
 fi
 
 exec uvicorn backend.app.main:app --host 0.0.0.0 --port "${PORT:-8000}" --workers 1

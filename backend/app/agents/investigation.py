@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from typing import Any
+from ..observability.tracing import trace_stage
 
 from ..security.pii_masking import mask_sensitive_text
 from ..tools.order_tools import get_order_investigation
@@ -80,6 +81,10 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
         return {"specialist_error_code": "unsupported_specialist", "status": "escalated"}
 
     needs_order, needs_policy, needs_customer_context, _context_required = SPECIALIST_REQUIREMENTS[specialist]
+    if (state.get("classification") or {}).get("intent") == "order_status":
+        # Status comes entirely from the bounded order snapshot. Optional loyalty
+        # and contact tables add latency and cannot support this answer.
+        needs_customer_context = False
     evidence: dict[str, Any] = {"order": None, "policy": None, "customer_context": None}
     methods = list(state.get("methods") or ["semantic", "keyword"])
     top_k = int(state.get("top_k") or 3)
@@ -88,7 +93,8 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
     try:
         if needs_order:
             if state.get("order_id"):
-                evidence["order"] = get_order_investigation(str(state["order_id"]))
+                with trace_stage("tools.order_lookup"):
+                    evidence["order"] = get_order_investigation(str(state["order_id"]))
             else:
                 evidence["order"] = {
                     "status": "insufficient_data",
@@ -103,7 +109,8 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
         if needs_customer_context:
             if state.get("order_id"):
                 try:
-                    evidence["customer_context"] = get_customer_support_context(str(state["order_id"]))
+                    with trace_stage("tools.customer_context"):
+                        evidence["customer_context"] = get_customer_support_context(str(state["order_id"]))
                 except Exception as exc:
                     evidence["customer_context"] = {
                         "status": "unavailable",
@@ -126,12 +133,11 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
                     "missing_fields": ["order_id"],
                 }
         if needs_policy:
-            evidence["policy"] = retrieve_policy_evidence(
-                query,
-                methods=methods,
-                top_k=top_k,
-                locale=str(state.get("locale") or "en-IN"),
-            )
+            with trace_stage("tools.policy_retrieval"):
+                evidence["policy"] = retrieve_policy_evidence(
+                    query, methods=methods, top_k=top_k,
+                    locale=str(state.get("locale") or "en-IN"),
+                )
     except Exception as exc:
         # The event records only an error class, not exception text or ticket data.
         return {
@@ -146,8 +152,9 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
     for values in (order_evidence.get("evidence_refs") or {}).values():
         for value in values if isinstance(values, list) else []:
             refs.add(str(value))
-    if evidence.get("policy"):
-        refs.update(policy_evidence_references(evidence["policy"]))
+    policy_evidence = evidence.get("policy")
+    if policy_evidence:
+        refs.update(policy_evidence_references(policy_evidence))
     context = evidence.get("customer_context") or {}
     context_refs = context.get("evidence_refs") or {}
     for values in context_refs.values():

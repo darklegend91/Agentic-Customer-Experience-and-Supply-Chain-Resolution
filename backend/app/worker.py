@@ -20,6 +20,9 @@ from .approval.workflow_state import (
 )
 from .observability.logging import log_safe_error
 from .runtime import load_project_environment, require_local_development
+from .observability.tracing import shutdown_langfuse
+from .agents.graph import close_workflow_graph
+from .approval.workflow_state import close_workflow_pool
 
 logger = logging.getLogger("agentic_customer_support.worker")
 _stop = threading.Event()
@@ -66,7 +69,7 @@ def _handle_job(job: dict[str, Any], worker_id: str) -> None:
     try:
         if not isinstance(payload, dict):
             raise ValueError("Persisted workflow job payload is malformed")
-        execute_workflow(payload)
+        execute_workflow(payload, resume=attempt > 1)
         if lease_lost.is_set():
             return
         complete_workflow_job(workflow_id, worker_id)
@@ -139,7 +142,12 @@ def main() -> None:
     logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
     signal.signal(signal.SIGTERM, _request_stop)
     signal.signal(signal.SIGINT, _request_stop)
-    run_worker()
+    try:
+        run_worker()
+    finally:
+        shutdown_langfuse()
+        close_workflow_graph()
+        close_workflow_pool()
 
 
 if __name__ == "__main__":

@@ -35,7 +35,10 @@ def _recorded_facts(state: dict[str, Any]) -> list[str]:
     facts: list[str] = []
 
     if intent in {"order_status", "order_cancellation"} and order.get("status"):
-        facts.append(f"The order record shows status '{order['status']}'.")
+        order_id = order.get("order_id") or state.get("order_id")
+        subject = f"Your order {order_id}" if order_id else "Your order"
+        status = str(order["status"]).replace("_", " ")
+        facts.append(f"{subject} is marked as {status}.")
     if intent in {"delivery_delay", "delivery_dispute", "non_delivery", "partial_delivery"}:
         events = order_evidence.get("delivery_events") or []
         if events:
@@ -162,12 +165,15 @@ def recorded_claims(state: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def canonical_answer(state: dict[str, Any], claims: list[dict[str, Any]]) -> str:
-    order_id = str(state.get("order_id") or "the requested record")
     statements = " ".join(str(claim["text"]) for claim in claims)
-    return (
-        f"For {order_id}, the available development record says: {statements} "
-        "This is a read-only lookup; no order, return, or payment action has been taken."
-    )
+    intent = (state.get("classification") or {}).get("intent")
+    if intent in {"order_status", "order_cancellation"}:
+        status = (((state.get("evidence") or {}).get("order") or {}).get("order") or {}).get("status")
+        if intent == "order_status" and status == "delivered" and claims:
+            return statements + " If it hasn’t arrived, please let us know."
+        return statements
+    order_id = state.get("order_id")
+    return f"For your order {order_id}: {statements}" if order_id else statements
 
 
 def _deterministic_draft(state: dict[str, Any]) -> dict[str, Any]:

@@ -87,7 +87,7 @@ class TicketClassification(VersionedResponse):
     intent: TicketIntent
     confidence: float = Field(ge=0, le=1, allow_inf_nan=False)
     classifier_version: str = Field(min_length=1, max_length=128)
-    classifier_provider: Literal["laya", "tfidf_fallback", "input_guardrail"] = "laya"
+    classifier_provider: Literal["laya", "tfidf_fallback", "input_guardrail", "deterministic_rule"] = "laya"
     fallback_used: bool = False
     triage_status: Literal["ready", "needs_review", "security_review"]
     risk_flags: list[str] = Field(default_factory=list, max_length=20)

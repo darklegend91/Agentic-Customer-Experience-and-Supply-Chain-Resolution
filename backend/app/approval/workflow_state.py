@@ -6,13 +6,16 @@ import hashlib
 import json
 import os
 import uuid
-from contextlib import contextmanager
+import atexit
+from threading import RLock
+from contextlib import contextmanager, ExitStack
 from datetime import date, datetime
-from typing import Any, Iterator
+from typing import Any, Generator
 
 import psycopg
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
+from psycopg_pool import ConnectionPool
 
 from ..runtime import LocalDevelopmentOnly, require_local_development
 
@@ -29,6 +32,45 @@ class WorkflowConflict(RuntimeError):
     """The requested workflow transition conflicts with stored state."""
 
 
+_POOL_LOCK = RLock()
+_POOL: ConnectionPool[psycopg.Connection[dict[str, Any]]] | None = None
+_POOL_DSN: str | None = None
+
+
+def close_workflow_pool() -> None:
+    global _POOL, _POOL_DSN
+    with _POOL_LOCK:
+        if _POOL is not None:
+            _POOL.close()
+        _POOL = None
+        _POOL_DSN = None
+
+
+def _get_pool() -> ConnectionPool[psycopg.Connection[dict[str, Any]]]:
+    global _POOL, _POOL_DSN
+    dsn = _dsn()
+    with _POOL_LOCK:
+        if _POOL is None or _POOL_DSN != dsn:
+            close_workflow_pool()
+            _POOL = ConnectionPool[psycopg.Connection[dict[str, Any]]](
+                conninfo=dsn,
+                min_size=1,
+                max_size=8,
+                timeout=10,
+                kwargs={
+                    "connect_timeout": 5,
+                    "application_name": "agentic-customer-support-workflow",
+                    "row_factory": dict_row,
+                },
+                open=True,
+            )
+            _POOL_DSN = dsn
+        return _POOL
+
+
+atexit.register(close_workflow_pool)
+
+
 def _dsn() -> str:
     try:
         require_local_development()
@@ -41,16 +83,20 @@ def _dsn() -> str:
 
 
 @contextmanager
-def _connection() -> Iterator[psycopg.Connection]:
+def _connection(*, pipelined: bool = False) -> Generator[psycopg.Connection[dict[str, Any]], None, None]:
     try:
-        with psycopg.connect(
-            _dsn(),
-            connect_timeout=5,
-            application_name="agentic-customer-support-workflow",
-            row_factory=dict_row,
-        ) as connection:
-            connection.execute("SET LOCAL statement_timeout = '5000ms'")
-            yield connection
+        # Pool context commits on success, rolls back on error, and returns the
+        # connection. Approval writes retain the same transaction boundaries.
+        with _get_pool().connection() as connection:
+            with ExitStack() as stack:
+                if pipelined:
+                    # Audit-only inserts need no intermediate results. Send
+                    # BEGIN, timeout, INSERT and COMMIT in one network batch;
+                    # flush/commit failures still propagate to the worker.
+                    stack.enter_context(connection.pipeline())
+                    stack.enter_context(connection.transaction())
+                connection.execute("SET LOCAL statement_timeout = '5000ms'")
+                yield connection
     except (WorkflowStoreUnavailable, WorkflowNotFound, WorkflowConflict):
         raise
     except Exception as exc:
@@ -258,21 +304,31 @@ def retry_workflow_job(
 
 
 def _insert_event(
-    connection: psycopg.Connection,
+    connection: psycopg.Connection[dict[str, Any]],
     *,
     workflow_id: str,
     stage: str,
     event_type: str,
     actor_id: str | None = None,
     details: dict[str, Any] | None = None,
+    occurred_at: datetime | None = None,
 ) -> None:
     connection.execute(
         """
-        INSERT INTO workflow_events (event_id, workflow_id, stage, event_type, actor_id, details_json)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        INSERT INTO workflow_events (event_id, workflow_id, stage, event_type, actor_id, details_json, occurred_at)
+        VALUES (%s, %s, %s, %s, %s, %s, COALESCE(%s, clock_timestamp()))
         """,
-        (uuid.uuid4(), _uuid(workflow_id), stage, event_type, actor_id, Jsonb(details or {})),
+        (uuid.uuid4(), _uuid(workflow_id), stage, event_type, actor_id, Jsonb(details or {}), occurred_at),
     )
+
+
+def record_stage_events(workflow_id: str, events: list[dict[str, Any]]) -> None:
+    """Atomically persist a replayable node's audit trail in one round trip."""
+    if not events:
+        return
+    with _connection(pipelined=True) as connection:
+        for entry in events:
+            _insert_event(connection, workflow_id=workflow_id, **entry)
 
 
 def record_stage_event(
@@ -282,7 +338,7 @@ def record_stage_event(
     event_type: str,
     details: dict[str, Any] | None = None,
 ) -> None:
-    with _connection() as connection:
+    with _connection(pipelined=True) as connection:
         _insert_event(
             connection,
             workflow_id=workflow_id,
