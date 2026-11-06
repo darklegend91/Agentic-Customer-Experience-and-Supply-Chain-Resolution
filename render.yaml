@@ -1,0 +1,124 @@
+services:
+  # 1. FastAPI REST Service
+  - type: web
+    name: agentic-support-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: sh /app/deploy/start.sh api
+    plan: starter
+    region: oregon
+    envVars:
+      - key: APP_ENV
+        value: local
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_REDACT_PII
+        value: "true"
+      - key: API_REQUEST_TIMEOUT_SECONDS
+        value: "30"
+      - key: DATABASE_URL
+        sync: false
+      - key: WORKFLOW_DATABASE_URL
+        sync: false
+      - key: MILVUS_URI
+        sync: false
+      - key: MILVUS_TOKEN
+        sync: false
+      - key: MILVUS_COLLECTION
+        value: agentic_customer_support_dev_policies_v1
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: WORKFLOW_API_TOKEN
+        generateValue: true
+      - key: WORKFLOW_REVIEWER_TOKEN
+        generateValue: true
+      - key: LAYA_BASE_URL
+        sync: false
+      - key: LLM_ENABLED
+        value: "false"
+
+  # 2. Durable LangGraph Background Worker
+  - type: worker
+    name: agentic-support-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: sh /app/deploy/start.sh worker
+    plan: starter
+    region: oregon
+    envVars:
+      - key: APP_ENV
+        value: local
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: DATABASE_URL
+      - key: WORKFLOW_DATABASE_URL
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: WORKFLOW_DATABASE_URL
+      - key: MILVUS_URI
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: MILVUS_URI
+      - key: MILVUS_TOKEN
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: MILVUS_TOKEN
+      - key: MILVUS_COLLECTION
+        value: agentic_customer_support_dev_policies_v1
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: WORKFLOW_API_TOKEN
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: WORKFLOW_API_TOKEN
+      - key: WORKFLOW_REVIEWER_TOKEN
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: WORKFLOW_REVIEWER_TOKEN
+      - key: LAYA_BASE_URL
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: LAYA_BASE_URL
+      - key: LLM_ENABLED
+        value: "false"
+
+  # 3. Streamlit UI Control Room
+  - type: web
+    name: agentic-support-ui
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: streamlit run frontend/app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    plan: starter
+    region: oregon
+    envVars:
+      - key: API_BASE_URL
+        fromService:
+          type: web
+          name: agentic-support-api
+          property: host
+      - key: API_BASE_URL_LOCKED
+        value: "true"
+      - key: WORKFLOW_API_TOKEN
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: WORKFLOW_API_TOKEN
+      - key: WORKFLOW_REVIEWER_TOKEN
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: WORKFLOW_REVIEWER_TOKEN
+
