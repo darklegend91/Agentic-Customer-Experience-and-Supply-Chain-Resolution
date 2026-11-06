@@ -1,0 +1,7 @@
+{$APP_DOMAIN} {
+	basic_auth {
+		{$ACCESS_USER} {$ACCESS_HASH}
+	}
+	encode zstd gzip
+	reverse_proxy ui:8501
+}

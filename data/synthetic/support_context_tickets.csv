@@ -1,0 +1,181 @@
+ticket_id,message,expected_intent,order_id,expected_handling
+T-CTX-LOY-001,How many reward points did I earn for this order? Order ORD-ID-082a27c2a5.,loyalty_points,ORD-ID-082a27c2a5,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-002,My loyalty points are missing from my account. Order ORD-ID-f1252e2310.,loyalty_points,ORD-ID-f1252e2310,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-003,Please check the points balance related to this purchase. Order ORD-ID-c23ee72f1f.,loyalty_points,ORD-ID-c23ee72f1f,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-004,I cannot see the points for my recent order. Order ORD-ID-2c2e416df8.,loyalty_points,ORD-ID-2c2e416df8,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-005,Can you tell me the recorded rewards points balance? Order ORD-ID-958417061c.,loyalty_points,ORD-ID-958417061c,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-006,The points from this purchase have not appeared yet. Order ORD-ID-a3d4190bcd.,loyalty_points,ORD-ID-a3d4190bcd,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-007,How many reward points did I earn for this order? Order ORD-ID-57a9fe2a98.,loyalty_points,ORD-ID-57a9fe2a98,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-008,My loyalty points are missing from my account. Order ORD-ID-c94fa376f3.,loyalty_points,ORD-ID-c94fa376f3,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-009,Please check the points balance related to this purchase. Order ORD-ID-7366402d4c.,loyalty_points,ORD-ID-7366402d4c,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-010,I cannot see the points for my recent order. Order ORD-ID-9325df60c6.,loyalty_points,ORD-ID-9325df60c6,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-011,Can you tell me the recorded rewards points balance? Order ORD-ID-86ebbf6119.,loyalty_points,ORD-ID-86ebbf6119,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-012,The points from this purchase have not appeared yet. Order ORD-ID-2117b1ddc7.,loyalty_points,ORD-ID-2117b1ddc7,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-013,How many reward points did I earn for this order? Order ORD-ID-5712575ec0.,loyalty_points,ORD-ID-5712575ec0,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-014,My loyalty points are missing from my account. Order ORD-ID-f609ddd1ee.,loyalty_points,ORD-ID-f609ddd1ee,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-015,Please check the points balance related to this purchase. Order ORD-ID-f6eab1cb81.,loyalty_points,ORD-ID-f6eab1cb81,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-016,I cannot see the points for my recent order. Order ORD-ID-b56bef8f08.,loyalty_points,ORD-ID-b56bef8f08,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-017,Can you tell me the recorded rewards points balance? Order ORD-ID-a920f9ff0f.,loyalty_points,ORD-ID-a920f9ff0f,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-018,The points from this purchase have not appeared yet. Order ORD-ID-27c7713fba.,loyalty_points,ORD-ID-27c7713fba,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-019,How many reward points did I earn for this order? Order ORD-ID-cc5fcdd988.,loyalty_points,ORD-ID-cc5fcdd988,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-020,My loyalty points are missing from my account. Order ORD-ID-7387afc9cb.,loyalty_points,ORD-ID-7387afc9cb,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-021,Please check the points balance related to this purchase. Order ORD-ID-f7681d8502.,loyalty_points,ORD-ID-f7681d8502,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-022,I cannot see the points for my recent order. Order ORD-ID-0d37321f48.,loyalty_points,ORD-ID-0d37321f48,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-023,Can you tell me the recorded rewards points balance? Order ORD-ID-41b85e905f.,loyalty_points,ORD-ID-41b85e905f,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-024,The points from this purchase have not appeared yet. Order ORD-ID-1731f4251d.,loyalty_points,ORD-ID-1731f4251d,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-025,How many reward points did I earn for this order? Order ORD-ID-340cf3e2b4.,loyalty_points,ORD-ID-340cf3e2b4,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-026,My loyalty points are missing from my account. Order ORD-ID-d6e743f7aa.,loyalty_points,ORD-ID-d6e743f7aa,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-027,Please check the points balance related to this purchase. Order ORD-ID-70076e82d4.,loyalty_points,ORD-ID-70076e82d4,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-028,I cannot see the points for my recent order. Order ORD-ID-280443dfff.,loyalty_points,ORD-ID-280443dfff,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-029,Can you tell me the recorded rewards points balance? Order ORD-ID-2287c76bd7.,loyalty_points,ORD-ID-2287c76bd7,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-030,The points from this purchase have not appeared yet. Order ORD-ID-e5d55eea11.,loyalty_points,ORD-ID-e5d55eea11,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-031,How many reward points did I earn for this order? Order ORD-ID-c4d1e4e530.,loyalty_points,ORD-ID-c4d1e4e530,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-032,My loyalty points are missing from my account. Order ORD-ID-079a36c65c.,loyalty_points,ORD-ID-079a36c65c,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-033,Please check the points balance related to this purchase. Order ORD-ID-81542eb4f5.,loyalty_points,ORD-ID-81542eb4f5,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-034,I cannot see the points for my recent order. Order ORD-ID-3ab3e74f39.,loyalty_points,ORD-ID-3ab3e74f39,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-035,Can you tell me the recorded rewards points balance? Order ORD-ID-bf95bded95.,loyalty_points,ORD-ID-bf95bded95,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-036,The points from this purchase have not appeared yet. Order ORD-ID-7ce531641a.,loyalty_points,ORD-ID-7ce531641a,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-037,How many reward points did I earn for this order? Order ORD-ID-b8e5b4b248.,loyalty_points,ORD-ID-b8e5b4b248,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-038,My loyalty points are missing from my account. Order ORD-ID-bbffcd1174.,loyalty_points,ORD-ID-bbffcd1174,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-039,Please check the points balance related to this purchase. Order ORD-ID-b8b88de501.,loyalty_points,ORD-ID-b8b88de501,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-040,I cannot see the points for my recent order. Order ORD-ID-db4f075a56.,loyalty_points,ORD-ID-db4f075a56,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-041,Can you tell me the recorded rewards points balance? Order ORD-ID-a1ce8e3df5.,loyalty_points,ORD-ID-a1ce8e3df5,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-042,The points from this purchase have not appeared yet. Order ORD-ID-4bf2cea49f.,loyalty_points,ORD-ID-4bf2cea49f,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-043,How many reward points did I earn for this order? Order ORD-ID-ae82db4e7f.,loyalty_points,ORD-ID-ae82db4e7f,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-044,My loyalty points are missing from my account. Order ORD-ID-99169d8b7c.,loyalty_points,ORD-ID-99169d8b7c,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-045,Please check the points balance related to this purchase. Order ORD-ID-9edd33dfc6.,loyalty_points,ORD-ID-9edd33dfc6,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-046,I cannot see the points for my recent order. Order ORD-ID-b2e44e77c6.,loyalty_points,ORD-ID-b2e44e77c6,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-047,Can you tell me the recorded rewards points balance? Order ORD-ID-faaec2c0b4.,loyalty_points,ORD-ID-faaec2c0b4,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-048,The points from this purchase have not appeared yet. Order ORD-ID-b492580186.,loyalty_points,ORD-ID-b492580186,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-049,How many reward points did I earn for this order? Order ORD-ID-5d3e3300ac.,loyalty_points,ORD-ID-5d3e3300ac,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-050,My loyalty points are missing from my account. Order ORD-ID-190ebe24ad.,loyalty_points,ORD-ID-190ebe24ad,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-051,Please check the points balance related to this purchase. Order ORD-ID-962c8e16f7.,loyalty_points,ORD-ID-962c8e16f7,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-052,I cannot see the points for my recent order. Order ORD-ID-e95a9f0bc9.,loyalty_points,ORD-ID-e95a9f0bc9,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-053,Can you tell me the recorded rewards points balance? Order ORD-ID-3ec3964fad.,loyalty_points,ORD-ID-3ec3964fad,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-054,The points from this purchase have not appeared yet. Order ORD-ID-817905c092.,loyalty_points,ORD-ID-817905c092,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-055,How many reward points did I earn for this order? Order ORD-ID-fbb867c0b6.,loyalty_points,ORD-ID-fbb867c0b6,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-056,My loyalty points are missing from my account. Order ORD-ID-313341fa05.,loyalty_points,ORD-ID-313341fa05,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-057,Please check the points balance related to this purchase. Order ORD-ID-e4910a54f9.,loyalty_points,ORD-ID-e4910a54f9,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-058,I cannot see the points for my recent order. Order ORD-ID-22782ac922.,loyalty_points,ORD-ID-22782ac922,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-059,Can you tell me the recorded rewards points balance? Order ORD-ID-491666ffe8.,loyalty_points,ORD-ID-491666ffe8,read_rewards_ledger_and_report_recorded_balance
+T-CTX-LOY-060,The points from this purchase have not appeared yet. Order ORD-ID-9a97b69f81.,loyalty_points,ORD-ID-9a97b69f81,read_rewards_ledger_and_report_recorded_balance
+T-CTX-EXP-001,When will my reward points expire? Order ORD-ID-61319cc82f.,reward_expiry,ORD-ID-61319cc82f,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-002,I think some points are about to expire; please check the ledger. Order ORD-ID-738493f71f.,reward_expiry,ORD-ID-738493f71f,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-003,Which of my loyalty points are due to expire soon? Order ORD-ID-fc361ec999.,reward_expiry,ORD-ID-fc361ec999,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-004,Can you look up the expiration date for my points? Order ORD-ID-193dc96c16.,reward_expiry,ORD-ID-193dc96c16,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-005,My rewards balance shows points expiring; what is recorded? Order ORD-ID-2bc589f5a0.,reward_expiry,ORD-ID-2bc589f5a0,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-006,Please tell me if any points in my account are expiring. Order ORD-ID-73b49d1c32.,reward_expiry,ORD-ID-73b49d1c32,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-007,When will my reward points expire? Order ORD-ID-aaf72f0d23.,reward_expiry,ORD-ID-aaf72f0d23,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-008,I think some points are about to expire; please check the ledger. Order ORD-ID-fd93dad0ed.,reward_expiry,ORD-ID-fd93dad0ed,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-009,Which of my loyalty points are due to expire soon? Order ORD-ID-bac5d66734.,reward_expiry,ORD-ID-bac5d66734,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-010,Can you look up the expiration date for my points? Order ORD-ID-7dc02006c9.,reward_expiry,ORD-ID-7dc02006c9,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-011,My rewards balance shows points expiring; what is recorded? Order ORD-ID-6a69396614.,reward_expiry,ORD-ID-6a69396614,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-012,Please tell me if any points in my account are expiring. Order ORD-ID-59a1f8fc46.,reward_expiry,ORD-ID-59a1f8fc46,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-013,When will my reward points expire? Order ORD-ID-78715ce8c2.,reward_expiry,ORD-ID-78715ce8c2,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-014,I think some points are about to expire; please check the ledger. Order ORD-ID-4a13a37b00.,reward_expiry,ORD-ID-4a13a37b00,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-015,Which of my loyalty points are due to expire soon? Order ORD-ID-13278fd543.,reward_expiry,ORD-ID-13278fd543,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-016,Can you look up the expiration date for my points? Order ORD-ID-287f37c85d.,reward_expiry,ORD-ID-287f37c85d,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-017,My rewards balance shows points expiring; what is recorded? Order ORD-ID-e2399fc75a.,reward_expiry,ORD-ID-e2399fc75a,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-018,Please tell me if any points in my account are expiring. Order ORD-ID-548778ec2a.,reward_expiry,ORD-ID-548778ec2a,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-019,When will my reward points expire? Order ORD-ID-df73f0c979.,reward_expiry,ORD-ID-df73f0c979,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-020,I think some points are about to expire; please check the ledger. Order ORD-ID-c77c0c07b0.,reward_expiry,ORD-ID-c77c0c07b0,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-021,Which of my loyalty points are due to expire soon? Order ORD-ID-b038dbeb70.,reward_expiry,ORD-ID-b038dbeb70,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-022,Can you look up the expiration date for my points? Order ORD-ID-4a00c42aa8.,reward_expiry,ORD-ID-4a00c42aa8,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-023,My rewards balance shows points expiring; what is recorded? Order ORD-ID-9c07956d06.,reward_expiry,ORD-ID-9c07956d06,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-024,Please tell me if any points in my account are expiring. Order ORD-ID-022d195439.,reward_expiry,ORD-ID-022d195439,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-025,When will my reward points expire? Order ORD-ID-67a03360dd.,reward_expiry,ORD-ID-67a03360dd,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-026,I think some points are about to expire; please check the ledger. Order ORD-ID-e55c136e43.,reward_expiry,ORD-ID-e55c136e43,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-027,Which of my loyalty points are due to expire soon? Order ORD-ID-b2d5fe6b22.,reward_expiry,ORD-ID-b2d5fe6b22,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-028,Can you look up the expiration date for my points? Order ORD-ID-63f581c4a3.,reward_expiry,ORD-ID-63f581c4a3,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-029,My rewards balance shows points expiring; what is recorded? Order ORD-ID-9b23297c4d.,reward_expiry,ORD-ID-9b23297c4d,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-030,Please tell me if any points in my account are expiring. Order ORD-ID-2bcf13e049.,reward_expiry,ORD-ID-2bcf13e049,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-031,When will my reward points expire? Order ORD-ID-f450bdc6e0.,reward_expiry,ORD-ID-f450bdc6e0,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-032,I think some points are about to expire; please check the ledger. Order ORD-ID-16fbd41a1e.,reward_expiry,ORD-ID-16fbd41a1e,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-033,Which of my loyalty points are due to expire soon? Order ORD-ID-39611e5532.,reward_expiry,ORD-ID-39611e5532,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-034,Can you look up the expiration date for my points? Order ORD-ID-bb011803a1.,reward_expiry,ORD-ID-bb011803a1,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-035,My rewards balance shows points expiring; what is recorded? Order ORD-ID-cbe8bb7f78.,reward_expiry,ORD-ID-cbe8bb7f78,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-036,Please tell me if any points in my account are expiring. Order ORD-ID-e6c8c6770f.,reward_expiry,ORD-ID-e6c8c6770f,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-037,When will my reward points expire? Order ORD-ID-599d63c805.,reward_expiry,ORD-ID-599d63c805,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-038,I think some points are about to expire; please check the ledger. Order ORD-ID-c19b1255f9.,reward_expiry,ORD-ID-c19b1255f9,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-039,Which of my loyalty points are due to expire soon? Order ORD-ID-b0c07ac95d.,reward_expiry,ORD-ID-b0c07ac95d,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-040,Can you look up the expiration date for my points? Order ORD-ID-4ae1fa3770.,reward_expiry,ORD-ID-4ae1fa3770,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-041,My rewards balance shows points expiring; what is recorded? Order ORD-ID-7e46855b64.,reward_expiry,ORD-ID-7e46855b64,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-042,Please tell me if any points in my account are expiring. Order ORD-ID-593d1d7587.,reward_expiry,ORD-ID-593d1d7587,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-043,When will my reward points expire? Order ORD-ID-c33255feec.,reward_expiry,ORD-ID-c33255feec,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-044,I think some points are about to expire; please check the ledger. Order ORD-ID-d207cbab50.,reward_expiry,ORD-ID-d207cbab50,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-045,Which of my loyalty points are due to expire soon? Order ORD-ID-ead039e00f.,reward_expiry,ORD-ID-ead039e00f,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-046,Can you look up the expiration date for my points? Order ORD-ID-c22e2aa13e.,reward_expiry,ORD-ID-c22e2aa13e,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-047,My rewards balance shows points expiring; what is recorded? Order ORD-ID-46a35d7c1b.,reward_expiry,ORD-ID-46a35d7c1b,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-048,Please tell me if any points in my account are expiring. Order ORD-ID-4129f45e26.,reward_expiry,ORD-ID-4129f45e26,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-049,When will my reward points expire? Order ORD-ID-5a72d28610.,reward_expiry,ORD-ID-5a72d28610,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-050,I think some points are about to expire; please check the ledger. Order ORD-ID-622543e461.,reward_expiry,ORD-ID-622543e461,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-051,Which of my loyalty points are due to expire soon? Order ORD-ID-7d4cd5458f.,reward_expiry,ORD-ID-7d4cd5458f,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-052,Can you look up the expiration date for my points? Order ORD-ID-c2add62e28.,reward_expiry,ORD-ID-c2add62e28,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-053,My rewards balance shows points expiring; what is recorded? Order ORD-ID-66441a1e9b.,reward_expiry,ORD-ID-66441a1e9b,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-054,Please tell me if any points in my account are expiring. Order ORD-ID-57a347b11c.,reward_expiry,ORD-ID-57a347b11c,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-055,When will my reward points expire? Order ORD-ID-0256dd17a2.,reward_expiry,ORD-ID-0256dd17a2,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-056,I think some points are about to expire; please check the ledger. Order ORD-ID-6f204048c4.,reward_expiry,ORD-ID-6f204048c4,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-057,Which of my loyalty points are due to expire soon? Order ORD-ID-e82b25f07a.,reward_expiry,ORD-ID-e82b25f07a,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-058,Can you look up the expiration date for my points? Order ORD-ID-e7ed36be7b.,reward_expiry,ORD-ID-e7ed36be7b,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-059,My rewards balance shows points expiring; what is recorded? Order ORD-ID-b7f47e3a94.,reward_expiry,ORD-ID-b7f47e3a94,read_expiry_events_and_escalate_policy_questions
+T-CTX-EXP-060,Please tell me if any points in my account are expiring. Order ORD-ID-f7de55bd9c.,reward_expiry,ORD-ID-f7de55bd9c,read_expiry_events_and_escalate_policy_questions
+T-CTX-RED-001,My reward redemption is not showing in the account. Order ORD-ID-17a5cde10d.,reward_redemption,ORD-ID-17a5cde10d,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-002,Please check the recorded status of my rewards redemption. Order ORD-ID-b9815482b2.,reward_redemption,ORD-ID-b9815482b2,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-003,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-7a9577aa06.,reward_redemption,ORD-ID-7a9577aa06,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-004,"Can I use points for this reward, and what does the policy say? Order ORD-ID-a318f3f692.",reward_redemption,ORD-ID-a318f3f692,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-005,The reward I selected has not appeared in my account. Order ORD-ID-59a4758625.,reward_redemption,ORD-ID-59a4758625,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-006,I need help checking a points redemption. Order ORD-ID-c3e395b42e.,reward_redemption,ORD-ID-c3e395b42e,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-007,My reward redemption is not showing in the account. Order ORD-ID-03978d78df.,reward_redemption,ORD-ID-03978d78df,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-008,Please check the recorded status of my rewards redemption. Order ORD-ID-bd51b9ede0.,reward_redemption,ORD-ID-bd51b9ede0,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-009,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-060d207ce9.,reward_redemption,ORD-ID-060d207ce9,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-010,"Can I use points for this reward, and what does the policy say? Order ORD-ID-89bfa3cc1f.",reward_redemption,ORD-ID-89bfa3cc1f,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-011,The reward I selected has not appeared in my account. Order ORD-ID-e8e19b6c29.,reward_redemption,ORD-ID-e8e19b6c29,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-012,I need help checking a points redemption. Order ORD-ID-3a71165667.,reward_redemption,ORD-ID-3a71165667,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-013,My reward redemption is not showing in the account. Order ORD-ID-364e77576c.,reward_redemption,ORD-ID-364e77576c,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-014,Please check the recorded status of my rewards redemption. Order ORD-ID-7460cfd5db.,reward_redemption,ORD-ID-7460cfd5db,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-015,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-b34e22b066.,reward_redemption,ORD-ID-b34e22b066,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-016,"Can I use points for this reward, and what does the policy say? Order ORD-ID-d197a51beb.",reward_redemption,ORD-ID-d197a51beb,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-017,The reward I selected has not appeared in my account. Order ORD-ID-0eb7edad75.,reward_redemption,ORD-ID-0eb7edad75,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-018,I need help checking a points redemption. Order ORD-ID-da968bac63.,reward_redemption,ORD-ID-da968bac63,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-019,My reward redemption is not showing in the account. Order ORD-ID-7be90d2012.,reward_redemption,ORD-ID-7be90d2012,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-020,Please check the recorded status of my rewards redemption. Order ORD-ID-e8627ec824.,reward_redemption,ORD-ID-e8627ec824,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-021,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-bfc7db7641.,reward_redemption,ORD-ID-bfc7db7641,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-022,"Can I use points for this reward, and what does the policy say? Order ORD-ID-32a33c9bc1.",reward_redemption,ORD-ID-32a33c9bc1,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-023,The reward I selected has not appeared in my account. Order ORD-ID-80aaf050d8.,reward_redemption,ORD-ID-80aaf050d8,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-024,I need help checking a points redemption. Order ORD-ID-714e008c15.,reward_redemption,ORD-ID-714e008c15,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-025,My reward redemption is not showing in the account. Order ORD-ID-e65f13ef0d.,reward_redemption,ORD-ID-e65f13ef0d,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-026,Please check the recorded status of my rewards redemption. Order ORD-ID-41d8ca15c2.,reward_redemption,ORD-ID-41d8ca15c2,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-027,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-0954e0aa02.,reward_redemption,ORD-ID-0954e0aa02,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-028,"Can I use points for this reward, and what does the policy say? Order ORD-ID-24cc0454fe.",reward_redemption,ORD-ID-24cc0454fe,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-029,The reward I selected has not appeared in my account. Order ORD-ID-3fcb8ffc10.,reward_redemption,ORD-ID-3fcb8ffc10,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-030,I need help checking a points redemption. Order ORD-ID-6173bf4a88.,reward_redemption,ORD-ID-6173bf4a88,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-031,My reward redemption is not showing in the account. Order ORD-ID-83dfc9d451.,reward_redemption,ORD-ID-83dfc9d451,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-032,Please check the recorded status of my rewards redemption. Order ORD-ID-3055ea4b07.,reward_redemption,ORD-ID-3055ea4b07,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-033,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-9118aef33f.,reward_redemption,ORD-ID-9118aef33f,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-034,"Can I use points for this reward, and what does the policy say? Order ORD-ID-d38741a473.",reward_redemption,ORD-ID-d38741a473,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-035,The reward I selected has not appeared in my account. Order ORD-ID-6ce80ce3d4.,reward_redemption,ORD-ID-6ce80ce3d4,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-036,I need help checking a points redemption. Order ORD-ID-315b578b24.,reward_redemption,ORD-ID-315b578b24,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-037,My reward redemption is not showing in the account. Order ORD-ID-9f2c631bea.,reward_redemption,ORD-ID-9f2c631bea,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-038,Please check the recorded status of my rewards redemption. Order ORD-ID-fa606988aa.,reward_redemption,ORD-ID-fa606988aa,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-039,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-1ad804fc90.,reward_redemption,ORD-ID-1ad804fc90,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-040,"Can I use points for this reward, and what does the policy say? Order ORD-ID-9885c81789.",reward_redemption,ORD-ID-9885c81789,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-041,The reward I selected has not appeared in my account. Order ORD-ID-56cd6664a8.,reward_redemption,ORD-ID-56cd6664a8,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-042,I need help checking a points redemption. Order ORD-ID-53d6a3a148.,reward_redemption,ORD-ID-53d6a3a148,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-043,My reward redemption is not showing in the account. Order ORD-ID-0207efc03c.,reward_redemption,ORD-ID-0207efc03c,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-044,Please check the recorded status of my rewards redemption. Order ORD-ID-2d98e9ae6a.,reward_redemption,ORD-ID-2d98e9ae6a,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-045,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-185c8c5611.,reward_redemption,ORD-ID-185c8c5611,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-046,"Can I use points for this reward, and what does the policy say? Order ORD-ID-862f907a57.",reward_redemption,ORD-ID-862f907a57,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-047,The reward I selected has not appeared in my account. Order ORD-ID-13b51add3a.,reward_redemption,ORD-ID-13b51add3a,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-048,I need help checking a points redemption. Order ORD-ID-2fec15a806.,reward_redemption,ORD-ID-2fec15a806,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-049,My reward redemption is not showing in the account. Order ORD-ID-e70d3c51a1.,reward_redemption,ORD-ID-e70d3c51a1,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-050,Please check the recorded status of my rewards redemption. Order ORD-ID-69bbd84450.,reward_redemption,ORD-ID-69bbd84450,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-051,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-320e2ad550.,reward_redemption,ORD-ID-320e2ad550,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-052,"Can I use points for this reward, and what does the policy say? Order ORD-ID-919b8cf526.",reward_redemption,ORD-ID-919b8cf526,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-053,The reward I selected has not appeared in my account. Order ORD-ID-4456446c25.,reward_redemption,ORD-ID-4456446c25,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-054,I need help checking a points redemption. Order ORD-ID-3687e68267.,reward_redemption,ORD-ID-3687e68267,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-055,My reward redemption is not showing in the account. Order ORD-ID-ec900a8ed1.,reward_redemption,ORD-ID-ec900a8ed1,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-056,Please check the recorded status of my rewards redemption. Order ORD-ID-347e2a17d6.,reward_redemption,ORD-ID-347e2a17d6,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-057,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-c4b87a54cb.,reward_redemption,ORD-ID-c4b87a54cb,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-058,"Can I use points for this reward, and what does the policy say? Order ORD-ID-77da22b2b7.",reward_redemption,ORD-ID-77da22b2b7,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-059,The reward I selected has not appeared in my account. Order ORD-ID-6fe7177258.,reward_redemption,ORD-ID-6fe7177258,read_redemption_status_and_escalate_eligibility
+T-CTX-RED-060,I need help checking a points redemption. Order ORD-ID-eae87a16c5.,reward_redemption,ORD-ID-eae87a16c5,read_redemption_status_and_escalate_eligibility

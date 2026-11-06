@@ -1,0 +1,1001 @@
+customer_id,full_name,email,city,state,preferred_language,loyalty_tier,customer_segment,account_created_date
+CUS-8516C1E29C,Neha Sinha,neha.sinha.8516@customers.example,Nagpur,Maharashtra,English,premium,business,2026-03-07
+CUS-A0AB74C303,Akash Reddy,akash.reddy.a0ab@customers.example,Bengaluru,Karnataka,Malayalam,standard,business,2026-03-14
+CUS-A0E6203664,Dev Reddy,dev.reddy.a0e6@customers.example,Bengaluru,Karnataka,Malayalam,plus,seasonal,2026-04-26
+CUS-77A1CF4A16,Aisha Pillai,aisha.pillai.77a1@customers.example,Nagpur,Maharashtra,Tamil,premium,new,2026-01-12
+CUS-9D5E783144,Kabir Iyer,kabir.iyer.9d5e@customers.example,Mysuru,Karnataka,Kannada,premium,frequent,2026-04-02
+CUS-0065D80588,Vihaan Nair,vihaan.nair.0065@customers.example,Chennai,Tamil Nadu,Hindi,standard,seasonal,2026-03-27
+CUS-92B8EEDB8C,Aisha Chatterjee,aisha.chatterjee.92b8@customers.example,Lucknow,Uttar Pradesh,Telugu,standard,new,2026-01-21
+CUS-D945E69ABB,Rhea Pandey,rhea.pandey.d945@customers.example,Coimbatore,Tamil Nadu,Marathi,standard,business,2026-04-06
+CUS-1490B2C1FD,Tanvi Gupta,tanvi.gupta.1490@customers.example,Indore,Madhya Pradesh,Marathi,plus,business,2026-02-06
+CUS-899A9EE89D,Diya Verma,diya.verma.899a@customers.example,Mysuru,Karnataka,Telugu,premium,new,2026-01-10
+CUS-8F7EFCBD13,Zara Mishra,zara.mishra.8f7e@customers.example,Indore,Madhya Pradesh,English,plus,new,2026-01-15
+CUS-892F4D11E9,Ishita Jain,ishita.jain.892f@customers.example,Chandigarh,Chandigarh,Telugu,standard,returning,2026-01-24
+CUS-7DEB538480,Farhan Shukla,farhan.shukla.7deb@customers.example,Pune,Maharashtra,Hindi,standard,frequent,2026-08-10
+CUS-63E095A644,Sameer Iyer,sameer.iyer.63e0@customers.example,Delhi,Delhi,Hindi,plus,returning,2026-07-02
+CUS-C18666EFAC,Dev Kumar,dev.kumar.c186@customers.example,Delhi,Delhi,Bengali,standard,business,2026-03-30
+CUS-2111EBB7F1,Sana Singh,sana.singh.2111@customers.example,Jaipur,Rajasthan,Kannada,plus,new,2026-05-05
+CUS-CFB017353A,Ira Goswami,ira.goswami.cfb0@customers.example,Pune,Maharashtra,Tamil,standard,new,2026-01-27
+CUS-3CB22AEC59,Maya Desai,maya.desai.3cb2@customers.example,Lucknow,Uttar Pradesh,Malayalam,premium,seasonal,2026-06-26
+CUS-F0E5CDF843,Tanvi Chatterjee,tanvi.chatterjee.f0e5@customers.example,Lucknow,Uttar Pradesh,Hindi,standard,business,2026-02-10
+CUS-E8E79C1A8E,Akash Desai,akash.desai.e8e7@customers.example,Guwahati,Assam,Gujarati,standard,returning,2026-02-28
+CUS-C4A3F2CEC7,Diya Kumar,diya.kumar.c4a3@customers.example,Nagpur,Maharashtra,Marathi,plus,new,2026-01-06
+CUS-56D9ED0D9E,Harsh Kumar,harsh.kumar.56d9@customers.example,Chennai,Tamil Nadu,Odia,plus,returning,2026-01-05
+CUS-D660DE750E,Meera Saxena,meera.saxena.d660@customers.example,Bhubaneswar,Odisha,Kannada,plus,returning,2026-01-17
+CUS-894A8FB455,Rohan Chatterjee,rohan.chatterjee.894a@customers.example,Lucknow,Uttar Pradesh,Gujarati,plus,returning,2026-04-25
+CUS-2CAB2BB716,Siddharth Dutta,siddharth.dutta.2cab@customers.example,Pune,Maharashtra,Kannada,standard,returning,2026-01-21
+CUS-1137131684,Kavya Sinha,kavya.sinha.1137@customers.example,Kolkata,West Bengal,Bengali,standard,business,2026-03-30
+CUS-7365B4E67A,Nikhil Kumar,nikhil.kumar.7365@customers.example,Kochi,Kerala,Odia,standard,seasonal,2026-05-14
+CUS-6EEC7F7CFD,Siddharth Sinha,siddharth.sinha.6eec@customers.example,Patna,Bihar,Kannada,standard,returning,2026-07-10
+CUS-592619DAC4,Vidya Khan,vidya.khan.5926@customers.example,Chennai,Tamil Nadu,Gujarati,plus,frequent,2026-08-06
+CUS-7EAD6B9FFC,Deepak Sinha,deepak.sinha.7ead@customers.example,Bengaluru,Karnataka,Malayalam,standard,returning,2026-01-09
+CUS-5AAAD3ECD6,Anika Saxena,anika.saxena.5aaa@customers.example,Bhubaneswar,Odisha,Kannada,standard,returning,2026-04-02
+CUS-C82151C8D4,Aarav Reddy,aarav.reddy.c821@customers.example,Nagpur,Maharashtra,Malayalam,standard,new,2026-01-10
+CUS-070AEACC4C,Sana Mukherjee,sana.mukherjee.070a@customers.example,Mumbai,Maharashtra,Telugu,premium,returning,2026-01-03
+CUS-160BD34B5B,Tara Rao,tara.rao.160b@customers.example,Chennai,Tamil Nadu,Odia,standard,business,2026-07-27
+CUS-6564153B5C,Anika Verma,anika.verma.6564@customers.example,Hyderabad,Telangana,Kannada,premium,returning,2026-03-25
+CUS-BCF1F31AA9,Meera Joshi,meera.joshi.bcf1@customers.example,Lucknow,Uttar Pradesh,Hindi,standard,seasonal,2026-01-21
+CUS-40FABDEC66,Rhea Shukla,rhea.shukla.40fa@customers.example,Hyderabad,Telangana,Odia,plus,new,2026-02-06
+CUS-94DD52242B,Aryan Saxena,aryan.saxena.94dd@customers.example,Jaipur,Rajasthan,Odia,standard,new,2026-06-05
+CUS-B2BB3AA4A0,Tara Singh,tara.singh.b2bb@customers.example,Pune,Maharashtra,Malayalam,standard,returning,2026-01-03
+CUS-86E6FE07B6,Aryan Sen,aryan.sen.86e6@customers.example,Hyderabad,Telangana,Telugu,plus,seasonal,2026-04-19
+CUS-04218004FE,Arjun Das,arjun.das.0421@customers.example,Chennai,Tamil Nadu,Gujarati,plus,returning,2026-06-30
+CUS-CBAB9C539C,Manish Shukla,manish.shukla.cbab@customers.example,Hyderabad,Telangana,Hindi,standard,new,2026-06-29
+CUS-68EDD1F2E3,Anika Chauhan,anika.chauhan.68ed@customers.example,Visakhapatnam,Andhra Pradesh,Hindi,standard,frequent,2026-05-05
+CUS-9721357520,Vihaan Banerjee,vihaan.banerjee.9721@customers.example,Kolkata,West Bengal,Telugu,premium,frequent,2026-04-29
+CUS-2B89C29412,Rohan Joshi,rohan.joshi.2b89@customers.example,Kolkata,West Bengal,Malayalam,plus,returning,2026-03-02
+CUS-4B03F22BFA,Ira Chauhan,ira.chauhan.4b03@customers.example,Indore,Madhya Pradesh,Malayalam,plus,seasonal,2026-01-07
+CUS-AA452ED0C0,Rishi Mehta,rishi.mehta.aa45@customers.example,Ahmedabad,Gujarat,English,plus,returning,2026-01-31
+CUS-DC2000E942,Sameer Mehta,sameer.mehta.dc20@customers.example,Chandigarh,Chandigarh,Telugu,plus,business,2026-01-20
+CUS-7F21212357,Zoya Mukherjee,zoya.mukherjee.7f21@customers.example,Ahmedabad,Gujarat,English,standard,frequent,2026-04-27
+CUS-FA4DB4F682,Arjun Sharma,arjun.sharma.fa4d@customers.example,Bengaluru,Karnataka,Bengali,plus,seasonal,2026-01-29
+CUS-EC2DF2E081,Priya Sinha,priya.sinha.ec2d@customers.example,Ahmedabad,Gujarat,Kannada,standard,returning,2026-06-07
+CUS-A6E014144E,Yash Singh,yash.singh.a6e0@customers.example,Patna,Bihar,Hindi,plus,new,2026-03-08
+CUS-DE72C7902B,Arjun Mehta,arjun.mehta.de72@customers.example,Chandigarh,Chandigarh,Odia,standard,business,2026-05-04
+CUS-D300241904,Neha Mehta,neha.mehta.d300@customers.example,Mysuru,Karnataka,Gujarati,plus,new,2026-07-10
+CUS-89FCD7679A,Karan Bhat,karan.bhat.89fc@customers.example,Delhi,Delhi,Tamil,standard,frequent,2026-01-30
+CUS-31F7CF682E,Sakshi Goswami,sakshi.goswami.31f7@customers.example,Bhubaneswar,Odisha,Hindi,standard,new,2026-02-20
+CUS-62501B6741,Harsh Reddy,harsh.reddy.6250@customers.example,Kochi,Kerala,Gujarati,standard,business,2026-02-24
+CUS-C9AF2A5717,Rohan Mishra,rohan.mishra.c9af@customers.example,Surat,Gujarat,Marathi,standard,frequent,2026-01-09
+CUS-E60AAE04F4,Varun Shukla,varun.shukla.e60a@customers.example,Jaipur,Rajasthan,Telugu,standard,business,2026-01-09
+CUS-A8243D8BB2,Kabir Kumar,kabir.kumar.a824@customers.example,Ahmedabad,Gujarat,English,plus,business,2026-03-25
+CUS-BBE27EE4F8,Zara Dutta,zara.dutta.bbe2@customers.example,Chandigarh,Chandigarh,Bengali,premium,business,2026-05-28
+CUS-ACC3269AFD,Vihaan Yadav,vihaan.yadav.acc3@customers.example,Jaipur,Rajasthan,Kannada,standard,new,2026-01-15
+CUS-7331E38476,Ishaan Kapoor,ishaan.kapoor.7331@customers.example,Guwahati,Assam,English,plus,frequent,2026-03-01
+CUS-0773B22EA8,Chetan Reddy,chetan.reddy.0773@customers.example,Visakhapatnam,Andhra Pradesh,Gujarati,standard,returning,2026-01-15
+CUS-E4EDFB5542,Sakshi Nair,sakshi.nair.e4ed@customers.example,Indore,Madhya Pradesh,Malayalam,standard,frequent,2026-03-01
+CUS-6F5E908E71,Zara Mukherjee,zara.mukherjee.6f5e@customers.example,Hyderabad,Telangana,Marathi,standard,frequent,2026-05-28
+CUS-1963CB5FBF,Kavya Pandey,kavya.pandey.1963@customers.example,Ahmedabad,Gujarat,Odia,standard,seasonal,2026-02-07
+CUS-F28AE27B16,Kritika Saxena,kritika.saxena.f28a@customers.example,Surat,Gujarat,Marathi,standard,new,2026-02-14
+CUS-72BD260944,Rahul Chatterjee,rahul.chatterjee.72bd@customers.example,Coimbatore,Tamil Nadu,Bengali,premium,new,2026-03-19
+CUS-1F7B342C3F,Vihaan Dutta,vihaan.dutta.1f7b@customers.example,Nagpur,Maharashtra,Bengali,plus,business,2026-02-22
+CUS-A4248A6E67,Rahul Goswami,rahul.goswami.a424@customers.example,Hyderabad,Telangana,Gujarati,standard,returning,2026-01-24
+CUS-F0AF47B5AF,Rahul Chopra,rahul.chopra.f0af@customers.example,Delhi,Delhi,English,plus,new,2026-03-14
+CUS-E4432F2F58,Tara Trivedi,tara.trivedi.e443@customers.example,Indore,Madhya Pradesh,Telugu,premium,new,2026-04-23
+CUS-2303A4686E,Siddharth Dutta,siddharth.dutta.2303@customers.example,Patna,Bihar,Hindi,plus,frequent,2026-01-09
+CUS-E013D9D268,Nikhil Desai,nikhil.desai.e013@customers.example,Chandigarh,Chandigarh,English,standard,new,2026-03-24
+CUS-2CBE3FC73A,Deepak Aggarwal,deepak.aggarwal.2cbe@customers.example,Chandigarh,Chandigarh,Gujarati,standard,new,2026-05-29
+CUS-D279B55E0B,Aryan Gupta,aryan.gupta.d279@customers.example,Bhubaneswar,Odisha,Malayalam,plus,new,2026-01-17
+CUS-78F83A2584,Gaurav Venkatesh,gaurav.venkatesh.78f8@customers.example,Surat,Gujarat,Telugu,plus,new,2026-02-19
+CUS-FE221C684D,Aditi Gupta,aditi.gupta.fe22@customers.example,Nagpur,Maharashtra,Marathi,standard,business,2026-01-01
+CUS-C45DDF9F33,Anika Das,anika.das.c45d@customers.example,Pune,Maharashtra,Malayalam,premium,business,2026-02-07
+CUS-F817660A53,Rahul Shah,rahul.shah.f817@customers.example,Indore,Madhya Pradesh,Telugu,plus,new,2026-01-16
+CUS-4594F137A9,Gaurav Singh,gaurav.singh.4594@customers.example,Bengaluru,Karnataka,Hindi,standard,returning,2026-04-27
+CUS-D8FBA95486,Rahul Shukla,rahul.shukla.d8fb@customers.example,Mysuru,Karnataka,Kannada,premium,seasonal,2026-05-29
+CUS-44821B96D6,Tara Trivedi,tara.trivedi.4482@customers.example,Dehradun,Uttarakhand,Malayalam,standard,returning,2026-07-11
+CUS-76309C556E,Zoya Bhat,zoya.bhat.7630@customers.example,Chennai,Tamil Nadu,Hindi,standard,returning,2026-05-28
+CUS-36B6738170,Dev Pandey,dev.pandey.36b6@customers.example,Nagpur,Maharashtra,Gujarati,plus,frequent,2026-05-29
+CUS-0200FE6E97,Karan Gupta,karan.gupta.0200@customers.example,Bengaluru,Karnataka,Marathi,standard,seasonal,2026-01-05
+CUS-8AEEDA0C40,Aryan Saxena,aryan.saxena.8aee@customers.example,Mumbai,Maharashtra,Hindi,plus,frequent,2026-01-27
+CUS-9A6589019B,Ananya Iyer,ananya.iyer.9a65@customers.example,Ahmedabad,Gujarat,English,standard,new,2026-03-11
+CUS-F9A99C77F5,Aryan Iyer,aryan.iyer.f9a9@customers.example,Indore,Madhya Pradesh,Marathi,plus,seasonal,2026-01-04
+CUS-D1B35C811E,Diya Aggarwal,diya.aggarwal.d1b3@customers.example,Bhubaneswar,Odisha,Marathi,plus,seasonal,2026-03-28
+CUS-1D20C221AE,Harsh Kumar,harsh.kumar.1d20@customers.example,Kolkata,West Bengal,Kannada,standard,business,2026-03-27
+CUS-C32A4E944B,Ira Rao,ira.rao.c32a@customers.example,Kolkata,West Bengal,Telugu,plus,frequent,2026-01-06
+CUS-25D22023A0,Shreya Singh,shreya.singh.25d2@customers.example,Mysuru,Karnataka,Malayalam,standard,seasonal,2026-06-11
+CUS-5A9976693C,Divya Chatterjee,divya.chatterjee.5a99@customers.example,Hyderabad,Telangana,Gujarati,standard,seasonal,2026-01-13
+CUS-7AC3C13205,Aryan Reddy,aryan.reddy.7ac3@customers.example,Lucknow,Uttar Pradesh,Telugu,standard,returning,2026-02-12
+CUS-7885DD3934,Pooja Sinha,pooja.sinha.7885@customers.example,Surat,Gujarat,Bengali,premium,new,2026-04-16
+CUS-78A16768F2,Maya Kulkarni,maya.kulkarni.78a1@customers.example,Patna,Bihar,Hindi,standard,returning,2026-04-11
+CUS-DBF3227B4F,Varun Venkatesh,varun.venkatesh.dbf3@customers.example,Kochi,Kerala,Odia,standard,frequent,2026-04-04
+CUS-0844BCE290,Anika Das,anika.das.0844@customers.example,Nagpur,Maharashtra,Hindi,plus,returning,2026-02-15
+CUS-5497B16161,Pooja Jain,pooja.jain.5497@customers.example,Chandigarh,Chandigarh,Malayalam,standard,seasonal,2026-04-15
+CUS-54336CA32D,Rhea Khan,rhea.khan.5433@customers.example,Mumbai,Maharashtra,Bengali,premium,returning,2026-07-30
+CUS-171A5413BD,Divya Chopra,divya.chopra.171a@customers.example,Jaipur,Rajasthan,English,plus,seasonal,2026-01-06
+CUS-2F6AA3F207,Gaurav Iyer,gaurav.iyer.2f6a@customers.example,Ahmedabad,Gujarat,Kannada,standard,returning,2026-06-03
+CUS-1FB7A32DC8,Nikhil Sen,nikhil.sen.1fb7@customers.example,Bengaluru,Karnataka,Kannada,premium,new,2026-05-24
+CUS-CF1F32F693,Tanvi Pandey,tanvi.pandey.cf1f@customers.example,Jaipur,Rajasthan,Tamil,plus,seasonal,2026-03-21
+CUS-F3B965EB0B,Aditi Saxena,aditi.saxena.f3b9@customers.example,Mysuru,Karnataka,English,plus,business,2026-02-12
+CUS-1B099ED3E4,Maya Goswami,maya.goswami.1b09@customers.example,Bengaluru,Karnataka,Bengali,standard,business,2026-08-21
+CUS-649EDD0101,Yash Bhat,yash.bhat.649e@customers.example,Chandigarh,Chandigarh,Telugu,standard,new,2026-04-06
+CUS-381BCD3A8D,Ishaan Reddy,ishaan.reddy.381b@customers.example,Kolkata,West Bengal,Tamil,standard,business,2026-05-10
+CUS-725D180C38,Neha Venkatesh,neha.venkatesh.725d@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,standard,frequent,2026-07-23
+CUS-5F20A6EF6B,Kavya Chopra,kavya.chopra.5f20@customers.example,Bengaluru,Karnataka,Bengali,plus,business,2026-03-19
+CUS-51E7F152EE,Vihaan Singh,vihaan.singh.51e7@customers.example,Mysuru,Karnataka,Bengali,plus,seasonal,2026-01-15
+CUS-4A2D634D8E,Ishita Chopra,ishita.chopra.4a2d@customers.example,Patna,Bihar,Odia,standard,seasonal,2026-04-24
+CUS-2FBA389F7A,Anika Desai,anika.desai.2fba@customers.example,Delhi,Delhi,English,standard,seasonal,2026-01-19
+CUS-4913AA3E85,Zoya Bhat,zoya.bhat.4913@customers.example,Bengaluru,Karnataka,Hindi,plus,new,2026-01-14
+CUS-B48D13CF15,Ishaan Reddy,ishaan.reddy.b48d@customers.example,Mysuru,Karnataka,Marathi,premium,new,2026-07-04
+CUS-C3819E272D,Ananya Jain,ananya.jain.c381@customers.example,Hyderabad,Telangana,Malayalam,premium,frequent,2026-06-29
+CUS-6D85F1AE8B,Varun Pandey,varun.pandey.6d85@customers.example,Jaipur,Rajasthan,Telugu,standard,new,2026-01-16
+CUS-5DA51ECE61,Karan Seth,karan.seth.5da5@customers.example,Mumbai,Maharashtra,Malayalam,plus,business,2026-03-22
+CUS-C14BF05C06,Karan Bhat,karan.bhat.c14b@customers.example,Guwahati,Assam,Marathi,premium,new,2026-01-04
+CUS-054CC33465,Sakshi Rao,sakshi.rao.054c@customers.example,Pune,Maharashtra,Tamil,premium,seasonal,2026-06-16
+CUS-649CE35999,Kabir Yadav,kabir.yadav.649c@customers.example,Chennai,Tamil Nadu,Tamil,standard,returning,2026-01-02
+CUS-79FDCEC86E,Bhavya Sinha,bhavya.sinha.79fd@customers.example,Surat,Gujarat,Odia,premium,returning,2026-06-14
+CUS-0EBBD92EF5,Sakshi Shukla,sakshi.shukla.0ebb@customers.example,Kochi,Kerala,Hindi,standard,seasonal,2026-04-12
+CUS-3EE4A1BD87,Farhan Dutta,farhan.dutta.3ee4@customers.example,Dehradun,Uttarakhand,Kannada,standard,seasonal,2026-03-02
+CUS-86CB51B6AD,Sana Sinha,sana.sinha.86cb@customers.example,Chandigarh,Chandigarh,Gujarati,premium,returning,2026-03-01
+CUS-EF3BD88CF9,Sameer Banerjee,sameer.banerjee.ef3b@customers.example,Pune,Maharashtra,Kannada,plus,new,2026-02-12
+CUS-7D6EBBFABC,Diya Chauhan,diya.chauhan.7d6e@customers.example,Visakhapatnam,Andhra Pradesh,Hindi,standard,business,2026-04-27
+CUS-350278FBE4,Sakshi Kapoor,sakshi.kapoor.3502@customers.example,Delhi,Delhi,Marathi,plus,new,2026-09-30
+CUS-9728D579C3,Ishaan Mukherjee,ishaan.mukherjee.9728@customers.example,Ahmedabad,Gujarat,Kannada,plus,frequent,2026-02-17
+CUS-CDE4C02C4A,Ishaan Gupta,ishaan.gupta.cde4@customers.example,Delhi,Delhi,Gujarati,premium,seasonal,2026-03-31
+CUS-FC7196DD24,Kabir Khan,kabir.khan.fc71@customers.example,Delhi,Delhi,Bengali,premium,seasonal,2026-02-11
+CUS-5D2BA4749D,Neha Mehta,neha.mehta.5d2b@customers.example,Guwahati,Assam,Odia,plus,new,2026-01-04
+CUS-9A0C22647A,Siddharth Mishra,siddharth.mishra.9a0c@customers.example,Surat,Gujarat,Tamil,standard,returning,2026-01-03
+CUS-1784E00244,Farhan Reddy,farhan.reddy.1784@customers.example,Patna,Bihar,Tamil,standard,frequent,2026-03-20
+CUS-EFB22D4710,Farhan Das,farhan.das.efb2@customers.example,Lucknow,Uttar Pradesh,Hindi,premium,frequent,2026-02-08
+CUS-EE17568D4F,Aditya Jain,aditya.jain.ee17@customers.example,Hyderabad,Telangana,Odia,standard,new,2026-02-10
+CUS-7B385B814C,Diya Banerjee,diya.banerjee.7b38@customers.example,Patna,Bihar,English,plus,returning,2026-03-13
+CUS-6A67FB17BF,Deepak Kulkarni,deepak.kulkarni.6a67@customers.example,Indore,Madhya Pradesh,Marathi,standard,frequent,2026-09-28
+CUS-75E3ADF5D4,Siddharth Sinha,siddharth.sinha.75e3@customers.example,Mumbai,Maharashtra,English,premium,seasonal,2026-07-16
+CUS-CBAEEF542B,Rhea Mukherjee,rhea.mukherjee.cbae@customers.example,Ahmedabad,Gujarat,Gujarati,plus,returning,2026-01-02
+CUS-947B194ADB,Kritika Trivedi,kritika.trivedi.947b@customers.example,Nagpur,Maharashtra,Tamil,premium,seasonal,2026-01-07
+CUS-D3F0F08FA9,Ishaan Venkatesh,ishaan.venkatesh.d3f0@customers.example,Chandigarh,Chandigarh,Kannada,standard,new,2026-02-26
+CUS-44B5A9B30F,Shreya Shah,shreya.shah.44b5@customers.example,Kolkata,West Bengal,Tamil,standard,frequent,2026-01-01
+CUS-DE78A75FB4,Dev Kapoor,dev.kapoor.de78@customers.example,Kochi,Kerala,Gujarati,premium,new,2026-01-01
+CUS-7933A09A5C,Aisha Menon,aisha.menon.7933@customers.example,Dehradun,Uttarakhand,Malayalam,premium,returning,2026-01-20
+CUS-1046366A48,Chetan Seth,chetan.seth.1046@customers.example,Mysuru,Karnataka,Gujarati,plus,business,2026-08-05
+CUS-9D92F88FE7,Ira Gupta,ira.gupta.9d92@customers.example,Bengaluru,Karnataka,Bengali,plus,frequent,2026-05-30
+CUS-1DF3C7E88C,Chetan Aggarwal,chetan.aggarwal.1df3@customers.example,Dehradun,Uttarakhand,Gujarati,plus,seasonal,2026-01-29
+CUS-0B0B74871B,Harsh Menon,harsh.menon.0b0b@customers.example,Bengaluru,Karnataka,English,standard,frequent,2026-01-14
+CUS-76A70E4BCD,Dev Chauhan,dev.chauhan.76a7@customers.example,Guwahati,Assam,Gujarati,standard,returning,2026-01-18
+CUS-55AA255B26,Tara Jain,tara.jain.55aa@customers.example,Ahmedabad,Gujarat,Telugu,standard,new,2026-05-29
+CUS-83900AFD0F,Rhea Saxena,rhea.saxena.8390@customers.example,Jaipur,Rajasthan,Kannada,standard,business,2026-02-25
+CUS-BBDF437031,Ishaan Shah,ishaan.shah.bbdf@customers.example,Delhi,Delhi,Bengali,standard,seasonal,2026-06-30
+CUS-C53ED8AA8F,Siddharth Gupta,siddharth.gupta.c53e@customers.example,Surat,Gujarat,Kannada,plus,returning,2026-02-17
+CUS-C6D5572430,Chetan Patel,chetan.patel.c6d5@customers.example,Indore,Madhya Pradesh,Marathi,premium,frequent,2026-03-16
+CUS-D5F1079877,Ira Shah,ira.shah.d5f1@customers.example,Hyderabad,Telangana,Tamil,standard,business,2026-06-05
+CUS-E1769785F3,Ira Khan,ira.khan.e176@customers.example,Dehradun,Uttarakhand,Malayalam,standard,returning,2026-03-28
+CUS-E4F96DFE46,Ishita Seth,ishita.seth.e4f9@customers.example,Chennai,Tamil Nadu,Malayalam,standard,frequent,2026-06-19
+CUS-A648A3DB7D,Aditya Gupta,aditya.gupta.a648@customers.example,Bengaluru,Karnataka,Kannada,plus,frequent,2026-03-19
+CUS-42116787D8,Yash Rao,yash.rao.4211@customers.example,Patna,Bihar,English,premium,new,2026-09-03
+CUS-3192D3E9AA,Pooja Chatterjee,pooja.chatterjee.3192@customers.example,Patna,Bihar,Marathi,plus,new,2026-04-06
+CUS-05767F04FB,Bhavya Chatterjee,bhavya.chatterjee.0576@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,premium,frequent,2026-08-13
+CUS-4E5388861B,Shreya Verma,shreya.verma.4e53@customers.example,Chandigarh,Chandigarh,Telugu,plus,new,2026-04-25
+CUS-2B093BDA50,Sakshi Menon,sakshi.menon.2b09@customers.example,Pune,Maharashtra,Odia,standard,new,2026-06-22
+CUS-2FF298D318,Kritika Singh,kritika.singh.2ff2@customers.example,Hyderabad,Telangana,Telugu,standard,seasonal,2026-01-15
+CUS-674AAC1BAD,Sakshi Rao,sakshi.rao.674a@customers.example,Bhubaneswar,Odisha,Marathi,plus,new,2026-01-16
+CUS-A547AFD145,Kabir Iyer,kabir.iyer.a547@customers.example,Nagpur,Maharashtra,Hindi,plus,seasonal,2026-03-06
+CUS-0D1725F82B,Harsh Yadav,harsh.yadav.0d17@customers.example,Kolkata,West Bengal,Hindi,plus,returning,2026-03-25
+CUS-C63EE60033,Varun Joshi,varun.joshi.c63e@customers.example,Chandigarh,Chandigarh,Malayalam,standard,new,2026-04-24
+CUS-9CF99FAFB0,Bhavya Dutta,bhavya.dutta.9cf9@customers.example,Bengaluru,Karnataka,Kannada,standard,business,2026-04-10
+CUS-6BC2C6F453,Arjun Kumar,arjun.kumar.6bc2@customers.example,Kochi,Kerala,Gujarati,standard,frequent,2026-01-09
+CUS-9CDCC980B6,Sameer Goswami,sameer.goswami.9cdc@customers.example,Surat,Gujarat,Tamil,plus,new,2026-03-23
+CUS-AE8E0102C7,Bhavya Sharma,bhavya.sharma.ae8e@customers.example,Chennai,Tamil Nadu,Gujarati,plus,new,2026-08-29
+CUS-E58EFFE3E8,Neha Mukherjee,neha.mukherjee.e58e@customers.example,Delhi,Delhi,Hindi,standard,seasonal,2026-02-17
+CUS-9262491AD2,Chetan Bhat,chetan.bhat.9262@customers.example,Visakhapatnam,Andhra Pradesh,Tamil,premium,seasonal,2026-01-11
+CUS-C392A569B8,Meera Nair,meera.nair.c392@customers.example,Nagpur,Maharashtra,Gujarati,standard,new,2026-02-26
+CUS-E503E35294,Sana Shukla,sana.shukla.e503@customers.example,Ahmedabad,Gujarat,Bengali,plus,new,2026-07-29
+CUS-6ADBA41951,Chetan Das,chetan.das.6adb@customers.example,Jaipur,Rajasthan,Odia,standard,returning,2026-01-02
+CUS-1A57419921,Dev Chauhan,dev.chauhan.1a57@customers.example,Kochi,Kerala,Marathi,standard,returning,2026-05-04
+CUS-23BCDF0712,Aditya Sharma,aditya.sharma.23bc@customers.example,Surat,Gujarat,Tamil,standard,seasonal,2026-06-13
+CUS-7811B65292,Pranav Das,pranav.das.7811@customers.example,Mumbai,Maharashtra,Gujarati,standard,frequent,2026-01-03
+CUS-F4FF8813CB,Pooja Jain,pooja.jain.f4ff@customers.example,Hyderabad,Telangana,Odia,plus,seasonal,2026-04-28
+CUS-75D68B2191,Kabir Verma,kabir.verma.75d6@customers.example,Hyderabad,Telangana,Telugu,standard,business,2026-08-22
+CUS-F03E96EC96,Rhea Nair,rhea.nair.f03e@customers.example,Mysuru,Karnataka,Hindi,standard,frequent,2026-02-09
+CUS-20E2CDD19E,Varun Kapoor,varun.kapoor.20e2@customers.example,Bengaluru,Karnataka,Telugu,plus,new,2026-02-04
+CUS-746C80FAD7,Maya Reddy,maya.reddy.746c@customers.example,Patna,Bihar,Gujarati,standard,business,2026-03-20
+CUS-B710573D9E,Rhea Sen,rhea.sen.b710@customers.example,Chennai,Tamil Nadu,Tamil,standard,frequent,2026-06-22
+CUS-9C52707FD6,Sana Saxena,sana.saxena.9c52@customers.example,Patna,Bihar,Bengali,standard,returning,2026-03-03
+CUS-6901C8C175,Vidya Chatterjee,vidya.chatterjee.6901@customers.example,Lucknow,Uttar Pradesh,Tamil,standard,frequent,2026-01-26
+CUS-CF0DEF8472,Shreya Reddy,shreya.reddy.cf0d@customers.example,Coimbatore,Tamil Nadu,Malayalam,premium,returning,2026-05-24
+CUS-847EC3E9E9,Gaurav Seth,gaurav.seth.847e@customers.example,Indore,Madhya Pradesh,Odia,plus,returning,2026-02-16
+CUS-191C64E4D3,Rohan Mishra,rohan.mishra.191c@customers.example,Lucknow,Uttar Pradesh,English,standard,business,2026-01-01
+CUS-D8C87C7C06,Kavya Joshi,kavya.joshi.d8c8@customers.example,Chandigarh,Chandigarh,Marathi,plus,frequent,2026-01-22
+CUS-CAEE370FAC,Kabir Banerjee,kabir.banerjee.caee@customers.example,Guwahati,Assam,Kannada,standard,seasonal,2026-02-10
+CUS-CEBD970251,Rhea Das,rhea.das.cebd@customers.example,Pune,Maharashtra,Malayalam,standard,seasonal,2026-04-19
+CUS-AAA15F22CD,Aditya Mehta,aditya.mehta.aaa1@customers.example,Kochi,Kerala,Malayalam,premium,business,2026-01-30
+CUS-E80FDDFE6E,Akash Saxena,akash.saxena.e80f@customers.example,Coimbatore,Tamil Nadu,English,standard,frequent,2026-08-24
+CUS-28B91355D4,Ananya Aggarwal,ananya.aggarwal.28b9@customers.example,Dehradun,Uttarakhand,Marathi,plus,frequent,2026-01-01
+CUS-D3D1352334,Kavya Trivedi,kavya.trivedi.d3d1@customers.example,Patna,Bihar,Marathi,standard,frequent,2026-06-08
+CUS-7304A982D3,Chetan Gupta,chetan.gupta.7304@customers.example,Kochi,Kerala,English,plus,seasonal,2026-02-08
+CUS-21AB6348E0,Farhan Banerjee,farhan.banerjee.21ab@customers.example,Ahmedabad,Gujarat,Gujarati,standard,seasonal,2026-05-26
+CUS-74C01C8CC6,Priya Reddy,priya.reddy.74c0@customers.example,Chennai,Tamil Nadu,Malayalam,plus,returning,2026-04-03
+CUS-1EBC8D34E7,Sakshi Goswami,sakshi.goswami.1ebc@customers.example,Pune,Maharashtra,English,standard,business,2026-01-04
+CUS-01C9634CA7,Akash Reddy,akash.reddy.01c9@customers.example,Indore,Madhya Pradesh,English,plus,frequent,2026-04-20
+CUS-A0B1B14A9E,Gaurav Mukherjee,gaurav.mukherjee.a0b1@customers.example,Indore,Madhya Pradesh,Odia,standard,new,2026-03-03
+CUS-4DF9E3D714,Aarav Yadav,aarav.yadav.4df9@customers.example,Chennai,Tamil Nadu,Marathi,standard,frequent,2026-03-11
+CUS-777D5D0CB5,Manish Rao,manish.rao.777d@customers.example,Hyderabad,Telangana,Telugu,premium,new,2026-03-31
+CUS-B5EB56674B,Farhan Dutta,farhan.dutta.b5eb@customers.example,Lucknow,Uttar Pradesh,Hindi,standard,seasonal,2026-04-21
+CUS-1FA50DA712,Maya Rao,maya.rao.1fa5@customers.example,Bengaluru,Karnataka,Bengali,premium,frequent,2026-01-30
+CUS-19DDD53931,Vidya Venkatesh,vidya.venkatesh.19dd@customers.example,Kochi,Kerala,Tamil,plus,business,2026-01-15
+CUS-074AFF5E47,Ishaan Trivedi,ishaan.trivedi.074a@customers.example,Delhi,Delhi,English,standard,new,2026-01-04
+CUS-F4C98608D7,Aditya Saxena,aditya.saxena.f4c9@customers.example,Mysuru,Karnataka,Gujarati,standard,seasonal,2026-06-14
+CUS-1992A406E4,Yash Sen,yash.sen.1992@customers.example,Lucknow,Uttar Pradesh,Gujarati,standard,frequent,2026-01-12
+CUS-2556D0875F,Dev Chauhan,dev.chauhan.2556@customers.example,Ahmedabad,Gujarat,Marathi,plus,business,2026-02-23
+CUS-C351B6F04B,Yash Kumar,yash.kumar.c351@customers.example,Jaipur,Rajasthan,Marathi,standard,seasonal,2026-02-27
+CUS-9D0768FA05,Pooja Gupta,pooja.gupta.9d07@customers.example,Nagpur,Maharashtra,Malayalam,standard,returning,2026-07-29
+CUS-8D8FB080AE,Kritika Bhat,kritika.bhat.8d8f@customers.example,Dehradun,Uttarakhand,Kannada,plus,seasonal,2026-05-01
+CUS-4DD50D1C85,Kabir Shukla,kabir.shukla.4dd5@customers.example,Surat,Gujarat,Bengali,plus,seasonal,2026-02-04
+CUS-9ED3B2F3D9,Shreya Mukherjee,shreya.mukherjee.9ed3@customers.example,Bengaluru,Karnataka,English,standard,frequent,2026-07-09
+CUS-C4DFD48292,Deepak Desai,deepak.desai.c4df@customers.example,Guwahati,Assam,Tamil,standard,returning,2026-01-22
+CUS-84EB717548,Siddharth Saxena,siddharth.saxena.84eb@customers.example,Pune,Maharashtra,Malayalam,standard,business,2026-02-21
+CUS-7995531CE7,Kabir Goswami,kabir.goswami.7995@customers.example,Nagpur,Maharashtra,Bengali,standard,new,2026-01-03
+CUS-350B854DD1,Divya Banerjee,divya.banerjee.350b@customers.example,Coimbatore,Tamil Nadu,Odia,standard,frequent,2026-01-03
+CUS-772427F270,Zara Mishra,zara.mishra.7724@customers.example,Kochi,Kerala,Malayalam,standard,business,2026-06-13
+CUS-088EB91409,Dev Sinha,dev.sinha.088e@customers.example,Hyderabad,Telangana,Telugu,standard,returning,2026-01-28
+CUS-3B8BDCD560,Chetan Saxena,chetan.saxena.3b8b@customers.example,Nagpur,Maharashtra,Bengali,standard,seasonal,2026-05-01
+CUS-C0A30DCEBF,Pooja Bhat,pooja.bhat.c0a3@customers.example,Kochi,Kerala,Odia,plus,seasonal,2026-01-10
+CUS-4CF7FF624C,Chetan Shah,chetan.shah.4cf7@customers.example,Ahmedabad,Gujarat,Bengali,standard,new,2026-05-21
+CUS-AF1336DC03,Ishaan Yadav,ishaan.yadav.af13@customers.example,Bhubaneswar,Odisha,Hindi,standard,business,2026-02-16
+CUS-3E477C11DB,Aditi Kapoor,aditi.kapoor.3e47@customers.example,Kochi,Kerala,Hindi,premium,returning,2026-01-29
+CUS-4D22FAD263,Divya Sen,divya.sen.4d22@customers.example,Kochi,Kerala,Gujarati,premium,new,2026-01-27
+CUS-AF5385F96F,Shreya Mishra,shreya.mishra.af53@customers.example,Mumbai,Maharashtra,Tamil,standard,returning,2026-07-09
+CUS-C7B22884C4,Varun Verma,varun.verma.c7b2@customers.example,Surat,Gujarat,Odia,standard,frequent,2026-04-21
+CUS-1CB291DC82,Zoya Bhat,zoya.bhat.1cb2@customers.example,Chandigarh,Chandigarh,Odia,standard,seasonal,2026-01-09
+CUS-E925AEFE8C,Tanvi Yadav,tanvi.yadav.e925@customers.example,Nagpur,Maharashtra,Odia,premium,frequent,2026-02-24
+CUS-93B21F014B,Rishi Bhat,rishi.bhat.93b2@customers.example,Bengaluru,Karnataka,Kannada,premium,seasonal,2026-04-29
+CUS-1756053B2E,Pranav Dutta,pranav.dutta.1756@customers.example,Mysuru,Karnataka,Malayalam,standard,new,2026-07-02
+CUS-75271C207F,Ishaan Banerjee,ishaan.banerjee.7527@customers.example,Chennai,Tamil Nadu,Malayalam,standard,new,2026-06-11
+CUS-6D72714AFD,Sameer Mukherjee,sameer.mukherjee.6d72@customers.example,Lucknow,Uttar Pradesh,Telugu,plus,frequent,2026-02-04
+CUS-715081CC57,Maya Rao,maya.rao.7150@customers.example,Bhubaneswar,Odisha,Malayalam,standard,returning,2026-01-31
+CUS-2F3A950ABF,Akash Khan,akash.khan.2f3a@customers.example,Mumbai,Maharashtra,Kannada,plus,frequent,2026-02-17
+CUS-CBAF9F038F,Harsh Das,harsh.das.cbaf@customers.example,Kolkata,West Bengal,Marathi,premium,seasonal,2026-06-21
+CUS-C68D8B8A83,Vihaan Sen,vihaan.sen.c68d@customers.example,Kolkata,West Bengal,Marathi,standard,seasonal,2026-01-30
+CUS-F9896EA8A0,Meera Joshi,meera.joshi.f989@customers.example,Guwahati,Assam,Malayalam,plus,business,2026-07-20
+CUS-991A76FF98,Ira Gupta,ira.gupta.991a@customers.example,Indore,Madhya Pradesh,Gujarati,standard,business,2026-05-28
+CUS-0271002254,Rhea Khan,rhea.khan.0271@customers.example,Pune,Maharashtra,Telugu,standard,seasonal,2026-02-01
+CUS-B2D9CFBFEC,Zara Aggarwal,zara.aggarwal.b2d9@customers.example,Surat,Gujarat,Marathi,standard,business,2026-06-26
+CUS-2DE5A9EAF9,Neha Sen,neha.sen.2de5@customers.example,Bengaluru,Karnataka,English,standard,business,2026-01-10
+CUS-A483BDFE14,Vidya Desai,vidya.desai.a483@customers.example,Guwahati,Assam,Telugu,plus,business,2026-02-24
+CUS-F09A5B506A,Maya Khan,maya.khan.f09a@customers.example,Hyderabad,Telangana,Gujarati,standard,business,2026-04-01
+CUS-D6551BF4D9,Deepak Menon,deepak.menon.d655@customers.example,Mumbai,Maharashtra,Gujarati,standard,new,2026-03-09
+CUS-2FC9A860B5,Siddharth Mehta,siddharth.mehta.2fc9@customers.example,Delhi,Delhi,Bengali,plus,returning,2026-02-16
+CUS-563D4B4F75,Rhea Mishra,rhea.mishra.563d@customers.example,Mumbai,Maharashtra,Malayalam,premium,seasonal,2026-01-26
+CUS-7C12CA2D7B,Harsh Kapoor,harsh.kapoor.7c12@customers.example,Nagpur,Maharashtra,Kannada,standard,new,2026-09-13
+CUS-D8FA75EA7A,Aarav Pandey,aarav.pandey.d8fa@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,standard,frequent,2026-01-07
+CUS-7363477DDD,Rahul Mishra,rahul.mishra.7363@customers.example,Lucknow,Uttar Pradesh,Hindi,plus,business,2026-06-14
+CUS-724183F7C9,Ananya Dutta,ananya.dutta.7241@customers.example,Jaipur,Rajasthan,Telugu,premium,frequent,2026-03-27
+CUS-485D91F047,Neha Yadav,neha.yadav.485d@customers.example,Ahmedabad,Gujarat,Odia,standard,business,2026-01-21
+CUS-690AACB90D,Anika Seth,anika.seth.690a@customers.example,Jaipur,Rajasthan,Marathi,standard,returning,2026-01-02
+CUS-B6C0344C4C,Bhavya Nair,bhavya.nair.b6c0@customers.example,Jaipur,Rajasthan,English,plus,frequent,2026-01-13
+CUS-12BB93576F,Gaurav Banerjee,gaurav.banerjee.12bb@customers.example,Indore,Madhya Pradesh,Gujarati,standard,returning,2026-04-12
+CUS-757D1EFBF1,Aisha Trivedi,aisha.trivedi.757d@customers.example,Indore,Madhya Pradesh,Kannada,premium,frequent,2026-01-11
+CUS-1779FA0285,Varun Khan,varun.khan.1779@customers.example,Kochi,Kerala,Bengali,standard,new,2026-01-01
+CUS-0CCE944015,Shreya Goswami,shreya.goswami.0cce@customers.example,Kolkata,West Bengal,Hindi,plus,frequent,2026-04-24
+CUS-DBC8C121F6,Deepak Chopra,deepak.chopra.dbc8@customers.example,Jaipur,Rajasthan,Gujarati,plus,new,2026-06-20
+CUS-71FC3C675B,Pooja Patel,pooja.patel.71fc@customers.example,Chandigarh,Chandigarh,Bengali,plus,returning,2026-07-11
+CUS-E6AA2D8081,Ishita Chopra,ishita.chopra.e6aa@customers.example,Nagpur,Maharashtra,Tamil,standard,seasonal,2026-01-16
+CUS-0B65CBC73B,Pooja Pillai,pooja.pillai.0b65@customers.example,Surat,Gujarat,Kannada,standard,returning,2026-01-10
+CUS-24EA1786E6,Tara Rao,tara.rao.24ea@customers.example,Nagpur,Maharashtra,Bengali,plus,new,2026-02-22
+CUS-1720EC933E,Sana Mishra,sana.mishra.1720@customers.example,Delhi,Delhi,Marathi,premium,new,2026-01-12
+CUS-06331D3F23,Priya Shukla,priya.shukla.0633@customers.example,Mysuru,Karnataka,Tamil,premium,frequent,2026-06-04
+CUS-C2C52995E7,Rhea Seth,rhea.seth.c2c5@customers.example,Hyderabad,Telangana,Kannada,plus,frequent,2026-04-25
+CUS-7C1D3923F2,Rohan Desai,rohan.desai.7c1d@customers.example,Coimbatore,Tamil Nadu,Bengali,plus,business,2026-01-29
+CUS-D23889C190,Aryan Aggarwal,aryan.aggarwal.d238@customers.example,Dehradun,Uttarakhand,English,standard,business,2026-01-10
+CUS-3222051FF0,Divya Nair,divya.nair.3222@customers.example,Mysuru,Karnataka,Malayalam,plus,frequent,2026-03-14
+CUS-2ED93DAC53,Pranav Reddy,pranav.reddy.2ed9@customers.example,Hyderabad,Telangana,Marathi,standard,business,2026-02-12
+CUS-58C9642F1F,Ishaan Mishra,ishaan.mishra.58c9@customers.example,Kolkata,West Bengal,Gujarati,plus,business,2026-02-03
+CUS-85C0F5A07C,Neha Venkatesh,neha.venkatesh.85c0@customers.example,Nagpur,Maharashtra,Malayalam,premium,seasonal,2026-02-21
+CUS-425E8EB08E,Maya Mishra,maya.mishra.425e@customers.example,Patna,Bihar,Bengali,plus,business,2026-01-10
+CUS-A401D3D540,Divya Saxena,divya.saxena.a401@customers.example,Bhubaneswar,Odisha,Odia,standard,business,2026-04-02
+CUS-C964274C47,Chetan Patel,chetan.patel.c964@customers.example,Bengaluru,Karnataka,Hindi,plus,business,2026-01-19
+CUS-419C2B0D47,Manish Singh,manish.singh.419c@customers.example,Nagpur,Maharashtra,Telugu,premium,returning,2026-03-20
+CUS-82C832BD6F,Pooja Patel,pooja.patel.82c8@customers.example,Coimbatore,Tamil Nadu,Kannada,plus,returning,2026-09-03
+CUS-8ABCB26DC1,Chetan Das,chetan.das.8abc@customers.example,Coimbatore,Tamil Nadu,Telugu,standard,frequent,2026-02-14
+CUS-46876ACD90,Harsh Trivedi,harsh.trivedi.4687@customers.example,Dehradun,Uttarakhand,Tamil,plus,returning,2026-05-25
+CUS-338F5ABDB6,Chetan Gupta,chetan.gupta.338f@customers.example,Guwahati,Assam,Malayalam,plus,seasonal,2026-03-17
+CUS-E5159DC2C5,Varun Kumar,varun.kumar.e515@customers.example,Patna,Bihar,Hindi,plus,frequent,2026-07-28
+CUS-B24C0B261B,Rhea Chatterjee,rhea.chatterjee.b24c@customers.example,Lucknow,Uttar Pradesh,Telugu,plus,frequent,2026-05-16
+CUS-EAA541889B,Sakshi Singh,sakshi.singh.eaa5@customers.example,Mysuru,Karnataka,Telugu,plus,returning,2026-04-12
+CUS-134F6D9D22,Siddharth Jain,siddharth.jain.134f@customers.example,Mumbai,Maharashtra,Odia,plus,frequent,2026-04-14
+CUS-A8E1BE05BA,Harsh Menon,harsh.menon.a8e1@customers.example,Jaipur,Rajasthan,English,standard,business,2026-01-03
+CUS-6198BE7203,Rohan Sen,rohan.sen.6198@customers.example,Dehradun,Uttarakhand,Marathi,standard,business,2026-06-26
+CUS-C2D00E94BB,Meera Singh,meera.singh.c2d0@customers.example,Jaipur,Rajasthan,Gujarati,standard,business,2026-03-26
+CUS-4C5EB3D6BC,Tanvi Shukla,tanvi.shukla.4c5e@customers.example,Dehradun,Uttarakhand,Tamil,standard,frequent,2026-02-27
+CUS-DF1E51C4A9,Harsh Chauhan,harsh.chauhan.df1e@customers.example,Guwahati,Assam,Gujarati,standard,frequent,2026-01-04
+CUS-3EA53FA736,Chetan Pandey,chetan.pandey.3ea5@customers.example,Coimbatore,Tamil Nadu,Telugu,plus,business,2026-01-01
+CUS-77B8C32C57,Kabir Banerjee,kabir.banerjee.77b8@customers.example,Bengaluru,Karnataka,Tamil,plus,business,2026-01-28
+CUS-7E36B9FFB1,Shreya Sen,shreya.sen.7e36@customers.example,Kolkata,West Bengal,Telugu,premium,business,2026-01-01
+CUS-7C7648CD2F,Kritika Rao,kritika.rao.7c76@customers.example,Mysuru,Karnataka,Tamil,plus,frequent,2026-03-18
+CUS-898591BF38,Ishita Mishra,ishita.mishra.8985@customers.example,Chennai,Tamil Nadu,Odia,premium,seasonal,2026-06-04
+CUS-FFE0065ECB,Aarav Desai,aarav.desai.ffe0@customers.example,Dehradun,Uttarakhand,Hindi,plus,returning,2026-05-26
+CUS-51AE8A9817,Divya Kumar,divya.kumar.51ae@customers.example,Dehradun,Uttarakhand,Telugu,standard,returning,2026-01-08
+CUS-7A1436E0A7,Ishita Chatterjee,ishita.chatterjee.7a14@customers.example,Nagpur,Maharashtra,Bengali,plus,seasonal,2026-06-24
+CUS-2BAB7F8338,Anika Mukherjee,anika.mukherjee.2bab@customers.example,Mumbai,Maharashtra,Kannada,plus,frequent,2026-02-01
+CUS-E478360E4D,Sameer Pillai,sameer.pillai.e478@customers.example,Bengaluru,Karnataka,Tamil,plus,new,2026-01-08
+CUS-B892CA8144,Aditya Singh,aditya.singh.b892@customers.example,Lucknow,Uttar Pradesh,Telugu,standard,business,2026-01-13
+CUS-228B9F9B97,Vihaan Pandey,vihaan.pandey.228b@customers.example,Mumbai,Maharashtra,Hindi,plus,returning,2026-05-06
+CUS-26E4E8B1E1,Pranav Gupta,pranav.gupta.26e4@customers.example,Dehradun,Uttarakhand,Tamil,standard,business,2026-03-04
+CUS-907B656B9E,Ananya Banerjee,ananya.banerjee.907b@customers.example,Kochi,Kerala,Marathi,standard,business,2026-09-01
+CUS-95F8BDCA15,Kavya Dutta,kavya.dutta.95f8@customers.example,Delhi,Delhi,Tamil,standard,new,2026-09-15
+CUS-C98C6DD590,Priya Kumar,priya.kumar.c98c@customers.example,Lucknow,Uttar Pradesh,Hindi,plus,business,2026-02-14
+CUS-2FD224C8A7,Maya Iyer,maya.iyer.2fd2@customers.example,Guwahati,Assam,Hindi,standard,new,2026-01-20
+CUS-C2AEAD8886,Varun Saxena,varun.saxena.c2ae@customers.example,Bhubaneswar,Odisha,Odia,plus,returning,2026-06-06
+CUS-C015082917,Kritika Pillai,kritika.pillai.c015@customers.example,Indore,Madhya Pradesh,Bengali,plus,seasonal,2026-06-05
+CUS-7F7CED0A6B,Aryan Pandey,aryan.pandey.7f7c@customers.example,Patna,Bihar,Bengali,standard,returning,2026-03-07
+CUS-8AB1AC82B4,Arjun Khan,arjun.khan.8ab1@customers.example,Visakhapatnam,Andhra Pradesh,Gujarati,plus,business,2026-03-04
+CUS-97BBB1B1A7,Manish Menon,manish.menon.97bb@customers.example,Delhi,Delhi,Gujarati,standard,returning,2026-07-01
+CUS-74F8D67C03,Arjun Sinha,arjun.sinha.74f8@customers.example,Dehradun,Uttarakhand,Hindi,premium,new,2026-01-24
+CUS-5CB6B49483,Farhan Iyer,farhan.iyer.5cb6@customers.example,Pune,Maharashtra,Hindi,plus,seasonal,2026-01-04
+CUS-AC931101A7,Zara Singh,zara.singh.ac93@customers.example,Indore,Madhya Pradesh,Kannada,standard,new,2026-04-10
+CUS-2F09DBE019,Maya Menon,maya.menon.2f09@customers.example,Kochi,Kerala,Marathi,standard,business,2026-01-02
+CUS-30D333D51C,Sakshi Jain,sakshi.jain.30d3@customers.example,Bhubaneswar,Odisha,Odia,plus,seasonal,2026-01-16
+CUS-F65A3A875B,Dev Venkatesh,dev.venkatesh.f65a@customers.example,Ahmedabad,Gujarat,Gujarati,standard,frequent,2026-07-07
+CUS-2E9EBCF654,Deepak Iyer,deepak.iyer.2e9e@customers.example,Mumbai,Maharashtra,Telugu,premium,new,2026-01-18
+CUS-90B8D4C21A,Aarav Saxena,aarav.saxena.90b8@customers.example,Coimbatore,Tamil Nadu,Malayalam,standard,seasonal,2026-01-27
+CUS-086963D104,Akash Sinha,akash.sinha.0869@customers.example,Nagpur,Maharashtra,Gujarati,plus,business,2026-02-10
+CUS-52DA3A44B2,Aditi Chatterjee,aditi.chatterjee.52da@customers.example,Guwahati,Assam,Malayalam,standard,returning,2026-01-24
+CUS-A470133C59,Aditi Das,aditi.das.a470@customers.example,Dehradun,Uttarakhand,Bengali,standard,new,2026-05-05
+CUS-50CBEAE2F2,Zoya Kumar,zoya.kumar.50cb@customers.example,Chandigarh,Chandigarh,English,standard,business,2026-02-27
+CUS-EF7C123732,Ishita Das,ishita.das.ef7c@customers.example,Ahmedabad,Gujarat,Malayalam,standard,new,2026-05-14
+CUS-431DF9C599,Tanvi Jain,tanvi.jain.431d@customers.example,Indore,Madhya Pradesh,Marathi,standard,returning,2026-01-13
+CUS-7C623AB5DE,Dev Menon,dev.menon.7c62@customers.example,Coimbatore,Tamil Nadu,English,plus,returning,2026-02-25
+CUS-317B01E179,Deepak Singh,deepak.singh.317b@customers.example,Mumbai,Maharashtra,Kannada,premium,seasonal,2026-01-24
+CUS-B486D1CD56,Aarav Joshi,aarav.joshi.b486@customers.example,Kochi,Kerala,Marathi,standard,seasonal,2026-02-01
+CUS-3581B1001D,Karan Dutta,karan.dutta.3581@customers.example,Bhubaneswar,Odisha,English,standard,new,2026-01-04
+CUS-874CE90085,Rhea Bhat,rhea.bhat.874c@customers.example,Mumbai,Maharashtra,Malayalam,premium,frequent,2026-05-10
+CUS-8C59C24596,Akash Aggarwal,akash.aggarwal.8c59@customers.example,Surat,Gujarat,Marathi,plus,returning,2026-06-02
+CUS-3209064AB0,Farhan Mukherjee,farhan.mukherjee.3209@customers.example,Kolkata,West Bengal,Bengali,plus,frequent,2026-01-21
+CUS-AF26F4C3B7,Sameer Pandey,sameer.pandey.af26@customers.example,Chandigarh,Chandigarh,Tamil,plus,returning,2026-06-14
+CUS-8AB6E7608A,Rhea Mishra,rhea.mishra.8ab6@customers.example,Chennai,Tamil Nadu,Malayalam,standard,frequent,2026-01-04
+CUS-052E9DADA4,Ishita Patel,ishita.patel.052e@customers.example,Coimbatore,Tamil Nadu,Telugu,standard,returning,2026-04-20
+CUS-DD4214A5E4,Aditi Kapoor,aditi.kapoor.dd42@customers.example,Kolkata,West Bengal,Telugu,plus,seasonal,2026-01-03
+CUS-5856A565F6,Anika Menon,anika.menon.5856@customers.example,Bhubaneswar,Odisha,Bengali,standard,frequent,2026-02-17
+CUS-1E439310FF,Aarav Chopra,aarav.chopra.1e43@customers.example,Nagpur,Maharashtra,Kannada,plus,business,2026-01-21
+CUS-B6FC7531B4,Siddharth Das,siddharth.das.b6fc@customers.example,Visakhapatnam,Andhra Pradesh,Kannada,standard,seasonal,2026-01-11
+CUS-8C253582F3,Tanvi Patel,tanvi.patel.8c25@customers.example,Surat,Gujarat,Kannada,plus,frequent,2026-01-26
+CUS-0D845C75C8,Vidya Chopra,vidya.chopra.0d84@customers.example,Nagpur,Maharashtra,Marathi,premium,frequent,2026-01-31
+CUS-CDE2A010A5,Manish Iyer,manish.iyer.cde2@customers.example,Dehradun,Uttarakhand,Kannada,plus,seasonal,2026-01-08
+CUS-DA003DA7A8,Rahul Yadav,rahul.yadav.da00@customers.example,Lucknow,Uttar Pradesh,Malayalam,plus,frequent,2026-05-11
+CUS-020A3C63E5,Farhan Shukla,farhan.shukla.020a@customers.example,Kolkata,West Bengal,English,standard,returning,2026-01-01
+CUS-011F75BD37,Bhavya Mehta,bhavya.mehta.011f@customers.example,Mumbai,Maharashtra,Odia,standard,new,2026-01-13
+CUS-0D1DDB5351,Shreya Gupta,shreya.gupta.0d1d@customers.example,Visakhapatnam,Andhra Pradesh,Hindi,plus,business,2026-05-11
+CUS-5DBFA92CA7,Harsh Yadav,harsh.yadav.5dbf@customers.example,Ahmedabad,Gujarat,Marathi,plus,returning,2026-01-14
+CUS-3BAF278E6B,Aarav Patel,aarav.patel.3baf@customers.example,Ahmedabad,Gujarat,Odia,standard,frequent,2026-05-04
+CUS-54FE068511,Tara Pandey,tara.pandey.54fe@customers.example,Indore,Madhya Pradesh,Gujarati,premium,frequent,2026-05-06
+CUS-81B2C0A285,Manish Goswami,manish.goswami.81b2@customers.example,Nagpur,Maharashtra,Tamil,plus,seasonal,2026-02-17
+CUS-C91B6EAD98,Aditya Aggarwal,aditya.aggarwal.c91b@customers.example,Mysuru,Karnataka,English,standard,new,2026-06-28
+CUS-C2D898EC4A,Zara Nair,zara.nair.c2d8@customers.example,Mysuru,Karnataka,Bengali,premium,business,2026-04-17
+CUS-C150C1177D,Zara Rao,zara.rao.c150@customers.example,Ahmedabad,Gujarat,Telugu,standard,returning,2026-02-05
+CUS-CDACCB4000,Neha Khan,neha.khan.cdac@customers.example,Ahmedabad,Gujarat,Telugu,standard,business,2026-01-22
+CUS-FDB0A19328,Gaurav Desai,gaurav.desai.fdb0@customers.example,Chennai,Tamil Nadu,Telugu,plus,business,2026-01-08
+CUS-BB6C3FB839,Arjun Chopra,arjun.chopra.bb6c@customers.example,Jaipur,Rajasthan,Malayalam,plus,returning,2026-01-25
+CUS-CFE6F225C5,Deepak Rao,deepak.rao.cfe6@customers.example,Chandigarh,Chandigarh,Gujarati,standard,new,2026-01-09
+CUS-9954C36D9F,Sakshi Kulkarni,sakshi.kulkarni.9954@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,premium,business,2026-03-29
+CUS-75BFA6A5A8,Varun Singh,varun.singh.75bf@customers.example,Hyderabad,Telangana,Tamil,plus,seasonal,2026-01-03
+CUS-B2B3655EAC,Pooja Joshi,pooja.joshi.b2b3@customers.example,Mysuru,Karnataka,Odia,standard,seasonal,2026-07-23
+CUS-3B336C119F,Karan Chatterjee,karan.chatterjee.3b33@customers.example,Bhubaneswar,Odisha,Bengali,standard,returning,2026-09-22
+CUS-57774FC994,Shreya Chopra,shreya.chopra.5777@customers.example,Lucknow,Uttar Pradesh,Hindi,plus,business,2026-05-04
+CUS-C3668CE11B,Sakshi Mukherjee,sakshi.mukherjee.c366@customers.example,Lucknow,Uttar Pradesh,English,standard,returning,2026-03-22
+CUS-FDC5C0B96C,Kavya Singh,kavya.singh.fdc5@customers.example,Dehradun,Uttarakhand,Marathi,standard,seasonal,2026-01-01
+CUS-8C97A2FAFE,Aditya Sinha,aditya.sinha.8c97@customers.example,Nagpur,Maharashtra,Marathi,standard,business,2026-01-13
+CUS-EE86BBAB71,Aditya Desai,aditya.desai.ee86@customers.example,Chandigarh,Chandigarh,Malayalam,standard,seasonal,2026-01-22
+CUS-863EFF8A12,Dev Chopra,dev.chopra.863e@customers.example,Surat,Gujarat,English,premium,returning,2026-03-11
+CUS-6AA7A59F1D,Ananya Trivedi,ananya.trivedi.6aa7@customers.example,Delhi,Delhi,Hindi,standard,frequent,2026-04-18
+CUS-5F8D731BC0,Akash Desai,akash.desai.5f8d@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,plus,new,2026-03-06
+CUS-3BEF1C8575,Maya Pillai,maya.pillai.3bef@customers.example,Chandigarh,Chandigarh,Bengali,standard,returning,2026-05-25
+CUS-20BD07BA52,Pooja Verma,pooja.verma.20bd@customers.example,Surat,Gujarat,Telugu,plus,frequent,2026-04-14
+CUS-844887A98B,Arjun Shah,arjun.shah.8448@customers.example,Kolkata,West Bengal,Tamil,standard,frequent,2026-03-20
+CUS-0E4C4CBE57,Akash Aggarwal,akash.aggarwal.0e4c@customers.example,Kochi,Kerala,Kannada,standard,frequent,2026-02-20
+CUS-96EAC4B63B,Akash Shah,akash.shah.96ea@customers.example,Lucknow,Uttar Pradesh,Tamil,standard,frequent,2026-01-01
+CUS-35E074786A,Bhavya Rao,bhavya.rao.35e0@customers.example,Indore,Madhya Pradesh,Odia,plus,frequent,2026-02-06
+CUS-219C0C0FC7,Zara Venkatesh,zara.venkatesh.219c@customers.example,Visakhapatnam,Andhra Pradesh,English,premium,seasonal,2026-03-18
+CUS-04147937A3,Varun Aggarwal,varun.aggarwal.0414@customers.example,Ahmedabad,Gujarat,Hindi,plus,returning,2026-03-13
+CUS-D66337DB01,Pooja Sen,pooja.sen.d663@customers.example,Chennai,Tamil Nadu,Hindi,plus,business,2026-05-04
+CUS-290CA228AB,Siddharth Goswami,siddharth.goswami.290c@customers.example,Jaipur,Rajasthan,Tamil,plus,returning,2026-03-29
+CUS-38E961F144,Akash Mukherjee,akash.mukherjee.38e9@customers.example,Coimbatore,Tamil Nadu,Marathi,plus,returning,2026-06-10
+CUS-FA08D73820,Neha Aggarwal,neha.aggarwal.fa08@customers.example,Indore,Madhya Pradesh,Malayalam,standard,returning,2026-04-05
+CUS-37B1915347,Meera Gupta,meera.gupta.37b1@customers.example,Dehradun,Uttarakhand,Marathi,standard,business,2026-03-27
+CUS-3572C3F359,Farhan Trivedi,farhan.trivedi.3572@customers.example,Indore,Madhya Pradesh,Telugu,standard,new,2026-05-12
+CUS-223E7FBFD9,Akash Mukherjee,akash.mukherjee.223e@customers.example,Chandigarh,Chandigarh,Telugu,standard,business,2026-05-11
+CUS-F84313D304,Ananya Seth,ananya.seth.f843@customers.example,Delhi,Delhi,Gujarati,plus,business,2026-02-07
+CUS-D2BEAF87EB,Anika Nair,anika.nair.d2be@customers.example,Chandigarh,Chandigarh,Kannada,plus,returning,2026-01-30
+CUS-D40488076D,Aarav Pillai,aarav.pillai.d404@customers.example,Dehradun,Uttarakhand,Gujarati,plus,frequent,2026-01-20
+CUS-BC38922216,Harsh Mukherjee,harsh.mukherjee.bc38@customers.example,Guwahati,Assam,Malayalam,standard,business,2026-01-24
+CUS-BB19E352AA,Meera Menon,meera.menon.bb19@customers.example,Indore,Madhya Pradesh,Hindi,standard,new,2026-07-21
+CUS-9C1D552460,Divya Iyer,divya.iyer.9c1d@customers.example,Jaipur,Rajasthan,Malayalam,standard,frequent,2026-01-07
+CUS-6FECFAD3D0,Aditi Rao,aditi.rao.6fec@customers.example,Nagpur,Maharashtra,Gujarati,plus,seasonal,2026-04-29
+CUS-8B5B109833,Nikhil Trivedi,nikhil.trivedi.8b5b@customers.example,Lucknow,Uttar Pradesh,Hindi,premium,business,2026-08-16
+CUS-BCD5554AA4,Dev Chatterjee,dev.chatterjee.bcd5@customers.example,Delhi,Delhi,Tamil,premium,returning,2026-02-04
+CUS-9873A9BD2C,Zara Chatterjee,zara.chatterjee.9873@customers.example,Lucknow,Uttar Pradesh,Malayalam,plus,new,2026-07-08
+CUS-9DFB17193B,Sakshi Saxena,sakshi.saxena.9dfb@customers.example,Pune,Maharashtra,Kannada,plus,seasonal,2026-02-03
+CUS-C03AA8AA8D,Sakshi Yadav,sakshi.yadav.c03a@customers.example,Mumbai,Maharashtra,Bengali,standard,returning,2026-05-31
+CUS-FE97F6E6C1,Akash Aggarwal,akash.aggarwal.fe97@customers.example,Hyderabad,Telangana,Malayalam,standard,business,2026-03-27
+CUS-A38E6767E5,Manish Shukla,manish.shukla.a38e@customers.example,Chandigarh,Chandigarh,Hindi,plus,business,2026-01-08
+CUS-18D00EB277,Gaurav Shukla,gaurav.shukla.18d0@customers.example,Bhubaneswar,Odisha,Gujarati,standard,returning,2026-01-30
+CUS-717541ACF6,Nikhil Das,nikhil.das.7175@customers.example,Indore,Madhya Pradesh,Marathi,plus,frequent,2026-01-15
+CUS-6A0DC02EDA,Neha Saxena,neha.saxena.6a0d@customers.example,Hyderabad,Telangana,Gujarati,premium,seasonal,2026-04-03
+CUS-26B9C73027,Ishita Desai,ishita.desai.26b9@customers.example,Guwahati,Assam,Telugu,standard,frequent,2026-01-10
+CUS-300C9B360D,Divya Khan,divya.khan.300c@customers.example,Jaipur,Rajasthan,Tamil,standard,new,2026-07-14
+CUS-92AC25D783,Rhea Mukherjee,rhea.mukherjee.92ac@customers.example,Dehradun,Uttarakhand,Tamil,plus,frequent,2026-02-21
+CUS-3FF7793DEB,Aditya Dutta,aditya.dutta.3ff7@customers.example,Lucknow,Uttar Pradesh,English,premium,business,2026-01-12
+CUS-D75E79AA85,Anika Chatterjee,anika.chatterjee.d75e@customers.example,Bengaluru,Karnataka,Gujarati,standard,new,2026-08-07
+CUS-2BEC6C75E1,Rahul Aggarwal,rahul.aggarwal.2bec@customers.example,Delhi,Delhi,Hindi,standard,frequent,2026-03-05
+CUS-E1D7B432E6,Rohan Pillai,rohan.pillai.e1d7@customers.example,Kolkata,West Bengal,Kannada,plus,returning,2026-07-01
+CUS-D52CAF2BE7,Priya Trivedi,priya.trivedi.d52c@customers.example,Ahmedabad,Gujarat,English,standard,frequent,2026-02-11
+CUS-ABEBBA4BB4,Sakshi Nair,sakshi.nair.abeb@customers.example,Chennai,Tamil Nadu,Odia,premium,seasonal,2026-02-11
+CUS-91CBF84B67,Arjun Chatterjee,arjun.chatterjee.91cb@customers.example,Indore,Madhya Pradesh,English,premium,returning,2026-03-20
+CUS-3BF9107B5C,Aryan Pandey,aryan.pandey.3bf9@customers.example,Kochi,Kerala,Telugu,plus,returning,2026-05-08
+CUS-B2A1C0415E,Kritika Mehta,kritika.mehta.b2a1@customers.example,Indore,Madhya Pradesh,Kannada,standard,returning,2026-01-18
+CUS-5EDB168A1A,Harsh Kapoor,harsh.kapoor.5edb@customers.example,Patna,Bihar,Telugu,standard,frequent,2026-03-23
+CUS-D1552FC9B6,Sakshi Banerjee,sakshi.banerjee.d155@customers.example,Pune,Maharashtra,Tamil,standard,business,2026-02-09
+CUS-957028D144,Nikhil Bhat,nikhil.bhat.9570@customers.example,Nagpur,Maharashtra,Malayalam,standard,returning,2026-06-10
+CUS-A07BBAF299,Diya Aggarwal,diya.aggarwal.a07b@customers.example,Ahmedabad,Gujarat,Hindi,premium,returning,2026-07-02
+CUS-1A5962000A,Arjun Bhat,arjun.bhat.1a59@customers.example,Surat,Gujarat,Marathi,plus,business,2026-01-22
+CUS-6896A3F3B8,Akash Pandey,akash.pandey.6896@customers.example,Delhi,Delhi,Telugu,standard,frequent,2026-01-25
+CUS-046E16A827,Anika Venkatesh,anika.venkatesh.046e@customers.example,Nagpur,Maharashtra,Hindi,plus,new,2026-03-03
+CUS-54F0440CC8,Chetan Nair,chetan.nair.54f0@customers.example,Hyderabad,Telangana,Gujarati,plus,frequent,2026-03-18
+CUS-A9373DA746,Sameer Saxena,sameer.saxena.a937@customers.example,Chandigarh,Chandigarh,Odia,standard,business,2026-02-10
+CUS-89764DBEF4,Rahul Sharma,rahul.sharma.8976@customers.example,Patna,Bihar,Bengali,standard,new,2026-06-01
+CUS-FBA2EE3A90,Bhavya Sen,bhavya.sen.fba2@customers.example,Mysuru,Karnataka,Marathi,standard,frequent,2026-01-02
+CUS-F82B57BD3A,Pranav Chauhan,pranav.chauhan.f82b@customers.example,Ahmedabad,Gujarat,Kannada,plus,business,2026-01-27
+CUS-7AFD76D821,Gaurav Venkatesh,gaurav.venkatesh.7afd@customers.example,Bengaluru,Karnataka,Tamil,premium,frequent,2026-01-11
+CUS-4EAA1BD21F,Tara Jain,tara.jain.4eaa@customers.example,Hyderabad,Telangana,Gujarati,standard,new,2026-07-26
+CUS-8642AF7E7C,Yash Mukherjee,yash.mukherjee.8642@customers.example,Chandigarh,Chandigarh,English,plus,new,2026-01-27
+CUS-1DFA7883CA,Akash Chauhan,akash.chauhan.1dfa@customers.example,Lucknow,Uttar Pradesh,Telugu,standard,frequent,2026-08-18
+CUS-6EFF171C6A,Farhan Mehta,farhan.mehta.6eff@customers.example,Dehradun,Uttarakhand,Malayalam,standard,business,2026-02-26
+CUS-92A913375A,Nikhil Pillai,nikhil.pillai.92a9@customers.example,Indore,Madhya Pradesh,Kannada,premium,frequent,2026-08-10
+CUS-CF2E96D4E9,Dev Shukla,dev.shukla.cf2e@customers.example,Dehradun,Uttarakhand,Malayalam,standard,frequent,2026-10-09
+CUS-AF53DF9A07,Kritika Kumar,kritika.kumar.af53@customers.example,Chandigarh,Chandigarh,Odia,plus,seasonal,2026-03-02
+CUS-32D98198A7,Farhan Reddy,farhan.reddy.32d9@customers.example,Lucknow,Uttar Pradesh,Gujarati,premium,frequent,2026-02-03
+CUS-340E786A52,Zoya Patel,zoya.patel.340e@customers.example,Lucknow,Uttar Pradesh,Marathi,standard,seasonal,2026-01-17
+CUS-A1B9AF45D4,Aarav Verma,aarav.verma.a1b9@customers.example,Patna,Bihar,Gujarati,plus,seasonal,2026-01-28
+CUS-3DBB0AAD6F,Gaurav Rao,gaurav.rao.3dbb@customers.example,Lucknow,Uttar Pradesh,Gujarati,plus,returning,2026-01-29
+CUS-2F29623F4E,Aditya Mukherjee,aditya.mukherjee.2f29@customers.example,Mysuru,Karnataka,Marathi,plus,frequent,2026-01-11
+CUS-8724134842,Bhavya Dutta,bhavya.dutta.8724@customers.example,Jaipur,Rajasthan,Telugu,plus,business,2026-01-04
+CUS-937B14813E,Pranav Pandey,pranav.pandey.937b@customers.example,Lucknow,Uttar Pradesh,Odia,premium,new,2026-03-09
+CUS-3F0E24DAD9,Siddharth Patel,siddharth.patel.3f0e@customers.example,Bengaluru,Karnataka,Bengali,premium,new,2026-04-23
+CUS-C6BCB5AE2F,Aditya Nair,aditya.nair.c6bc@customers.example,Kolkata,West Bengal,Hindi,plus,new,2026-04-13
+CUS-18D8E7F89B,Farhan Pillai,farhan.pillai.18d8@customers.example,Chandigarh,Chandigarh,Marathi,standard,frequent,2026-01-05
+CUS-E492AC1835,Meera Sen,meera.sen.e492@customers.example,Indore,Madhya Pradesh,Bengali,premium,frequent,2026-05-25
+CUS-C3CA0EEA9A,Karan Verma,karan.verma.c3ca@customers.example,Lucknow,Uttar Pradesh,Gujarati,standard,business,2026-01-10
+CUS-64F37B073C,Nikhil Saxena,nikhil.saxena.64f3@customers.example,Surat,Gujarat,Telugu,plus,new,2026-06-14
+CUS-2DBF22206A,Bhavya Seth,bhavya.seth.2dbf@customers.example,Dehradun,Uttarakhand,Telugu,plus,seasonal,2026-04-16
+CUS-05B1410275,Yash Menon,yash.menon.05b1@customers.example,Hyderabad,Telangana,Malayalam,standard,business,2026-07-31
+CUS-6A41791FB0,Karan Nair,karan.nair.6a41@customers.example,Guwahati,Assam,Bengali,standard,seasonal,2026-02-25
+CUS-31F57DC2BB,Aarav Sinha,aarav.sinha.31f5@customers.example,Dehradun,Uttarakhand,Kannada,standard,business,2026-01-01
+CUS-65205BD75F,Sakshi Verma,sakshi.verma.6520@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,standard,seasonal,2026-03-08
+CUS-1C5B942649,Karan Das,karan.das.1c5b@customers.example,Chennai,Tamil Nadu,Kannada,standard,returning,2026-01-08
+CUS-13D39CC3CA,Gaurav Das,gaurav.das.13d3@customers.example,Delhi,Delhi,Odia,standard,frequent,2026-03-29
+CUS-B14F62E593,Anika Goswami,anika.goswami.b14f@customers.example,Delhi,Delhi,Tamil,standard,seasonal,2026-01-09
+CUS-4BA8D90D8B,Deepak Chauhan,deepak.chauhan.4ba8@customers.example,Surat,Gujarat,Marathi,standard,new,2026-02-07
+CUS-6AD26B49B1,Siddharth Aggarwal,siddharth.aggarwal.6ad2@customers.example,Delhi,Delhi,Malayalam,plus,business,2026-02-02
+CUS-772E613AC2,Ishaan Mishra,ishaan.mishra.772e@customers.example,Surat,Gujarat,Tamil,standard,frequent,2026-01-06
+CUS-2C07C44011,Kavya Kumar,kavya.kumar.2c07@customers.example,Guwahati,Assam,Tamil,plus,frequent,2026-01-06
+CUS-ECCE2BA474,Kabir Reddy,kabir.reddy.ecce@customers.example,Hyderabad,Telangana,English,standard,returning,2026-06-02
+CUS-7AFCB7A77A,Aryan Mishra,aryan.mishra.7afc@customers.example,Kolkata,West Bengal,Tamil,standard,business,2026-04-27
+CUS-15C06DCE08,Farhan Kulkarni,farhan.kulkarni.15c0@customers.example,Guwahati,Assam,Bengali,standard,returning,2026-05-09
+CUS-4657B3B987,Rahul Kumar,rahul.kumar.4657@customers.example,Hyderabad,Telangana,Bengali,plus,frequent,2026-02-06
+CUS-E0E400811F,Maya Desai,maya.desai.e0e4@customers.example,Lucknow,Uttar Pradesh,Odia,plus,seasonal,2026-01-31
+CUS-1A403C647E,Zara Gupta,zara.gupta.1a40@customers.example,Bhubaneswar,Odisha,Hindi,premium,seasonal,2026-06-14
+CUS-18CEEC52EA,Pranav Das,pranav.das.18ce@customers.example,Pune,Maharashtra,Tamil,standard,new,2026-01-02
+CUS-8763899972,Gaurav Kulkarni,gaurav.kulkarni.8763@customers.example,Chandigarh,Chandigarh,Bengali,standard,seasonal,2026-02-01
+CUS-1C05395FDD,Ira Sen,ira.sen.1c05@customers.example,Bhubaneswar,Odisha,Odia,plus,seasonal,2026-08-20
+CUS-C4F3B5E34F,Akash Sinha,akash.sinha.c4f3@customers.example,Hyderabad,Telangana,Kannada,plus,frequent,2026-05-31
+CUS-6DFEB942A0,Meera Chopra,meera.chopra.6dfe@customers.example,Bengaluru,Karnataka,Kannada,standard,returning,2026-06-30
+CUS-4472ED74AA,Ira Rao,ira.rao.4472@customers.example,Guwahati,Assam,Gujarati,standard,new,2026-03-20
+CUS-FD41C1620E,Meera Kulkarni,meera.kulkarni.fd41@customers.example,Dehradun,Uttarakhand,Bengali,standard,frequent,2026-03-09
+CUS-FCF9ABA669,Diya Nair,diya.nair.fcf9@customers.example,Lucknow,Uttar Pradesh,Gujarati,standard,seasonal,2026-01-17
+CUS-C986F895E9,Kritika Iyer,kritika.iyer.c986@customers.example,Chennai,Tamil Nadu,Gujarati,plus,frequent,2026-06-07
+CUS-F767208B18,Zara Khan,zara.khan.f767@customers.example,Jaipur,Rajasthan,Telugu,plus,new,2026-01-09
+CUS-6E2C7BED19,Rahul Seth,rahul.seth.6e2c@customers.example,Nagpur,Maharashtra,Bengali,premium,returning,2026-04-14
+CUS-42F03926E0,Zoya Kapoor,zoya.kapoor.42f0@customers.example,Mysuru,Karnataka,Hindi,premium,returning,2026-07-15
+CUS-17870922CD,Vidya Seth,vidya.seth.1787@customers.example,Pune,Maharashtra,Odia,standard,business,2026-08-04
+CUS-D74BC1E6AE,Aryan Sharma,aryan.sharma.d74b@customers.example,Pune,Maharashtra,Hindi,standard,seasonal,2026-05-18
+CUS-F53A2BA362,Karan Mishra,karan.mishra.f53a@customers.example,Surat,Gujarat,Odia,plus,business,2026-04-02
+CUS-5DA8E65E72,Meera Yadav,meera.yadav.5da8@customers.example,Indore,Madhya Pradesh,Kannada,plus,new,2026-01-15
+CUS-F9E1A6E792,Diya Chopra,diya.chopra.f9e1@customers.example,Pune,Maharashtra,English,standard,seasonal,2026-01-24
+CUS-8997CC4FF4,Vidya Kapoor,vidya.kapoor.8997@customers.example,Surat,Gujarat,Odia,standard,seasonal,2026-04-14
+CUS-AABD73EA49,Ananya Shah,ananya.shah.aabd@customers.example,Lucknow,Uttar Pradesh,Tamil,standard,returning,2026-04-13
+CUS-1372D0AA0A,Shreya Kapoor,shreya.kapoor.1372@customers.example,Coimbatore,Tamil Nadu,Tamil,plus,new,2026-04-21
+CUS-BA59C7A6A4,Nikhil Khan,nikhil.khan.ba59@customers.example,Delhi,Delhi,Tamil,standard,new,2026-04-16
+CUS-2E3B4DBE78,Yash Sen,yash.sen.2e3b@customers.example,Chandigarh,Chandigarh,Marathi,standard,frequent,2026-01-22
+CUS-B84A8A096A,Sana Chatterjee,sana.chatterjee.b84a@customers.example,Chennai,Tamil Nadu,Kannada,premium,seasonal,2026-03-30
+CUS-846EC05AA1,Nikhil Chopra,nikhil.chopra.846e@customers.example,Chennai,Tamil Nadu,Marathi,plus,new,2026-01-03
+CUS-7AE53B30FD,Rahul Nair,rahul.nair.7ae5@customers.example,Indore,Madhya Pradesh,Marathi,standard,new,2026-07-13
+CUS-C45305AFA8,Aditi Aggarwal,aditi.aggarwal.c453@customers.example,Patna,Bihar,English,plus,business,2026-01-03
+CUS-5E4397CCA8,Ananya Kumar,ananya.kumar.5e43@customers.example,Indore,Madhya Pradesh,Malayalam,standard,business,2026-03-16
+CUS-BDA36AE2F8,Gaurav Khan,gaurav.khan.bda3@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,standard,new,2026-01-19
+CUS-C404E442A7,Dev Mukherjee,dev.mukherjee.c404@customers.example,Mysuru,Karnataka,Marathi,standard,seasonal,2026-03-03
+CUS-942896150C,Diya Mukherjee,diya.mukherjee.9428@customers.example,Ahmedabad,Gujarat,Malayalam,standard,returning,2026-04-24
+CUS-4C0B4CE1D5,Kritika Shah,kritika.shah.4c0b@customers.example,Kochi,Kerala,Tamil,standard,returning,2026-01-20
+CUS-2FAA9C19E9,Aditya Singh,aditya.singh.2faa@customers.example,Chandigarh,Chandigarh,Hindi,standard,frequent,2026-03-29
+CUS-F1A916B93E,Divya Mukherjee,divya.mukherjee.f1a9@customers.example,Patna,Bihar,Tamil,plus,new,2026-04-03
+CUS-2DD9F7B77F,Aarav Iyer,aarav.iyer.2dd9@customers.example,Pune,Maharashtra,Bengali,plus,returning,2026-06-07
+CUS-A23E267A7F,Nikhil Pandey,nikhil.pandey.a23e@customers.example,Hyderabad,Telangana,Marathi,standard,business,2026-05-18
+CUS-353FE1115D,Siddharth Patel,siddharth.patel.353f@customers.example,Kolkata,West Bengal,Bengali,standard,returning,2026-06-29
+CUS-21C9DE53DD,Zoya Sen,zoya.sen.21c9@customers.example,Kolkata,West Bengal,Gujarati,standard,new,2026-02-28
+CUS-BD2CD119B3,Dev Dutta,dev.dutta.bd2c@customers.example,Surat,Gujarat,Bengali,standard,seasonal,2026-02-11
+CUS-3E9564C84C,Yash Venkatesh,yash.venkatesh.3e95@customers.example,Visakhapatnam,Andhra Pradesh,Marathi,standard,new,2026-03-01
+CUS-16C9FCAF76,Ishita Trivedi,ishita.trivedi.16c9@customers.example,Patna,Bihar,Malayalam,premium,frequent,2026-01-17
+CUS-ED567D8851,Divya Sen,divya.sen.ed56@customers.example,Patna,Bihar,Bengali,standard,business,2026-03-08
+CUS-B415BB0BB4,Vihaan Pandey,vihaan.pandey.b415@customers.example,Mysuru,Karnataka,Kannada,standard,new,2026-08-07
+CUS-B03FEE29F1,Ishita Chatterjee,ishita.chatterjee.b03f@customers.example,Indore,Madhya Pradesh,Tamil,standard,frequent,2026-03-25
+CUS-63A2E91E96,Kritika Rao,kritika.rao.63a2@customers.example,Coimbatore,Tamil Nadu,Bengali,standard,returning,2026-04-01
+CUS-470DFE1C24,Aditya Jain,aditya.jain.470d@customers.example,Dehradun,Uttarakhand,Telugu,plus,business,2026-04-30
+CUS-2E3D99B4A4,Ishita Chatterjee,ishita.chatterjee.2e3d@customers.example,Nagpur,Maharashtra,Marathi,premium,seasonal,2026-09-02
+CUS-8FFCFA4477,Farhan Gupta,farhan.gupta.8ffc@customers.example,Lucknow,Uttar Pradesh,Malayalam,standard,business,2026-03-14
+CUS-B018C6AE89,Farhan Goswami,farhan.goswami.b018@customers.example,Kochi,Kerala,Odia,plus,seasonal,2026-05-29
+CUS-8C61F5F089,Pranav Sharma,pranav.sharma.8c61@customers.example,Surat,Gujarat,Odia,standard,frequent,2026-05-03
+CUS-48E54852C6,Nikhil Aggarwal,nikhil.aggarwal.48e5@customers.example,Mysuru,Karnataka,Telugu,plus,business,2026-02-15
+CUS-DCFDEA954F,Rhea Mukherjee,rhea.mukherjee.dcfd@customers.example,Visakhapatnam,Andhra Pradesh,Hindi,standard,frequent,2026-07-08
+CUS-D2F131C263,Arjun Saxena,arjun.saxena.d2f1@customers.example,Nagpur,Maharashtra,Hindi,plus,returning,2026-03-31
+CUS-187F9E8BEB,Aarav Seth,aarav.seth.187f@customers.example,Chandigarh,Chandigarh,English,plus,frequent,2026-04-10
+CUS-44F3FC4DB5,Tanvi Menon,tanvi.menon.44f3@customers.example,Pune,Maharashtra,Marathi,standard,business,2026-06-08
+CUS-9BFBBF3FCC,Kabir Shukla,kabir.shukla.9bfb@customers.example,Patna,Bihar,Malayalam,plus,seasonal,2026-06-05
+CUS-BE17473BFD,Ira Chatterjee,ira.chatterjee.be17@customers.example,Chandigarh,Chandigarh,Marathi,standard,seasonal,2026-02-02
+CUS-73E83DB131,Varun Gupta,varun.gupta.73e8@customers.example,Pune,Maharashtra,Marathi,standard,seasonal,2026-02-04
+CUS-32D4350F41,Vidya Shah,vidya.shah.32d4@customers.example,Visakhapatnam,Andhra Pradesh,Marathi,standard,business,2026-03-31
+CUS-4F30FB1A90,Ishaan Chopra,ishaan.chopra.4f30@customers.example,Kolkata,West Bengal,Gujarati,standard,seasonal,2026-04-14
+CUS-9F7CA97E9F,Siddharth Kapoor,siddharth.kapoor.9f7c@customers.example,Hyderabad,Telangana,English,plus,returning,2026-03-01
+CUS-1664AF0FA4,Ira Menon,ira.menon.1664@customers.example,Kolkata,West Bengal,Telugu,plus,frequent,2026-07-01
+CUS-895493F3F0,Diya Rao,diya.rao.8954@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,plus,new,2026-09-09
+CUS-927727C1A7,Shreya Saxena,shreya.saxena.9277@customers.example,Bengaluru,Karnataka,Bengali,plus,seasonal,2026-05-19
+CUS-1A82920F48,Yash Chopra,yash.chopra.1a82@customers.example,Delhi,Delhi,Marathi,standard,frequent,2026-08-17
+CUS-14B299A63C,Tara Sinha,tara.sinha.14b2@customers.example,Hyderabad,Telangana,Malayalam,standard,frequent,2026-05-15
+CUS-19817BC972,Maya Kumar,maya.kumar.1981@customers.example,Surat,Gujarat,English,plus,frequent,2026-07-04
+CUS-E31CDAA471,Aisha Chauhan,aisha.chauhan.e31c@customers.example,Ahmedabad,Gujarat,English,standard,frequent,2026-08-12
+CUS-0F5F8A09C6,Kritika Verma,kritika.verma.0f5f@customers.example,Lucknow,Uttar Pradesh,Odia,standard,seasonal,2026-03-16
+CUS-DCE3B20F98,Kavya Rao,kavya.rao.dce3@customers.example,Bengaluru,Karnataka,Marathi,standard,returning,2026-01-24
+CUS-9B665B5A1E,Anika Sinha,anika.sinha.9b66@customers.example,Mysuru,Karnataka,Odia,standard,frequent,2026-02-09
+CUS-1F92775769,Tanvi Rao,tanvi.rao.1f92@customers.example,Indore,Madhya Pradesh,Kannada,plus,new,2026-06-20
+CUS-1BB0A5BA30,Rohan Sinha,rohan.sinha.1bb0@customers.example,Kochi,Kerala,Malayalam,standard,business,2026-06-02
+CUS-9AA3A37B29,Chetan Trivedi,chetan.trivedi.9aa3@customers.example,Chandigarh,Chandigarh,Malayalam,standard,business,2026-01-03
+CUS-7AA37D389F,Sakshi Patel,sakshi.patel.7aa3@customers.example,Kochi,Kerala,Hindi,standard,business,2026-01-17
+CUS-F05C0C666D,Pranav Verma,pranav.verma.f05c@customers.example,Chennai,Tamil Nadu,Hindi,premium,business,2026-01-11
+CUS-F376C1081F,Aditya Shah,aditya.shah.f376@customers.example,Hyderabad,Telangana,English,plus,new,2026-03-16
+CUS-9403FF4728,Anika Mukherjee,anika.mukherjee.9403@customers.example,Mumbai,Maharashtra,Kannada,plus,frequent,2026-05-06
+CUS-09AB5EFF53,Rahul Trivedi,rahul.trivedi.09ab@customers.example,Delhi,Delhi,Telugu,plus,returning,2026-03-08
+CUS-C9E10DD9FB,Arjun Venkatesh,arjun.venkatesh.c9e1@customers.example,Coimbatore,Tamil Nadu,English,plus,returning,2026-03-06
+CUS-112CC4ED00,Aditi Mukherjee,aditi.mukherjee.112c@customers.example,Indore,Madhya Pradesh,English,plus,frequent,2026-07-26
+CUS-24878B6611,Varun Dutta,varun.dutta.2487@customers.example,Delhi,Delhi,Gujarati,standard,business,2026-04-12
+CUS-10F40AE95E,Maya Seth,maya.seth.10f4@customers.example,Chandigarh,Chandigarh,Malayalam,standard,frequent,2026-01-16
+CUS-090F9926DF,Rhea Desai,rhea.desai.090f@customers.example,Hyderabad,Telangana,Bengali,premium,business,2026-01-28
+CUS-20A7EFA933,Kabir Sharma,kabir.sharma.20a7@customers.example,Guwahati,Assam,Hindi,premium,returning,2026-01-06
+CUS-470ABD08FB,Deepak Kumar,deepak.kumar.470a@customers.example,Kolkata,West Bengal,Odia,standard,returning,2026-06-06
+CUS-72A6405412,Tara Chauhan,tara.chauhan.72a6@customers.example,Patna,Bihar,Telugu,premium,frequent,2026-04-26
+CUS-00B2F5D906,Rishi Chatterjee,rishi.chatterjee.00b2@customers.example,Hyderabad,Telangana,Tamil,standard,seasonal,2026-06-26
+CUS-582CFFEFE7,Manish Desai,manish.desai.582c@customers.example,Chennai,Tamil Nadu,Kannada,plus,seasonal,2026-01-21
+CUS-5FF83ED185,Aryan Reddy,aryan.reddy.5ff8@customers.example,Chennai,Tamil Nadu,Kannada,premium,seasonal,2026-01-06
+CUS-A77F4547E0,Siddharth Khan,siddharth.khan.a77f@customers.example,Chennai,Tamil Nadu,Tamil,standard,new,2026-06-28
+CUS-496F0E8AA5,Rohan Patel,rohan.patel.496f@customers.example,Guwahati,Assam,Hindi,standard,seasonal,2026-04-05
+CUS-E68F40E1B7,Chetan Menon,chetan.menon.e68f@customers.example,Hyderabad,Telangana,Tamil,premium,business,2026-01-31
+CUS-379E8B6EE2,Kritika Aggarwal,kritika.aggarwal.379e@customers.example,Dehradun,Uttarakhand,Kannada,standard,returning,2026-01-02
+CUS-BB740E145C,Dev Bhat,dev.bhat.bb74@customers.example,Kochi,Kerala,English,standard,new,2026-01-30
+CUS-65E3E092A8,Manish Kumar,manish.kumar.65e3@customers.example,Hyderabad,Telangana,Marathi,premium,returning,2026-04-27
+CUS-DD6C10CE9E,Sakshi Nair,sakshi.nair.dd6c@customers.example,Visakhapatnam,Andhra Pradesh,Tamil,premium,returning,2026-03-09
+CUS-3AE1487F6F,Ishaan Chopra,ishaan.chopra.3ae1@customers.example,Kochi,Kerala,Malayalam,standard,returning,2026-05-29
+CUS-3F65E21151,Tara Sen,tara.sen.3f65@customers.example,Surat,Gujarat,Bengali,standard,seasonal,2026-03-14
+CUS-32A7FDCE72,Kritika Mukherjee,kritika.mukherjee.32a7@customers.example,Ahmedabad,Gujarat,English,plus,returning,2026-03-24
+CUS-19B72A66E1,Ishaan Mishra,ishaan.mishra.19b7@customers.example,Guwahati,Assam,Marathi,plus,business,2026-07-12
+CUS-1CEBA291AB,Aditi Verma,aditi.verma.1ceb@customers.example,Bhubaneswar,Odisha,Bengali,standard,frequent,2026-01-31
+CUS-800350BF62,Ishita Pandey,ishita.pandey.8003@customers.example,Surat,Gujarat,Gujarati,standard,returning,2026-01-22
+CUS-ACD0EF4A73,Karan Shukla,karan.shukla.acd0@customers.example,Guwahati,Assam,Marathi,plus,new,2026-07-30
+CUS-3105ACF454,Karan Aggarwal,karan.aggarwal.3105@customers.example,Chandigarh,Chandigarh,English,plus,business,2026-04-29
+CUS-00B06FCD6B,Vihaan Sinha,vihaan.sinha.00b0@customers.example,Ahmedabad,Gujarat,Marathi,plus,business,2026-02-25
+CUS-C1024A16F3,Kritika Chopra,kritika.chopra.c102@customers.example,Visakhapatnam,Andhra Pradesh,Kannada,standard,seasonal,2026-01-11
+CUS-64D14ACCC7,Rahul Goswami,rahul.goswami.64d1@customers.example,Kolkata,West Bengal,Hindi,standard,frequent,2026-03-01
+CUS-12B7BF9265,Rohan Iyer,rohan.iyer.12b7@customers.example,Bhubaneswar,Odisha,Tamil,premium,seasonal,2026-04-30
+CUS-A9ABFCEAC8,Karan Kulkarni,karan.kulkarni.a9ab@customers.example,Patna,Bihar,Tamil,standard,frequent,2026-01-02
+CUS-DC46684EA8,Pranav Sharma,pranav.sharma.dc46@customers.example,Guwahati,Assam,Hindi,standard,frequent,2026-03-08
+CUS-81DCB3318B,Ananya Jain,ananya.jain.81dc@customers.example,Patna,Bihar,Tamil,standard,seasonal,2026-03-01
+CUS-E1266EA19B,Siddharth Venkatesh,siddharth.venkatesh.e126@customers.example,Mysuru,Karnataka,Hindi,plus,new,2026-03-10
+CUS-E1F4BEA1DC,Akash Pandey,akash.pandey.e1f4@customers.example,Delhi,Delhi,Hindi,standard,returning,2026-03-15
+CUS-7A3F9BE801,Zoya Sen,zoya.sen.7a3f@customers.example,Jaipur,Rajasthan,English,plus,returning,2026-01-25
+CUS-025169232A,Vidya Trivedi,vidya.trivedi.0251@customers.example,Mumbai,Maharashtra,Kannada,standard,returning,2026-08-07
+CUS-1757037B1C,Ishita Kapoor,ishita.kapoor.1757@customers.example,Visakhapatnam,Andhra Pradesh,Odia,standard,frequent,2026-03-16
+CUS-7B875C655E,Kavya Joshi,kavya.joshi.7b87@customers.example,Chennai,Tamil Nadu,Hindi,standard,business,2026-06-19
+CUS-5801A6749E,Chetan Das,chetan.das.5801@customers.example,Kochi,Kerala,Marathi,standard,new,2026-07-28
+CUS-932045378A,Pranav Banerjee,pranav.banerjee.9320@customers.example,Nagpur,Maharashtra,Tamil,standard,new,2026-05-29
+CUS-6ADFBB5882,Ishita Kapoor,ishita.kapoor.6adf@customers.example,Lucknow,Uttar Pradesh,Gujarati,premium,business,2026-04-13
+CUS-0E0C2D0519,Sakshi Chauhan,sakshi.chauhan.0e0c@customers.example,Kolkata,West Bengal,Tamil,premium,new,2026-06-06
+CUS-A2E3FB0AD3,Rhea Chauhan,rhea.chauhan.a2e3@customers.example,Bhubaneswar,Odisha,Odia,premium,new,2026-05-24
+CUS-EBB5A303CE,Siddharth Patel,siddharth.patel.ebb5@customers.example,Hyderabad,Telangana,English,plus,frequent,2026-05-15
+CUS-1DC4BE2E07,Kavya Joshi,kavya.joshi.1dc4@customers.example,Dehradun,Uttarakhand,Malayalam,premium,seasonal,2026-03-05
+CUS-6C0588A02D,Zara Seth,zara.seth.6c05@customers.example,Kolkata,West Bengal,Malayalam,standard,seasonal,2026-01-31
+CUS-D891112618,Akash Bhat,akash.bhat.d891@customers.example,Chennai,Tamil Nadu,Malayalam,premium,business,2026-03-16
+CUS-1B896F4918,Aarav Das,aarav.das.1b89@customers.example,Kolkata,West Bengal,Odia,standard,business,2026-08-07
+CUS-6D0B6576D3,Dev Patel,dev.patel.6d0b@customers.example,Bhubaneswar,Odisha,Tamil,premium,seasonal,2026-03-19
+CUS-6AE9E293B9,Deepak Shukla,deepak.shukla.6ae9@customers.example,Chennai,Tamil Nadu,English,plus,frequent,2026-01-30
+CUS-DAA1D2A3F1,Priya Chopra,priya.chopra.daa1@customers.example,Kochi,Kerala,Kannada,plus,frequent,2026-03-13
+CUS-E056CFE0C3,Zoya Khan,zoya.khan.e056@customers.example,Jaipur,Rajasthan,Odia,standard,returning,2026-02-15
+CUS-67FADD58E5,Kritika Chatterjee,kritika.chatterjee.67fa@customers.example,Bhubaneswar,Odisha,Kannada,standard,business,2026-01-28
+CUS-AF42B939B9,Anika Shah,anika.shah.af42@customers.example,Ahmedabad,Gujarat,Odia,standard,seasonal,2026-01-02
+CUS-8B3B21642A,Arjun Pandey,arjun.pandey.8b3b@customers.example,Chennai,Tamil Nadu,Marathi,standard,new,2026-09-23
+CUS-F4CB7724DB,Rishi Yadav,rishi.yadav.f4cb@customers.example,Guwahati,Assam,Marathi,plus,frequent,2026-01-18
+CUS-38A57EEE3C,Tanvi Das,tanvi.das.38a5@customers.example,Bengaluru,Karnataka,Marathi,standard,business,2026-03-23
+CUS-D54C90DCE4,Ishaan Singh,ishaan.singh.d54c@customers.example,Dehradun,Uttarakhand,Kannada,plus,new,2026-05-08
+CUS-235442E661,Zoya Chopra,zoya.chopra.2354@customers.example,Pune,Maharashtra,Odia,plus,seasonal,2026-03-20
+CUS-B39A5AAD0F,Rahul Chopra,rahul.chopra.b39a@customers.example,Ahmedabad,Gujarat,Gujarati,standard,frequent,2026-06-04
+CUS-47F96B2283,Pranav Venkatesh,pranav.venkatesh.47f9@customers.example,Kolkata,West Bengal,Marathi,premium,new,2026-07-04
+CUS-B6AA4B5262,Manish Sinha,manish.sinha.b6aa@customers.example,Indore,Madhya Pradesh,Gujarati,standard,business,2026-01-14
+CUS-374D70697D,Sana Dutta,sana.dutta.374d@customers.example,Coimbatore,Tamil Nadu,Hindi,standard,new,2026-01-29
+CUS-7730DDE9AD,Pranav Chatterjee,pranav.chatterjee.7730@customers.example,Mysuru,Karnataka,Tamil,plus,business,2026-02-27
+CUS-7C52EB122C,Chetan Mehta,chetan.mehta.7c52@customers.example,Mysuru,Karnataka,Gujarati,plus,seasonal,2026-02-15
+CUS-E5A45CC072,Arjun Dutta,arjun.dutta.e5a4@customers.example,Lucknow,Uttar Pradesh,Odia,standard,business,2026-04-22
+CUS-C02AE7A0D0,Rishi Seth,rishi.seth.c02a@customers.example,Delhi,Delhi,Telugu,standard,business,2026-06-11
+CUS-1DC1DDA6B7,Tara Nair,tara.nair.1dc1@customers.example,Pune,Maharashtra,Hindi,plus,seasonal,2026-01-16
+CUS-9FCF3660C3,Sakshi Trivedi,sakshi.trivedi.9fcf@customers.example,Mumbai,Maharashtra,English,standard,returning,2026-06-19
+CUS-8B5EE62904,Anika Nair,anika.nair.8b5e@customers.example,Kochi,Kerala,Hindi,standard,new,2026-07-25
+CUS-191EE0206E,Divya Singh,divya.singh.191e@customers.example,Chandigarh,Chandigarh,Marathi,premium,business,2026-01-23
+CUS-5B39086619,Sana Gupta,sana.gupta.5b39@customers.example,Lucknow,Uttar Pradesh,English,standard,returning,2026-04-07
+CUS-CC4210C184,Sakshi Yadav,sakshi.yadav.cc42@customers.example,Kochi,Kerala,Tamil,plus,seasonal,2026-01-27
+CUS-70CE5C1F02,Rhea Mehta,rhea.mehta.70ce@customers.example,Coimbatore,Tamil Nadu,Marathi,standard,frequent,2026-01-02
+CUS-246F9C8B19,Rohan Saxena,rohan.saxena.246f@customers.example,Jaipur,Rajasthan,Malayalam,premium,frequent,2026-01-16
+CUS-BF8DFFB207,Siddharth Chauhan,siddharth.chauhan.bf8d@customers.example,Chennai,Tamil Nadu,Telugu,standard,returning,2026-01-18
+CUS-B2A2F5D699,Bhavya Yadav,bhavya.yadav.b2a2@customers.example,Hyderabad,Telangana,Marathi,premium,business,2026-02-15
+CUS-FC861D6EC4,Meera Kulkarni,meera.kulkarni.fc86@customers.example,Kolkata,West Bengal,English,standard,returning,2026-01-17
+CUS-8FE435D1B0,Sakshi Goswami,sakshi.goswami.8fe4@customers.example,Visakhapatnam,Andhra Pradesh,Tamil,standard,seasonal,2026-02-08
+CUS-429DF2ABFE,Sakshi Aggarwal,sakshi.aggarwal.429d@customers.example,Guwahati,Assam,Gujarati,standard,business,2026-03-20
+CUS-4E0379AC11,Yash Das,yash.das.4e03@customers.example,Dehradun,Uttarakhand,Bengali,plus,frequent,2026-04-10
+CUS-8D98E06CA0,Aditi Venkatesh,aditi.venkatesh.8d98@customers.example,Patna,Bihar,Odia,standard,business,2026-02-02
+CUS-7E84AF9932,Ishaan Kumar,ishaan.kumar.7e84@customers.example,Guwahati,Assam,Gujarati,standard,new,2026-01-09
+CUS-1C923E5FE8,Sameer Mehta,sameer.mehta.1c92@customers.example,Kolkata,West Bengal,English,plus,returning,2026-02-19
+CUS-8426C888A0,Ishita Shukla,ishita.shukla.8426@customers.example,Kochi,Kerala,English,plus,returning,2026-01-27
+CUS-9B109ED297,Farhan Sen,farhan.sen.9b10@customers.example,Visakhapatnam,Andhra Pradesh,English,plus,business,2026-02-25
+CUS-2ED344E903,Siddharth Chopra,siddharth.chopra.2ed3@customers.example,Pune,Maharashtra,Bengali,plus,frequent,2026-01-29
+CUS-16DA9BC5F2,Shreya Goswami,shreya.goswami.16da@customers.example,Guwahati,Assam,Odia,premium,seasonal,2026-01-11
+CUS-E1A30D3ABA,Tara Chopra,tara.chopra.e1a3@customers.example,Delhi,Delhi,English,premium,returning,2026-01-20
+CUS-1FBBE8CB43,Akash Patel,akash.patel.1fbb@customers.example,Kochi,Kerala,Telugu,plus,frequent,2026-02-24
+CUS-ADCDB62EDE,Akash Reddy,akash.reddy.adcd@customers.example,Pune,Maharashtra,Hindi,premium,business,2026-03-13
+CUS-F7254816F2,Meera Bhat,meera.bhat.f725@customers.example,Nagpur,Maharashtra,Malayalam,standard,frequent,2026-03-15
+CUS-CC3D7D4A90,Aarav Nair,aarav.nair.cc3d@customers.example,Nagpur,Maharashtra,Kannada,plus,seasonal,2026-08-22
+CUS-0E9EB039C7,Pooja Aggarwal,pooja.aggarwal.0e9e@customers.example,Lucknow,Uttar Pradesh,Tamil,standard,frequent,2026-01-24
+CUS-31B9399379,Tara Shukla,tara.shukla.31b9@customers.example,Chandigarh,Chandigarh,Bengali,premium,frequent,2026-02-20
+CUS-1B4EEDCE24,Sameer Mehta,sameer.mehta.1b4e@customers.example,Lucknow,Uttar Pradesh,Kannada,plus,frequent,2026-02-17
+CUS-1558356831,Kritika Iyer,kritika.iyer.1558@customers.example,Delhi,Delhi,Bengali,standard,new,2026-09-19
+CUS-05CDC0772D,Rahul Seth,rahul.seth.05cd@customers.example,Ahmedabad,Gujarat,Marathi,plus,new,2026-03-24
+CUS-DE89A42A6F,Siddharth Kumar,siddharth.kumar.de89@customers.example,Surat,Gujarat,Bengali,standard,business,2026-04-14
+CUS-B35D225AE3,Aarav Khan,aarav.khan.b35d@customers.example,Mumbai,Maharashtra,Telugu,plus,seasonal,2026-04-08
+CUS-F9BCFEE402,Ishaan Kumar,ishaan.kumar.f9bc@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,standard,business,2026-04-08
+CUS-AAC4294836,Vihaan Iyer,vihaan.iyer.aac4@customers.example,Patna,Bihar,Tamil,premium,new,2026-05-13
+CUS-F444CB8969,Siddharth Kapoor,siddharth.kapoor.f444@customers.example,Lucknow,Uttar Pradesh,English,standard,business,2026-03-26
+CUS-9AF18F6174,Anika Khan,anika.khan.9af1@customers.example,Dehradun,Uttarakhand,Marathi,standard,business,2026-06-24
+CUS-5FAB6EED6E,Pranav Gupta,pranav.gupta.5fab@customers.example,Ahmedabad,Gujarat,English,standard,returning,2026-05-27
+CUS-4C62B9DA56,Priya Gupta,priya.gupta.4c62@customers.example,Chennai,Tamil Nadu,Malayalam,plus,new,2026-04-08
+CUS-2A785EA5C7,Zoya Shah,zoya.shah.2a78@customers.example,Visakhapatnam,Andhra Pradesh,Odia,standard,business,2026-01-03
+CUS-D6BDF5D3D8,Rhea Menon,rhea.menon.d6bd@customers.example,Mumbai,Maharashtra,Hindi,plus,seasonal,2026-03-26
+CUS-6599A09A0B,Aditi Mukherjee,aditi.mukherjee.6599@customers.example,Dehradun,Uttarakhand,Hindi,standard,business,2026-01-02
+CUS-8957503209,Bhavya Venkatesh,bhavya.venkatesh.8957@customers.example,Kolkata,West Bengal,Bengali,plus,frequent,2026-05-24
+CUS-66B63B1644,Sana Chatterjee,sana.chatterjee.66b6@customers.example,Ahmedabad,Gujarat,English,premium,new,2026-01-12
+CUS-4CE8D17DD4,Varun Kumar,varun.kumar.4ce8@customers.example,Guwahati,Assam,Gujarati,plus,returning,2026-07-20
+CUS-B4EC431FD2,Kavya Banerjee,kavya.banerjee.b4ec@customers.example,Visakhapatnam,Andhra Pradesh,Bengali,standard,seasonal,2026-07-24
+CUS-4B4FB51AD5,Arjun Iyer,arjun.iyer.4b4f@customers.example,Delhi,Delhi,English,plus,new,2026-01-03
+CUS-4230EF56E6,Vidya Shukla,vidya.shukla.4230@customers.example,Lucknow,Uttar Pradesh,Telugu,plus,frequent,2026-01-03
+CUS-30B8BBFA44,Aisha Saxena,aisha.saxena.30b8@customers.example,Chandigarh,Chandigarh,Telugu,plus,seasonal,2026-04-11
+CUS-AD0A5BA106,Ishaan Desai,ishaan.desai.ad0a@customers.example,Indore,Madhya Pradesh,Gujarati,standard,frequent,2026-02-17
+CUS-8328978847,Tanvi Kapoor,tanvi.kapoor.8328@customers.example,Bhubaneswar,Odisha,Gujarati,plus,returning,2026-01-01
+CUS-FE2DD8F83D,Aditi Iyer,aditi.iyer.fe2d@customers.example,Bengaluru,Karnataka,Kannada,standard,returning,2026-01-28
+CUS-558124C8E5,Farhan Pillai,farhan.pillai.5581@customers.example,Patna,Bihar,Bengali,premium,frequent,2026-06-13
+CUS-F35F50EE6F,Aditya Kumar,aditya.kumar.f35f@customers.example,Indore,Madhya Pradesh,Kannada,premium,frequent,2026-06-20
+CUS-50F97508E5,Aarav Saxena,aarav.saxena.50f9@customers.example,Nagpur,Maharashtra,Malayalam,plus,seasonal,2026-03-03
+CUS-2C1B8374A8,Meera Rao,meera.rao.2c1b@customers.example,Pune,Maharashtra,English,standard,new,2026-02-22
+CUS-D5C2AC0B87,Kritika Desai,kritika.desai.d5c2@customers.example,Chennai,Tamil Nadu,Marathi,standard,frequent,2026-01-05
+CUS-064414A547,Kavya Mehta,kavya.mehta.0644@customers.example,Jaipur,Rajasthan,Bengali,standard,business,2026-02-17
+CUS-637DC53940,Neha Singh,neha.singh.637d@customers.example,Hyderabad,Telangana,Hindi,standard,seasonal,2026-01-24
+CUS-15129A8B30,Priya Singh,priya.singh.1512@customers.example,Hyderabad,Telangana,Marathi,standard,returning,2026-01-24
+CUS-D7891B9E35,Zara Singh,zara.singh.d789@customers.example,Surat,Gujarat,Malayalam,plus,frequent,2026-01-01
+CUS-41B3FA7598,Chetan Sen,chetan.sen.41b3@customers.example,Mysuru,Karnataka,Malayalam,standard,returning,2026-02-24
+CUS-42E3208575,Pranav Das,pranav.das.42e3@customers.example,Mysuru,Karnataka,Gujarati,standard,returning,2026-03-10
+CUS-910586191E,Harsh Reddy,harsh.reddy.9105@customers.example,Delhi,Delhi,Malayalam,plus,new,2026-02-03
+CUS-BF3099DD3E,Ira Reddy,ira.reddy.bf30@customers.example,Coimbatore,Tamil Nadu,Gujarati,standard,frequent,2026-02-17
+CUS-5766E69445,Kabir Desai,kabir.desai.5766@customers.example,Delhi,Delhi,Malayalam,standard,new,2026-06-03
+CUS-A23E44CCF6,Ishaan Desai,ishaan.desai.a23e@customers.example,Patna,Bihar,Gujarati,standard,frequent,2026-09-06
+CUS-D0022EAAC1,Siddharth Venkatesh,siddharth.venkatesh.d002@customers.example,Delhi,Delhi,Gujarati,plus,new,2026-03-31
+CUS-2778C0220F,Sameer Gupta,sameer.gupta.2778@customers.example,Kochi,Kerala,English,standard,business,2026-03-17
+CUS-C6D2C7FA2B,Vihaan Kulkarni,vihaan.kulkarni.c6d2@customers.example,Lucknow,Uttar Pradesh,Marathi,standard,seasonal,2026-03-27
+CUS-583EA30E7D,Shreya Goswami,shreya.goswami.583e@customers.example,Visakhapatnam,Andhra Pradesh,Bengali,standard,new,2026-10-08
+CUS-67E8962DBC,Maya Chauhan,maya.chauhan.67e8@customers.example,Visakhapatnam,Andhra Pradesh,Gujarati,plus,returning,2026-05-04
+CUS-2AD87FCAED,Karan Seth,karan.seth.2ad8@customers.example,Kochi,Kerala,Odia,standard,frequent,2026-05-05
+CUS-25574925B0,Chetan Goswami,chetan.goswami.2557@customers.example,Pune,Maharashtra,Hindi,premium,new,2026-04-28
+CUS-085632BE92,Karan Shukla,karan.shukla.0856@customers.example,Lucknow,Uttar Pradesh,English,standard,new,2026-01-16
+CUS-A37EAD2757,Ishaan Gupta,ishaan.gupta.a37e@customers.example,Chandigarh,Chandigarh,Malayalam,standard,returning,2026-07-28
+CUS-62024236B7,Farhan Sen,farhan.sen.6202@customers.example,Jaipur,Rajasthan,Malayalam,premium,business,2026-06-01
+CUS-1284B4B751,Varun Bhat,varun.bhat.1284@customers.example,Coimbatore,Tamil Nadu,Malayalam,plus,returning,2026-04-17
+CUS-E0F0C8C5F9,Dev Shah,dev.shah.e0f0@customers.example,Surat,Gujarat,Gujarati,plus,business,2026-01-08
+CUS-4341C8B853,Yash Dutta,yash.dutta.4341@customers.example,Chennai,Tamil Nadu,Marathi,standard,seasonal,2026-04-05
+CUS-6F0E78234D,Sakshi Pandey,sakshi.pandey.6f0e@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,standard,returning,2026-05-01
+CUS-1FB4DD0894,Kavya Trivedi,kavya.trivedi.1fb4@customers.example,Guwahati,Assam,Odia,plus,seasonal,2026-07-09
+CUS-1107EAF0E3,Kabir Desai,kabir.desai.1107@customers.example,Surat,Gujarat,Malayalam,plus,frequent,2026-05-09
+CUS-E93B36BC36,Pooja Chopra,pooja.chopra.e93b@customers.example,Visakhapatnam,Andhra Pradesh,Bengali,plus,returning,2026-03-24
+CUS-02C138D3EE,Kabir Verma,kabir.verma.02c1@customers.example,Coimbatore,Tamil Nadu,Bengali,plus,new,2026-03-19
+CUS-4F60584609,Chetan Shukla,chetan.shukla.4f60@customers.example,Nagpur,Maharashtra,Telugu,standard,frequent,2026-02-10
+CUS-6A2CFA17A9,Aisha Shukla,aisha.shukla.6a2c@customers.example,Surat,Gujarat,Gujarati,standard,new,2026-01-29
+CUS-F1E507CBD1,Tara Mehta,tara.mehta.f1e5@customers.example,Mumbai,Maharashtra,Malayalam,premium,seasonal,2026-07-10
+CUS-0CAE76F46B,Yash Shah,yash.shah.0cae@customers.example,Guwahati,Assam,Kannada,plus,frequent,2026-01-01
+CUS-AF553A00BA,Anika Nair,anika.nair.af55@customers.example,Nagpur,Maharashtra,English,plus,business,2026-01-05
+CUS-4845E92991,Priya Menon,priya.menon.4845@customers.example,Dehradun,Uttarakhand,Tamil,plus,returning,2026-02-07
+CUS-D4BE497DC9,Tanvi Menon,tanvi.menon.d4be@customers.example,Dehradun,Uttarakhand,Tamil,standard,returning,2026-02-04
+CUS-DFB3168F88,Yash Chopra,yash.chopra.dfb3@customers.example,Nagpur,Maharashtra,Telugu,standard,returning,2026-03-01
+CUS-91AE031F21,Divya Saxena,divya.saxena.91ae@customers.example,Kolkata,West Bengal,Marathi,standard,frequent,2026-01-09
+CUS-3D585BFBED,Aisha Mehta,aisha.mehta.3d58@customers.example,Guwahati,Assam,English,plus,frequent,2026-03-20
+CUS-877D94EAEF,Manish Aggarwal,manish.aggarwal.877d@customers.example,Bhubaneswar,Odisha,English,plus,business,2026-01-03
+CUS-476C6B8AE0,Yash Seth,yash.seth.476c@customers.example,Kolkata,West Bengal,Malayalam,standard,seasonal,2026-03-19
+CUS-8D98D9A7FF,Tara Kapoor,tara.kapoor.8d98@customers.example,Mysuru,Karnataka,Telugu,standard,new,2026-01-29
+CUS-1B84D151D7,Manish Banerjee,manish.banerjee.1b84@customers.example,Dehradun,Uttarakhand,English,plus,new,2026-03-11
+CUS-82B8CA84C6,Zoya Banerjee,zoya.banerjee.82b8@customers.example,Indore,Madhya Pradesh,Hindi,standard,seasonal,2026-04-04
+CUS-EE1DD61A85,Kabir Pandey,kabir.pandey.ee1d@customers.example,Nagpur,Maharashtra,Gujarati,premium,business,2026-01-10
+CUS-EB5FFF76E3,Aryan Mehta,aryan.mehta.eb5f@customers.example,Bengaluru,Karnataka,Kannada,premium,business,2026-04-05
+CUS-BD080F50E6,Aryan Rao,aryan.rao.bd08@customers.example,Pune,Maharashtra,Tamil,standard,seasonal,2026-04-27
+CUS-C4E209BEA7,Kritika Nair,kritika.nair.c4e2@customers.example,Guwahati,Assam,Malayalam,standard,frequent,2026-07-18
+CUS-4EA191F5A7,Aditi Mishra,aditi.mishra.4ea1@customers.example,Visakhapatnam,Andhra Pradesh,Odia,plus,frequent,2026-04-18
+CUS-10F4149936,Rahul Rao,rahul.rao.10f4@customers.example,Guwahati,Assam,Malayalam,plus,frequent,2026-05-10
+CUS-FE0307C226,Pooja Sharma,pooja.sharma.fe03@customers.example,Surat,Gujarat,Odia,standard,seasonal,2026-01-03
+CUS-13BE0294EA,Tanvi Mishra,tanvi.mishra.13be@customers.example,Bengaluru,Karnataka,Tamil,premium,returning,2026-08-27
+CUS-43C2E1D3E7,Ishita Kapoor,ishita.kapoor.43c2@customers.example,Kolkata,West Bengal,Odia,plus,seasonal,2026-06-14
+CUS-1239749FCD,Akash Desai,akash.desai.1239@customers.example,Mumbai,Maharashtra,Hindi,standard,business,2026-07-07
+CUS-421E4DDEA4,Kritika Khan,kritika.khan.421e@customers.example,Lucknow,Uttar Pradesh,Gujarati,standard,returning,2026-04-22
+CUS-A1A6EBA8AB,Neha Verma,neha.verma.a1a6@customers.example,Bhubaneswar,Odisha,Tamil,standard,returning,2026-08-11
+CUS-C83BBC503B,Nikhil Venkatesh,nikhil.venkatesh.c83b@customers.example,Chennai,Tamil Nadu,Tamil,plus,seasonal,2026-02-09
+CUS-5EC44D60A9,Maya Desai,maya.desai.5ec4@customers.example,Visakhapatnam,Andhra Pradesh,Tamil,premium,new,2026-01-22
+CUS-22C0186007,Kritika Kapoor,kritika.kapoor.22c0@customers.example,Lucknow,Uttar Pradesh,Malayalam,standard,returning,2026-02-03
+CUS-213A9C26FD,Kavya Rao,kavya.rao.213a@customers.example,Kolkata,West Bengal,Odia,premium,seasonal,2026-08-27
+CUS-00DBA736F6,Divya Reddy,divya.reddy.00db@customers.example,Kochi,Kerala,Tamil,plus,seasonal,2026-06-05
+CUS-8BFA555AB2,Aryan Shah,aryan.shah.8bfa@customers.example,Mumbai,Maharashtra,English,plus,business,2026-07-31
+CUS-C8AF8C4C41,Chetan Sen,chetan.sen.c8af@customers.example,Visakhapatnam,Andhra Pradesh,Hindi,standard,frequent,2026-08-27
+CUS-EFB17E3BA3,Gaurav Goswami,gaurav.goswami.efb1@customers.example,Mysuru,Karnataka,Odia,premium,new,2026-01-23
+CUS-EEE95A34D7,Meera Gupta,meera.gupta.eee9@customers.example,Hyderabad,Telangana,Hindi,standard,new,2026-07-10
+CUS-0097A0C5B0,Chetan Chauhan,chetan.chauhan.0097@customers.example,Bhubaneswar,Odisha,Odia,standard,seasonal,2026-02-16
+CUS-DBC4CE6FF5,Aditya Menon,aditya.menon.dbc4@customers.example,Lucknow,Uttar Pradesh,Odia,standard,new,2026-06-17
+CUS-83886FE145,Kritika Desai,kritika.desai.8388@customers.example,Mumbai,Maharashtra,Odia,premium,new,2026-07-31
+CUS-8F7683D455,Arjun Chopra,arjun.chopra.8f76@customers.example,Mysuru,Karnataka,Malayalam,standard,new,2026-06-10
+CUS-F96169DB7C,Zara Shukla,zara.shukla.f961@customers.example,Bhubaneswar,Odisha,Gujarati,plus,returning,2026-01-16
+CUS-D27825F42F,Pranav Sharma,pranav.sharma.d278@customers.example,Mumbai,Maharashtra,Odia,standard,frequent,2026-04-24
+CUS-75B7FE1AF5,Nikhil Desai,nikhil.desai.75b7@customers.example,Dehradun,Uttarakhand,Marathi,plus,seasonal,2026-04-12
+CUS-AC0F68EDBA,Rhea Kumar,rhea.kumar.ac0f@customers.example,Chandigarh,Chandigarh,Malayalam,plus,frequent,2026-08-06
+CUS-B6EEA30CF1,Pooja Aggarwal,pooja.aggarwal.b6ee@customers.example,Bhubaneswar,Odisha,Telugu,premium,new,2026-05-12
+CUS-0B94B2CF07,Divya Singh,divya.singh.0b94@customers.example,Mumbai,Maharashtra,Marathi,plus,new,2026-04-15
+CUS-6E344ADE94,Aisha Singh,aisha.singh.6e34@customers.example,Indore,Madhya Pradesh,Telugu,plus,seasonal,2026-01-15
+CUS-CB1DADFFCD,Vidya Chauhan,vidya.chauhan.cb1d@customers.example,Guwahati,Assam,Marathi,premium,frequent,2026-06-12
+CUS-7BCF4F26F5,Maya Chauhan,maya.chauhan.7bcf@customers.example,Nagpur,Maharashtra,Telugu,plus,new,2026-05-08
+CUS-1494F3ACDD,Akash Mehta,akash.mehta.1494@customers.example,Kolkata,West Bengal,Kannada,standard,seasonal,2026-09-22
+CUS-14CAE6C57B,Deepak Chopra,deepak.chopra.14ca@customers.example,Dehradun,Uttarakhand,Malayalam,plus,business,2026-05-23
+CUS-5866DE62C2,Varun Reddy,varun.reddy.5866@customers.example,Chennai,Tamil Nadu,Hindi,premium,business,2026-02-15
+CUS-FD99F5282F,Aarav Rao,aarav.rao.fd99@customers.example,Chandigarh,Chandigarh,Kannada,standard,frequent,2026-01-29
+CUS-85FBF156D2,Zara Verma,zara.verma.85fb@customers.example,Mysuru,Karnataka,Bengali,standard,frequent,2026-03-29
+CUS-CC2FAAC4F1,Kabir Rao,kabir.rao.cc2f@customers.example,Kolkata,West Bengal,Tamil,standard,business,2026-01-10
+CUS-4F043A3C10,Aryan Pandey,aryan.pandey.4f04@customers.example,Delhi,Delhi,Tamil,plus,returning,2026-06-07
+CUS-A65B8A61E7,Shreya Shah,shreya.shah.a65b@customers.example,Mysuru,Karnataka,Hindi,standard,frequent,2026-01-10
+CUS-69FB47E38E,Kritika Sen,kritika.sen.69fb@customers.example,Hyderabad,Telangana,Marathi,premium,returning,2026-05-26
+CUS-0B7822B7F8,Chetan Saxena,chetan.saxena.0b78@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,plus,new,2026-05-17
+CUS-F794A3BD81,Yash Goswami,yash.goswami.f794@customers.example,Ahmedabad,Gujarat,Kannada,standard,seasonal,2026-04-16
+CUS-F64979AA90,Sana Mishra,sana.mishra.f649@customers.example,Dehradun,Uttarakhand,Hindi,plus,frequent,2026-05-06
+CUS-AEFBF92912,Dev Shah,dev.shah.aefb@customers.example,Hyderabad,Telangana,Marathi,plus,returning,2026-03-25
+CUS-2720BE1C1E,Rahul Goswami,rahul.goswami.2720@customers.example,Visakhapatnam,Andhra Pradesh,Odia,standard,frequent,2026-04-29
+CUS-612E7078FF,Bhavya Das,bhavya.das.612e@customers.example,Chandigarh,Chandigarh,Odia,standard,new,2026-02-22
+CUS-B7F2CFF30A,Chetan Sinha,chetan.sinha.b7f2@customers.example,Mysuru,Karnataka,Gujarati,premium,business,2026-06-10
+CUS-E852ACC4D9,Bhavya Yadav,bhavya.yadav.e852@customers.example,Surat,Gujarat,Bengali,standard,business,2026-04-23
+CUS-07AC08FA8F,Siddharth Yadav,siddharth.yadav.07ac@customers.example,Kolkata,West Bengal,Gujarati,premium,frequent,2026-08-11
+CUS-9F185ADFB4,Varun Menon,varun.menon.9f18@customers.example,Pune,Maharashtra,Malayalam,standard,business,2026-01-31
+CUS-7D0501D526,Gaurav Singh,gaurav.singh.7d05@customers.example,Kolkata,West Bengal,English,plus,seasonal,2026-04-13
+CUS-6A36AC7D36,Sakshi Iyer,sakshi.iyer.6a36@customers.example,Hyderabad,Telangana,Bengali,standard,new,2026-01-23
+CUS-7F47D3FC0B,Ira Venkatesh,ira.venkatesh.7f47@customers.example,Kochi,Kerala,Bengali,plus,seasonal,2026-01-17
+CUS-DD4E43D818,Chetan Kapoor,chetan.kapoor.dd4e@customers.example,Chandigarh,Chandigarh,Malayalam,standard,seasonal,2026-01-17
+CUS-525A6DCC71,Tara Das,tara.das.525a@customers.example,Visakhapatnam,Andhra Pradesh,Kannada,standard,business,2026-07-05
+CUS-21F8DFFA8D,Divya Desai,divya.desai.21f8@customers.example,Jaipur,Rajasthan,English,plus,frequent,2026-08-11
+CUS-EF170F8E9B,Sana Iyer,sana.iyer.ef17@customers.example,Jaipur,Rajasthan,Gujarati,premium,new,2026-02-01
+CUS-09C5BBF0CF,Zara Desai,zara.desai.09c5@customers.example,Bhubaneswar,Odisha,Odia,premium,seasonal,2026-03-09
+CUS-A0FF1C081C,Diya Mishra,diya.mishra.a0ff@customers.example,Dehradun,Uttarakhand,Marathi,standard,new,2026-02-16
+CUS-BDDAE77B15,Diya Chatterjee,diya.chatterjee.bdda@customers.example,Coimbatore,Tamil Nadu,Gujarati,plus,new,2026-06-20
+CUS-DA3F03D6EF,Ishaan Gupta,ishaan.gupta.da3f@customers.example,Mumbai,Maharashtra,Odia,standard,returning,2026-02-04
+CUS-4A9F66BE5F,Sana Chauhan,sana.chauhan.4a9f@customers.example,Kolkata,West Bengal,Odia,standard,returning,2026-01-16
+CUS-1F3FC8A519,Aryan Verma,aryan.verma.1f3f@customers.example,Dehradun,Uttarakhand,Bengali,standard,seasonal,2026-01-01
+CUS-8876813E8D,Zoya Nair,zoya.nair.8876@customers.example,Indore,Madhya Pradesh,Hindi,plus,returning,2026-05-21
+CUS-4A13CE16B9,Manish Venkatesh,manish.venkatesh.4a13@customers.example,Patna,Bihar,English,plus,returning,2026-02-08
+CUS-98E4E17874,Vidya Desai,vidya.desai.98e4@customers.example,Jaipur,Rajasthan,English,plus,frequent,2026-03-25
+CUS-7448802B3F,Rahul Aggarwal,rahul.aggarwal.7448@customers.example,Surat,Gujarat,English,plus,frequent,2026-01-06
+CUS-A2F82DF431,Zara Joshi,zara.joshi.a2f8@customers.example,Mysuru,Karnataka,Marathi,standard,business,2026-07-25
+CUS-5A76D73252,Ananya Saxena,ananya.saxena.5a76@customers.example,Surat,Gujarat,Malayalam,standard,new,2026-01-09
+CUS-4FBEAE1DA3,Sana Seth,sana.seth.4fbe@customers.example,Nagpur,Maharashtra,Gujarati,premium,seasonal,2026-06-18
+CUS-71D5EBCA98,Manish Shah,manish.shah.71d5@customers.example,Lucknow,Uttar Pradesh,Odia,plus,seasonal,2026-01-07
+CUS-C18DFAF346,Kavya Singh,kavya.singh.c18d@customers.example,Bhubaneswar,Odisha,Marathi,standard,seasonal,2026-04-21
+CUS-D0A55E54CF,Ira Das,ira.das.d0a5@customers.example,Patna,Bihar,Marathi,plus,seasonal,2026-01-29
+CUS-7C017D72BC,Manish Sharma,manish.sharma.7c01@customers.example,Jaipur,Rajasthan,Marathi,standard,seasonal,2026-06-08
+CUS-AEAF9C98E5,Manish Shukla,manish.shukla.aeaf@customers.example,Chennai,Tamil Nadu,Hindi,standard,business,2026-05-22
+CUS-09C4F9CFCC,Aditi Mehta,aditi.mehta.09c4@customers.example,Bhubaneswar,Odisha,Gujarati,standard,returning,2026-05-19
+CUS-0EBCC54390,Pranav Shah,pranav.shah.0ebc@customers.example,Delhi,Delhi,Odia,premium,new,2026-04-28
+CUS-D75F0D8916,Neha Mehta,neha.mehta.d75f@customers.example,Mumbai,Maharashtra,English,premium,business,2026-01-10
+CUS-028812B9F6,Zara Sharma,zara.sharma.0288@customers.example,Chennai,Tamil Nadu,Marathi,plus,business,2026-02-02
+CUS-E00D480FF4,Ira Desai,ira.desai.e00d@customers.example,Kolkata,West Bengal,Odia,plus,new,2026-02-18
+CUS-DFD62D0B88,Siddharth Trivedi,siddharth.trivedi.dfd6@customers.example,Visakhapatnam,Andhra Pradesh,Telugu,standard,new,2026-03-15
+CUS-0E4D6F1131,Aditya Venkatesh,aditya.venkatesh.0e4d@customers.example,Guwahati,Assam,Hindi,standard,business,2026-08-21
+CUS-49FA5DE649,Aditi Iyer,aditi.iyer.49fa@customers.example,Kochi,Kerala,Tamil,standard,seasonal,2026-05-22
+CUS-4D4B8064BA,Manish Saxena,manish.saxena.4d4b@customers.example,Coimbatore,Tamil Nadu,Hindi,premium,business,2026-02-10
+CUS-919A15AD88,Farhan Dutta,farhan.dutta.919a@customers.example,Visakhapatnam,Andhra Pradesh,Kannada,plus,new,2026-02-26
+CUS-80C98501F1,Diya Gupta,diya.gupta.80c9@customers.example,Indore,Madhya Pradesh,Marathi,premium,frequent,2026-04-22
+CUS-7B8F37F6E7,Aarav Mishra,aarav.mishra.7b8f@customers.example,Bengaluru,Karnataka,Tamil,standard,frequent,2026-05-27
+CUS-95B4A972D3,Akash Verma,akash.verma.95b4@customers.example,Surat,Gujarat,Bengali,standard,frequent,2026-07-23
+CUS-7ECEA8A89F,Divya Desai,divya.desai.7ece@customers.example,Mysuru,Karnataka,Bengali,premium,returning,2026-03-16
+CUS-BF192F2B5D,Dev Rao,dev.rao.bf19@customers.example,Mumbai,Maharashtra,Telugu,plus,seasonal,2026-04-25
+CUS-CB3B390204,Tanvi Kulkarni,tanvi.kulkarni.cb3b@customers.example,Mumbai,Maharashtra,Telugu,standard,returning,2026-06-02
+CUS-56AE5E098F,Vihaan Singh,vihaan.singh.56ae@customers.example,Chennai,Tamil Nadu,Tamil,standard,frequent,2026-05-04
+CUS-AB7EB6293A,Rishi Venkatesh,rishi.venkatesh.ab7e@customers.example,Surat,Gujarat,Hindi,premium,seasonal,2026-01-16
+CUS-AC1C8C17EC,Divya Chatterjee,divya.chatterjee.ac1c@customers.example,Bengaluru,Karnataka,Malayalam,standard,new,2026-01-03
+CUS-6ABBD201FF,Vidya Gupta,vidya.gupta.6abb@customers.example,Chennai,Tamil Nadu,Marathi,plus,frequent,2026-05-14
+CUS-F410F7A084,Tanvi Trivedi,tanvi.trivedi.f410@customers.example,Delhi,Delhi,Kannada,standard,new,2026-01-02
+CUS-836E3648AA,Ira Singh,ira.singh.836e@customers.example,Pune,Maharashtra,Malayalam,standard,seasonal,2026-05-27
+CUS-6236DDAE3E,Ira Banerjee,ira.banerjee.6236@customers.example,Nagpur,Maharashtra,English,standard,business,2026-03-02
+CUS-BE62C5538A,Priya Menon,priya.menon.be62@customers.example,Delhi,Delhi,Tamil,plus,returning,2026-05-01
+CUS-CA00F1B1AD,Pranav Trivedi,pranav.trivedi.ca00@customers.example,Lucknow,Uttar Pradesh,Odia,plus,seasonal,2026-09-17
+CUS-4A17D1C64A,Pooja Banerjee,pooja.banerjee.4a17@customers.example,Coimbatore,Tamil Nadu,Gujarati,plus,new,2026-03-17
+CUS-691BF42A3D,Tanvi Saxena,tanvi.saxena.691b@customers.example,Kochi,Kerala,Odia,premium,seasonal,2026-01-01
+CUS-A3C8BDEAE6,Arjun Seth,arjun.seth.a3c8@customers.example,Surat,Gujarat,Gujarati,standard,frequent,2026-06-03
+CUS-7469CDC628,Varun Shukla,varun.shukla.7469@customers.example,Nagpur,Maharashtra,Malayalam,standard,new,2026-03-25
+CUS-77616890C5,Aryan Yadav,aryan.yadav.7761@customers.example,Jaipur,Rajasthan,Tamil,standard,business,2026-01-09
+CUS-9CAACE063C,Pooja Verma,pooja.verma.9caa@customers.example,Surat,Gujarat,Tamil,standard,frequent,2026-05-17
+CUS-0FB41125C1,Varun Venkatesh,varun.venkatesh.0fb4@customers.example,Patna,Bihar,Telugu,plus,new,2026-06-20
+CUS-87606B85CC,Rishi Sinha,rishi.sinha.8760@customers.example,Indore,Madhya Pradesh,Telugu,standard,frequent,2026-02-19
+CUS-28D4B0C809,Rahul Sinha,rahul.sinha.28d4@customers.example,Bengaluru,Karnataka,Hindi,standard,seasonal,2026-02-07
+CUS-46C0EC29DB,Aryan Venkatesh,aryan.venkatesh.46c0@customers.example,Patna,Bihar,Marathi,standard,business,2026-01-21
+CUS-7E63384140,Ananya Mukherjee,ananya.mukherjee.7e63@customers.example,Coimbatore,Tamil Nadu,Hindi,plus,business,2026-01-26
+CUS-B70080A917,Neha Menon,neha.menon.b700@customers.example,Lucknow,Uttar Pradesh,Gujarati,plus,new,2026-09-04
+CUS-E69CCB6BE4,Karan Kapoor,karan.kapoor.e69c@customers.example,Lucknow,Uttar Pradesh,Hindi,premium,seasonal,2026-05-27
+CUS-BA6E063BE6,Kabir Kapoor,kabir.kapoor.ba6e@customers.example,Chandigarh,Chandigarh,Odia,standard,seasonal,2026-07-31
+CUS-5124509357,Ishita Seth,ishita.seth.5124@customers.example,Jaipur,Rajasthan,Hindi,standard,seasonal,2026-06-16
+CUS-0101C780E9,Manish Joshi,manish.joshi.0101@customers.example,Kochi,Kerala,Tamil,plus,business,2026-05-20
+CUS-385EFF6817,Karan Sharma,karan.sharma.385e@customers.example,Bhubaneswar,Odisha,Hindi,standard,business,2026-03-12
+CUS-39BF27682E,Shreya Banerjee,shreya.banerjee.39bf@customers.example,Chandigarh,Chandigarh,Kannada,standard,returning,2026-04-07
+CUS-D690ADAEBD,Maya Mishra,maya.mishra.d690@customers.example,Bhubaneswar,Odisha,Kannada,plus,seasonal,2026-03-04
+CUS-BC54E5FF6E,Ira Bhat,ira.bhat.bc54@customers.example,Lucknow,Uttar Pradesh,Bengali,premium,seasonal,2026-04-01
+CUS-74BDB2CA94,Shreya Banerjee,shreya.banerjee.74bd@customers.example,Bengaluru,Karnataka,Marathi,standard,new,2026-02-12
+CUS-531B8F2B7D,Rhea Jain,rhea.jain.531b@customers.example,Kochi,Kerala,English,plus,seasonal,2026-05-19
+CUS-974641D0F7,Manish Menon,manish.menon.9746@customers.example,Mumbai,Maharashtra,Telugu,standard,business,2026-05-17
+CUS-0DF1F5F46E,Farhan Saxena,farhan.saxena.0df1@customers.example,Chandigarh,Chandigarh,Hindi,standard,seasonal,2026-01-07
+CUS-A3F7042D4F,Anika Verma,anika.verma.a3f7@customers.example,Chennai,Tamil Nadu,Telugu,standard,new,2026-02-26
+CUS-ED622E60DA,Sakshi Nair,sakshi.nair.ed62@customers.example,Surat,Gujarat,English,plus,returning,2026-05-13
+CUS-6DBDF3CDE6,Tanvi Sen,tanvi.sen.6dbd@customers.example,Bhubaneswar,Odisha,Tamil,plus,new,2026-02-23
+CUS-8A4154CC85,Kritika Seth,kritika.seth.8a41@customers.example,Mumbai,Maharashtra,Hindi,plus,frequent,2026-01-11
+CUS-3160158A42,Diya Iyer,diya.iyer.3160@customers.example,Kochi,Kerala,Tamil,standard,new,2026-08-29
+CUS-C9DE2D7D1E,Meera Kapoor,meera.kapoor.c9de@customers.example,Jaipur,Rajasthan,Kannada,standard,new,2026-05-09
+CUS-B19177E2A6,Meera Sinha,meera.sinha.b191@customers.example,Mysuru,Karnataka,Bengali,standard,business,2026-01-03
+CUS-B37667C45E,Kavya Chauhan,kavya.chauhan.b376@customers.example,Pune,Maharashtra,Hindi,standard,seasonal,2026-05-01
+CUS-01B2294D56,Bhavya Yadav,bhavya.yadav.01b2@customers.example,Jaipur,Rajasthan,Hindi,standard,seasonal,2026-03-27
+CUS-39370A6D07,Aryan Verma,aryan.verma.3937@customers.example,Jaipur,Rajasthan,Gujarati,plus,returning,2026-04-16
+CUS-368CBFCA5A,Tanvi Kulkarni,tanvi.kulkarni.368c@customers.example,Indore,Madhya Pradesh,Odia,plus,new,2026-04-24
+CUS-C365B72878,Aarav Kulkarni,aarav.kulkarni.c365@customers.example,Kolkata,West Bengal,Odia,plus,business,2026-04-13
+CUS-A8E32620C7,Rohan Jain,rohan.jain.a8e3@customers.example,Jaipur,Rajasthan,Hindi,standard,seasonal,2026-03-23
+CUS-8C70FD2E73,Sameer Dutta,sameer.dutta.8c70@customers.example,Kolkata,West Bengal,Tamil,plus,business,2026-01-19
+CUS-E734460161,Aryan Chatterjee,aryan.chatterjee.e734@customers.example,Ahmedabad,Gujarat,Tamil,plus,frequent,2026-04-11
+CUS-7D400BBE1A,Kabir Menon,kabir.menon.7d40@customers.example,Mumbai,Maharashtra,Gujarati,standard,returning,2026-08-01
+CUS-EA762A2C46,Sana Goswami,sana.goswami.ea76@customers.example,Lucknow,Uttar Pradesh,Kannada,premium,seasonal,2026-01-19
+CUS-BBA2FFDB1A,Yash Reddy,yash.reddy.bba2@customers.example,Guwahati,Assam,Bengali,standard,returning,2026-06-02
+CUS-89BC191863,Rahul Mishra,rahul.mishra.89bc@customers.example,Ahmedabad,Gujarat,Telugu,standard,seasonal,2026-05-30
+CUS-4A339C476B,Kabir Pandey,kabir.pandey.4a33@customers.example,Visakhapatnam,Andhra Pradesh,Odia,premium,frequent,2026-04-12
+CUS-0AEAE715A0,Shreya Jain,shreya.jain.0aea@customers.example,Chennai,Tamil Nadu,Tamil,plus,frequent,2026-02-04
+CUS-F55264638A,Dev Pandey,dev.pandey.f552@customers.example,Pune,Maharashtra,English,standard,new,2026-04-11
+CUS-FFAD680CB7,Rohan Sinha,rohan.sinha.ffad@customers.example,Lucknow,Uttar Pradesh,Hindi,standard,returning,2026-01-19
+CUS-92E4065A1E,Kritika Aggarwal,kritika.aggarwal.92e4@customers.example,Kolkata,West Bengal,Kannada,plus,frequent,2026-03-23
+CUS-834ADE676F,Karan Kumar,karan.kumar.834a@customers.example,Guwahati,Assam,Tamil,standard,frequent,2026-01-29
+CUS-BCD038098C,Tara Banerjee,tara.banerjee.bcd0@customers.example,Pune,Maharashtra,Odia,standard,business,2026-06-17
+CUS-240D2B3F8C,Sana Mishra,sana.mishra.240d@customers.example,Kolkata,West Bengal,Malayalam,plus,frequent,2026-01-05
+CUS-00CC6143C5,Zoya Iyer,zoya.iyer.00cc@customers.example,Lucknow,Uttar Pradesh,Bengali,plus,returning,2026-03-31
+CUS-18655DC2D0,Rohan Gupta,rohan.gupta.1865@customers.example,Kochi,Kerala,Malayalam,plus,frequent,2026-02-02
+CUS-0089581178,Aryan Kapoor,aryan.kapoor.0089@customers.example,Surat,Gujarat,Marathi,standard,frequent,2026-04-11
+CUS-2A7A3C0CBB,Harsh Dutta,harsh.dutta.2a7a@customers.example,Ahmedabad,Gujarat,Odia,plus,seasonal,2026-03-06
+CUS-73EEC630F2,Chetan Dutta,chetan.dutta.73ee@customers.example,Nagpur,Maharashtra,Kannada,plus,business,2026-02-19
+CUS-5B30EB19E4,Zara Iyer,zara.iyer.5b30@customers.example,Chandigarh,Chandigarh,Tamil,premium,returning,2026-06-11
+CUS-55BDD7F4D8,Kabir Jain,kabir.jain.55bd@customers.example,Kolkata,West Bengal,Bengali,standard,seasonal,2026-02-21
+CUS-1FC179B24C,Neha Nair,neha.nair.1fc1@customers.example,Jaipur,Rajasthan,Marathi,plus,returning,2026-03-27
+CUS-1EBE51C9F6,Rohan Sinha,rohan.sinha.1ebe@customers.example,Jaipur,Rajasthan,English,standard,business,2026-01-27
+CUS-FB50C8FED1,Sana Goswami,sana.goswami.fb50@customers.example,Surat,Gujarat,Marathi,standard,seasonal,2026-04-28
+CUS-C2DBA44380,Zoya Yadav,zoya.yadav.c2db@customers.example,Ahmedabad,Gujarat,Bengali,standard,returning,2026-01-02
+CUS-5C5B9D601F,Diya Chopra,diya.chopra.5c5b@customers.example,Pune,Maharashtra,Telugu,premium,returning,2026-03-27
+CUS-E6130BF660,Ishita Chopra,ishita.chopra.e613@customers.example,Mumbai,Maharashtra,English,standard,returning,2026-04-24
+CUS-C7A7296644,Arjun Desai,arjun.desai.c7a7@customers.example,Chennai,Tamil Nadu,Bengali,standard,returning,2026-05-30
+CUS-B5AE87570E,Zoya Yadav,zoya.yadav.b5ae@customers.example,Nagpur,Maharashtra,Telugu,standard,returning,2026-07-20
+CUS-497EB08F7D,Ishita Shah,ishita.shah.497e@customers.example,Mysuru,Karnataka,Malayalam,plus,business,2026-01-22
+CUS-18E7A394AF,Ananya Sinha,ananya.sinha.18e7@customers.example,Kochi,Kerala,Malayalam,standard,business,2026-01-19
+CUS-DE737B4EE8,Manish Bhat,manish.bhat.de73@customers.example,Mumbai,Maharashtra,Telugu,premium,seasonal,2026-05-15
+CUS-6B7342E9D2,Maya Aggarwal,maya.aggarwal.6b73@customers.example,Dehradun,Uttarakhand,Telugu,standard,frequent,2026-06-28
+CUS-21FDA66444,Arjun Singh,arjun.singh.21fd@customers.example,Indore,Madhya Pradesh,English,plus,new,2026-07-03
+CUS-FE51F53525,Arjun Sharma,arjun.sharma.fe51@customers.example,Kolkata,West Bengal,Gujarati,standard,business,2026-03-29
+CUS-8FE9F0D7D1,Zoya Verma,zoya.verma.8fe9@customers.example,Nagpur,Maharashtra,Telugu,premium,business,2026-04-17
+CUS-D7152E47C1,Kavya Mukherjee,kavya.mukherjee.d715@customers.example,Bhubaneswar,Odisha,Tamil,plus,new,2026-01-14
+CUS-54CEE2B98A,Ishita Pandey,ishita.pandey.54ce@customers.example,Dehradun,Uttarakhand,Telugu,standard,business,2026-01-27
+CUS-8FEC758808,Yash Banerjee,yash.banerjee.8fec@customers.example,Mumbai,Maharashtra,Gujarati,premium,returning,2026-02-21
+CUS-5DBC5EBBBA,Nikhil Goswami,nikhil.goswami.5dbc@customers.example,Surat,Gujarat,Marathi,standard,new,2026-03-27
+CUS-02B339607B,Yash Iyer,yash.iyer.02b3@customers.example,Mysuru,Karnataka,Tamil,standard,new,2026-06-23
+CUS-E16490D1A7,Zara Menon,zara.menon.e164@customers.example,Patna,Bihar,Odia,plus,business,2026-06-24
+CUS-7F23942817,Harsh Bhat,harsh.bhat.7f23@customers.example,Pune,Maharashtra,Telugu,premium,returning,2026-08-06
+CUS-CA7A985903,Vihaan Pandey,vihaan.pandey.ca7a@customers.example,Chennai,Tamil Nadu,Bengali,standard,returning,2026-07-10
+CUS-36BC6A929C,Vihaan Shah,vihaan.shah.36bc@customers.example,Mumbai,Maharashtra,Malayalam,premium,new,2026-05-15
+CUS-BD4D3C5F1B,Varun Patel,varun.patel.bd4d@customers.example,Visakhapatnam,Andhra Pradesh,Tamil,plus,business,2026-03-30
+CUS-8444D11702,Gaurav Patel,gaurav.patel.8444@customers.example,Kolkata,West Bengal,Bengali,standard,business,2026-05-23
+CUS-6997F91C70,Meera Pillai,meera.pillai.6997@customers.example,Indore,Madhya Pradesh,Telugu,standard,seasonal,2026-01-21
+CUS-2245FE3740,Yash Mukherjee,yash.mukherjee.2245@customers.example,Guwahati,Assam,Kannada,plus,frequent,2026-01-06
+CUS-05681859D2,Rhea Chatterjee,rhea.chatterjee.0568@customers.example,Nagpur,Maharashtra,Tamil,standard,returning,2026-05-30
+CUS-856A788222,Neha Shah,neha.shah.856a@customers.example,Mumbai,Maharashtra,English,standard,seasonal,2026-05-13
+CUS-9C9C35A944,Karan Mehta,karan.mehta.9c9c@customers.example,Kochi,Kerala,Hindi,standard,returning,2026-02-19
+CUS-97B2F6E196,Ishaan Sen,ishaan.sen.97b2@customers.example,Guwahati,Assam,Odia,plus,seasonal,2026-09-03
+CUS-1CDB745CC4,Anika Shukla,anika.shukla.1cdb@customers.example,Bengaluru,Karnataka,Malayalam,premium,new,2026-01-27
+CUS-91316E021F,Pooja Chatterjee,pooja.chatterjee.9131@customers.example,Ahmedabad,Gujarat,Bengali,standard,new,2026-08-30
+CUS-D7D0187588,Ishaan Mehta,ishaan.mehta.d7d0@customers.example,Bhubaneswar,Odisha,Odia,standard,frequent,2026-04-21
+CUS-92393DE6C5,Anika Bhat,anika.bhat.9239@customers.example,Delhi,Delhi,Kannada,standard,frequent,2026-03-17
+CUS-7AB0084FF9,Sameer Pandey,sameer.pandey.7ab0@customers.example,Patna,Bihar,Malayalam,standard,seasonal,2026-01-02
+CUS-3511F4052D,Vihaan Nair,vihaan.nair.3511@customers.example,Bengaluru,Karnataka,Hindi,premium,seasonal,2026-01-13
+CUS-C2A09D3B61,Akash Das,akash.das.c2a0@customers.example,Dehradun,Uttarakhand,Odia,standard,new,2026-01-20
+CUS-6FE4CC4076,Deepak Goswami,deepak.goswami.6fe4@customers.example,Ahmedabad,Gujarat,Telugu,plus,seasonal,2026-04-06
+CUS-55FBF410AB,Zara Mukherjee,zara.mukherjee.55fb@customers.example,Dehradun,Uttarakhand,Malayalam,premium,returning,2026-01-17
+CUS-C24EA1587C,Harsh Gupta,harsh.gupta.c24e@customers.example,Chandigarh,Chandigarh,Malayalam,standard,business,2026-01-17
+CUS-2E73890484,Zoya Mukherjee,zoya.mukherjee.2e73@customers.example,Patna,Bihar,Hindi,plus,new,2026-05-20
+CUS-E202C8DAD8,Sameer Verma,sameer.verma.e202@customers.example,Patna,Bihar,Tamil,plus,frequent,2026-05-28
+CUS-BEB643E1A1,Gaurav Sharma,gaurav.sharma.beb6@customers.example,Dehradun,Uttarakhand,Kannada,premium,frequent,2026-01-14
+CUS-EAABE6DAD9,Tanvi Bhat,tanvi.bhat.eaab@customers.example,Visakhapatnam,Andhra Pradesh,Malayalam,standard,frequent,2026-04-12
+CUS-A258E77A87,Aditi Nair,aditi.nair.a258@customers.example,Lucknow,Uttar Pradesh,Odia,standard,returning,2026-06-30
+CUS-91CC465FB3,Ira Singh,ira.singh.91cc@customers.example,Visakhapatnam,Andhra Pradesh,Marathi,plus,seasonal,2026-04-01
+CUS-05DA345C0E,Aisha Mehta,aisha.mehta.05da@customers.example,Lucknow,Uttar Pradesh,Gujarati,standard,business,2026-03-25
+CUS-3CED3F774A,Priya Kulkarni,priya.kulkarni.3ced@customers.example,Pune,Maharashtra,Marathi,premium,frequent,2026-01-05
+CUS-BAC58D30F0,Rishi Mishra,rishi.mishra.bac5@customers.example,Mysuru,Karnataka,English,plus,frequent,2026-02-28
+CUS-B2275F80E4,Sakshi Kapoor,sakshi.kapoor.b227@customers.example,Mumbai,Maharashtra,Kannada,premium,business,2026-02-03
+CUS-0ECB1A0E4B,Maya Saxena,maya.saxena.0ecb@customers.example,Lucknow,Uttar Pradesh,Kannada,premium,frequent,2026-01-18
+CUS-5B36D05B7F,Rhea Pandey,rhea.pandey.5b36@customers.example,Mumbai,Maharashtra,Gujarati,plus,frequent,2026-05-19
+CUS-BEE6795F60,Kabir Seth,kabir.seth.bee6@customers.example,Mysuru,Karnataka,Marathi,premium,business,2026-03-13
+CUS-6CB6210375,Rohan Chatterjee,rohan.chatterjee.6cb6@customers.example,Hyderabad,Telangana,Odia,standard,frequent,2026-03-30
+CUS-3ADF7A516F,Aryan Mehta,aryan.mehta.3adf@customers.example,Delhi,Delhi,Bengali,standard,frequent,2026-02-05
+CUS-872F2EE37E,Aditya Joshi,aditya.joshi.872f@customers.example,Bengaluru,Karnataka,Tamil,premium,seasonal,2026-01-13
+CUS-9426E6E310,Sakshi Sen,sakshi.sen.9426@customers.example,Visakhapatnam,Andhra Pradesh,Marathi,standard,returning,2026-01-02
+CUS-0DEE27B916,Vidya Chatterjee,vidya.chatterjee.0dee@customers.example,Hyderabad,Telangana,Odia,standard,new,2026-07-15
+CUS-921D996951,Ira Shah,ira.shah.921d@customers.example,Surat,Gujarat,Odia,premium,seasonal,2026-01-13
+CUS-63D53C4B30,Ira Rao,ira.rao.63d5@customers.example,Bengaluru,Karnataka,Malayalam,plus,new,2026-02-27
+CUS-2EE748E433,Arjun Saxena,arjun.saxena.2ee7@customers.example,Chandigarh,Chandigarh,Malayalam,plus,frequent,2026-01-04
+CUS-8461BEB5BB,Ira Reddy,ira.reddy.8461@customers.example,Bengaluru,Karnataka,Hindi,premium,seasonal,2026-05-26
+CUS-D22D06127E,Aryan Sen,aryan.sen.d22d@customers.example,Surat,Gujarat,Marathi,standard,returning,2026-04-03
+CUS-F15F79222A,Pranav Iyer,pranav.iyer.f15f@customers.example,Mumbai,Maharashtra,Malayalam,standard,business,2026-08-26
+CUS-1C79045447,Kavya Pandey,kavya.pandey.1c79@customers.example,Patna,Bihar,Bengali,standard,new,2026-03-04
+CUS-A0629CE835,Gaurav Shah,gaurav.shah.a062@customers.example,Mumbai,Maharashtra,Tamil,standard,returning,2026-05-13
+CUS-E9AAA996A5,Siddharth Chatterjee,siddharth.chatterjee.e9aa@customers.example,Dehradun,Uttarakhand,Hindi,plus,frequent,2026-07-21
+CUS-B917D69BA0,Akash Das,akash.das.b917@customers.example,Jaipur,Rajasthan,Hindi,plus,seasonal,2026-09-11
+CUS-493ED22857,Aarav Jain,aarav.jain.493e@customers.example,Mysuru,Karnataka,Hindi,standard,returning,2026-03-10
+CUS-099F842647,Divya Das,divya.das.099f@customers.example,Bengaluru,Karnataka,English,standard,new,2026-01-11
+CUS-9AC2A0D2A8,Dev Pandey,dev.pandey.9ac2@customers.example,Jaipur,Rajasthan,Telugu,standard,seasonal,2026-02-13
+CUS-BCCAF69B76,Rohan Kulkarni,rohan.kulkarni.bcca@customers.example,Nagpur,Maharashtra,Marathi,premium,returning,2026-01-13
+CUS-07D70A2605,Kritika Reddy,kritika.reddy.07d7@customers.example,Delhi,Delhi,Telugu,standard,seasonal,2026-03-03
+CUS-2189303528,Manish Verma,manish.verma.2189@customers.example,Mysuru,Karnataka,Marathi,plus,seasonal,2026-02-17
+CUS-03A1F14B5A,Aditi Trivedi,aditi.trivedi.03a1@customers.example,Delhi,Delhi,Odia,standard,returning,2026-07-05
+CUS-2CD7BD9768,Aarav Seth,aarav.seth.2cd7@customers.example,Lucknow,Uttar Pradesh,English,plus,seasonal,2026-01-22
+CUS-822DEFAC4B,Yash Banerjee,yash.banerjee.822d@customers.example,Delhi,Delhi,English,plus,returning,2026-03-31
+CUS-F433BF0AFE,Divya Mukherjee,divya.mukherjee.f433@customers.example,Kochi,Kerala,English,premium,frequent,2026-02-02
+CUS-8C472AC298,Shreya Mehta,shreya.mehta.8c47@customers.example,Coimbatore,Tamil Nadu,Tamil,plus,new,2026-01-31
+CUS-F9F81152AF,Rhea Sharma,rhea.sharma.f9f8@customers.example,Indore,Madhya Pradesh,Hindi,premium,frequent,2026-03-08
+CUS-97019C90A9,Aisha Verma,aisha.verma.9701@customers.example,Coimbatore,Tamil Nadu,Gujarati,standard,new,2026-02-09
+CUS-F0A6C19999,Tara Chopra,tara.chopra.f0a6@customers.example,Dehradun,Uttarakhand,Tamil,plus,new,2026-01-10
+CUS-83F0A3D5C5,Ishaan Kulkarni,ishaan.kulkarni.83f0@customers.example,Lucknow,Uttar Pradesh,Hindi,standard,new,2026-05-25
+CUS-D6E44D0C84,Kritika Kulkarni,kritika.kulkarni.d6e4@customers.example,Jaipur,Rajasthan,Hindi,standard,business,2026-01-13
+CUS-3EED98961E,Rahul Verma,rahul.verma.3eed@customers.example,Ahmedabad,Gujarat,Marathi,standard,frequent,2026-03-08
+CUS-68CD729AEC,Harsh Pandey,harsh.pandey.68cd@customers.example,Hyderabad,Telangana,Marathi,standard,new,2026-01-11
+CUS-92D899FD52,Dev Iyer,dev.iyer.92d8@customers.example,Chennai,Tamil Nadu,Kannada,standard,business,2026-05-13
+CUS-DCB70D94C0,Akash Reddy,akash.reddy.dcb7@customers.example,Surat,Gujarat,Telugu,plus,returning,2026-01-11
+CUS-7D7422092D,Diya Pillai,diya.pillai.7d74@customers.example,Guwahati,Assam,Bengali,plus,returning,2026-01-27
+CUS-15B7BE9712,Priya Trivedi,priya.trivedi.15b7@customers.example,Indore,Madhya Pradesh,Tamil,standard,business,2026-03-20
+CUS-8357E2DAC0,Priya Desai,priya.desai.8357@customers.example,Bhubaneswar,Odisha,Gujarati,premium,seasonal,2026-01-22
+CUS-048E1C475D,Aditi Mukherjee,aditi.mukherjee.048e@customers.example,Lucknow,Uttar Pradesh,Kannada,plus,business,2026-01-27
+CUS-7E1828BC44,Akash Reddy,akash.reddy.7e18@customers.example,Chennai,Tamil Nadu,Odia,standard,returning,2026-03-28
+CUS-12CF6FCED9,Sana Shukla,sana.shukla.12cf@customers.example,Pune,Maharashtra,Telugu,plus,seasonal,2026-04-24
+CUS-D926300121,Pooja Mehta,pooja.mehta.d926@customers.example,Indore,Madhya Pradesh,English,plus,returning,2026-03-22
+CUS-A32E18AD46,Divya Sen,divya.sen.a32e@customers.example,Jaipur,Rajasthan,Bengali,premium,frequent,2026-01-04
+CUS-00193393BB,Aditi Menon,aditi.menon.0019@customers.example,Kochi,Kerala,English,plus,new,2026-01-14
+CUS-AD478E34CD,Aryan Trivedi,aryan.trivedi.ad47@customers.example,Pune,Maharashtra,Telugu,premium,seasonal,2026-03-16
+CUS-0818A447EC,Ira Reddy,ira.reddy.0818@customers.example,Bengaluru,Karnataka,Hindi,plus,seasonal,2026-01-21
+CUS-A56C1A1218,Varun Kapoor,varun.kapoor.a56c@customers.example,Bengaluru,Karnataka,Odia,standard,new,2026-03-05
+CUS-7EE24C6DED,Vihaan Shukla,vihaan.shukla.7ee2@customers.example,Bhubaneswar,Odisha,Telugu,standard,business,2026-06-30
+CUS-65963AE908,Ishita Chatterjee,ishita.chatterjee.6596@customers.example,Surat,Gujarat,English,plus,returning,2026-01-27
+CUS-AA0EE53D6A,Bhavya Khan,bhavya.khan.aa0e@customers.example,Guwahati,Assam,Marathi,premium,seasonal,2026-06-01
+CUS-F156E4E013,Rishi Yadav,rishi.yadav.f156@customers.example,Bhubaneswar,Odisha,English,plus,returning,2026-06-12
+CUS-E1C4752A8B,Yash Saxena,yash.saxena.e1c4@customers.example,Jaipur,Rajasthan,Kannada,premium,new,2026-03-07
+CUS-96E94C4302,Vihaan Jain,vihaan.jain.96e9@customers.example,Dehradun,Uttarakhand,Odia,plus,seasonal,2026-03-14
+CUS-F893D69CE0,Gaurav Trivedi,gaurav.trivedi.f893@customers.example,Ahmedabad,Gujarat,Telugu,plus,business,2026-05-06
+CUS-491C67EAC0,Rhea Sen,rhea.sen.491c@customers.example,Indore,Madhya Pradesh,Tamil,plus,seasonal,2026-03-03
+CUS-F5D832C67A,Deepak Goswami,deepak.goswami.f5d8@customers.example,Chandigarh,Chandigarh,Bengali,standard,returning,2026-02-24
+CUS-ED1E056EE8,Diya Trivedi,diya.trivedi.ed1e@customers.example,Hyderabad,Telangana,Tamil,standard,seasonal,2026-04-18
+CUS-0D84F4A98A,Zoya Jain,zoya.jain.0d84@customers.example,Bengaluru,Karnataka,Bengali,standard,business,2026-02-07
+CUS-D705A056CF,Deepak Iyer,deepak.iyer.d705@customers.example,Nagpur,Maharashtra,Odia,standard,seasonal,2026-03-11
+CUS-3872612973,Neha Kulkarni,neha.kulkarni.3872@customers.example,Coimbatore,Tamil Nadu,Bengali,plus,new,2026-01-17
+CUS-6DC272A7F8,Meera Yadav,meera.yadav.6dc2@customers.example,Dehradun,Uttarakhand,Kannada,plus,business,2026-06-08
+CUS-E134FBA3EA,Dev Shukla,dev.shukla.e134@customers.example,Dehradun,Uttarakhand,Malayalam,standard,seasonal,2026-01-18
+CUS-34346FF246,Kabir Venkatesh,kabir.venkatesh.3434@customers.example,Dehradun,Uttarakhand,Malayalam,standard,seasonal,2026-02-27
+CUS-07F32DDB56,Manish Pandey,manish.pandey.07f3@customers.example,Visakhapatnam,Andhra Pradesh,Kannada,premium,frequent,2026-08-11
+CUS-153179E67B,Maya Banerjee,maya.banerjee.1531@customers.example,Guwahati,Assam,Tamil,standard,business,2026-03-25
+CUS-1CD594324C,Rhea Chatterjee,rhea.chatterjee.1cd5@customers.example,Bengaluru,Karnataka,Malayalam,premium,returning,2026-01-08

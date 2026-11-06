@@ -1,0 +1,29 @@
+rule_id: DEMO-EVIDENCE-GAPS
+version: 1.0.0
+status: draft
+owner: policy-owner-required
+reviewed_by: null
+created_at: 2026-11-02T00:00:00Z
+approved_at: null
+effective_from: null
+effective_to: null
+jurisdiction: TEST
+marketplace: synthetic-fixture
+environment_scope: development-only
+locale: en-IN
+synthetic_demo: true
+conditions:
+  - when: caller_not_authorized_for_order
+    action: deny_without_record_lookup
+  - when: required_operational_fact_missing
+    action: insufficient_evidence_and_human_review
+  - when: operational_evidence_conflicts_with_customer_report
+    action: human_review
+  - when: applicable_policy_version_missing
+    action: human_review
+  - when: proposal_contains_refund_compensation_or_loyalty_change
+    action: require_supervisor_approval
+  - when: tool_or_retrieval_dependency_unavailable
+    action: controlled_error_or_human_review
+source_uri: synthetic://agentic-customer-support/DEMO-EVIDENCE-GAPS/1.0.0
+content_sha256: null

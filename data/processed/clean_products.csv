@@ -1,0 +1,1249 @@
+product_id,product_name,category,observed_item_records,min_observed_unit_price_inr,max_observed_unit_price_inr,price_semantics
+SKU-0009E8432F,Chef knife,kitchen,1,9231.00,9231.00,historical order-line price; not a current catalog price
+SKU-0034D8B546,Fountain pen,office,1,1951.00,1951.00,historical order-line price; not a current catalog price
+SKU-0052CC5535,Art activity kit,toys,1,3353.00,3353.00,historical order-line price; not a current catalog price
+SKU-00BDB0943E,Pruning shears,garden,1,1527.00,1527.00,historical order-line price; not a current catalog price
+SKU-00C365F1FE,Leather sandals,footwear,1,5447.00,5447.00,historical order-line price; not a current catalog price
+SKU-00D06DDE83,Bath and body set,beauty,1,3224.00,3224.00,historical order-line price; not a current catalog price
+SKU-00DC253233,Wireless mouse,electronics,1,1944.00,1944.00,historical order-line price; not a current catalog price
+SKU-00EF6141B2,Steel cookware set,kitchen,1,4927.00,4927.00,historical order-line price; not a current catalog price
+SKU-00F9A0F124,Document organiser,office,1,4118.00,4118.00,historical order-line price; not a current catalog price
+SKU-015D105F83,Dry fruit assortment,grocery,1,963.00,963.00,historical order-line price; not a current catalog price
+SKU-021A41B2E3,Cotton kurta,clothing,1,2993.00,2993.00,historical order-line price; not a current catalog price
+SKU-026D8F1FCB,Printed saree,clothing,1,3399.00,3399.00,historical order-line price; not a current catalog price
+SKU-0276FC64D6,Bluetooth speaker,electronics,1,20638.00,20638.00,historical order-line price; not a current catalog price
+SKU-027AB44C9F,Seat organiser,automotive,1,6615.00,6615.00,historical order-line price; not a current catalog price
+SKU-02978C1871,Cat scratcher,pet_supplies,1,312.00,312.00,historical order-line price; not a current catalog price
+SKU-02CD9D60D4,Glass lunch box,kitchen,1,4978.00,4978.00,historical order-line price; not a current catalog price
+SKU-0374F294F1,Cabin backpack,luggage,1,5834.00,5834.00,historical order-line price; not a current catalog price
+SKU-0379E365EE,Hand blender,home_appliance,1,14727.00,14727.00,historical order-line price; not a current catalog price
+SKU-03955A0437,Wireless keyboard,office,1,3169.00,3169.00,historical order-line price; not a current catalog price
+SKU-03EEE1227E,Pet grooming brush,pet_supplies,1,484.00,484.00,historical order-line price; not a current catalog price
+SKU-043593E0B7,Yoga mat,sports,1,1156.00,1156.00,historical order-line price; not a current catalog price
+SKU-043C488F02,Ceramic vase,home,1,1098.00,1098.00,historical order-line price; not a current catalog price
+SKU-045FF2661A,Bluetooth speaker,electronics,1,15896.00,15896.00,historical order-line price; not a current catalog price
+SKU-0467F4BCCC,Running shorts,clothing,1,3060.00,3060.00,historical order-line price; not a current catalog price
+SKU-04ABCFF72F,Desk fan,home_appliance,1,15302.00,15302.00,historical order-line price; not a current catalog price
+SKU-04BB52AF4A,Denim jacket,clothing,1,2070.00,2070.00,historical order-line price; not a current catalog price
+SKU-04C1B42DC3,Seat organiser,automotive,1,1180.00,1180.00,historical order-line price; not a current catalog price
+SKU-04E63573D3,Ceramic vase,home,1,3736.00,3736.00,historical order-line price; not a current catalog price
+SKU-04F252284A,Desk lamp,home,1,4538.00,4538.00,historical order-line price; not a current catalog price
+SKU-04F82D36E4,Face moisturiser,beauty,1,2168.00,2168.00,historical order-line price; not a current catalog price
+SKU-04FD398212,Resistance bands,sports,1,646.00,646.00,historical order-line price; not a current catalog price
+SKU-052C3FE92F,Leather sandals,footwear,1,4547.00,4547.00,historical order-line price; not a current catalog price
+SKU-05403DCFF6,Organic tea pack,grocery,1,1273.00,1273.00,historical order-line price; not a current catalog price
+SKU-056589A8A9,Pet travel bowl,pet_supplies,1,4143.00,4143.00,historical order-line price; not a current catalog price
+SKU-058BD30684,Seed starter kit,garden,1,4481.00,4481.00,historical order-line price; not a current catalog price
+SKU-062BD7D443,Wireless keyboard,office,1,7186.00,7186.00,historical order-line price; not a current catalog price
+SKU-063214266B,Soft toy,baby,1,6733.00,6733.00,historical order-line price; not a current catalog price
+SKU-063CC76865,Book set,books,1,210.00,210.00,historical order-line price; not a current catalog price
+SKU-06CD5C7A79,Cotton bedsheet,home,1,4755.00,4755.00,historical order-line price; not a current catalog price
+SKU-06EDC6203E,Travel duffel,luggage,1,3594.00,3594.00,historical order-line price; not a current catalog price
+SKU-07122ABB23,Running shoes,footwear,1,1822.00,1822.00,historical order-line price; not a current catalog price
+SKU-0783B5B0AF,Bluetooth speaker,electronics,1,9558.00,9558.00,historical order-line price; not a current catalog price
+SKU-0799FE2B95,Chef knife,kitchen,1,9551.00,9551.00,historical order-line price; not a current catalog price
+SKU-079FD4E9AE,Yoga mat,sports,1,6018.00,6018.00,historical order-line price; not a current catalog price
+SKU-07EDE6ECEB,Pet travel bowl,pet_supplies,1,2194.00,2194.00,historical order-line price; not a current catalog price
+SKU-07F4B0B8FA,Car phone mount,automotive,1,1314.00,1314.00,historical order-line price; not a current catalog price
+SKU-0815204357,Canvas sneakers,footwear,1,8803.00,8803.00,historical order-line price; not a current catalog price
+SKU-08AE88EEE3,Travel essays,books,1,614.00,614.00,historical order-line price; not a current catalog price
+SKU-08FB390ED9,Pruning shears,garden,1,4613.00,4613.00,historical order-line price; not a current catalog price
+SKU-095F6A0718,Pendant necklace,jewellery,1,505.00,505.00,historical order-line price; not a current catalog price
+SKU-09709E9287,Leather sandals,footwear,1,1300.00,1300.00,historical order-line price; not a current catalog price
+SKU-09A030FF1A,Steel cookware set,kitchen,1,4555.00,4555.00,historical order-line price; not a current catalog price
+SKU-09D267E67C,Travel essays,books,1,1797.00,1797.00,historical order-line price; not a current catalog price
+SKU-09D40F485E,Cricket bat,sports,1,1584.00,1584.00,historical order-line price; not a current catalog price
+SKU-0A1615535F,Wireless keyboard,office,1,1265.00,1265.00,historical order-line price; not a current catalog price
+SKU-0B3022136D,Building blocks,toys,1,1449.00,1449.00,historical order-line price; not a current catalog price
+SKU-0B4DFC1903,Cookbook,books,1,1694.00,1694.00,historical order-line price; not a current catalog price
+SKU-0B5F10882A,Art activity kit,toys,1,2338.00,2338.00,historical order-line price; not a current catalog price
+SKU-0B6EFF3E6E,Noise-cancelling headphones,electronics,1,15100.00,15100.00,historical order-line price; not a current catalog price
+SKU-0BD16F97D5,Plush animal,toys,1,4870.00,4870.00,historical order-line price; not a current catalog price
+SKU-0BF5B84C9B,Cotton kurta,clothing,1,2946.00,2946.00,historical order-line price; not a current catalog price
+SKU-0C3B2F203D,Printed saree,clothing,1,3418.00,3418.00,historical order-line price; not a current catalog price
+SKU-0C42591E6C,Dry fruit assortment,grocery,1,1908.00,1908.00,historical order-line price; not a current catalog price
+SKU-0C46D360D4,Storage basket,home,1,5347.00,5347.00,historical order-line price; not a current catalog price
+SKU-0C6DF7844C,Baby care kit,baby,1,874.00,874.00,historical order-line price; not a current catalog price
+SKU-0C75537772,Tyre inflator,automotive,1,5751.00,5751.00,historical order-line price; not a current catalog price
+SKU-0CA0AEF072,Cycling helmet,sports,1,2739.00,2739.00,historical order-line price; not a current catalog price
+SKU-0CC406CCEE,Notebook set,office,1,5648.00,5648.00,historical order-line price; not a current catalog price
+SKU-0CE05A0992,Cricket bat,sports,1,6542.00,6542.00,historical order-line price; not a current catalog price
+SKU-0CE3508211,Cotton bedsheet,home,1,2218.00,2218.00,historical order-line price; not a current catalog price
+SKU-0D256130F6,Silver-plated earrings,jewellery,1,3961.00,3961.00,historical order-line price; not a current catalog price
+SKU-0D4AC0CD4E,Coffee sampler,grocery,1,2285.00,2285.00,historical order-line price; not a current catalog price
+SKU-0D7F963893,Watering can,garden,1,2777.00,2777.00,historical order-line price; not a current catalog price
+SKU-0DAF7D52B7,Art activity kit,toys,1,4925.00,4925.00,historical order-line price; not a current catalog price
+SKU-0DB1D8F4FE,Hair serum,beauty,1,3206.00,3206.00,historical order-line price; not a current catalog price
+SKU-0DCC11C7D6,Linen shirt,clothing,1,2784.00,2784.00,historical order-line price; not a current catalog price
+SKU-0DDAEF42A1,Canvas sneakers,footwear,1,1274.00,1274.00,historical order-line price; not a current catalog price
+SKU-0E03815EC9,Building blocks,toys,1,1146.00,1146.00,historical order-line price; not a current catalog price
+SKU-0E04B21936,Resistance bands,sports,1,6951.00,6951.00,historical order-line price; not a current catalog price
+SKU-0E3F87ED1C,Silver-plated earrings,jewellery,1,14681.00,14681.00,historical order-line price; not a current catalog price
+SKU-0E54EFC6F7,Soft toy,baby,1,2869.00,2869.00,historical order-line price; not a current catalog price
+SKU-0E7EEA8C85,Pruning shears,garden,1,1096.00,1096.00,historical order-line price; not a current catalog price
+SKU-0E7F62FE22,Desk lamp,home,1,1448.00,1448.00,historical order-line price; not a current catalog price
+SKU-0E8232BB9B,Leather sandals,footwear,1,3881.00,3881.00,historical order-line price; not a current catalog price
+SKU-0EA6999344,Resistance bands,sports,1,3201.00,3201.00,historical order-line price; not a current catalog price
+SKU-0EBD72BFEC,Linen shirt,clothing,1,3900.00,3900.00,historical order-line price; not a current catalog price
+SKU-0EC0F198DE,Cookbook,books,1,1672.00,1672.00,historical order-line price; not a current catalog price
+SKU-0F1B4074BB,Sunscreen lotion,beauty,1,3095.00,3095.00,historical order-line price; not a current catalog price
+SKU-0F32AAB062,Tyre inflator,automotive,1,5138.00,5138.00,historical order-line price; not a current catalog price
+SKU-0F541DF382,Mixer grinder,home_appliance,1,5720.00,5720.00,historical order-line price; not a current catalog price
+SKU-0F61BBC96A,Beaded bracelet,jewellery,1,5272.00,5272.00,historical order-line price; not a current catalog price
+SKU-0F7536A10A,Sunscreen lotion,beauty,1,3928.00,3928.00,historical order-line price; not a current catalog price
+SKU-1005A1B87F,Linen shirt,clothing,1,2626.00,2626.00,historical order-line price; not a current catalog price
+SKU-107AD38C09,Board game,toys,1,1609.00,1609.00,historical order-line price; not a current catalog price
+SKU-107D9FE888,Notebook set,office,1,1149.00,1149.00,historical order-line price; not a current catalog price
+SKU-109DB4FE68,Cotton kurta,clothing,1,3956.00,3956.00,historical order-line price; not a current catalog price
+SKU-10D7A15D36,Dry fruit assortment,grocery,1,2759.00,2759.00,historical order-line price; not a current catalog price
+SKU-1113F51EE0,Pet grooming brush,pet_supplies,1,281.00,281.00,historical order-line price; not a current catalog price
+SKU-116E382883,Bluetooth speaker,electronics,1,17378.00,17378.00,historical order-line price; not a current catalog price
+SKU-117D384250,Walking shoes,footwear,1,3037.00,3037.00,historical order-line price; not a current catalog price
+SKU-11A74AAC2E,Car phone mount,automotive,1,6912.00,6912.00,historical order-line price; not a current catalog price
+SKU-11A9BD496F,Table organiser,home,1,3007.00,3007.00,historical order-line price; not a current catalog price
+SKU-11E400DC54,Wireless keyboard,office,1,8108.00,8108.00,historical order-line price; not a current catalog price
+SKU-1205305946,Book set,books,1,980.00,980.00,historical order-line price; not a current catalog price
+SKU-1233964F25,Electric kettle,home_appliance,1,7674.00,7674.00,historical order-line price; not a current catalog price
+SKU-127536ECF1,Soft toy,baby,1,5036.00,5036.00,historical order-line price; not a current catalog price
+SKU-12879309B0,Chef knife,kitchen,1,7480.00,7480.00,historical order-line price; not a current catalog price
+SKU-129BEEB5C4,Yoga mat,sports,1,5489.00,5489.00,historical order-line price; not a current catalog price
+SKU-12AD3C23FD,Cricket bat,sports,1,742.00,742.00,historical order-line price; not a current catalog price
+SKU-12F862DC37,Steel cookware set,kitchen,1,5632.00,5632.00,historical order-line price; not a current catalog price
+SKU-1305AAC40C,Pruning shears,garden,1,4316.00,4316.00,historical order-line price; not a current catalog price
+SKU-130782A11D,Desk fan,home_appliance,1,9029.00,9029.00,historical order-line price; not a current catalog price
+SKU-133CDF50CA,Yoga mat,sports,1,892.00,892.00,historical order-line price; not a current catalog price
+SKU-13B1140B34,Children's story collection,books,1,402.00,402.00,historical order-line price; not a current catalog price
+SKU-14DEEE7C2D,Baby care kit,baby,1,5994.00,5994.00,historical order-line price; not a current catalog price
+SKU-14E00DA320,Organic tea pack,grocery,1,718.00,718.00,historical order-line price; not a current catalog price
+SKU-14FA2238DA,Face moisturiser,beauty,1,568.00,568.00,historical order-line price; not a current catalog price
+SKU-14FC74BA5B,Art activity kit,toys,1,4909.00,4909.00,historical order-line price; not a current catalog price
+SKU-1530A4E92E,Wireless mouse,electronics,1,5182.00,5182.00,historical order-line price; not a current catalog price
+SKU-1538F503FD,Planter set,garden,1,848.00,848.00,historical order-line price; not a current catalog price
+SKU-1542947F7A,Noise-cancelling headphones,electronics,1,18692.00,18692.00,historical order-line price; not a current catalog price
+SKU-15FC99E16C,Feeding bottle set,baby,1,2533.00,2533.00,historical order-line price; not a current catalog price
+SKU-161B98147B,Plush animal,toys,1,1641.00,1641.00,historical order-line price; not a current catalog price
+SKU-166A1D0D47,Art activity kit,toys,1,3346.00,3346.00,historical order-line price; not a current catalog price
+SKU-16D872991C,Plush animal,toys,1,2922.00,2922.00,historical order-line price; not a current catalog price
+SKU-16DD8DC346,Electric kettle,home_appliance,1,13882.00,13882.00,historical order-line price; not a current catalog price
+SKU-16F762F83C,Watering can,garden,1,230.00,230.00,historical order-line price; not a current catalog price
+SKU-174156F479,Chef knife,kitchen,1,4991.00,4991.00,historical order-line price; not a current catalog price
+SKU-176120E64A,Glass lunch box,kitchen,1,4013.00,4013.00,historical order-line price; not a current catalog price
+SKU-179191EA2E,Notebook set,office,1,5035.00,5035.00,historical order-line price; not a current catalog price
+SKU-17A44A9652,Plush animal,toys,1,3093.00,3093.00,historical order-line price; not a current catalog price
+SKU-17BA66ABE7,Canvas sneakers,footwear,1,3022.00,3022.00,historical order-line price; not a current catalog price
+SKU-1831809203,Denim jacket,clothing,1,3317.00,3317.00,historical order-line price; not a current catalog price
+SKU-1858037713,Book set,books,1,455.00,455.00,historical order-line price; not a current catalog price
+SKU-188AF6E3FD,Pendant necklace,jewellery,1,584.00,584.00,historical order-line price; not a current catalog price
+SKU-188D210857,Minimalist watch,jewellery,1,3749.00,3749.00,historical order-line price; not a current catalog price
+SKU-18900018C4,Cotton baby blanket,baby,1,3172.00,3172.00,historical order-line price; not a current catalog price
+SKU-189330F10C,Wireless mouse,electronics,1,24438.00,24438.00,historical order-line price; not a current catalog price
+SKU-18DB56C8BC,Resistance bands,sports,1,4142.00,4142.00,historical order-line price; not a current catalog price
+SKU-18EA7FB41F,Cotton baby blanket,baby,1,5578.00,5578.00,historical order-line price; not a current catalog price
+SKU-1905BD2916,Cotton baby blanket,baby,1,2062.00,2062.00,historical order-line price; not a current catalog price
+SKU-196B84FA1C,Pendant necklace,jewellery,1,7706.00,7706.00,historical order-line price; not a current catalog price
+SKU-19ECAEC1C7,Insulated flask,kitchen,1,3538.00,3538.00,historical order-line price; not a current catalog price
+SKU-19F3DBDBA0,Storage basket,home,1,4668.00,4668.00,historical order-line price; not a current catalog price
+SKU-1A49DF6C98,USB-C charger,electronics,1,13867.00,13867.00,historical order-line price; not a current catalog price
+SKU-1A9ADA6C13,Hand blender,home_appliance,1,12577.00,12577.00,historical order-line price; not a current catalog price
+SKU-1ABCEE1A3F,Dog lead,pet_supplies,1,721.00,721.00,historical order-line price; not a current catalog price
+SKU-1AC8CDA5DE,Fountain pen,office,1,8125.00,8125.00,historical order-line price; not a current catalog price
+SKU-1AE2C3B098,Wireless keyboard,office,1,1176.00,1176.00,historical order-line price; not a current catalog price
+SKU-1BD136859A,Pet grooming brush,pet_supplies,1,4613.00,4613.00,historical order-line price; not a current catalog price
+SKU-1D6170901A,Microfibre cleaning kit,automotive,1,327.00,327.00,historical order-line price; not a current catalog price
+SKU-1DC2E7B080,Yoga mat,sports,1,6777.00,6777.00,historical order-line price; not a current catalog price
+SKU-1DC927A583,Children's story collection,books,1,1859.00,1859.00,historical order-line price; not a current catalog price
+SKU-1E84FD7A0A,Sunscreen lotion,beauty,1,3287.00,3287.00,historical order-line price; not a current catalog price
+SKU-1EB995B1B8,Children's story collection,books,1,2059.00,2059.00,historical order-line price; not a current catalog price
+SKU-1EE9F660AD,Laptop sleeve,luggage,1,4075.00,4075.00,historical order-line price; not a current catalog price
+SKU-1F3266DF01,Running shoes,footwear,1,5411.00,5411.00,historical order-line price; not a current catalog price
+SKU-1F89469F6A,Microfibre cleaning kit,automotive,1,6581.00,6581.00,historical order-line price; not a current catalog price
+SKU-1FED425D0E,Children's story collection,books,1,1116.00,1116.00,historical order-line price; not a current catalog price
+SKU-20CE5021A2,Plush animal,toys,1,616.00,616.00,historical order-line price; not a current catalog price
+SKU-20F4E09009,Soft toy,baby,1,464.00,464.00,historical order-line price; not a current catalog price
+SKU-2103E27BEB,Tyre inflator,automotive,1,5042.00,5042.00,historical order-line price; not a current catalog price
+SKU-2117774756,Tyre inflator,automotive,1,473.00,473.00,historical order-line price; not a current catalog price
+SKU-216E469A0A,Printed saree,clothing,1,1988.00,1988.00,historical order-line price; not a current catalog price
+SKU-21E6130F4B,Microfibre cleaning kit,automotive,1,7547.00,7547.00,historical order-line price; not a current catalog price
+SKU-21FB1ACDE4,Denim jacket,clothing,1,1140.00,1140.00,historical order-line price; not a current catalog price
+SKU-227911B730,Sunscreen lotion,beauty,1,395.00,395.00,historical order-line price; not a current catalog price
+SKU-228D114EA7,Pruning shears,garden,1,4130.00,4130.00,historical order-line price; not a current catalog price
+SKU-229A6364E7,Face moisturiser,beauty,1,2084.00,2084.00,historical order-line price; not a current catalog price
+SKU-22AF20B863,Tyre inflator,automotive,1,1437.00,1437.00,historical order-line price; not a current catalog price
+SKU-231697E5E6,Storage basket,home,1,2383.00,2383.00,historical order-line price; not a current catalog price
+SKU-23306EE68C,Pet travel bowl,pet_supplies,1,584.00,584.00,historical order-line price; not a current catalog price
+SKU-234CE2ED3A,Tyre inflator,automotive,1,1762.00,1762.00,historical order-line price; not a current catalog price
+SKU-2353F712FC,Sunscreen lotion,beauty,1,1776.00,1776.00,historical order-line price; not a current catalog price
+SKU-235D04DE16,Cotton kurta,clothing,1,1736.00,1736.00,historical order-line price; not a current catalog price
+SKU-238F0A5381,Steel cookware set,kitchen,1,6866.00,6866.00,historical order-line price; not a current catalog price
+SKU-2401E78CAC,Book set,books,1,276.00,276.00,historical order-line price; not a current catalog price
+SKU-240D504D35,Yoga mat,sports,1,1482.00,1482.00,historical order-line price; not a current catalog price
+SKU-2417A62452,Resistance bands,sports,1,6876.00,6876.00,historical order-line price; not a current catalog price
+SKU-2419B36D0E,Mixer grinder,home_appliance,1,3028.00,3028.00,historical order-line price; not a current catalog price
+SKU-24B90423D9,Pendant necklace,jewellery,1,13484.00,13484.00,historical order-line price; not a current catalog price
+SKU-24C2B55B35,Cricket bat,sports,1,6076.00,6076.00,historical order-line price; not a current catalog price
+SKU-24DA739A74,Baby care kit,baby,1,536.00,536.00,historical order-line price; not a current catalog price
+SKU-24EAE0625C,Microfibre cleaning kit,automotive,1,4874.00,4874.00,historical order-line price; not a current catalog price
+SKU-24EFEEA4B6,Planter set,garden,1,1445.00,1445.00,historical order-line price; not a current catalog price
+SKU-254AEE84B4,Walking shoes,footwear,1,4174.00,4174.00,historical order-line price; not a current catalog price
+SKU-25B8115D56,Walking shoes,footwear,1,7638.00,7638.00,historical order-line price; not a current catalog price
+SKU-2614261DB1,Mixer grinder,home_appliance,1,10657.00,10657.00,historical order-line price; not a current catalog price
+SKU-264BF32C9B,Building blocks,toys,1,1026.00,1026.00,historical order-line price; not a current catalog price
+SKU-2668B9712C,Dry fruit assortment,grocery,1,368.00,368.00,historical order-line price; not a current catalog price
+SKU-26A1F776F1,Resistance bands,sports,1,7371.00,7371.00,historical order-line price; not a current catalog price
+SKU-26A6E71458,Hair serum,beauty,1,2997.00,2997.00,historical order-line price; not a current catalog price
+SKU-26C2CAFE11,Sunscreen lotion,beauty,1,2414.00,2414.00,historical order-line price; not a current catalog price
+SKU-26C35BDF2C,Beaded bracelet,jewellery,1,12669.00,12669.00,historical order-line price; not a current catalog price
+SKU-26D6EA66CC,Hand blender,home_appliance,1,18291.00,18291.00,historical order-line price; not a current catalog price
+SKU-270D34BF1F,Steel cookware set,kitchen,1,9722.00,9722.00,historical order-line price; not a current catalog price
+SKU-27243D98EF,Yoga mat,sports,1,7995.00,7995.00,historical order-line price; not a current catalog price
+SKU-275CD96A0C,Minimalist watch,jewellery,1,6259.00,6259.00,historical order-line price; not a current catalog price
+SKU-2762DBC4E1,Dog lead,pet_supplies,1,3500.00,3500.00,historical order-line price; not a current catalog price
+SKU-2786AAD495,Smart watch,electronics,1,9103.00,9103.00,historical order-line price; not a current catalog price
+SKU-27EC50AE7B,Microfibre cleaning kit,automotive,1,7981.00,7981.00,historical order-line price; not a current catalog price
+SKU-28439AB311,Leather sandals,footwear,1,7743.00,7743.00,historical order-line price; not a current catalog price
+SKU-288E63D43A,Face moisturiser,beauty,1,839.00,839.00,historical order-line price; not a current catalog price
+SKU-28C42353AA,Desk lamp,home,1,5804.00,5804.00,historical order-line price; not a current catalog price
+SKU-290D800784,Fountain pen,office,1,2330.00,2330.00,historical order-line price; not a current catalog price
+SKU-2917884727,Art activity kit,toys,1,3060.00,3060.00,historical order-line price; not a current catalog price
+SKU-2918F10A6C,Cricket bat,sports,1,1679.00,1679.00,historical order-line price; not a current catalog price
+SKU-2920ABF9FF,Cookbook,books,1,1858.00,1858.00,historical order-line price; not a current catalog price
+SKU-292C889E6E,Minimalist watch,jewellery,1,3122.00,3122.00,historical order-line price; not a current catalog price
+SKU-2948C49602,Canvas sneakers,footwear,1,1145.00,1145.00,historical order-line price; not a current catalog price
+SKU-29AB61472E,Cat scratcher,pet_supplies,1,2055.00,2055.00,historical order-line price; not a current catalog price
+SKU-29CA78385F,Resistance bands,sports,1,5086.00,5086.00,historical order-line price; not a current catalog price
+SKU-2A1B25AD0C,Insulated flask,kitchen,1,487.00,487.00,historical order-line price; not a current catalog price
+SKU-2A29CC8759,Pruning shears,garden,1,1639.00,1639.00,historical order-line price; not a current catalog price
+SKU-2A6D1D074C,Minimalist watch,jewellery,1,7734.00,7734.00,historical order-line price; not a current catalog price
+SKU-2A6E52D20F,Minimalist watch,jewellery,1,9037.00,9037.00,historical order-line price; not a current catalog price
+SKU-2AF4CD4D9E,Coffee sampler,grocery,1,602.00,602.00,historical order-line price; not a current catalog price
+SKU-2B62052FC6,Canvas sneakers,footwear,1,8102.00,8102.00,historical order-line price; not a current catalog price
+SKU-2BCD6092C9,Air fryer,home_appliance,1,14718.00,14718.00,historical order-line price; not a current catalog price
+SKU-2BE84C266D,Printed saree,clothing,1,3880.00,3880.00,historical order-line price; not a current catalog price
+SKU-2C01656430,Insulated flask,kitchen,1,1878.00,1878.00,historical order-line price; not a current catalog price
+SKU-2C24DCE2D2,Face moisturiser,beauty,1,1199.00,1199.00,historical order-line price; not a current catalog price
+SKU-2C47359AE4,Children's story collection,books,1,1242.00,1242.00,historical order-line price; not a current catalog price
+SKU-2C5F0EBF3B,Leather sandals,footwear,1,2797.00,2797.00,historical order-line price; not a current catalog price
+SKU-2CCE47D770,Tyre inflator,automotive,1,6231.00,6231.00,historical order-line price; not a current catalog price
+SKU-2D017F9090,Mixer grinder,home_appliance,1,12168.00,12168.00,historical order-line price; not a current catalog price
+SKU-2D406EA6EF,Leather sandals,footwear,1,7942.00,7942.00,historical order-line price; not a current catalog price
+SKU-2D6264F081,Chef knife,kitchen,1,1422.00,1422.00,historical order-line price; not a current catalog price
+SKU-2DB7E67E95,Electric kettle,home_appliance,1,15076.00,15076.00,historical order-line price; not a current catalog price
+SKU-2DD878A15A,Glass lunch box,kitchen,1,2960.00,2960.00,historical order-line price; not a current catalog price
+SKU-2E52CC395E,Yoga mat,sports,1,7184.00,7184.00,historical order-line price; not a current catalog price
+SKU-2E633253C6,Steel cookware set,kitchen,1,2223.00,2223.00,historical order-line price; not a current catalog price
+SKU-2E76ADB8EE,Cotton bedsheet,home,1,5335.00,5335.00,historical order-line price; not a current catalog price
+SKU-2EB66B616E,Table organiser,home,1,1059.00,1059.00,historical order-line price; not a current catalog price
+SKU-2F35BC0AD7,Children's story collection,books,1,519.00,519.00,historical order-line price; not a current catalog price
+SKU-2F5EBA67E6,Chef knife,kitchen,1,6964.00,6964.00,historical order-line price; not a current catalog price
+SKU-2F7FA5EDCF,Travel duffel,luggage,1,3509.00,3509.00,historical order-line price; not a current catalog price
+SKU-2FCE8EACA6,Travel duffel,luggage,1,10176.00,10176.00,historical order-line price; not a current catalog price
+SKU-2FD643FB8E,USB-C charger,electronics,1,6742.00,6742.00,historical order-line price; not a current catalog price
+SKU-2FE7D56562,Watering can,garden,1,4059.00,4059.00,historical order-line price; not a current catalog price
+SKU-30044C782C,Pet grooming brush,pet_supplies,1,1876.00,1876.00,historical order-line price; not a current catalog price
+SKU-30087262B6,Chef knife,kitchen,1,1656.00,1656.00,historical order-line price; not a current catalog price
+SKU-3028D7A177,Ceramic vase,home,1,4750.00,4750.00,historical order-line price; not a current catalog price
+SKU-3031A96A7E,Art activity kit,toys,1,4152.00,4152.00,historical order-line price; not a current catalog price
+SKU-303B2E3D72,Sunscreen lotion,beauty,1,502.00,502.00,historical order-line price; not a current catalog price
+SKU-3094AD5DF3,Mixer grinder,home_appliance,1,9268.00,9268.00,historical order-line price; not a current catalog price
+SKU-30A166AB8A,Seed starter kit,garden,1,2285.00,2285.00,historical order-line price; not a current catalog price
+SKU-30F70B839E,Pet grooming brush,pet_supplies,1,2000.00,2000.00,historical order-line price; not a current catalog price
+SKU-31241C3BC4,Travel duffel,luggage,1,4274.00,4274.00,historical order-line price; not a current catalog price
+SKU-316DF7F725,Noise-cancelling headphones,electronics,1,13330.00,13330.00,historical order-line price; not a current catalog price
+SKU-31ACB781AF,Notebook set,office,1,8835.00,8835.00,historical order-line price; not a current catalog price
+SKU-31C964BD9B,Laptop sleeve,luggage,1,9257.00,9257.00,historical order-line price; not a current catalog price
+SKU-32219D710A,Travel essays,books,1,439.00,439.00,historical order-line price; not a current catalog price
+SKU-327B77D063,Tyre inflator,automotive,1,6458.00,6458.00,historical order-line price; not a current catalog price
+SKU-32B3FCFD08,Leather sandals,footwear,1,5578.00,5578.00,historical order-line price; not a current catalog price
+SKU-33327C0B52,Walking shoes,footwear,1,1203.00,1203.00,historical order-line price; not a current catalog price
+SKU-338D5785A0,Art activity kit,toys,1,2753.00,2753.00,historical order-line price; not a current catalog price
+SKU-33C035686B,Sunscreen lotion,beauty,1,1415.00,1415.00,historical order-line price; not a current catalog price
+SKU-33DF872E23,Resistance bands,sports,1,5263.00,5263.00,historical order-line price; not a current catalog price
+SKU-33EDF1F726,Pet travel bowl,pet_supplies,1,3547.00,3547.00,historical order-line price; not a current catalog price
+SKU-343E01C20A,Desk fan,home_appliance,1,18026.00,18026.00,historical order-line price; not a current catalog price
+SKU-34D9E78B35,Planter set,garden,1,3171.00,3171.00,historical order-line price; not a current catalog price
+SKU-350CC86964,Running shorts,clothing,1,4045.00,4045.00,historical order-line price; not a current catalog price
+SKU-351C29DBE2,Coffee sampler,grocery,1,1612.00,1612.00,historical order-line price; not a current catalog price
+SKU-353B332489,Bath and body set,beauty,1,2206.00,2206.00,historical order-line price; not a current catalog price
+SKU-35CE32D246,Document organiser,office,1,5417.00,5417.00,historical order-line price; not a current catalog price
+SKU-35CE698633,Running shoes,footwear,1,2108.00,2108.00,historical order-line price; not a current catalog price
+SKU-364794F70D,Organic tea pack,grocery,1,2250.00,2250.00,historical order-line price; not a current catalog price
+SKU-36CE94A294,Sunscreen lotion,beauty,1,558.00,558.00,historical order-line price; not a current catalog price
+SKU-36E60C2D8A,Hair serum,beauty,1,3922.00,3922.00,historical order-line price; not a current catalog price
+SKU-36F45F16B3,USB-C charger,electronics,1,18313.00,18313.00,historical order-line price; not a current catalog price
+SKU-372B6C9B41,Document organiser,office,1,6336.00,6336.00,historical order-line price; not a current catalog price
+SKU-373FB0D96B,Table organiser,home,1,4997.00,4997.00,historical order-line price; not a current catalog price
+SKU-37550C26B6,Hair serum,beauty,1,626.00,626.00,historical order-line price; not a current catalog price
+SKU-37581BB693,Building blocks,toys,1,4691.00,4691.00,historical order-line price; not a current catalog price
+SKU-3759D25DF6,Wireless mouse,electronics,1,12765.00,12765.00,historical order-line price; not a current catalog price
+SKU-376DA79245,Pet travel bowl,pet_supplies,1,3587.00,3587.00,historical order-line price; not a current catalog price
+SKU-37805F27D5,Desk lamp,home,1,848.00,848.00,historical order-line price; not a current catalog price
+SKU-37EA87AEAB,Hand blender,home_appliance,1,2750.00,2750.00,historical order-line price; not a current catalog price
+SKU-37FC7D1582,Leather sandals,footwear,1,977.00,977.00,historical order-line price; not a current catalog price
+SKU-381339B1AC,Packing cube set,luggage,1,9457.00,9457.00,historical order-line price; not a current catalog price
+SKU-383355A6FF,Denim jacket,clothing,1,1413.00,1413.00,historical order-line price; not a current catalog price
+SKU-387B20E1F8,Pendant necklace,jewellery,1,14295.00,14295.00,historical order-line price; not a current catalog price
+SKU-38B6E6299D,Laptop sleeve,luggage,1,7890.00,7890.00,historical order-line price; not a current catalog price
+SKU-38C2399C99,Chef knife,kitchen,1,4331.00,4331.00,historical order-line price; not a current catalog price
+SKU-38C99F2D7A,Canvas sneakers,footwear,1,2269.00,2269.00,historical order-line price; not a current catalog price
+SKU-392767F6B8,Hand blender,home_appliance,1,12231.00,12231.00,historical order-line price; not a current catalog price
+SKU-397061ABDA,Seat organiser,automotive,1,8722.00,8722.00,historical order-line price; not a current catalog price
+SKU-39D9E0E98B,Ceramic vase,home,1,1078.00,1078.00,historical order-line price; not a current catalog price
+SKU-3B00D8454D,Pet grooming brush,pet_supplies,1,1325.00,1325.00,historical order-line price; not a current catalog price
+SKU-3B95247845,Resistance bands,sports,1,5221.00,5221.00,historical order-line price; not a current catalog price
+SKU-3B9E6D4EDF,Laptop sleeve,luggage,1,11186.00,11186.00,historical order-line price; not a current catalog price
+SKU-3BA84543E3,Watering can,garden,1,1851.00,1851.00,historical order-line price; not a current catalog price
+SKU-3BD6676CF4,Cabin backpack,luggage,1,7041.00,7041.00,historical order-line price; not a current catalog price
+SKU-3BFB064BE4,Bluetooth speaker,electronics,1,9738.00,9738.00,historical order-line price; not a current catalog price
+SKU-3BFDA3CBC7,Storage basket,home,1,5766.00,5766.00,historical order-line price; not a current catalog price
+SKU-3C51E92455,Notebook set,office,1,6231.00,6231.00,historical order-line price; not a current catalog price
+SKU-3C56F27EAC,Microfibre cleaning kit,automotive,1,8334.00,8334.00,historical order-line price; not a current catalog price
+SKU-3C8F1DBE02,Chef knife,kitchen,1,5601.00,5601.00,historical order-line price; not a current catalog price
+SKU-3C98420DA9,Cabin backpack,luggage,1,6648.00,6648.00,historical order-line price; not a current catalog price
+SKU-3CE09D393B,Notebook set,office,1,4813.00,4813.00,historical order-line price; not a current catalog price
+SKU-3D1E0BC481,Board game,toys,1,4057.00,4057.00,historical order-line price; not a current catalog price
+SKU-3D8642BEE7,Feeding bottle set,baby,1,5456.00,5456.00,historical order-line price; not a current catalog price
+SKU-3DBEDEF382,Silver-plated earrings,jewellery,1,2876.00,2876.00,historical order-line price; not a current catalog price
+SKU-3DE43A9E56,Soft toy,baby,1,6014.00,6014.00,historical order-line price; not a current catalog price
+SKU-3E1D2117EB,Beaded bracelet,jewellery,1,9709.00,9709.00,historical order-line price; not a current catalog price
+SKU-3E64CB375D,Snack variety box,grocery,1,2223.00,2223.00,historical order-line price; not a current catalog price
+SKU-3E7A6D96B2,Smart watch,electronics,1,24936.00,24936.00,historical order-line price; not a current catalog price
+SKU-3F036C8BCA,USB-C charger,electronics,1,14719.00,14719.00,historical order-line price; not a current catalog price
+SKU-3F38460B6C,Hand blender,home_appliance,1,1797.00,1797.00,historical order-line price; not a current catalog price
+SKU-3F66B48257,Printed saree,clothing,1,2258.00,2258.00,historical order-line price; not a current catalog price
+SKU-3F8F97A48E,Sunscreen lotion,beauty,1,2352.00,2352.00,historical order-line price; not a current catalog price
+SKU-3FA153E487,Ceramic vase,home,1,4525.00,4525.00,historical order-line price; not a current catalog price
+SKU-3FB44810F6,Printed saree,clothing,1,2339.00,2339.00,historical order-line price; not a current catalog price
+SKU-3FF61F9587,Coffee sampler,grocery,1,1617.00,1617.00,historical order-line price; not a current catalog price
+SKU-4009F9C38B,Laptop sleeve,luggage,1,3787.00,3787.00,historical order-line price; not a current catalog price
+SKU-40B1822BDA,Yoga mat,sports,1,4131.00,4131.00,historical order-line price; not a current catalog price
+SKU-40FFCDF547,Noise-cancelling headphones,electronics,1,9415.00,9415.00,historical order-line price; not a current catalog price
+SKU-414056CF37,Hair serum,beauty,1,1126.00,1126.00,historical order-line price; not a current catalog price
+SKU-415C034209,Coffee sampler,grocery,1,645.00,645.00,historical order-line price; not a current catalog price
+SKU-41A9602500,Cookbook,books,1,1757.00,1757.00,historical order-line price; not a current catalog price
+SKU-41CA5E227A,Notebook set,office,1,5843.00,5843.00,historical order-line price; not a current catalog price
+SKU-41F91F2675,Mixer grinder,home_appliance,1,12080.00,12080.00,historical order-line price; not a current catalog price
+SKU-422B830732,Pet grooming brush,pet_supplies,1,2616.00,2616.00,historical order-line price; not a current catalog price
+SKU-422CB66B82,Dog lead,pet_supplies,1,546.00,546.00,historical order-line price; not a current catalog price
+SKU-424AEC8114,Smart watch,electronics,1,24908.00,24908.00,historical order-line price; not a current catalog price
+SKU-425005B53E,Cotton kurta,clothing,1,820.00,820.00,historical order-line price; not a current catalog price
+SKU-4331BDE0AC,Hand blender,home_appliance,1,6333.00,6333.00,historical order-line price; not a current catalog price
+SKU-4348B41EA5,Denim jacket,clothing,1,980.00,980.00,historical order-line price; not a current catalog price
+SKU-4364707C6A,Art activity kit,toys,1,706.00,706.00,historical order-line price; not a current catalog price
+SKU-44043472AE,Printed saree,clothing,1,3557.00,3557.00,historical order-line price; not a current catalog price
+SKU-447641DE3D,Tyre inflator,automotive,1,5017.00,5017.00,historical order-line price; not a current catalog price
+SKU-44C672CC4F,Pruning shears,garden,1,3993.00,3993.00,historical order-line price; not a current catalog price
+SKU-4542E7A68D,Plush animal,toys,1,1720.00,1720.00,historical order-line price; not a current catalog price
+SKU-4558ED6822,Pet travel bowl,pet_supplies,1,4215.00,4215.00,historical order-line price; not a current catalog price
+SKU-45673B3061,Children's story collection,books,1,233.00,233.00,historical order-line price; not a current catalog price
+SKU-45F6270415,Yoga mat,sports,1,539.00,539.00,historical order-line price; not a current catalog price
+SKU-464AF3B10B,Building blocks,toys,1,2321.00,2321.00,historical order-line price; not a current catalog price
+SKU-467627D4C9,Desk fan,home_appliance,1,10408.00,10408.00,historical order-line price; not a current catalog price
+SKU-46A61A04FC,Pendant necklace,jewellery,1,2119.00,2119.00,historical order-line price; not a current catalog price
+SKU-46EA117BA4,Notebook set,office,1,5428.00,5428.00,historical order-line price; not a current catalog price
+SKU-4704191B1E,Bath and body set,beauty,1,702.00,702.00,historical order-line price; not a current catalog price
+SKU-4727316AC5,Travel duffel,luggage,1,10229.00,10229.00,historical order-line price; not a current catalog price
+SKU-478E5B43E5,Book set,books,1,1112.00,1112.00,historical order-line price; not a current catalog price
+SKU-47A1232FFD,Air fryer,home_appliance,1,7101.00,7101.00,historical order-line price; not a current catalog price
+SKU-480C55147A,Cabin backpack,luggage,1,7215.00,7215.00,historical order-line price; not a current catalog price
+SKU-4820CDF5C1,Noise-cancelling headphones,electronics,1,19053.00,19053.00,historical order-line price; not a current catalog price
+SKU-4835AFFD51,Hand blender,home_appliance,1,18517.00,18517.00,historical order-line price; not a current catalog price
+SKU-4857F095FF,Feeding bottle set,baby,1,5598.00,5598.00,historical order-line price; not a current catalog price
+SKU-486C60C07C,Noise-cancelling headphones,electronics,1,21223.00,21223.00,historical order-line price; not a current catalog price
+SKU-4897640D9E,Watering can,garden,1,4876.00,4876.00,historical order-line price; not a current catalog price
+SKU-48ABF4DA8F,Desk lamp,home,1,5810.00,5810.00,historical order-line price; not a current catalog price
+SKU-49111BCEB7,Bath and body set,beauty,1,768.00,768.00,historical order-line price; not a current catalog price
+SKU-491FA6D8F4,Notebook set,office,1,2018.00,2018.00,historical order-line price; not a current catalog price
+SKU-49238670B8,Dog lead,pet_supplies,1,2956.00,2956.00,historical order-line price; not a current catalog price
+SKU-493B266102,Fountain pen,office,1,4828.00,4828.00,historical order-line price; not a current catalog price
+SKU-494DD37DEC,Running shoes,footwear,1,5682.00,5682.00,historical order-line price; not a current catalog price
+SKU-49B8D27000,Packing cube set,luggage,1,11421.00,11421.00,historical order-line price; not a current catalog price
+SKU-4ABAC7C97F,Cotton baby blanket,baby,1,3480.00,3480.00,historical order-line price; not a current catalog price
+SKU-4AC1479138,Walking shoes,footwear,1,2963.00,2963.00,historical order-line price; not a current catalog price
+SKU-4AE215ABAD,Organic tea pack,grocery,1,2773.00,2773.00,historical order-line price; not a current catalog price
+SKU-4B0C224F36,Hand blender,home_appliance,1,1930.00,1930.00,historical order-line price; not a current catalog price
+SKU-4B2A977DE8,Noise-cancelling headphones,electronics,1,5628.00,5628.00,historical order-line price; not a current catalog price
+SKU-4B36E9C00B,Steel cookware set,kitchen,1,2569.00,2569.00,historical order-line price; not a current catalog price
+SKU-4B3C1D9E90,Document organiser,office,1,3270.00,3270.00,historical order-line price; not a current catalog price
+SKU-4B428DBB3C,Smart watch,electronics,1,21944.00,21944.00,historical order-line price; not a current catalog price
+SKU-4B87E49329,Wireless keyboard,office,1,7826.00,7826.00,historical order-line price; not a current catalog price
+SKU-4BC1A4AE7C,Printed saree,clothing,1,4036.00,4036.00,historical order-line price; not a current catalog price
+SKU-4BC88BB1B5,Children's story collection,books,1,1641.00,1641.00,historical order-line price; not a current catalog price
+SKU-4BD450FF73,Seed starter kit,garden,1,3181.00,3181.00,historical order-line price; not a current catalog price
+SKU-4C0B5BE04D,Packing cube set,luggage,1,1277.00,1277.00,historical order-line price; not a current catalog price
+SKU-4C4DAF5EDD,Notebook set,office,1,8524.00,8524.00,historical order-line price; not a current catalog price
+SKU-4C6112E0CA,Board game,toys,1,4166.00,4166.00,historical order-line price; not a current catalog price
+SKU-4C79236A23,Baby care kit,baby,1,6519.00,6519.00,historical order-line price; not a current catalog price
+SKU-4D15BE69EF,Face moisturiser,beauty,1,3242.00,3242.00,historical order-line price; not a current catalog price
+SKU-4D1B72A4C5,Steel cookware set,kitchen,1,4476.00,4476.00,historical order-line price; not a current catalog price
+SKU-4D67D8C2A1,Cabin backpack,luggage,1,7426.00,7426.00,historical order-line price; not a current catalog price
+SKU-4DC95AACDF,Book set,books,1,227.00,227.00,historical order-line price; not a current catalog price
+SKU-4DCA90F5E8,Travel essays,books,1,645.00,645.00,historical order-line price; not a current catalog price
+SKU-4DFFA71105,Organic tea pack,grocery,1,1388.00,1388.00,historical order-line price; not a current catalog price
+SKU-4E090CD929,Travel essays,books,1,209.00,209.00,historical order-line price; not a current catalog price
+SKU-4E3973A177,Pet travel bowl,pet_supplies,1,2629.00,2629.00,historical order-line price; not a current catalog price
+SKU-4E795C2CEA,Coffee sampler,grocery,1,1439.00,1439.00,historical order-line price; not a current catalog price
+SKU-4E8C9B3906,Car phone mount,automotive,1,1003.00,1003.00,historical order-line price; not a current catalog price
+SKU-4EA20E5EF8,Face moisturiser,beauty,1,1906.00,1906.00,historical order-line price; not a current catalog price
+SKU-4EA4CED01E,Minimalist watch,jewellery,1,6029.00,6029.00,historical order-line price; not a current catalog price
+SKU-4EAD7D808E,Coffee sampler,grocery,1,785.00,785.00,historical order-line price; not a current catalog price
+SKU-4EDD021A2F,Dry fruit assortment,grocery,1,1754.00,1754.00,historical order-line price; not a current catalog price
+SKU-4EF9D307FA,Plush animal,toys,1,2621.00,2621.00,historical order-line price; not a current catalog price
+SKU-4F38672EDF,Fountain pen,office,1,2354.00,2354.00,historical order-line price; not a current catalog price
+SKU-4F7FDA6DF4,Cat scratcher,pet_supplies,1,4319.00,4319.00,historical order-line price; not a current catalog price
+SKU-4FA94A42B2,Hand blender,home_appliance,1,1397.00,1397.00,historical order-line price; not a current catalog price
+SKU-4FB1C3F144,Cycling helmet,sports,1,6014.00,6014.00,historical order-line price; not a current catalog price
+SKU-4FF23B6048,Snack variety box,grocery,1,1725.00,1725.00,historical order-line price; not a current catalog price
+SKU-5010E55AE8,Glass lunch box,kitchen,1,2437.00,2437.00,historical order-line price; not a current catalog price
+SKU-509CC28F9E,Insulated flask,kitchen,1,1203.00,1203.00,historical order-line price; not a current catalog price
+SKU-50D4BA2CE2,Leather sandals,footwear,1,825.00,825.00,historical order-line price; not a current catalog price
+SKU-516064AD38,Cotton baby blanket,baby,1,5209.00,5209.00,historical order-line price; not a current catalog price
+SKU-516F56B699,Children's story collection,books,1,780.00,780.00,historical order-line price; not a current catalog price
+SKU-520E099C0E,Running shoes,footwear,1,3780.00,3780.00,historical order-line price; not a current catalog price
+SKU-52C7C1B382,Snack variety box,grocery,1,2173.00,2173.00,historical order-line price; not a current catalog price
+SKU-52E3295D4D,Hair serum,beauty,1,3123.00,3123.00,historical order-line price; not a current catalog price
+SKU-5317F779CA,Organic tea pack,grocery,1,2238.00,2238.00,historical order-line price; not a current catalog price
+SKU-538EA0EA5E,Children's story collection,books,1,2130.00,2130.00,historical order-line price; not a current catalog price
+SKU-53F4FFB7F1,Minimalist watch,jewellery,1,3004.00,3004.00,historical order-line price; not a current catalog price
+SKU-541FC38D09,Plush animal,toys,1,3150.00,3150.00,historical order-line price; not a current catalog price
+SKU-5484B341A4,Soft toy,baby,1,3453.00,3453.00,historical order-line price; not a current catalog price
+SKU-553451AF4E,Cotton kurta,clothing,1,2820.00,2820.00,historical order-line price; not a current catalog price
+SKU-556EA4139A,Baby care kit,baby,1,1171.00,1171.00,historical order-line price; not a current catalog price
+SKU-561FFFE8BB,Cookbook,books,1,2191.00,2191.00,historical order-line price; not a current catalog price
+SKU-5691DA221D,Dog lead,pet_supplies,1,3264.00,3264.00,historical order-line price; not a current catalog price
+SKU-56A734D155,Board game,toys,1,987.00,987.00,historical order-line price; not a current catalog price
+SKU-56AE56D3E7,Laptop sleeve,luggage,1,3592.00,3592.00,historical order-line price; not a current catalog price
+SKU-56BFB0C15F,Packing cube set,luggage,1,8539.00,8539.00,historical order-line price; not a current catalog price
+SKU-56C38B292C,Insulated flask,kitchen,1,3964.00,3964.00,historical order-line price; not a current catalog price
+SKU-572BF34CB1,Fountain pen,office,1,1362.00,1362.00,historical order-line price; not a current catalog price
+SKU-572E453CD0,Insulated flask,kitchen,1,4318.00,4318.00,historical order-line price; not a current catalog price
+SKU-57B8D5D82C,USB-C charger,electronics,1,20971.00,20971.00,historical order-line price; not a current catalog price
+SKU-58215CB7EA,Glass lunch box,kitchen,1,8614.00,8614.00,historical order-line price; not a current catalog price
+SKU-5828A3873A,Tyre inflator,automotive,1,5781.00,5781.00,historical order-line price; not a current catalog price
+SKU-58504EA024,Running shoes,footwear,1,5099.00,5099.00,historical order-line price; not a current catalog price
+SKU-586D1E5F4C,Yoga mat,sports,1,2934.00,2934.00,historical order-line price; not a current catalog price
+SKU-5879542CCF,Resistance bands,sports,1,5245.00,5245.00,historical order-line price; not a current catalog price
+SKU-58C2F4D95F,USB-C charger,electronics,1,13410.00,13410.00,historical order-line price; not a current catalog price
+SKU-58F151E926,Silver-plated earrings,jewellery,1,8770.00,8770.00,historical order-line price; not a current catalog price
+SKU-58F974C1CB,Watering can,garden,1,3303.00,3303.00,historical order-line price; not a current catalog price
+SKU-5916FA4A0F,Cricket bat,sports,1,478.00,478.00,historical order-line price; not a current catalog price
+SKU-59405ACC12,Document organiser,office,1,4933.00,4933.00,historical order-line price; not a current catalog price
+SKU-5960540608,Car phone mount,automotive,1,2513.00,2513.00,historical order-line price; not a current catalog price
+SKU-59C80AFD4A,Pet grooming brush,pet_supplies,1,1591.00,1591.00,historical order-line price; not a current catalog price
+SKU-5A1D2F3C53,Hair serum,beauty,1,2304.00,2304.00,historical order-line price; not a current catalog price
+SKU-5A733CA2FF,Hair serum,beauty,1,2709.00,2709.00,historical order-line price; not a current catalog price
+SKU-5AA06D076F,Chef knife,kitchen,1,668.00,668.00,historical order-line price; not a current catalog price
+SKU-5ABD5EF1E0,Travel duffel,luggage,1,11065.00,11065.00,historical order-line price; not a current catalog price
+SKU-5AC34482DE,Steel cookware set,kitchen,1,4455.00,4455.00,historical order-line price; not a current catalog price
+SKU-5BC1A9359E,Pet travel bowl,pet_supplies,1,2722.00,2722.00,historical order-line price; not a current catalog price
+SKU-5BE147067A,Hair serum,beauty,1,211.00,211.00,historical order-line price; not a current catalog price
+SKU-5CB324EB66,Noise-cancelling headphones,electronics,1,5037.00,5037.00,historical order-line price; not a current catalog price
+SKU-5CB53395CC,Pendant necklace,jewellery,1,8599.00,8599.00,historical order-line price; not a current catalog price
+SKU-5CBE1F08A2,Cotton baby blanket,baby,1,6802.00,6802.00,historical order-line price; not a current catalog price
+SKU-5CF020E6FF,Pendant necklace,jewellery,1,11231.00,11231.00,historical order-line price; not a current catalog price
+SKU-5CF759BB7F,Denim jacket,clothing,1,3247.00,3247.00,historical order-line price; not a current catalog price
+SKU-5DAD7933F9,Coffee sampler,grocery,1,2983.00,2983.00,historical order-line price; not a current catalog price
+SKU-5DCA48A446,Children's story collection,books,1,1269.00,1269.00,historical order-line price; not a current catalog price
+SKU-5DF66A115D,Printed saree,clothing,1,1011.00,1011.00,historical order-line price; not a current catalog price
+SKU-5E02945A73,Snack variety box,grocery,1,1045.00,1045.00,historical order-line price; not a current catalog price
+SKU-5E72F925E4,Dog lead,pet_supplies,1,1487.00,1487.00,historical order-line price; not a current catalog price
+SKU-5EB043B1F5,Noise-cancelling headphones,electronics,1,22670.00,22670.00,historical order-line price; not a current catalog price
+SKU-5F49C0F5FC,Hair serum,beauty,1,3302.00,3302.00,historical order-line price; not a current catalog price
+SKU-5FC1C4D89D,Coffee sampler,grocery,1,412.00,412.00,historical order-line price; not a current catalog price
+SKU-5FD98E38AC,Hair serum,beauty,1,2695.00,2695.00,historical order-line price; not a current catalog price
+SKU-601B10A76A,Silver-plated earrings,jewellery,1,6975.00,6975.00,historical order-line price; not a current catalog price
+SKU-603DB8CD60,Wireless mouse,electronics,1,4820.00,4820.00,historical order-line price; not a current catalog price
+SKU-605FA53234,Glass lunch box,kitchen,1,2777.00,2777.00,historical order-line price; not a current catalog price
+SKU-6060AF768C,Sunscreen lotion,beauty,1,3684.00,3684.00,historical order-line price; not a current catalog price
+SKU-60895D6827,Wireless keyboard,office,1,6823.00,6823.00,historical order-line price; not a current catalog price
+SKU-615C312064,Cabin backpack,luggage,1,10891.00,10891.00,historical order-line price; not a current catalog price
+SKU-61AB0A5751,Leather sandals,footwear,1,2242.00,2242.00,historical order-line price; not a current catalog price
+SKU-61F11F6A57,Storage basket,home,1,3198.00,3198.00,historical order-line price; not a current catalog price
+SKU-621ED81163,Leather sandals,footwear,1,3714.00,3714.00,historical order-line price; not a current catalog price
+SKU-624EEA2969,Cotton baby blanket,baby,1,597.00,597.00,historical order-line price; not a current catalog price
+SKU-628FB6B3A9,Yoga mat,sports,1,7690.00,7690.00,historical order-line price; not a current catalog price
+SKU-62BF28246D,Cotton baby blanket,baby,1,3026.00,3026.00,historical order-line price; not a current catalog price
+SKU-63221AE25D,Feeding bottle set,baby,1,1166.00,1166.00,historical order-line price; not a current catalog price
+SKU-635D3EC0CC,Storage basket,home,1,6407.00,6407.00,historical order-line price; not a current catalog price
+SKU-639BCD0F1D,Bath and body set,beauty,1,3056.00,3056.00,historical order-line price; not a current catalog price
+SKU-63A45C9038,Travel essays,books,1,542.00,542.00,historical order-line price; not a current catalog price
+SKU-63B7D71397,Pendant necklace,jewellery,1,13789.00,13789.00,historical order-line price; not a current catalog price
+SKU-63CE7504A6,Insulated flask,kitchen,1,3497.00,3497.00,historical order-line price; not a current catalog price
+SKU-64520E8FB3,Cotton baby blanket,baby,1,1010.00,1010.00,historical order-line price; not a current catalog price
+SKU-64E2A4CF79,Pet grooming brush,pet_supplies,1,383.00,383.00,historical order-line price; not a current catalog price
+SKU-650B587C4A,Printed saree,clothing,1,1258.00,1258.00,historical order-line price; not a current catalog price
+SKU-6517BA9A95,Watering can,garden,1,4722.00,4722.00,historical order-line price; not a current catalog price
+SKU-655C2FEC64,Art activity kit,toys,1,4212.00,4212.00,historical order-line price; not a current catalog price
+SKU-658C6DFFFD,Yoga mat,sports,1,7305.00,7305.00,historical order-line price; not a current catalog price
+SKU-65BB9D8BC8,Pruning shears,garden,1,4399.00,4399.00,historical order-line price; not a current catalog price
+SKU-661C4E3668,Building blocks,toys,1,2891.00,2891.00,historical order-line price; not a current catalog price
+SKU-6635F26890,Yoga mat,sports,1,3398.00,3398.00,historical order-line price; not a current catalog price
+SKU-6691EEE8D6,Sunscreen lotion,beauty,1,2121.00,2121.00,historical order-line price; not a current catalog price
+SKU-66B984B970,Building blocks,toys,1,1445.00,1445.00,historical order-line price; not a current catalog price
+SKU-66D9857467,Desk lamp,home,1,1286.00,1286.00,historical order-line price; not a current catalog price
+SKU-6707CEF3D5,Bluetooth speaker,electronics,1,8619.00,8619.00,historical order-line price; not a current catalog price
+SKU-671C33AA65,Linen shirt,clothing,1,629.00,629.00,historical order-line price; not a current catalog price
+SKU-6748919B39,Minimalist watch,jewellery,1,8149.00,8149.00,historical order-line price; not a current catalog price
+SKU-675653FC87,Mixer grinder,home_appliance,1,10469.00,10469.00,historical order-line price; not a current catalog price
+SKU-675A2B3085,Soft toy,baby,1,4057.00,4057.00,historical order-line price; not a current catalog price
+SKU-678E10A6E7,Pet grooming brush,pet_supplies,1,3311.00,3311.00,historical order-line price; not a current catalog price
+SKU-679352F65F,Document organiser,office,1,4662.00,4662.00,historical order-line price; not a current catalog price
+SKU-679E329C68,Coffee sampler,grocery,1,2142.00,2142.00,historical order-line price; not a current catalog price
+SKU-67B670EC3A,Chef knife,kitchen,1,5797.00,5797.00,historical order-line price; not a current catalog price
+SKU-6802975C5A,Ceramic vase,home,1,4979.00,4979.00,historical order-line price; not a current catalog price
+SKU-68A58089B9,Fountain pen,office,1,8879.00,8879.00,historical order-line price; not a current catalog price
+SKU-68F707E771,Resistance bands,sports,1,6578.00,6578.00,historical order-line price; not a current catalog price
+SKU-694AD63838,Bath and body set,beauty,1,1591.00,1591.00,historical order-line price; not a current catalog price
+SKU-694E1822A2,Wireless mouse,electronics,1,3563.00,3563.00,historical order-line price; not a current catalog price
+SKU-6988882F83,Pendant necklace,jewellery,1,9561.00,9561.00,historical order-line price; not a current catalog price
+SKU-69ACF9DADC,Sunscreen lotion,beauty,1,3709.00,3709.00,historical order-line price; not a current catalog price
+SKU-69B99FF263,Laptop sleeve,luggage,1,11189.00,11189.00,historical order-line price; not a current catalog price
+SKU-6A3D24C55E,Pruning shears,garden,1,1634.00,1634.00,historical order-line price; not a current catalog price
+SKU-6A4011249F,Coffee sampler,grocery,1,2483.00,2483.00,historical order-line price; not a current catalog price
+SKU-6B095649A3,Document organiser,office,1,1289.00,1289.00,historical order-line price; not a current catalog price
+SKU-6B0C2FBED2,Table organiser,home,1,4909.00,4909.00,historical order-line price; not a current catalog price
+SKU-6B14A503FD,Notebook set,office,1,1789.00,1789.00,historical order-line price; not a current catalog price
+SKU-6B2627CB00,Travel essays,books,1,1776.00,1776.00,historical order-line price; not a current catalog price
+SKU-6B3A36FD28,Cycling helmet,sports,1,1702.00,1702.00,historical order-line price; not a current catalog price
+SKU-6B52B31416,Organic tea pack,grocery,1,486.00,486.00,historical order-line price; not a current catalog price
+SKU-6B88E4191C,Cotton baby blanket,baby,1,3107.00,3107.00,historical order-line price; not a current catalog price
+SKU-6BA44672E0,Cotton kurta,clothing,1,1704.00,1704.00,historical order-line price; not a current catalog price
+SKU-6BF26FC824,Beaded bracelet,jewellery,1,8422.00,8422.00,historical order-line price; not a current catalog price
+SKU-6BFE9E26F2,Pet travel bowl,pet_supplies,1,657.00,657.00,historical order-line price; not a current catalog price
+SKU-6C17C3E7C0,Glass lunch box,kitchen,1,1490.00,1490.00,historical order-line price; not a current catalog price
+SKU-6C5FA1F125,Yoga mat,sports,1,546.00,546.00,historical order-line price; not a current catalog price
+SKU-6CB457218F,Book set,books,1,1995.00,1995.00,historical order-line price; not a current catalog price
+SKU-6CC0862E36,Pruning shears,garden,1,561.00,561.00,historical order-line price; not a current catalog price
+SKU-6CEB147039,Microfibre cleaning kit,automotive,1,7658.00,7658.00,historical order-line price; not a current catalog price
+SKU-6D76EEF470,Smart watch,electronics,1,20172.00,20172.00,historical order-line price; not a current catalog price
+SKU-6D8F10A7D0,Smart watch,electronics,1,23297.00,23297.00,historical order-line price; not a current catalog price
+SKU-6D9DAB5E78,Minimalist watch,jewellery,1,6337.00,6337.00,historical order-line price; not a current catalog price
+SKU-6DE8C89A69,Planter set,garden,1,3874.00,3874.00,historical order-line price; not a current catalog price
+SKU-6E7EB1C83B,Smart watch,electronics,1,23456.00,23456.00,historical order-line price; not a current catalog price
+SKU-6E9ABA0618,Mixer grinder,home_appliance,1,11175.00,11175.00,historical order-line price; not a current catalog price
+SKU-6F229D1AF3,Board game,toys,1,4068.00,4068.00,historical order-line price; not a current catalog price
+SKU-6FBCD50C25,Cabin backpack,luggage,1,1241.00,1241.00,historical order-line price; not a current catalog price
+SKU-6FFD511D8F,Travel essays,books,1,275.00,275.00,historical order-line price; not a current catalog price
+SKU-7012C2230B,Silver-plated earrings,jewellery,1,14919.00,14919.00,historical order-line price; not a current catalog price
+SKU-7078921C6E,Yoga mat,sports,1,6497.00,6497.00,historical order-line price; not a current catalog price
+SKU-70BC8D9EE1,Steel cookware set,kitchen,1,875.00,875.00,historical order-line price; not a current catalog price
+SKU-70E261A8FA,Tyre inflator,automotive,1,8709.00,8709.00,historical order-line price; not a current catalog price
+SKU-7129F854F5,Minimalist watch,jewellery,1,2973.00,2973.00,historical order-line price; not a current catalog price
+SKU-712B6059DE,Wireless keyboard,office,1,1380.00,1380.00,historical order-line price; not a current catalog price
+SKU-7130FDB436,Canvas sneakers,footwear,1,5476.00,5476.00,historical order-line price; not a current catalog price
+SKU-713A48F8EB,USB-C charger,electronics,1,23559.00,23559.00,historical order-line price; not a current catalog price
+SKU-7143BF45FB,Chef knife,kitchen,1,2821.00,2821.00,historical order-line price; not a current catalog price
+SKU-71AA83A304,Bluetooth speaker,electronics,1,12960.00,12960.00,historical order-line price; not a current catalog price
+SKU-71E0977D78,Desk lamp,home,1,4059.00,4059.00,historical order-line price; not a current catalog price
+SKU-7220A2AEB7,Linen shirt,clothing,1,3760.00,3760.00,historical order-line price; not a current catalog price
+SKU-722122D48B,Cookbook,books,1,996.00,996.00,historical order-line price; not a current catalog price
+SKU-725E327A9C,Fountain pen,office,1,5356.00,5356.00,historical order-line price; not a current catalog price
+SKU-72903AD354,Running shoes,footwear,1,6329.00,6329.00,historical order-line price; not a current catalog price
+SKU-72A3E10ECE,Air fryer,home_appliance,1,13629.00,13629.00,historical order-line price; not a current catalog price
+SKU-72C14080BC,Snack variety box,grocery,1,2565.00,2565.00,historical order-line price; not a current catalog price
+SKU-7350FA32B7,Microfibre cleaning kit,automotive,1,5964.00,5964.00,historical order-line price; not a current catalog price
+SKU-7383B1E8F5,Bath and body set,beauty,1,3516.00,3516.00,historical order-line price; not a current catalog price
+SKU-73899568CB,Board game,toys,1,4297.00,4297.00,historical order-line price; not a current catalog price
+SKU-739B78FDA8,Mixer grinder,home_appliance,1,16346.00,16346.00,historical order-line price; not a current catalog price
+SKU-73A2E52DF4,Seed starter kit,garden,1,1658.00,1658.00,historical order-line price; not a current catalog price
+SKU-73AFACEEC6,Silver-plated earrings,jewellery,1,7604.00,7604.00,historical order-line price; not a current catalog price
+SKU-73DB4D0CAD,Bluetooth speaker,electronics,1,14287.00,14287.00,historical order-line price; not a current catalog price
+SKU-73FC3EB468,Notebook set,office,1,7051.00,7051.00,historical order-line price; not a current catalog price
+SKU-74A03F1923,Bath and body set,beauty,1,1482.00,1482.00,historical order-line price; not a current catalog price
+SKU-74ECA3FFAA,Tyre inflator,automotive,1,6265.00,6265.00,historical order-line price; not a current catalog price
+SKU-74EF3318C9,Storage basket,home,1,3974.00,3974.00,historical order-line price; not a current catalog price
+SKU-7520C344CE,Watering can,garden,1,4410.00,4410.00,historical order-line price; not a current catalog price
+SKU-7531C579D3,Cat scratcher,pet_supplies,1,2644.00,2644.00,historical order-line price; not a current catalog price
+SKU-7570566974,Car phone mount,automotive,1,2461.00,2461.00,historical order-line price; not a current catalog price
+SKU-75CC48339E,Book set,books,1,1525.00,1525.00,historical order-line price; not a current catalog price
+SKU-75DE64F279,Cotton bedsheet,home,1,1502.00,1502.00,historical order-line price; not a current catalog price
+SKU-764A538BCB,Silver-plated earrings,jewellery,1,7827.00,7827.00,historical order-line price; not a current catalog price
+SKU-766884BFD2,Yoga mat,sports,1,7813.00,7813.00,historical order-line price; not a current catalog price
+SKU-7789C97F32,Pet grooming brush,pet_supplies,1,232.00,232.00,historical order-line price; not a current catalog price
+SKU-778EF9DF93,Travel essays,books,1,1476.00,1476.00,historical order-line price; not a current catalog price
+SKU-779E903AF6,Air fryer,home_appliance,1,5110.00,5110.00,historical order-line price; not a current catalog price
+SKU-77E505BD64,Building blocks,toys,1,3650.00,3650.00,historical order-line price; not a current catalog price
+SKU-77EFD55E02,Steel cookware set,kitchen,1,1874.00,1874.00,historical order-line price; not a current catalog price
+SKU-784B941442,Document organiser,office,1,3955.00,3955.00,historical order-line price; not a current catalog price
+SKU-787E177F3D,Pet grooming brush,pet_supplies,1,1370.00,1370.00,historical order-line price; not a current catalog price
+SKU-78B5601A4D,Cabin backpack,luggage,1,12373.00,12373.00,historical order-line price; not a current catalog price
+SKU-78EDA4E178,Yoga mat,sports,1,4986.00,4986.00,historical order-line price; not a current catalog price
+SKU-78F3A3CBD6,Cricket bat,sports,1,6794.00,6794.00,historical order-line price; not a current catalog price
+SKU-79923AB67A,Insulated flask,kitchen,1,575.00,575.00,historical order-line price; not a current catalog price
+SKU-79B3CF556B,Building blocks,toys,1,4418.00,4418.00,historical order-line price; not a current catalog price
+SKU-7A22EE7755,Ceramic vase,home,1,6393.00,6393.00,historical order-line price; not a current catalog price
+SKU-7A2FDFD279,Steel cookware set,kitchen,1,4940.00,4940.00,historical order-line price; not a current catalog price
+SKU-7A44DA0AF6,Microfibre cleaning kit,automotive,1,4369.00,4369.00,historical order-line price; not a current catalog price
+SKU-7A91F6D043,Air fryer,home_appliance,1,16839.00,16839.00,historical order-line price; not a current catalog price
+SKU-7A9D535E7E,Art activity kit,toys,1,3982.00,3982.00,historical order-line price; not a current catalog price
+SKU-7AB6C3FEEA,Seat organiser,automotive,1,1064.00,1064.00,historical order-line price; not a current catalog price
+SKU-7AFF68BF67,Coffee sampler,grocery,1,268.00,268.00,historical order-line price; not a current catalog price
+SKU-7B255F1348,Art activity kit,toys,1,4939.00,4939.00,historical order-line price; not a current catalog price
+SKU-7BD6008EBD,Noise-cancelling headphones,electronics,1,20921.00,20921.00,historical order-line price; not a current catalog price
+SKU-7BE869D96F,Wireless keyboard,office,1,6997.00,6997.00,historical order-line price; not a current catalog price
+SKU-7BED0D2F12,Ceramic vase,home,1,2110.00,2110.00,historical order-line price; not a current catalog price
+SKU-7BFA8F5CFC,Board game,toys,1,3063.00,3063.00,historical order-line price; not a current catalog price
+SKU-7C0C3132BB,Seat organiser,automotive,1,4843.00,4843.00,historical order-line price; not a current catalog price
+SKU-7C486C8B53,Coffee sampler,grocery,1,772.00,772.00,historical order-line price; not a current catalog price
+SKU-7C85CC6560,Fountain pen,office,1,6828.00,6828.00,historical order-line price; not a current catalog price
+SKU-7CA114F0E9,Bath and body set,beauty,1,538.00,538.00,historical order-line price; not a current catalog price
+SKU-7CAEC915F1,Wireless keyboard,office,1,3572.00,3572.00,historical order-line price; not a current catalog price
+SKU-7DDD3DDE31,Sunscreen lotion,beauty,1,3599.00,3599.00,historical order-line price; not a current catalog price
+SKU-7DEE6C79C4,Smart watch,electronics,1,14713.00,14713.00,historical order-line price; not a current catalog price
+SKU-7E0C73B573,Seed starter kit,garden,1,1569.00,1569.00,historical order-line price; not a current catalog price
+SKU-7E4AD38834,Storage basket,home,1,5789.00,5789.00,historical order-line price; not a current catalog price
+SKU-7E717ED3F6,Building blocks,toys,1,1694.00,1694.00,historical order-line price; not a current catalog price
+SKU-7E94887F84,Building blocks,toys,1,1882.00,1882.00,historical order-line price; not a current catalog price
+SKU-7F01F0CDFC,Denim jacket,clothing,1,4169.00,4169.00,historical order-line price; not a current catalog price
+SKU-7FCA5EF518,Denim jacket,clothing,1,1581.00,1581.00,historical order-line price; not a current catalog price
+SKU-80090ED771,Seed starter kit,garden,1,605.00,605.00,historical order-line price; not a current catalog price
+SKU-80266C745C,Pruning shears,garden,1,2323.00,2323.00,historical order-line price; not a current catalog price
+SKU-8027C1BC02,Tyre inflator,automotive,1,5582.00,5582.00,historical order-line price; not a current catalog price
+SKU-803FA6810E,Children's story collection,books,1,2170.00,2170.00,historical order-line price; not a current catalog price
+SKU-808DC59D08,Building blocks,toys,1,1412.00,1412.00,historical order-line price; not a current catalog price
+SKU-809713DD5A,Chef knife,kitchen,1,5604.00,5604.00,historical order-line price; not a current catalog price
+SKU-80D58F6C78,Cycling helmet,sports,1,1865.00,1865.00,historical order-line price; not a current catalog price
+SKU-80E0E2643E,Minimalist watch,jewellery,1,4749.00,4749.00,historical order-line price; not a current catalog price
+SKU-8111271D18,USB-C charger,electronics,1,16491.00,16491.00,historical order-line price; not a current catalog price
+SKU-81B3004B11,Organic tea pack,grocery,1,670.00,670.00,historical order-line price; not a current catalog price
+SKU-81E9BDEA1A,Snack variety box,grocery,1,1755.00,1755.00,historical order-line price; not a current catalog price
+SKU-81F80C22AA,Electric kettle,home_appliance,1,11131.00,11131.00,historical order-line price; not a current catalog price
+SKU-81FEC133EB,Hand blender,home_appliance,1,8428.00,8428.00,historical order-line price; not a current catalog price
+SKU-8212CF45EA,Walking shoes,footwear,1,1996.00,1996.00,historical order-line price; not a current catalog price
+SKU-823495A57D,Seed starter kit,garden,1,3277.00,3277.00,historical order-line price; not a current catalog price
+SKU-82ACFA8488,USB-C charger,electronics,1,17460.00,17460.00,historical order-line price; not a current catalog price
+SKU-8326A3F5D4,Storage basket,home,1,424.00,424.00,historical order-line price; not a current catalog price
+SKU-832B048087,Hair serum,beauty,1,3695.00,3695.00,historical order-line price; not a current catalog price
+SKU-8346C9B093,Book set,books,1,1562.00,1562.00,historical order-line price; not a current catalog price
+SKU-836A80D590,Minimalist watch,jewellery,1,7583.00,7583.00,historical order-line price; not a current catalog price
+SKU-83DD367C50,Steel cookware set,kitchen,1,9179.00,9179.00,historical order-line price; not a current catalog price
+SKU-845DF28165,Plush animal,toys,1,1633.00,1633.00,historical order-line price; not a current catalog price
+SKU-8487D8B984,Pendant necklace,jewellery,1,5935.00,5935.00,historical order-line price; not a current catalog price
+SKU-84A5FC6BAF,Desk fan,home_appliance,1,6174.00,6174.00,historical order-line price; not a current catalog price
+SKU-85A8B1B48D,Yoga mat,sports,1,4353.00,4353.00,historical order-line price; not a current catalog price
+SKU-86022FEC63,Notebook set,office,1,6310.00,6310.00,historical order-line price; not a current catalog price
+SKU-8651EE165B,Fountain pen,office,1,4050.00,4050.00,historical order-line price; not a current catalog price
+SKU-865A588709,Cotton baby blanket,baby,1,1522.00,1522.00,historical order-line price; not a current catalog price
+SKU-865CC97CCF,Cotton kurta,clothing,1,2916.00,2916.00,historical order-line price; not a current catalog price
+SKU-867449FB2D,Seat organiser,automotive,1,6748.00,6748.00,historical order-line price; not a current catalog price
+SKU-86BA878561,Printed saree,clothing,1,3821.00,3821.00,historical order-line price; not a current catalog price
+SKU-87081E56A6,Beaded bracelet,jewellery,1,1901.00,1901.00,historical order-line price; not a current catalog price
+SKU-87311CB9B1,Leather sandals,footwear,1,8435.00,8435.00,historical order-line price; not a current catalog price
+SKU-87714520D2,Car phone mount,automotive,1,1534.00,1534.00,historical order-line price; not a current catalog price
+SKU-87815AEDAC,Seed starter kit,garden,1,2461.00,2461.00,historical order-line price; not a current catalog price
+SKU-87EB742DF7,Canvas sneakers,footwear,1,7379.00,7379.00,historical order-line price; not a current catalog price
+SKU-87FD45FC45,Cat scratcher,pet_supplies,1,3900.00,3900.00,historical order-line price; not a current catalog price
+SKU-882C16C895,Face moisturiser,beauty,1,2529.00,2529.00,historical order-line price; not a current catalog price
+SKU-885FDBEA2B,Mixer grinder,home_appliance,1,17075.00,17075.00,historical order-line price; not a current catalog price
+SKU-889743C9D7,Silver-plated earrings,jewellery,1,9624.00,9624.00,historical order-line price; not a current catalog price
+SKU-88CC557539,Minimalist watch,jewellery,1,917.00,917.00,historical order-line price; not a current catalog price
+SKU-88E5D2DEC6,Walking shoes,footwear,1,7221.00,7221.00,historical order-line price; not a current catalog price
+SKU-8904416905,Linen shirt,clothing,1,3525.00,3525.00,historical order-line price; not a current catalog price
+SKU-893D4542B3,Seed starter kit,garden,1,1942.00,1942.00,historical order-line price; not a current catalog price
+SKU-894AA818FE,Wireless mouse,electronics,1,7462.00,7462.00,historical order-line price; not a current catalog price
+SKU-899B0FF3FD,Dog lead,pet_supplies,1,4610.00,4610.00,historical order-line price; not a current catalog price
+SKU-8A3A7D3DBF,Wireless mouse,electronics,1,13466.00,13466.00,historical order-line price; not a current catalog price
+SKU-8A7E80CA61,Snack variety box,grocery,1,1383.00,1383.00,historical order-line price; not a current catalog price
+SKU-8A7FC398ED,Leather sandals,footwear,1,5327.00,5327.00,historical order-line price; not a current catalog price
+SKU-8AD2AADBCC,Wireless keyboard,office,1,5411.00,5411.00,historical order-line price; not a current catalog price
+SKU-8AD886366D,Notebook set,office,1,4868.00,4868.00,historical order-line price; not a current catalog price
+SKU-8B1939D006,Fountain pen,office,1,4499.00,4499.00,historical order-line price; not a current catalog price
+SKU-8B3FCD31AA,Leather sandals,footwear,1,1926.00,1926.00,historical order-line price; not a current catalog price
+SKU-8B8DB489D8,Walking shoes,footwear,1,1777.00,1777.00,historical order-line price; not a current catalog price
+SKU-8BB23E28DD,Dog lead,pet_supplies,1,1514.00,1514.00,historical order-line price; not a current catalog price
+SKU-8BD092E1DB,Resistance bands,sports,1,5630.00,5630.00,historical order-line price; not a current catalog price
+SKU-8BFD99FFCD,Soft toy,baby,1,3270.00,3270.00,historical order-line price; not a current catalog price
+SKU-8C10E56399,Glass lunch box,kitchen,1,4432.00,4432.00,historical order-line price; not a current catalog price
+SKU-8C226D3E8C,Packing cube set,luggage,1,5679.00,5679.00,historical order-line price; not a current catalog price
+SKU-8C27F5F2EF,Organic tea pack,grocery,1,1799.00,1799.00,historical order-line price; not a current catalog price
+SKU-8CCC4C3CAC,Storage basket,home,1,6265.00,6265.00,historical order-line price; not a current catalog price
+SKU-8CED680041,USB-C charger,electronics,1,2813.00,2813.00,historical order-line price; not a current catalog price
+SKU-8D67EDB447,Bath and body set,beauty,1,3192.00,3192.00,historical order-line price; not a current catalog price
+SKU-8D88450BC3,Mixer grinder,home_appliance,1,15164.00,15164.00,historical order-line price; not a current catalog price
+SKU-8DAA54C96E,Baby care kit,baby,1,3626.00,3626.00,historical order-line price; not a current catalog price
+SKU-8DAF4F384D,Plush animal,toys,1,4457.00,4457.00,historical order-line price; not a current catalog price
+SKU-8DC09DD193,Chef knife,kitchen,1,9990.00,9990.00,historical order-line price; not a current catalog price
+SKU-8DD04351FB,Cookbook,books,1,2298.00,2298.00,historical order-line price; not a current catalog price
+SKU-8DFF8EB706,Car phone mount,automotive,1,1816.00,1816.00,historical order-line price; not a current catalog price
+SKU-8E01FBBBCD,Cookbook,books,1,1909.00,1909.00,historical order-line price; not a current catalog price
+SKU-8E38F03F28,Beaded bracelet,jewellery,1,6628.00,6628.00,historical order-line price; not a current catalog price
+SKU-8E46040FD1,Car phone mount,automotive,1,5529.00,5529.00,historical order-line price; not a current catalog price
+SKU-8E64DC3991,Denim jacket,clothing,1,2764.00,2764.00,historical order-line price; not a current catalog price
+SKU-8E68D742FA,Running shoes,footwear,1,1905.00,1905.00,historical order-line price; not a current catalog price
+SKU-8E7510B38A,Pruning shears,garden,1,201.00,201.00,historical order-line price; not a current catalog price
+SKU-8ECCBDC5F5,Yoga mat,sports,1,2471.00,2471.00,historical order-line price; not a current catalog price
+SKU-8EEC38E667,Children's story collection,books,1,921.00,921.00,historical order-line price; not a current catalog price
+SKU-8EEE3FBECC,Hand blender,home_appliance,1,14732.00,14732.00,historical order-line price; not a current catalog price
+SKU-8EF87EF38E,Beaded bracelet,jewellery,1,6418.00,6418.00,historical order-line price; not a current catalog price
+SKU-8EFC2204CE,Cycling helmet,sports,1,4211.00,4211.00,historical order-line price; not a current catalog price
+SKU-8FAA3A1A23,Seat organiser,automotive,1,6660.00,6660.00,historical order-line price; not a current catalog price
+SKU-8FEB6F6233,Pendant necklace,jewellery,1,8172.00,8172.00,historical order-line price; not a current catalog price
+SKU-9067B539D0,USB-C charger,electronics,1,4637.00,4637.00,historical order-line price; not a current catalog price
+SKU-908F90D6D7,Chef knife,kitchen,1,9260.00,9260.00,historical order-line price; not a current catalog price
+SKU-910773C3B8,Electric kettle,home_appliance,1,6373.00,6373.00,historical order-line price; not a current catalog price
+SKU-91362119F7,Plush animal,toys,1,1259.00,1259.00,historical order-line price; not a current catalog price
+SKU-915DFF4588,Feeding bottle set,baby,1,5158.00,5158.00,historical order-line price; not a current catalog price
+SKU-9175D7C2F0,Hair serum,beauty,1,3113.00,3113.00,historical order-line price; not a current catalog price
+SKU-91C4B5FE6D,Resistance bands,sports,1,3566.00,3566.00,historical order-line price; not a current catalog price
+SKU-91C53AA56C,Feeding bottle set,baby,1,3401.00,3401.00,historical order-line price; not a current catalog price
+SKU-92295C8902,Insulated flask,kitchen,1,5591.00,5591.00,historical order-line price; not a current catalog price
+SKU-928205D3B8,Denim jacket,clothing,1,2138.00,2138.00,historical order-line price; not a current catalog price
+SKU-92835B978B,Coffee sampler,grocery,1,2353.00,2353.00,historical order-line price; not a current catalog price
+SKU-92DB781558,Tyre inflator,automotive,1,5479.00,5479.00,historical order-line price; not a current catalog price
+SKU-92ECAF8F27,Seed starter kit,garden,1,236.00,236.00,historical order-line price; not a current catalog price
+SKU-92F825318B,Pendant necklace,jewellery,1,13117.00,13117.00,historical order-line price; not a current catalog price
+SKU-9356D787A2,Running shoes,footwear,1,7853.00,7853.00,historical order-line price; not a current catalog price
+SKU-937C9E19B8,Pruning shears,garden,1,3384.00,3384.00,historical order-line price; not a current catalog price
+SKU-9399F4775C,Coffee sampler,grocery,1,1793.00,1793.00,historical order-line price; not a current catalog price
+SKU-93A7762465,Dog lead,pet_supplies,1,4899.00,4899.00,historical order-line price; not a current catalog price
+SKU-93D94E11D2,Pruning shears,garden,1,4821.00,4821.00,historical order-line price; not a current catalog price
+SKU-93F580DF02,Cotton baby blanket,baby,1,6319.00,6319.00,historical order-line price; not a current catalog price
+SKU-9412E63D2E,Steel cookware set,kitchen,1,7896.00,7896.00,historical order-line price; not a current catalog price
+SKU-947F97E2C8,Cotton bedsheet,home,1,693.00,693.00,historical order-line price; not a current catalog price
+SKU-94AD8D8C0E,Glass lunch box,kitchen,1,4437.00,4437.00,historical order-line price; not a current catalog price
+SKU-94DE60474F,Face moisturiser,beauty,1,3638.00,3638.00,historical order-line price; not a current catalog price
+SKU-9510FA2659,Seed starter kit,garden,1,4280.00,4280.00,historical order-line price; not a current catalog price
+SKU-9555497637,Printed saree,clothing,1,505.00,505.00,historical order-line price; not a current catalog price
+SKU-95985C9942,Cricket bat,sports,1,7384.00,7384.00,historical order-line price; not a current catalog price
+SKU-95AD28D416,Pet grooming brush,pet_supplies,1,3623.00,3623.00,historical order-line price; not a current catalog price
+SKU-95F0F12486,Snack variety box,grocery,1,725.00,725.00,historical order-line price; not a current catalog price
+SKU-963D73EC30,Baby care kit,baby,1,3977.00,3977.00,historical order-line price; not a current catalog price
+SKU-9648D35940,Smart watch,electronics,1,18309.00,18309.00,historical order-line price; not a current catalog price
+SKU-965C8EF25F,Pet travel bowl,pet_supplies,1,1926.00,1926.00,historical order-line price; not a current catalog price
+SKU-969C6E8C58,Travel essays,books,1,223.00,223.00,historical order-line price; not a current catalog price
+SKU-96F7875B1F,Running shoes,footwear,1,1464.00,1464.00,historical order-line price; not a current catalog price
+SKU-974E10C7D8,Resistance bands,sports,1,7463.00,7463.00,historical order-line price; not a current catalog price
+SKU-9789193BDA,Feeding bottle set,baby,1,3785.00,3785.00,historical order-line price; not a current catalog price
+SKU-979CF0D456,Fountain pen,office,1,7824.00,7824.00,historical order-line price; not a current catalog price
+SKU-97BDC5BB03,Document organiser,office,1,5349.00,5349.00,historical order-line price; not a current catalog price
+SKU-97F1B3D9BA,Coffee sampler,grocery,1,926.00,926.00,historical order-line price; not a current catalog price
+SKU-98437C9398,Watering can,garden,1,2219.00,2219.00,historical order-line price; not a current catalog price
+SKU-9861F8400D,Plush animal,toys,1,3420.00,3420.00,historical order-line price; not a current catalog price
+SKU-986EBA0C1B,Resistance bands,sports,1,3030.00,3030.00,historical order-line price; not a current catalog price
+SKU-989F1488F8,Sunscreen lotion,beauty,1,1342.00,1342.00,historical order-line price; not a current catalog price
+SKU-98BF92FF86,Resistance bands,sports,1,1554.00,1554.00,historical order-line price; not a current catalog price
+SKU-98CB8E7DF3,Feeding bottle set,baby,1,3021.00,3021.00,historical order-line price; not a current catalog price
+SKU-99A5A992BC,Glass lunch box,kitchen,1,9891.00,9891.00,historical order-line price; not a current catalog price
+SKU-99EBB5D4C3,Silver-plated earrings,jewellery,1,9765.00,9765.00,historical order-line price; not a current catalog price
+SKU-99F281A917,Travel duffel,luggage,1,7072.00,7072.00,historical order-line price; not a current catalog price
+SKU-9A02A6F913,Walking shoes,footwear,1,5990.00,5990.00,historical order-line price; not a current catalog price
+SKU-9A06DE5113,Face moisturiser,beauty,1,2193.00,2193.00,historical order-line price; not a current catalog price
+SKU-9A15051E46,Cricket bat,sports,1,1247.00,1247.00,historical order-line price; not a current catalog price
+SKU-9A282F4C43,Snack variety box,grocery,1,794.00,794.00,historical order-line price; not a current catalog price
+SKU-9A5DBE5527,Cabin backpack,luggage,1,11633.00,11633.00,historical order-line price; not a current catalog price
+SKU-9AB5F88217,Organic tea pack,grocery,1,1719.00,1719.00,historical order-line price; not a current catalog price
+SKU-9AC6FF633E,Wireless keyboard,office,1,5001.00,5001.00,historical order-line price; not a current catalog price
+SKU-9AF93C6B81,Wireless mouse,electronics,1,6170.00,6170.00,historical order-line price; not a current catalog price
+SKU-9B33E4336F,Electric kettle,home_appliance,1,13481.00,13481.00,historical order-line price; not a current catalog price
+SKU-9B7DAF5969,Printed saree,clothing,1,2515.00,2515.00,historical order-line price; not a current catalog price
+SKU-9BC4136152,Chef knife,kitchen,1,6454.00,6454.00,historical order-line price; not a current catalog price
+SKU-9BE117DFE8,Desk fan,home_appliance,1,15466.00,15466.00,historical order-line price; not a current catalog price
+SKU-9BEFB77E4A,Running shorts,clothing,1,3429.00,3429.00,historical order-line price; not a current catalog price
+SKU-9C009A5939,Packing cube set,luggage,1,2620.00,2620.00,historical order-line price; not a current catalog price
+SKU-9C20C482D4,Running shorts,clothing,1,1767.00,1767.00,historical order-line price; not a current catalog price
+SKU-9C6A946F21,Yoga mat,sports,1,7139.00,7139.00,historical order-line price; not a current catalog price
+SKU-9C82960BEE,Planter set,garden,1,4838.00,4838.00,historical order-line price; not a current catalog price
+SKU-9CB037D823,Insulated flask,kitchen,1,1906.00,1906.00,historical order-line price; not a current catalog price
+SKU-9CC8285779,Insulated flask,kitchen,1,7957.00,7957.00,historical order-line price; not a current catalog price
+SKU-9CE59CBD25,Cabin backpack,luggage,1,1633.00,1633.00,historical order-line price; not a current catalog price
+SKU-9CFAC27C4B,Noise-cancelling headphones,electronics,1,12611.00,12611.00,historical order-line price; not a current catalog price
+SKU-9D018B9059,Cycling helmet,sports,1,2548.00,2548.00,historical order-line price; not a current catalog price
+SKU-9D17155BDF,Cricket bat,sports,1,5832.00,5832.00,historical order-line price; not a current catalog price
+SKU-9DA1DE803C,Snack variety box,grocery,1,2065.00,2065.00,historical order-line price; not a current catalog price
+SKU-9DA882E0AF,Cotton bedsheet,home,1,5461.00,5461.00,historical order-line price; not a current catalog price
+SKU-9DAC49A14E,Desk fan,home_appliance,1,14481.00,14481.00,historical order-line price; not a current catalog price
+SKU-9DB55BEE6E,Face moisturiser,beauty,1,3287.00,3287.00,historical order-line price; not a current catalog price
+SKU-9E68623DDD,Noise-cancelling headphones,electronics,1,19530.00,19530.00,historical order-line price; not a current catalog price
+SKU-9E8C301B36,Hand blender,home_appliance,1,11583.00,11583.00,historical order-line price; not a current catalog price
+SKU-9FC8E2372E,Tyre inflator,automotive,1,8637.00,8637.00,historical order-line price; not a current catalog price
+SKU-9FDE8D6080,Leather sandals,footwear,1,1083.00,1083.00,historical order-line price; not a current catalog price
+SKU-A00E18EDD0,Resistance bands,sports,1,6927.00,6927.00,historical order-line price; not a current catalog price
+SKU-A054BEBDDC,Notebook set,office,1,3253.00,3253.00,historical order-line price; not a current catalog price
+SKU-A058523ECA,Cycling helmet,sports,1,6584.00,6584.00,historical order-line price; not a current catalog price
+SKU-A0ACCD4A2C,Desk fan,home_appliance,1,9857.00,9857.00,historical order-line price; not a current catalog price
+SKU-A0BFCDC6E3,Electric kettle,home_appliance,1,18125.00,18125.00,historical order-line price; not a current catalog price
+SKU-A10570822C,USB-C charger,electronics,1,22537.00,22537.00,historical order-line price; not a current catalog price
+SKU-A12A80EE1B,Pet grooming brush,pet_supplies,1,3658.00,3658.00,historical order-line price; not a current catalog price
+SKU-A18AF6D29A,Desk lamp,home,1,3122.00,3122.00,historical order-line price; not a current catalog price
+SKU-A19F57A75E,Air fryer,home_appliance,1,17673.00,17673.00,historical order-line price; not a current catalog price
+SKU-A21EBF67A6,Desk lamp,home,1,1427.00,1427.00,historical order-line price; not a current catalog price
+SKU-A228447CFD,Glass lunch box,kitchen,1,466.00,466.00,historical order-line price; not a current catalog price
+SKU-A31B7B38A9,Pruning shears,garden,1,3070.00,3070.00,historical order-line price; not a current catalog price
+SKU-A35940F62E,Coffee sampler,grocery,1,346.00,346.00,historical order-line price; not a current catalog price
+SKU-A38105298B,Minimalist watch,jewellery,1,11883.00,11883.00,historical order-line price; not a current catalog price
+SKU-A38328D6DE,Notebook set,office,1,925.00,925.00,historical order-line price; not a current catalog price
+SKU-A3E609E8CD,Baby care kit,baby,1,4738.00,4738.00,historical order-line price; not a current catalog price
+SKU-A3F071D822,Tyre inflator,automotive,1,3714.00,3714.00,historical order-line price; not a current catalog price
+SKU-A456812F67,Hand blender,home_appliance,1,5146.00,5146.00,historical order-line price; not a current catalog price
+SKU-A553F02BCE,Yoga mat,sports,1,4604.00,4604.00,historical order-line price; not a current catalog price
+SKU-A5736A0ED5,Seat organiser,automotive,1,5580.00,5580.00,historical order-line price; not a current catalog price
+SKU-A5A68F8E22,Air fryer,home_appliance,1,9524.00,9524.00,historical order-line price; not a current catalog price
+SKU-A5CA04857B,Building blocks,toys,1,250.00,250.00,historical order-line price; not a current catalog price
+SKU-A5E9B1BBB7,Seat organiser,automotive,1,5971.00,5971.00,historical order-line price; not a current catalog price
+SKU-A5EC03CA61,Ceramic vase,home,1,4168.00,4168.00,historical order-line price; not a current catalog price
+SKU-A608A477B6,Fountain pen,office,1,3983.00,3983.00,historical order-line price; not a current catalog price
+SKU-A66D0D9304,Plush animal,toys,1,283.00,283.00,historical order-line price; not a current catalog price
+SKU-A687B234D3,Pet grooming brush,pet_supplies,1,4193.00,4193.00,historical order-line price; not a current catalog price
+SKU-A69AC4DE14,Cricket bat,sports,1,5901.00,5901.00,historical order-line price; not a current catalog price
+SKU-A6D7FFB3ED,Cricket bat,sports,1,6186.00,6186.00,historical order-line price; not a current catalog price
+SKU-A6D988B1A8,Seed starter kit,garden,1,4440.00,4440.00,historical order-line price; not a current catalog price
+SKU-A6EDB8EDF4,Wireless keyboard,office,1,5329.00,5329.00,historical order-line price; not a current catalog price
+SKU-A73258B897,Book set,books,1,2329.00,2329.00,historical order-line price; not a current catalog price
+SKU-A76EF1F614,Bath and body set,beauty,1,912.00,912.00,historical order-line price; not a current catalog price
+SKU-A77E1DAA59,Cotton kurta,clothing,1,1589.00,1589.00,historical order-line price; not a current catalog price
+SKU-A78005624E,Board game,toys,1,1348.00,1348.00,historical order-line price; not a current catalog price
+SKU-A79FC72205,Beaded bracelet,jewellery,1,3406.00,3406.00,historical order-line price; not a current catalog price
+SKU-A7AC5300C0,Hair serum,beauty,1,3895.00,3895.00,historical order-line price; not a current catalog price
+SKU-A7D5A8B29B,Notebook set,office,1,4362.00,4362.00,historical order-line price; not a current catalog price
+SKU-A811B7422D,Dry fruit assortment,grocery,1,2519.00,2519.00,historical order-line price; not a current catalog price
+SKU-A8A243E81B,Noise-cancelling headphones,electronics,1,12403.00,12403.00,historical order-line price; not a current catalog price
+SKU-A8E0CA90E3,Cotton baby blanket,baby,1,2890.00,2890.00,historical order-line price; not a current catalog price
+SKU-A8E52A2029,Cricket bat,sports,1,5337.00,5337.00,historical order-line price; not a current catalog price
+SKU-A8F503E514,Beaded bracelet,jewellery,1,3488.00,3488.00,historical order-line price; not a current catalog price
+SKU-A8FBB0B183,Walking shoes,footwear,1,2003.00,2003.00,historical order-line price; not a current catalog price
+SKU-A90DCAEEAD,Cookbook,books,1,816.00,816.00,historical order-line price; not a current catalog price
+SKU-A92305179E,Car phone mount,automotive,1,2363.00,2363.00,historical order-line price; not a current catalog price
+SKU-A92453B031,Silver-plated earrings,jewellery,1,2451.00,2451.00,historical order-line price; not a current catalog price
+SKU-A92EBD75A8,Planter set,garden,1,4470.00,4470.00,historical order-line price; not a current catalog price
+SKU-A93F122510,Snack variety box,grocery,1,2991.00,2991.00,historical order-line price; not a current catalog price
+SKU-A9530C69CC,Plush animal,toys,1,1472.00,1472.00,historical order-line price; not a current catalog price
+SKU-A98E65C9ED,Wireless keyboard,office,1,3844.00,3844.00,historical order-line price; not a current catalog price
+SKU-A99C90C69F,Children's story collection,books,1,993.00,993.00,historical order-line price; not a current catalog price
+SKU-A9A85E5633,Coffee sampler,grocery,1,500.00,500.00,historical order-line price; not a current catalog price
+SKU-A9B3050DEE,Running shoes,footwear,1,2806.00,2806.00,historical order-line price; not a current catalog price
+SKU-A9EA88E86F,Tyre inflator,automotive,1,5892.00,5892.00,historical order-line price; not a current catalog price
+SKU-A9ECACD508,Ceramic vase,home,1,3851.00,3851.00,historical order-line price; not a current catalog price
+SKU-AA139E7F95,Running shoes,footwear,1,7233.00,7233.00,historical order-line price; not a current catalog price
+SKU-AA30468B71,Minimalist watch,jewellery,1,4694.00,4694.00,historical order-line price; not a current catalog price
+SKU-AA34581660,Face moisturiser,beauty,1,704.00,704.00,historical order-line price; not a current catalog price
+SKU-AA52D14410,Bluetooth speaker,electronics,1,7000.00,7000.00,historical order-line price; not a current catalog price
+SKU-AA56FDFBCA,Fountain pen,office,1,1377.00,1377.00,historical order-line price; not a current catalog price
+SKU-AA8107FB26,Pendant necklace,jewellery,1,11800.00,11800.00,historical order-line price; not a current catalog price
+SKU-AAD0175CF2,Storage basket,home,1,3688.00,3688.00,historical order-line price; not a current catalog price
+SKU-AB866A31EF,Canvas sneakers,footwear,1,7168.00,7168.00,historical order-line price; not a current catalog price
+SKU-AB882C695D,Baby care kit,baby,1,2654.00,2654.00,historical order-line price; not a current catalog price
+SKU-ABA21BF5D0,Cricket bat,sports,1,1985.00,1985.00,historical order-line price; not a current catalog price
+SKU-ABB7F43054,Wireless mouse,electronics,1,24621.00,24621.00,historical order-line price; not a current catalog price
+SKU-ABCCB86431,Art activity kit,toys,1,1778.00,1778.00,historical order-line price; not a current catalog price
+SKU-ABD01B9739,Cabin backpack,luggage,1,1458.00,1458.00,historical order-line price; not a current catalog price
+SKU-AC51C91E19,Minimalist watch,jewellery,1,14007.00,14007.00,historical order-line price; not a current catalog price
+SKU-AC694F122C,Microfibre cleaning kit,automotive,1,5977.00,5977.00,historical order-line price; not a current catalog price
+SKU-AC91DF26F4,Printed saree,clothing,1,725.00,725.00,historical order-line price; not a current catalog price
+SKU-ACA23F4085,Resistance bands,sports,1,7807.00,7807.00,historical order-line price; not a current catalog price
+SKU-ACEFB2F0D4,Building blocks,toys,1,1662.00,1662.00,historical order-line price; not a current catalog price
+SKU-AD16F52B73,Face moisturiser,beauty,1,2237.00,2237.00,historical order-line price; not a current catalog price
+SKU-AD3C038C8F,Cotton bedsheet,home,1,2961.00,2961.00,historical order-line price; not a current catalog price
+SKU-AD8ACCBDD8,Pet grooming brush,pet_supplies,1,1427.00,1427.00,historical order-line price; not a current catalog price
+SKU-ADBD7C92F7,Cycling helmet,sports,1,4040.00,4040.00,historical order-line price; not a current catalog price
+SKU-ADBFF4744F,Coffee sampler,grocery,1,2211.00,2211.00,historical order-line price; not a current catalog price
+SKU-ADC929EADC,Desk lamp,home,1,5912.00,5912.00,historical order-line price; not a current catalog price
+SKU-ADD98E2B4C,Face moisturiser,beauty,1,2221.00,2221.00,historical order-line price; not a current catalog price
+SKU-AE008B177C,Planter set,garden,1,4830.00,4830.00,historical order-line price; not a current catalog price
+SKU-AE13D5520B,Running shorts,clothing,1,599.00,599.00,historical order-line price; not a current catalog price
+SKU-AE1E12A0CE,Travel essays,books,1,223.00,223.00,historical order-line price; not a current catalog price
+SKU-AE491D5815,Plush animal,toys,1,1330.00,1330.00,historical order-line price; not a current catalog price
+SKU-AE4D69CCBE,Chef knife,kitchen,1,4835.00,4835.00,historical order-line price; not a current catalog price
+SKU-AE856A73FE,Dry fruit assortment,grocery,1,2370.00,2370.00,historical order-line price; not a current catalog price
+SKU-AEA48C1EDA,Cotton baby blanket,baby,1,3027.00,3027.00,historical order-line price; not a current catalog price
+SKU-AEAA6B6D5A,Cricket bat,sports,1,3130.00,3130.00,historical order-line price; not a current catalog price
+SKU-AEB1ABD4CE,Coffee sampler,grocery,1,2972.00,2972.00,historical order-line price; not a current catalog price
+SKU-AEE3C5D88C,Plush animal,toys,1,4650.00,4650.00,historical order-line price; not a current catalog price
+SKU-AF79177DC0,Canvas sneakers,footwear,1,7584.00,7584.00,historical order-line price; not a current catalog price
+SKU-AF8D35C5FF,Dry fruit assortment,grocery,1,1794.00,1794.00,historical order-line price; not a current catalog price
+SKU-AF904AC534,Wireless keyboard,office,1,3959.00,3959.00,historical order-line price; not a current catalog price
+SKU-AFE2BF9783,Steel cookware set,kitchen,1,2320.00,2320.00,historical order-line price; not a current catalog price
+SKU-B065F77F33,Coffee sampler,grocery,1,2123.00,2123.00,historical order-line price; not a current catalog price
+SKU-B0CDD708C5,Seat organiser,automotive,1,4056.00,4056.00,historical order-line price; not a current catalog price
+SKU-B0E06EB8CC,Watering can,garden,1,4309.00,4309.00,historical order-line price; not a current catalog price
+SKU-B0EACB5D40,Dry fruit assortment,grocery,1,2823.00,2823.00,historical order-line price; not a current catalog price
+SKU-B0ECFA784A,Noise-cancelling headphones,electronics,1,2407.00,2407.00,historical order-line price; not a current catalog price
+SKU-B125B28491,Running shoes,footwear,1,5351.00,5351.00,historical order-line price; not a current catalog price
+SKU-B153E8BD16,Sunscreen lotion,beauty,1,2101.00,2101.00,historical order-line price; not a current catalog price
+SKU-B1893F8D87,Denim jacket,clothing,1,1055.00,1055.00,historical order-line price; not a current catalog price
+SKU-B19DFA52D1,Walking shoes,footwear,1,7226.00,7226.00,historical order-line price; not a current catalog price
+SKU-B1D76DD8C8,Document organiser,office,1,8626.00,8626.00,historical order-line price; not a current catalog price
+SKU-B21A061773,Laptop sleeve,luggage,1,1791.00,1791.00,historical order-line price; not a current catalog price
+SKU-B26C298274,Running shoes,footwear,1,1854.00,1854.00,historical order-line price; not a current catalog price
+SKU-B2A76C2273,Document organiser,office,1,1150.00,1150.00,historical order-line price; not a current catalog price
+SKU-B2B91C6FCF,Beaded bracelet,jewellery,1,11472.00,11472.00,historical order-line price; not a current catalog price
+SKU-B2C73D3A00,Running shoes,footwear,1,5003.00,5003.00,historical order-line price; not a current catalog price
+SKU-B2D5157530,Car phone mount,automotive,1,7445.00,7445.00,historical order-line price; not a current catalog price
+SKU-B2DEEBE35F,Printed saree,clothing,1,1103.00,1103.00,historical order-line price; not a current catalog price
+SKU-B3113ED77D,Pet grooming brush,pet_supplies,1,2953.00,2953.00,historical order-line price; not a current catalog price
+SKU-B3270233DF,Snack variety box,grocery,1,2839.00,2839.00,historical order-line price; not a current catalog price
+SKU-B330BBFF68,Minimalist watch,jewellery,1,10040.00,10040.00,historical order-line price; not a current catalog price
+SKU-B3772A5C21,Notebook set,office,1,2629.00,2629.00,historical order-line price; not a current catalog price
+SKU-B386FC50D8,Canvas sneakers,footwear,1,6330.00,6330.00,historical order-line price; not a current catalog price
+SKU-B3EAAB207F,Insulated flask,kitchen,1,6357.00,6357.00,historical order-line price; not a current catalog price
+SKU-B42038CB01,Hand blender,home_appliance,1,17895.00,17895.00,historical order-line price; not a current catalog price
+SKU-B4332570B7,Walking shoes,footwear,1,1640.00,1640.00,historical order-line price; not a current catalog price
+SKU-B4B583FF2F,Cookbook,books,1,363.00,363.00,historical order-line price; not a current catalog price
+SKU-B5582A1785,Microfibre cleaning kit,automotive,1,4053.00,4053.00,historical order-line price; not a current catalog price
+SKU-B5723FF5A1,Travel essays,books,1,634.00,634.00,historical order-line price; not a current catalog price
+SKU-B59A3B660E,Leather sandals,footwear,1,6396.00,6396.00,historical order-line price; not a current catalog price
+SKU-B61F0CA32A,Dog lead,pet_supplies,1,331.00,331.00,historical order-line price; not a current catalog price
+SKU-B66A7E50B0,Electric kettle,home_appliance,1,3775.00,3775.00,historical order-line price; not a current catalog price
+SKU-B67A853587,Leather sandals,footwear,1,7217.00,7217.00,historical order-line price; not a current catalog price
+SKU-B69AAD24C9,Feeding bottle set,baby,1,4305.00,4305.00,historical order-line price; not a current catalog price
+SKU-B6AA724788,Silver-plated earrings,jewellery,1,335.00,335.00,historical order-line price; not a current catalog price
+SKU-B6CA73FD9B,Travel essays,books,1,452.00,452.00,historical order-line price; not a current catalog price
+SKU-B6CF9CB1FC,Walking shoes,footwear,1,2647.00,2647.00,historical order-line price; not a current catalog price
+SKU-B709DE50FF,Noise-cancelling headphones,electronics,1,15293.00,15293.00,historical order-line price; not a current catalog price
+SKU-B759820C32,Seat organiser,automotive,1,417.00,417.00,historical order-line price; not a current catalog price
+SKU-B761B1BEDC,Desk fan,home_appliance,1,11733.00,11733.00,historical order-line price; not a current catalog price
+SKU-B76F5CAC35,Dry fruit assortment,grocery,1,2673.00,2673.00,historical order-line price; not a current catalog price
+SKU-B7D1768534,Pendant necklace,jewellery,1,13232.00,13232.00,historical order-line price; not a current catalog price
+SKU-B7DE46C645,Organic tea pack,grocery,1,2057.00,2057.00,historical order-line price; not a current catalog price
+SKU-B82DC277AB,Packing cube set,luggage,1,2198.00,2198.00,historical order-line price; not a current catalog price
+SKU-B832B670E5,Steel cookware set,kitchen,1,2958.00,2958.00,historical order-line price; not a current catalog price
+SKU-B8341D74D2,Laptop sleeve,luggage,1,5282.00,5282.00,historical order-line price; not a current catalog price
+SKU-B84C59DE07,Pet travel bowl,pet_supplies,1,2256.00,2256.00,historical order-line price; not a current catalog price
+SKU-B85A47950C,Wireless mouse,electronics,1,15965.00,15965.00,historical order-line price; not a current catalog price
+SKU-B887FC96B4,Hand blender,home_appliance,1,8754.00,8754.00,historical order-line price; not a current catalog price
+SKU-B89EAC1D44,Printed saree,clothing,1,1564.00,1564.00,historical order-line price; not a current catalog price
+SKU-B9045197F0,Cotton baby blanket,baby,1,6173.00,6173.00,historical order-line price; not a current catalog price
+SKU-B90660F616,Silver-plated earrings,jewellery,1,11295.00,11295.00,historical order-line price; not a current catalog price
+SKU-B91E1FEA77,Packing cube set,luggage,1,5373.00,5373.00,historical order-line price; not a current catalog price
+SKU-B96807AF13,Sunscreen lotion,beauty,1,2964.00,2964.00,historical order-line price; not a current catalog price
+SKU-B9BC37B296,Seat organiser,automotive,1,593.00,593.00,historical order-line price; not a current catalog price
+SKU-B9C871AAAE,Cookbook,books,1,602.00,602.00,historical order-line price; not a current catalog price
+SKU-B9EF18DBFF,Yoga mat,sports,1,947.00,947.00,historical order-line price; not a current catalog price
+SKU-B9FE290304,Feeding bottle set,baby,1,3263.00,3263.00,historical order-line price; not a current catalog price
+SKU-BAA03DFCB8,Beaded bracelet,jewellery,1,10990.00,10990.00,historical order-line price; not a current catalog price
+SKU-BAC671BA7E,Travel essays,books,1,1453.00,1453.00,historical order-line price; not a current catalog price
+SKU-BB10C06C9E,Cat scratcher,pet_supplies,1,3240.00,3240.00,historical order-line price; not a current catalog price
+SKU-BB182E2DA2,Hair serum,beauty,1,3905.00,3905.00,historical order-line price; not a current catalog price
+SKU-BB938F7D61,Hair serum,beauty,1,1057.00,1057.00,historical order-line price; not a current catalog price
+SKU-BBA65AB525,Ceramic vase,home,1,4597.00,4597.00,historical order-line price; not a current catalog price
+SKU-BBC70338BE,Wireless keyboard,office,1,4951.00,4951.00,historical order-line price; not a current catalog price
+SKU-BC01A023BF,Cricket bat,sports,1,1960.00,1960.00,historical order-line price; not a current catalog price
+SKU-BC0B83DC48,Planter set,garden,1,4256.00,4256.00,historical order-line price; not a current catalog price
+SKU-BC2F03C520,Cotton baby blanket,baby,1,4325.00,4325.00,historical order-line price; not a current catalog price
+SKU-BC3590F42A,Travel essays,books,1,2148.00,2148.00,historical order-line price; not a current catalog price
+SKU-BCA07A9412,Cotton baby blanket,baby,1,1896.00,1896.00,historical order-line price; not a current catalog price
+SKU-BCA997FE13,Pendant necklace,jewellery,1,6622.00,6622.00,historical order-line price; not a current catalog price
+SKU-BCDC857176,Wireless keyboard,office,1,2084.00,2084.00,historical order-line price; not a current catalog price
+SKU-BD18BC2E4E,Face moisturiser,beauty,1,770.00,770.00,historical order-line price; not a current catalog price
+SKU-BD61228A95,Cotton bedsheet,home,1,1163.00,1163.00,historical order-line price; not a current catalog price
+SKU-BDBC16E3BD,Walking shoes,footwear,1,3444.00,3444.00,historical order-line price; not a current catalog price
+SKU-BE09C028DE,Yoga mat,sports,1,3875.00,3875.00,historical order-line price; not a current catalog price
+SKU-BE4A680DBF,Beaded bracelet,jewellery,1,14928.00,14928.00,historical order-line price; not a current catalog price
+SKU-BE5BCF07CD,Snack variety box,grocery,1,493.00,493.00,historical order-line price; not a current catalog price
+SKU-BF0870C5AB,Minimalist watch,jewellery,1,7924.00,7924.00,historical order-line price; not a current catalog price
+SKU-BF4D60C775,Pet grooming brush,pet_supplies,1,1622.00,1622.00,historical order-line price; not a current catalog price
+SKU-BFAA9AA136,Packing cube set,luggage,1,4901.00,4901.00,historical order-line price; not a current catalog price
+SKU-BFB99F9089,Sunscreen lotion,beauty,1,1568.00,1568.00,historical order-line price; not a current catalog price
+SKU-BFF1FCDD9F,Tyre inflator,automotive,1,1376.00,1376.00,historical order-line price; not a current catalog price
+SKU-C02CF60F0C,Travel duffel,luggage,1,7220.00,7220.00,historical order-line price; not a current catalog price
+SKU-C04BF53C93,Art activity kit,toys,1,528.00,528.00,historical order-line price; not a current catalog price
+SKU-C055C2354C,Pruning shears,garden,1,1185.00,1185.00,historical order-line price; not a current catalog price
+SKU-C0CF06DA03,Laptop sleeve,luggage,1,7273.00,7273.00,historical order-line price; not a current catalog price
+SKU-C0DA22B151,Watering can,garden,1,2418.00,2418.00,historical order-line price; not a current catalog price
+SKU-C12557FDFA,Linen shirt,clothing,1,2683.00,2683.00,historical order-line price; not a current catalog price
+SKU-C12DBB74FA,USB-C charger,electronics,1,4814.00,4814.00,historical order-line price; not a current catalog price
+SKU-C13436AE89,Cycling helmet,sports,1,1097.00,1097.00,historical order-line price; not a current catalog price
+SKU-C218D42AAC,Seed starter kit,garden,1,754.00,754.00,historical order-line price; not a current catalog price
+SKU-C2483150B6,Cat scratcher,pet_supplies,1,4584.00,4584.00,historical order-line price; not a current catalog price
+SKU-C29F425CB2,Storage basket,home,1,4614.00,4614.00,historical order-line price; not a current catalog price
+SKU-C2B88AD69E,Cookbook,books,1,414.00,414.00,historical order-line price; not a current catalog price
+SKU-C2EE55476C,Face moisturiser,beauty,1,3771.00,3771.00,historical order-line price; not a current catalog price
+SKU-C31D9FC9EE,Car phone mount,automotive,1,2003.00,2003.00,historical order-line price; not a current catalog price
+SKU-C32A1387CB,Yoga mat,sports,1,5172.00,5172.00,historical order-line price; not a current catalog price
+SKU-C338207F5E,Smart watch,electronics,1,11718.00,11718.00,historical order-line price; not a current catalog price
+SKU-C34FC677AF,Tyre inflator,automotive,1,3479.00,3479.00,historical order-line price; not a current catalog price
+SKU-C36540172E,Electric kettle,home_appliance,1,4745.00,4745.00,historical order-line price; not a current catalog price
+SKU-C36EC6B187,Baby care kit,baby,1,1164.00,1164.00,historical order-line price; not a current catalog price
+SKU-C36FCD71E2,Tyre inflator,automotive,1,3927.00,3927.00,historical order-line price; not a current catalog price
+SKU-C37B3D8A50,Art activity kit,toys,1,2387.00,2387.00,historical order-line price; not a current catalog price
+SKU-C3D01C0A00,Canvas sneakers,footwear,1,6636.00,6636.00,historical order-line price; not a current catalog price
+SKU-C3DCD9B286,Steel cookware set,kitchen,1,1297.00,1297.00,historical order-line price; not a current catalog price
+SKU-C3ED3740CB,Pruning shears,garden,1,1777.00,1777.00,historical order-line price; not a current catalog price
+SKU-C405AAAF8D,Feeding bottle set,baby,1,1368.00,1368.00,historical order-line price; not a current catalog price
+SKU-C4B220AE5C,Minimalist watch,jewellery,1,946.00,946.00,historical order-line price; not a current catalog price
+SKU-C4B6607D4F,Car phone mount,automotive,1,4204.00,4204.00,historical order-line price; not a current catalog price
+SKU-C4CF6B840A,Laptop sleeve,luggage,1,12106.00,12106.00,historical order-line price; not a current catalog price
+SKU-C527DEF820,Running shoes,footwear,1,2245.00,2245.00,historical order-line price; not a current catalog price
+SKU-C58F75F24C,Children's story collection,books,1,1618.00,1618.00,historical order-line price; not a current catalog price
+SKU-C5BE1BF380,Insulated flask,kitchen,1,2161.00,2161.00,historical order-line price; not a current catalog price
+SKU-C5D3D0BFA1,Board game,toys,1,3941.00,3941.00,historical order-line price; not a current catalog price
+SKU-C5FFD4190E,Cricket bat,sports,1,5788.00,5788.00,historical order-line price; not a current catalog price
+SKU-C64691D188,Pruning shears,garden,1,2224.00,2224.00,historical order-line price; not a current catalog price
+SKU-C65E38AF79,Minimalist watch,jewellery,1,7148.00,7148.00,historical order-line price; not a current catalog price
+SKU-C68000200D,Hand blender,home_appliance,1,12123.00,12123.00,historical order-line price; not a current catalog price
+SKU-C69F88AF53,USB-C charger,electronics,1,16112.00,16112.00,historical order-line price; not a current catalog price
+SKU-C6AAC87A40,Pet travel bowl,pet_supplies,1,438.00,438.00,historical order-line price; not a current catalog price
+SKU-C6D608F021,Resistance bands,sports,1,6941.00,6941.00,historical order-line price; not a current catalog price
+SKU-C6EA075CA3,Pendant necklace,jewellery,1,12185.00,12185.00,historical order-line price; not a current catalog price
+SKU-C77F81E2C2,Canvas sneakers,footwear,1,5994.00,5994.00,historical order-line price; not a current catalog price
+SKU-C7D256C97B,Denim jacket,clothing,1,1864.00,1864.00,historical order-line price; not a current catalog price
+SKU-C7E58C1B38,Storage basket,home,1,5907.00,5907.00,historical order-line price; not a current catalog price
+SKU-C8E9F76F93,Insulated flask,kitchen,1,3732.00,3732.00,historical order-line price; not a current catalog price
+SKU-C94CBF7729,Hand blender,home_appliance,1,16230.00,16230.00,historical order-line price; not a current catalog price
+SKU-C966E335DF,Walking shoes,footwear,1,4780.00,4780.00,historical order-line price; not a current catalog price
+SKU-C9B622C3EF,Board game,toys,1,1846.00,1846.00,historical order-line price; not a current catalog price
+SKU-C9C1EF250A,Seat organiser,automotive,1,8820.00,8820.00,historical order-line price; not a current catalog price
+SKU-C9C3C2946E,Book set,books,1,444.00,444.00,historical order-line price; not a current catalog price
+SKU-C9CD3C214E,Plush animal,toys,1,4457.00,4457.00,historical order-line price; not a current catalog price
+SKU-CA05F21741,Wireless keyboard,office,1,3754.00,3754.00,historical order-line price; not a current catalog price
+SKU-CA54749F8B,Face moisturiser,beauty,1,3563.00,3563.00,historical order-line price; not a current catalog price
+SKU-CA792B8B93,Planter set,garden,1,432.00,432.00,historical order-line price; not a current catalog price
+SKU-CAC5B1AE15,Storage basket,home,1,4509.00,4509.00,historical order-line price; not a current catalog price
+SKU-CB0028B978,Wireless keyboard,office,1,4080.00,4080.00,historical order-line price; not a current catalog price
+SKU-CB52BDCA37,Steel cookware set,kitchen,1,2103.00,2103.00,historical order-line price; not a current catalog price
+SKU-CB66E9EBA9,Pet travel bowl,pet_supplies,1,2529.00,2529.00,historical order-line price; not a current catalog price
+SKU-CB7719E774,Chef knife,kitchen,1,5768.00,5768.00,historical order-line price; not a current catalog price
+SKU-CB8146069B,Glass lunch box,kitchen,1,6225.00,6225.00,historical order-line price; not a current catalog price
+SKU-CB822597E2,Minimalist watch,jewellery,1,7902.00,7902.00,historical order-line price; not a current catalog price
+SKU-CBD577677C,Seat organiser,automotive,1,2871.00,2871.00,historical order-line price; not a current catalog price
+SKU-CBEE41A9D6,Noise-cancelling headphones,electronics,1,15370.00,15370.00,historical order-line price; not a current catalog price
+SKU-CBEF1B3EF0,Silver-plated earrings,jewellery,1,13891.00,13891.00,historical order-line price; not a current catalog price
+SKU-CC0D333F42,Silver-plated earrings,jewellery,1,8238.00,8238.00,historical order-line price; not a current catalog price
+SKU-CC54D6787A,Chef knife,kitchen,1,9648.00,9648.00,historical order-line price; not a current catalog price
+SKU-CC9128B65E,Pendant necklace,jewellery,1,8787.00,8787.00,historical order-line price; not a current catalog price
+SKU-CC951581CD,Glass lunch box,kitchen,1,7347.00,7347.00,historical order-line price; not a current catalog price
+SKU-CCA2855169,Ceramic vase,home,1,2518.00,2518.00,historical order-line price; not a current catalog price
+SKU-CCB9111F84,Minimalist watch,jewellery,1,10434.00,10434.00,historical order-line price; not a current catalog price
+SKU-CD07AEF76B,Planter set,garden,1,4929.00,4929.00,historical order-line price; not a current catalog price
+SKU-CD4B7F4FEB,Minimalist watch,jewellery,1,7300.00,7300.00,historical order-line price; not a current catalog price
+SKU-CD5BE774D5,Dog lead,pet_supplies,1,2710.00,2710.00,historical order-line price; not a current catalog price
+SKU-CD97FAD95E,Sunscreen lotion,beauty,1,2641.00,2641.00,historical order-line price; not a current catalog price
+SKU-CDB4680375,Board game,toys,1,3852.00,3852.00,historical order-line price; not a current catalog price
+SKU-CDB5AC2DF4,USB-C charger,electronics,1,24599.00,24599.00,historical order-line price; not a current catalog price
+SKU-CDEF5E00A4,Canvas sneakers,footwear,1,8427.00,8427.00,historical order-line price; not a current catalog price
+SKU-CDFD9E01B0,Seed starter kit,garden,1,2811.00,2811.00,historical order-line price; not a current catalog price
+SKU-CE537A7D07,Wireless keyboard,office,1,1377.00,1377.00,historical order-line price; not a current catalog price
+SKU-CE82637830,Children's story collection,books,1,321.00,321.00,historical order-line price; not a current catalog price
+SKU-CEEC1D4819,Pruning shears,garden,1,4763.00,4763.00,historical order-line price; not a current catalog price
+SKU-CEEEBF41AF,Coffee sampler,grocery,1,1857.00,1857.00,historical order-line price; not a current catalog price
+SKU-CF12587700,Noise-cancelling headphones,electronics,1,13490.00,13490.00,historical order-line price; not a current catalog price
+SKU-CF3002BA1A,Storage basket,home,1,4137.00,4137.00,historical order-line price; not a current catalog price
+SKU-CF88ED56C6,Pet grooming brush,pet_supplies,1,2427.00,2427.00,historical order-line price; not a current catalog price
+SKU-CFA8018E73,Coffee sampler,grocery,1,568.00,568.00,historical order-line price; not a current catalog price
+SKU-D02CCCECB5,Pet travel bowl,pet_supplies,1,833.00,833.00,historical order-line price; not a current catalog price
+SKU-D02D0B862A,Tyre inflator,automotive,1,6951.00,6951.00,historical order-line price; not a current catalog price
+SKU-D02F643B7D,Smart watch,electronics,1,17154.00,17154.00,historical order-line price; not a current catalog price
+SKU-D0721F0C31,Storage basket,home,1,2740.00,2740.00,historical order-line price; not a current catalog price
+SKU-D07E1E9325,Watering can,garden,1,648.00,648.00,historical order-line price; not a current catalog price
+SKU-D09D7E6E1F,Plush animal,toys,1,4770.00,4770.00,historical order-line price; not a current catalog price
+SKU-D0B983D991,Microfibre cleaning kit,automotive,1,1891.00,1891.00,historical order-line price; not a current catalog price
+SKU-D0D50C3B77,Bluetooth speaker,electronics,1,7456.00,7456.00,historical order-line price; not a current catalog price
+SKU-D0F96000CB,Board game,toys,1,2987.00,2987.00,historical order-line price; not a current catalog price
+SKU-D11915B957,Travel duffel,luggage,1,9721.00,9721.00,historical order-line price; not a current catalog price
+SKU-D145DDB57E,Children's story collection,books,1,2472.00,2472.00,historical order-line price; not a current catalog price
+SKU-D1581FB4A9,Book set,books,1,1237.00,1237.00,historical order-line price; not a current catalog price
+SKU-D165909BEF,Dry fruit assortment,grocery,1,1144.00,1144.00,historical order-line price; not a current catalog price
+SKU-D1CED0E4D6,Seed starter kit,garden,1,1330.00,1330.00,historical order-line price; not a current catalog price
+SKU-D1F4B7D02E,Tyre inflator,automotive,1,6953.00,6953.00,historical order-line price; not a current catalog price
+SKU-D1FDE1A008,Pendant necklace,jewellery,1,8421.00,8421.00,historical order-line price; not a current catalog price
+SKU-D222083822,Organic tea pack,grocery,1,2949.00,2949.00,historical order-line price; not a current catalog price
+SKU-D26A07FE2A,Electric kettle,home_appliance,1,14200.00,14200.00,historical order-line price; not a current catalog price
+SKU-D2AFB20D09,Minimalist watch,jewellery,1,9090.00,9090.00,historical order-line price; not a current catalog price
+SKU-D2B6A807FE,Sunscreen lotion,beauty,1,181.00,181.00,historical order-line price; not a current catalog price
+SKU-D2BBB9A26D,USB-C charger,electronics,1,23901.00,23901.00,historical order-line price; not a current catalog price
+SKU-D2D5CCBE82,Cabin backpack,luggage,1,10648.00,10648.00,historical order-line price; not a current catalog price
+SKU-D304A70C47,Pet travel bowl,pet_supplies,1,3383.00,3383.00,historical order-line price; not a current catalog price
+SKU-D329ED6BC4,USB-C charger,electronics,1,22775.00,22775.00,historical order-line price; not a current catalog price
+SKU-D33535194B,Travel duffel,luggage,1,5052.00,5052.00,historical order-line price; not a current catalog price
+SKU-D347799C50,Art activity kit,toys,1,1280.00,1280.00,historical order-line price; not a current catalog price
+SKU-D3ADE7F612,Table organiser,home,1,1797.00,1797.00,historical order-line price; not a current catalog price
+SKU-D3BC5AB156,Hair serum,beauty,1,2704.00,2704.00,historical order-line price; not a current catalog price
+SKU-D3D2EC35F9,Pet grooming brush,pet_supplies,1,3313.00,3313.00,historical order-line price; not a current catalog price
+SKU-D401DD3CF8,Sunscreen lotion,beauty,1,741.00,741.00,historical order-line price; not a current catalog price
+SKU-D46D221338,Canvas sneakers,footwear,1,2015.00,2015.00,historical order-line price; not a current catalog price
+SKU-D4B77E2852,Dry fruit assortment,grocery,1,1323.00,1323.00,historical order-line price; not a current catalog price
+SKU-D4D029FC9C,Dog lead,pet_supplies,1,2398.00,2398.00,historical order-line price; not a current catalog price
+SKU-D5161E34B4,Resistance bands,sports,1,3684.00,3684.00,historical order-line price; not a current catalog price
+SKU-D55B1FFA69,Mixer grinder,home_appliance,1,15696.00,15696.00,historical order-line price; not a current catalog price
+SKU-D563282FEA,Wireless mouse,electronics,1,3240.00,3240.00,historical order-line price; not a current catalog price
+SKU-D59822AAAB,Soft toy,baby,1,5862.00,5862.00,historical order-line price; not a current catalog price
+SKU-D5A7020B88,Travel duffel,luggage,1,6331.00,6331.00,historical order-line price; not a current catalog price
+SKU-D5FFBA6A19,Packing cube set,luggage,1,9517.00,9517.00,historical order-line price; not a current catalog price
+SKU-D629462C85,Pet travel bowl,pet_supplies,1,3498.00,3498.00,historical order-line price; not a current catalog price
+SKU-D6386AFA5D,Document organiser,office,1,1226.00,1226.00,historical order-line price; not a current catalog price
+SKU-D6B4250CA7,Soft toy,baby,1,5541.00,5541.00,historical order-line price; not a current catalog price
+SKU-D6E4B45F6D,Snack variety box,grocery,1,2830.00,2830.00,historical order-line price; not a current catalog price
+SKU-D70A7EF63C,Microfibre cleaning kit,automotive,1,2325.00,2325.00,historical order-line price; not a current catalog price
+SKU-D74EFD1E36,Travel duffel,luggage,1,634.00,634.00,historical order-line price; not a current catalog price
+SKU-D7DB5C78A1,Travel duffel,luggage,1,2061.00,2061.00,historical order-line price; not a current catalog price
+SKU-D7F90ACF74,Snack variety box,grocery,1,625.00,625.00,historical order-line price; not a current catalog price
+SKU-D80030CFFE,Steel cookware set,kitchen,1,6304.00,6304.00,historical order-line price; not a current catalog price
+SKU-D87CB2071B,Storage basket,home,1,768.00,768.00,historical order-line price; not a current catalog price
+SKU-D8A950798A,Face moisturiser,beauty,1,3763.00,3763.00,historical order-line price; not a current catalog price
+SKU-D8B0C79CB5,Packing cube set,luggage,1,12384.00,12384.00,historical order-line price; not a current catalog price
+SKU-D8E4A8385B,Seed starter kit,garden,1,4008.00,4008.00,historical order-line price; not a current catalog price
+SKU-D97A213F33,Beaded bracelet,jewellery,1,2974.00,2974.00,historical order-line price; not a current catalog price
+SKU-DA1F52236C,Travel essays,books,1,1310.00,1310.00,historical order-line price; not a current catalog price
+SKU-DA3042BAC9,Cotton bedsheet,home,1,6290.00,6290.00,historical order-line price; not a current catalog price
+SKU-DA65983F12,Insulated flask,kitchen,1,8147.00,8147.00,historical order-line price; not a current catalog price
+SKU-DAA496ED65,Canvas sneakers,footwear,1,2966.00,2966.00,historical order-line price; not a current catalog price
+SKU-DB44843670,Hair serum,beauty,1,3911.00,3911.00,historical order-line price; not a current catalog price
+SKU-DBDD41DF44,Cricket bat,sports,1,658.00,658.00,historical order-line price; not a current catalog price
+SKU-DC26F5629D,Plush animal,toys,1,3900.00,3900.00,historical order-line price; not a current catalog price
+SKU-DC524284E1,Seat organiser,automotive,1,7042.00,7042.00,historical order-line price; not a current catalog price
+SKU-DC81B56633,Denim jacket,clothing,1,469.00,469.00,historical order-line price; not a current catalog price
+SKU-DCE6ADAA76,Ceramic vase,home,1,4710.00,4710.00,historical order-line price; not a current catalog price
+SKU-DCF6BAFE9A,Ceramic vase,home,1,1125.00,1125.00,historical order-line price; not a current catalog price
+SKU-DD15B8FF5C,Resistance bands,sports,1,4945.00,4945.00,historical order-line price; not a current catalog price
+SKU-DD804EB73D,Canvas sneakers,footwear,1,5818.00,5818.00,historical order-line price; not a current catalog price
+SKU-DDA1C91C62,Desk lamp,home,1,3026.00,3026.00,historical order-line price; not a current catalog price
+SKU-DDABB1B80F,Fountain pen,office,1,2942.00,2942.00,historical order-line price; not a current catalog price
+SKU-DE0944968F,Cat scratcher,pet_supplies,1,3051.00,3051.00,historical order-line price; not a current catalog price
+SKU-DE30E358E3,Plush animal,toys,1,1317.00,1317.00,historical order-line price; not a current catalog price
+SKU-DE7A46DD44,Cabin backpack,luggage,1,6659.00,6659.00,historical order-line price; not a current catalog price
+SKU-DEE38D01C1,Travel duffel,luggage,1,11231.00,11231.00,historical order-line price; not a current catalog price
+SKU-DF3BE48A15,Electric kettle,home_appliance,1,1424.00,1424.00,historical order-line price; not a current catalog price
+SKU-DF422762C9,Seed starter kit,garden,1,3803.00,3803.00,historical order-line price; not a current catalog price
+SKU-DF51FE1A8D,Insulated flask,kitchen,1,7714.00,7714.00,historical order-line price; not a current catalog price
+SKU-DFA01E74D1,Bluetooth speaker,electronics,1,4916.00,4916.00,historical order-line price; not a current catalog price
+SKU-DFE1942086,Cookbook,books,1,2051.00,2051.00,historical order-line price; not a current catalog price
+SKU-E0B243FA73,Glass lunch box,kitchen,1,9842.00,9842.00,historical order-line price; not a current catalog price
+SKU-E10232EB8C,Cricket bat,sports,1,7301.00,7301.00,historical order-line price; not a current catalog price
+SKU-E1176F4E79,Book set,books,1,2049.00,2049.00,historical order-line price; not a current catalog price
+SKU-E1660233E9,Seed starter kit,garden,1,4724.00,4724.00,historical order-line price; not a current catalog price
+SKU-E1D7436B2A,Pruning shears,garden,1,1635.00,1635.00,historical order-line price; not a current catalog price
+SKU-E1DAE91D0C,Car phone mount,automotive,1,4608.00,4608.00,historical order-line price; not a current catalog price
+SKU-E1E0D338D5,Cotton baby blanket,baby,1,3602.00,3602.00,historical order-line price; not a current catalog price
+SKU-E1EF45CF75,Children's story collection,books,1,351.00,351.00,historical order-line price; not a current catalog price
+SKU-E28F9463A1,Children's story collection,books,1,2479.00,2479.00,historical order-line price; not a current catalog price
+SKU-E2FA524CE6,Cotton bedsheet,home,1,4243.00,4243.00,historical order-line price; not a current catalog price
+SKU-E31735110A,Notebook set,office,1,3035.00,3035.00,historical order-line price; not a current catalog price
+SKU-E37DC5F3D0,Dog lead,pet_supplies,1,2784.00,2784.00,historical order-line price; not a current catalog price
+SKU-E39043ECF4,Children's story collection,books,1,1037.00,1037.00,historical order-line price; not a current catalog price
+SKU-E39E49896D,Yoga mat,sports,1,7306.00,7306.00,historical order-line price; not a current catalog price
+SKU-E3B7544A18,Art activity kit,toys,1,2826.00,2826.00,historical order-line price; not a current catalog price
+SKU-E3EEC372AE,Cat scratcher,pet_supplies,1,1599.00,1599.00,historical order-line price; not a current catalog price
+SKU-E42916A5AD,Travel duffel,luggage,1,11033.00,11033.00,historical order-line price; not a current catalog price
+SKU-E43FA9BB67,Microfibre cleaning kit,automotive,1,6411.00,6411.00,historical order-line price; not a current catalog price
+SKU-E44FC3990A,Microfibre cleaning kit,automotive,1,6795.00,6795.00,historical order-line price; not a current catalog price
+SKU-E486627960,Storage basket,home,1,6322.00,6322.00,historical order-line price; not a current catalog price
+SKU-E497321A08,Car phone mount,automotive,1,8916.00,8916.00,historical order-line price; not a current catalog price
+SKU-E49F8194AB,Building blocks,toys,1,4874.00,4874.00,historical order-line price; not a current catalog price
+SKU-E4CE1E4B2D,Wireless mouse,electronics,1,9841.00,9841.00,historical order-line price; not a current catalog price
+SKU-E4EEEA0B25,Cotton bedsheet,home,1,3354.00,3354.00,historical order-line price; not a current catalog price
+SKU-E55F8F7D9F,Leather sandals,footwear,1,6481.00,6481.00,historical order-line price; not a current catalog price
+SKU-E59913B6F4,Linen shirt,clothing,1,1733.00,1733.00,historical order-line price; not a current catalog price
+SKU-E5C121CA26,Electric kettle,home_appliance,1,16815.00,16815.00,historical order-line price; not a current catalog price
+SKU-E5D4AD9393,Desk lamp,home,1,3437.00,3437.00,historical order-line price; not a current catalog price
+SKU-E5F9EA4E4E,Pruning shears,garden,1,1176.00,1176.00,historical order-line price; not a current catalog price
+SKU-E60019E45C,Book set,books,1,1898.00,1898.00,historical order-line price; not a current catalog price
+SKU-E62B453817,Cotton baby blanket,baby,1,2473.00,2473.00,historical order-line price; not a current catalog price
+SKU-E6732F87CC,Ceramic vase,home,1,3512.00,3512.00,historical order-line price; not a current catalog price
+SKU-E67941287C,Coffee sampler,grocery,1,1315.00,1315.00,historical order-line price; not a current catalog price
+SKU-E69C85F4DC,Glass lunch box,kitchen,1,6643.00,6643.00,historical order-line price; not a current catalog price
+SKU-E6B9404BDF,Walking shoes,footwear,1,8969.00,8969.00,historical order-line price; not a current catalog price
+SKU-E6BC88BBCD,Air fryer,home_appliance,1,4402.00,4402.00,historical order-line price; not a current catalog price
+SKU-E6F99D466F,Travel duffel,luggage,1,11228.00,11228.00,historical order-line price; not a current catalog price
+SKU-E710BCA54E,Travel essays,books,1,1442.00,1442.00,historical order-line price; not a current catalog price
+SKU-E75388D783,Microfibre cleaning kit,automotive,1,3516.00,3516.00,historical order-line price; not a current catalog price
+SKU-E75A62E75A,Book set,books,1,773.00,773.00,historical order-line price; not a current catalog price
+SKU-E79185CDC7,Bluetooth speaker,electronics,1,11111.00,11111.00,historical order-line price; not a current catalog price
+SKU-E7A7174FB2,Snack variety box,grocery,1,1331.00,1331.00,historical order-line price; not a current catalog price
+SKU-E7E3AA6F47,Car phone mount,automotive,1,8087.00,8087.00,historical order-line price; not a current catalog price
+SKU-E7E400F488,Car phone mount,automotive,1,7588.00,7588.00,historical order-line price; not a current catalog price
+SKU-E7FB240C0D,Board game,toys,1,2276.00,2276.00,historical order-line price; not a current catalog price
+SKU-E81BDC29D7,Storage basket,home,1,3349.00,3349.00,historical order-line price; not a current catalog price
+SKU-E82D83D15D,Noise-cancelling headphones,electronics,1,12135.00,12135.00,historical order-line price; not a current catalog price
+SKU-E8B071C814,Laptop sleeve,luggage,1,8062.00,8062.00,historical order-line price; not a current catalog price
+SKU-E8CBF8DDB2,Bath and body set,beauty,1,3151.00,3151.00,historical order-line price; not a current catalog price
+SKU-E8E1AEF07B,Pet travel bowl,pet_supplies,1,4712.00,4712.00,historical order-line price; not a current catalog price
+SKU-E905E19112,Minimalist watch,jewellery,1,13508.00,13508.00,historical order-line price; not a current catalog price
+SKU-E9A70DB9CD,Coffee sampler,grocery,1,2889.00,2889.00,historical order-line price; not a current catalog price
+SKU-E9BAF57CC6,Linen shirt,clothing,1,1768.00,1768.00,historical order-line price; not a current catalog price
+SKU-EA1D9D8F48,Chef knife,kitchen,1,917.00,917.00,historical order-line price; not a current catalog price
+SKU-EA661EB520,Laptop sleeve,luggage,1,6186.00,6186.00,historical order-line price; not a current catalog price
+SKU-EAAD0CF53F,Seed starter kit,garden,1,2872.00,2872.00,historical order-line price; not a current catalog price
+SKU-EAF2307ECE,Face moisturiser,beauty,1,1727.00,1727.00,historical order-line price; not a current catalog price
+SKU-EB2E3D1DD1,Hair serum,beauty,1,620.00,620.00,historical order-line price; not a current catalog price
+SKU-EB37676B0A,Dry fruit assortment,grocery,1,1430.00,1430.00,historical order-line price; not a current catalog price
+SKU-EB5CFA4EC1,Cotton baby blanket,baby,1,4896.00,4896.00,historical order-line price; not a current catalog price
+SKU-EB933CBFF4,Art activity kit,toys,1,422.00,422.00,historical order-line price; not a current catalog price
+SKU-EB9AA29737,Ceramic vase,home,1,2793.00,2793.00,historical order-line price; not a current catalog price
+SKU-EB9F25B0D3,Fountain pen,office,1,2088.00,2088.00,historical order-line price; not a current catalog price
+SKU-EBE59D8A67,Bluetooth speaker,electronics,1,14364.00,14364.00,historical order-line price; not a current catalog price
+SKU-EBE720F621,Organic tea pack,grocery,1,2631.00,2631.00,historical order-line price; not a current catalog price
+SKU-EBE918D748,Wireless keyboard,office,1,2532.00,2532.00,historical order-line price; not a current catalog price
+SKU-EC16068E69,Wireless mouse,electronics,1,14986.00,14986.00,historical order-line price; not a current catalog price
+SKU-EC16DE6A4C,Children's story collection,books,1,681.00,681.00,historical order-line price; not a current catalog price
+SKU-EC2CEBFE0F,Cat scratcher,pet_supplies,1,3840.00,3840.00,historical order-line price; not a current catalog price
+SKU-EC4F80F861,Canvas sneakers,footwear,1,5328.00,5328.00,historical order-line price; not a current catalog price
+SKU-ECB55DB254,Wireless mouse,electronics,1,22708.00,22708.00,historical order-line price; not a current catalog price
+SKU-ECB8192ACD,Desk lamp,home,1,4026.00,4026.00,historical order-line price; not a current catalog price
+SKU-ECFCCF9EE2,Smart watch,electronics,1,5721.00,5721.00,historical order-line price; not a current catalog price
+SKU-ED29F978AF,Noise-cancelling headphones,electronics,1,4246.00,4246.00,historical order-line price; not a current catalog price
+SKU-EDA78FF9DF,Noise-cancelling headphones,electronics,1,12825.00,12825.00,historical order-line price; not a current catalog price
+SKU-EDAA242195,Hair serum,beauty,1,1051.00,1051.00,historical order-line price; not a current catalog price
+SKU-EE1078A2BF,Silver-plated earrings,jewellery,1,1080.00,1080.00,historical order-line price; not a current catalog price
+SKU-EE774E3DA0,Bluetooth speaker,electronics,1,13631.00,13631.00,historical order-line price; not a current catalog price
+SKU-EEB4163870,Glass lunch box,kitchen,1,9150.00,9150.00,historical order-line price; not a current catalog price
+SKU-EECFA26CF3,Steel cookware set,kitchen,1,7877.00,7877.00,historical order-line price; not a current catalog price
+SKU-EEEC375D41,Ceramic vase,home,1,5285.00,5285.00,historical order-line price; not a current catalog price
+SKU-EF18F6D4FE,Hand blender,home_appliance,1,18784.00,18784.00,historical order-line price; not a current catalog price
+SKU-EF695AC750,Pruning shears,garden,1,3855.00,3855.00,historical order-line price; not a current catalog price
+SKU-EF88F053A0,Baby care kit,baby,1,391.00,391.00,historical order-line price; not a current catalog price
+SKU-EFBF6E1781,Cat scratcher,pet_supplies,1,2116.00,2116.00,historical order-line price; not a current catalog price
+SKU-EFD4F292AF,Building blocks,toys,1,1232.00,1232.00,historical order-line price; not a current catalog price
+SKU-EFECCCF386,Cotton baby blanket,baby,1,1803.00,1803.00,historical order-line price; not a current catalog price
+SKU-F071A22830,Coffee sampler,grocery,1,2494.00,2494.00,historical order-line price; not a current catalog price
+SKU-F09047C763,Denim jacket,clothing,1,1391.00,1391.00,historical order-line price; not a current catalog price
+SKU-F1169A26A0,Sunscreen lotion,beauty,1,3794.00,3794.00,historical order-line price; not a current catalog price
+SKU-F198BAAE33,Wireless keyboard,office,1,5601.00,5601.00,historical order-line price; not a current catalog price
+SKU-F215830B2B,Children's story collection,books,1,273.00,273.00,historical order-line price; not a current catalog price
+SKU-F21BF08758,Seed starter kit,garden,1,2946.00,2946.00,historical order-line price; not a current catalog price
+SKU-F26DF21BE9,Document organiser,office,1,5105.00,5105.00,historical order-line price; not a current catalog price
+SKU-F278BA9028,Plush animal,toys,1,1119.00,1119.00,historical order-line price; not a current catalog price
+SKU-F27DC4B09F,Cotton bedsheet,home,1,2268.00,2268.00,historical order-line price; not a current catalog price
+SKU-F29B0B27D6,Ceramic vase,home,1,4776.00,4776.00,historical order-line price; not a current catalog price
+SKU-F2B51C78D2,Packing cube set,luggage,1,2977.00,2977.00,historical order-line price; not a current catalog price
+SKU-F2BCAE6DB0,Tyre inflator,automotive,1,6165.00,6165.00,historical order-line price; not a current catalog price
+SKU-F2ED92C5D7,Document organiser,office,1,4038.00,4038.00,historical order-line price; not a current catalog price
+SKU-F35C4554EE,Ceramic vase,home,1,3931.00,3931.00,historical order-line price; not a current catalog price
+SKU-F3E1539EED,Minimalist watch,jewellery,1,7587.00,7587.00,historical order-line price; not a current catalog price
+SKU-F4016D6AF0,Table organiser,home,1,2973.00,2973.00,historical order-line price; not a current catalog price
+SKU-F444758B5B,Snack variety box,grocery,1,1272.00,1272.00,historical order-line price; not a current catalog price
+SKU-F4CFB89398,Electric kettle,home_appliance,1,6778.00,6778.00,historical order-line price; not a current catalog price
+SKU-F5220BE4C3,Organic tea pack,grocery,1,1895.00,1895.00,historical order-line price; not a current catalog price
+SKU-F56ACF3733,Fountain pen,office,1,2298.00,2298.00,historical order-line price; not a current catalog price
+SKU-F5AACD10D4,Tyre inflator,automotive,1,1057.00,1057.00,historical order-line price; not a current catalog price
+SKU-F6023C9579,Cabin backpack,luggage,1,10387.00,10387.00,historical order-line price; not a current catalog price
+SKU-F6177D28EF,Pendant necklace,jewellery,1,12480.00,12480.00,historical order-line price; not a current catalog price
+SKU-F6AEA152F9,Cat scratcher,pet_supplies,1,4188.00,4188.00,historical order-line price; not a current catalog price
+SKU-F70539B8E2,Ceramic vase,home,1,4906.00,4906.00,historical order-line price; not a current catalog price
+SKU-F709AF311A,Book set,books,1,2305.00,2305.00,historical order-line price; not a current catalog price
+SKU-F758467A8A,Canvas sneakers,footwear,1,4045.00,4045.00,historical order-line price; not a current catalog price
+SKU-F78B6FC15D,Cycling helmet,sports,1,6394.00,6394.00,historical order-line price; not a current catalog price
+SKU-F7B0286F10,Electric kettle,home_appliance,1,7114.00,7114.00,historical order-line price; not a current catalog price
+SKU-F82E313A14,Dry fruit assortment,grocery,1,1764.00,1764.00,historical order-line price; not a current catalog price
+SKU-F841E8F82A,Denim jacket,clothing,1,2294.00,2294.00,historical order-line price; not a current catalog price
+SKU-F856F02479,Ceramic vase,home,1,1201.00,1201.00,historical order-line price; not a current catalog price
+SKU-F8A8B8BBA7,Board game,toys,1,3578.00,3578.00,historical order-line price; not a current catalog price
+SKU-F8E7E01401,Art activity kit,toys,1,811.00,811.00,historical order-line price; not a current catalog price
+SKU-F8F3878986,Resistance bands,sports,1,1837.00,1837.00,historical order-line price; not a current catalog price
+SKU-F8F3BACA5C,Building blocks,toys,1,4381.00,4381.00,historical order-line price; not a current catalog price
+SKU-F9072DEE18,Silver-plated earrings,jewellery,1,5801.00,5801.00,historical order-line price; not a current catalog price
+SKU-F90FCB1F9B,Smart watch,electronics,1,10681.00,10681.00,historical order-line price; not a current catalog price
+SKU-F9174DD028,Travel essays,books,1,2298.00,2298.00,historical order-line price; not a current catalog price
+SKU-FA09992A98,Denim jacket,clothing,1,577.00,577.00,historical order-line price; not a current catalog price
+SKU-FA472EB436,Art activity kit,toys,1,612.00,612.00,historical order-line price; not a current catalog price
+SKU-FA667CF6FB,Running shoes,footwear,1,3550.00,3550.00,historical order-line price; not a current catalog price
+SKU-FAB5405560,Noise-cancelling headphones,electronics,1,4237.00,4237.00,historical order-line price; not a current catalog price
+SKU-FAC9007BC7,Pendant necklace,jewellery,1,14974.00,14974.00,historical order-line price; not a current catalog price
+SKU-FAD76C3108,Insulated flask,kitchen,1,9231.00,9231.00,historical order-line price; not a current catalog price
+SKU-FB2DC844A7,Tyre inflator,automotive,1,4071.00,4071.00,historical order-line price; not a current catalog price
+SKU-FB38E0532E,Coffee sampler,grocery,1,2127.00,2127.00,historical order-line price; not a current catalog price
+SKU-FB638E0418,Watering can,garden,1,264.00,264.00,historical order-line price; not a current catalog price
+SKU-FB6A8CAD3F,Smart watch,electronics,1,10535.00,10535.00,historical order-line price; not a current catalog price
+SKU-FBDF36FFEB,Tyre inflator,automotive,1,8473.00,8473.00,historical order-line price; not a current catalog price
+SKU-FC6EE9BCD1,Cookbook,books,1,409.00,409.00,historical order-line price; not a current catalog price
+SKU-FCAA0FBA8D,Book set,books,1,2082.00,2082.00,historical order-line price; not a current catalog price
+SKU-FCB9303916,Steel cookware set,kitchen,1,2395.00,2395.00,historical order-line price; not a current catalog price
+SKU-FCDD0C513C,Glass lunch box,kitchen,1,5109.00,5109.00,historical order-line price; not a current catalog price
+SKU-FDB3E7AC8E,Linen shirt,clothing,1,1931.00,1931.00,historical order-line price; not a current catalog price
+SKU-FE60A6DD7A,Document organiser,office,1,1276.00,1276.00,historical order-line price; not a current catalog price
+SKU-FE6509972F,Dog lead,pet_supplies,1,3537.00,3537.00,historical order-line price; not a current catalog price
+SKU-FF0A482CA3,Smart watch,electronics,1,12549.00,12549.00,historical order-line price; not a current catalog price
+SKU-FF17B22AE9,Smart watch,electronics,1,10374.00,10374.00,historical order-line price; not a current catalog price
+SKU-FF1CAD5C52,Ceramic vase,home,1,1290.00,1290.00,historical order-line price; not a current catalog price
+SKU-FF54FC8275,Sunscreen lotion,beauty,1,3518.00,3518.00,historical order-line price; not a current catalog price
+SKU-FF676D532D,Bluetooth speaker,electronics,1,18706.00,18706.00,historical order-line price; not a current catalog price
+SKU-FF95433541,Walking shoes,footwear,1,6935.00,6935.00,historical order-line price; not a current catalog price
+SKU-FF97649963,Silver-plated earrings,jewellery,1,6889.00,6889.00,historical order-line price; not a current catalog price
+SKU-FFF28BFB9F,Linen shirt,clothing,1,3083.00,3083.00,historical order-line price; not a current catalog price

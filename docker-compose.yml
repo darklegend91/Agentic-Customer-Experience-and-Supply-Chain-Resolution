@@ -1,0 +1,132 @@
+services:
+  api:
+    networks:
+      - app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint:
+      - sh
+      - /app/deploy/start.sh
+    command: ["api"]
+    env_file:
+      - .env.api
+    expose:
+      - "8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    init: true
+    restart: unless-stopped
+    mem_limit: 3g
+    cpus: 1.5
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+
+  worker:
+    networks:
+      - app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint:
+      - sh
+      - /app/deploy/start.sh
+    command: ["worker"]
+    env_file:
+      - .env.api
+    init: true
+    restart: unless-stopped
+    mem_limit: 3g
+    cpus: 1.5
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      api:
+        condition: service_healthy
+
+  ui:
+    networks:
+      - app
+      - edge
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - streamlit
+      - run
+      - frontend/app.py
+      - --server.address
+      - 0.0.0.0
+      - --server.port
+      - "8501"
+      - --server.headless
+      - "true"
+    env_file:
+      - .env.ui
+    environment:
+      API_BASE_URL: http://api:8000
+      API_BASE_URL_LOCKED: "true"
+    expose:
+      - "8501"
+    init: true
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 0.5
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  proxy:
+    networks:
+      - edge
+    image: caddy:2-alpine
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?Set APP_DOMAIN in .env.deploy}
+      ACCESS_USER: ${ACCESS_USER:?Set ACCESS_USER in .env.deploy}
+      ACCESS_HASH: ${ACCESS_HASH:?Set ACCESS_HASH in .env.deploy}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.25
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      ui:
+        condition: service_healthy
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  app:
+  edge:

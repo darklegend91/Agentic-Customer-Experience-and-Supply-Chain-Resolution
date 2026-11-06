@@ -1,0 +1,13 @@
+case_id,query,expected_document_id,expected_policy_version,expected_section_title
+DEV-RAG-01,"The tracking says delivered but the customer says the parcel is missing. What evidence should support use?",DEMO-DELIVERY-INVESTIGATION,1.0.0,Handling
+DEV-RAG-02,"Can I promise a new delivery date if the estimated delivery date has passed?",DEMO-DELIVERY-INVESTIGATION,1.0.0,Handling
+DEV-RAG-03,"Does a delivered scan prove that the customer received the parcel when they report non-receipt?",DEMO-DELIVERY-INVESTIGATION,1.0.0,Handling
+DEV-RAG-04,"What facts are needed before answering whether this order item is eligible for return?",DEMO-RETURN-ELIGIBILITY,1.0.0,Handling
+DEV-RAG-05,"Can return eligibility be decided from a product category alone?",DEMO-RETURN-ELIGIBILITY,1.0.0,Handling
+DEV-RAG-06,"How should support respond if no refund record is available?",DEMO-REFUND-STATUS,1.0.0,Handling
+DEV-RAG-07,"Can the assistant guarantee when the refund money will arrive?",DEMO-REFUND-STATUS,1.0.0,Handling
+DEV-RAG-08,"What order details can be shared when a customer asks where the order is?",DEMO-SUPPORT-FAQ,1.0.0,Where is my order?
+DEV-RAG-09,"The tracking page says delivered but I did not get the parcel.",DEMO-SUPPORT-FAQ,1.0.0,"Tracking says delivered, but I did not receive the parcel"
+DEV-RAG-10,"What should the assistant do when the applicable policy version is missing?",DEMO-EVIDENCE-GAPS,1.0.0,Applicable policy version missing
+DEV-RAG-11,"What should I do if my order is damaged?",DEMO-SUPPORT-FAQ,1.0.0,My item arrived damaged
+DEV-RAG-12,"How many reward points are recorded and when do they expire?",DEMO-LOYALTY-LEDGER,1.0.0,Recorded points balance

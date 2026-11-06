@@ -1,0 +1,1249 @@
+item_id,order_id,product_id,product_name,category,quantity,unit_price_inr,currency,condition_reported,condition_source
+ITM-AF68D31068,ORD-ID-adb5bc6dc0,SKU-17BA66ABE7,Canvas sneakers,footwear,2,3022.00,INR,not_applicable,customer_or_fixture_report
+ITM-FB94FFB8A7,ORD-ID-7ec0ba945b,SKU-03955A0437,Wireless keyboard,office,1,3169.00,INR,not_applicable,customer_or_fixture_report
+ITM-E2B6CD40C5,ORD-ID-00801a2810,SKU-B3EAAB207F,Insulated flask,kitchen,1,6357.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-571B24E7AD,ORD-ID-b4e51e85f2,SKU-63B7D71397,Pendant necklace,jewellery,1,13789.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-E9700071C0,ORD-ID-65b7b005b5,SKU-73899568CB,Board game,toys,1,4297.00,INR,not_applicable,customer_or_fixture_report
+ITM-F865637878,ORD-ID-cae360d389,SKU-A78005624E,Board game,toys,2,1348.00,INR,not_applicable,customer_or_fixture_report
+ITM-4C8A5E7E4E,ORD-ID-d98bcb84eb,SKU-989F1488F8,Sunscreen lotion,beauty,1,1342.00,INR,not_applicable,customer_or_fixture_report
+ITM-B6F3F962B4,ORD-ID-5d0e3c2026,SKU-5E72F925E4,Dog lead,pet_supplies,1,1487.00,INR,not_applicable,customer_or_fixture_report
+ITM-3494884247,ORD-ID-5d0e3c2026,SKU-095F6A0718,Pendant necklace,jewellery,2,505.00,INR,not_applicable,customer_or_fixture_report
+ITM-91DD156504,ORD-ID-f7681d8502,SKU-B5723FF5A1,Travel essays,books,1,634.00,INR,not_applicable,customer_or_fixture_report
+ITM-5760F3B143,ORD-ID-593d1d7587,SKU-ECFCCF9EE2,Smart watch,electronics,1,5721.00,INR,not_applicable,customer_or_fixture_report
+ITM-8A0F472BB7,ORD-ID-fc0d9f0c4d,SKU-CA05F21741,Wireless keyboard,office,1,3754.00,INR,not_applicable,customer_or_fixture_report
+ITM-587D53F5EE,ORD-ID-3ab3e74f39,SKU-4E090CD929,Travel essays,books,2,209.00,INR,not_applicable,customer_or_fixture_report
+ITM-D4EEEB9961,ORD-ID-3ab3e74f39,SKU-A93F122510,Snack variety box,grocery,1,2991.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1986DFA10,ORD-ID-68c38ad198,SKU-CC0D333F42,Silver-plated earrings,jewellery,1,8238.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-8B8493175E,ORD-ID-68c38ad198,SKU-AE856A73FE,Dry fruit assortment,grocery,1,2370.00,INR,not_applicable,customer_or_fixture_report
+ITM-7C7FD2EB42,ORD-ID-34d8544b22,SKU-EF695AC750,Pruning shears,garden,1,3855.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-90685E5009,ORD-ID-32a33c9bc1,SKU-3028D7A177,Ceramic vase,home,1,4750.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEF2210F2E,ORD-ID-1517605f33,SKU-B85A47950C,Wireless mouse,electronics,3,15965.00,INR,not_applicable,customer_or_fixture_report
+ITM-9D5C8D9640,ORD-ID-75353e0609,SKU-EFD4F292AF,Building blocks,toys,2,1232.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2610DAE30,ORD-ID-75353e0609,SKU-CD97FAD95E,Sunscreen lotion,beauty,1,2641.00,INR,not_applicable,customer_or_fixture_report
+ITM-E5084BD477,ORD-ID-8fd61a4440,SKU-4857F095FF,Feeding bottle set,baby,1,5598.00,INR,not_applicable,customer_or_fixture_report
+ITM-022AB48552,ORD-ID-280443dfff,SKU-EBE918D748,Wireless keyboard,office,2,2532.00,INR,not_applicable,customer_or_fixture_report
+ITM-F089B61DD6,ORD-ID-e9e17dce46,SKU-A811B7422D,Dry fruit assortment,grocery,1,2519.00,INR,not_applicable,customer_or_fixture_report
+ITM-3B4257BB4A,ORD-ID-b5e3a746d9,SKU-694AD63838,Bath and body set,beauty,1,1591.00,INR,not_applicable,customer_or_fixture_report
+ITM-D554A10896,ORD-ID-b5e3a746d9,SKU-40B1822BDA,Yoga mat,sports,1,4131.00,INR,not_applicable,customer_or_fixture_report
+ITM-D81A675E70,ORD-ID-85724ccfc5,SKU-7A22EE7755,Ceramic vase,home,1,6393.00,INR,not_applicable,customer_or_fixture_report
+ITM-8A15838062,ORD-ID-85724ccfc5,SKU-CB0028B978,Wireless keyboard,office,1,4080.00,INR,not_applicable,customer_or_fixture_report
+ITM-F13A177E49,ORD-ID-190ebe24ad,SKU-B2B91C6FCF,Beaded bracelet,jewellery,1,11472.00,INR,not_applicable,customer_or_fixture_report
+ITM-983F5831D6,ORD-ID-0d37321f48,SKU-F2BCAE6DB0,Tyre inflator,automotive,1,6165.00,INR,not_applicable,customer_or_fixture_report
+ITM-1A61192191,ORD-ID-9fe77a0344,SKU-F709AF311A,Book set,books,1,2305.00,INR,not_applicable,customer_or_fixture_report
+ITM-21C6CF1D5A,ORD-ID-67c4632e65,SKU-56C38B292C,Insulated flask,kitchen,1,3964.00,INR,not_applicable,customer_or_fixture_report
+ITM-C4B572F6EA,ORD-ID-67c4632e65,SKU-8E01FBBBCD,Cookbook,books,1,1909.00,INR,not_applicable,customer_or_fixture_report
+ITM-2C6B2421CD,ORD-ID-14ce3d5048,SKU-553451AF4E,Cotton kurta,clothing,2,2820.00,INR,not_applicable,customer_or_fixture_report
+ITM-E5E7E52633,ORD-ID-14ce3d5048,SKU-6CC0862E36,Pruning shears,garden,1,561.00,INR,not_applicable,customer_or_fixture_report
+ITM-408F53CE3B,ORD-ID-59a1f8fc46,SKU-0B5F10882A,Art activity kit,toys,1,2338.00,INR,not_applicable,customer_or_fixture_report
+ITM-4F79D32A35,ORD-ID-dfb0d8e4c9,SKU-49238670B8,Dog lead,pet_supplies,1,2956.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A56880D16,ORD-ID-cec7d03ea4,SKU-6DE8C89A69,Planter set,garden,1,3874.00,INR,not_applicable,customer_or_fixture_report
+ITM-C495DFABDF,ORD-ID-220073d1bc,SKU-B2C73D3A00,Running shoes,footwear,1,5003.00,INR,not_applicable,customer_or_fixture_report
+ITM-FE973A42E2,ORD-ID-220073d1bc,SKU-F071A22830,Coffee sampler,grocery,1,2494.00,INR,not_applicable,customer_or_fixture_report
+ITM-AAA9835833,ORD-ID-b0c07ac95d,SKU-FB6A8CAD3F,Smart watch,electronics,1,10535.00,INR,not_applicable,customer_or_fixture_report
+ITM-D14C9E493D,ORD-ID-e675cb4283,SKU-561FFFE8BB,Cookbook,books,1,2191.00,INR,not_applicable,customer_or_fixture_report
+ITM-6C4FD22441,ORD-ID-83954478bc,SKU-09709E9287,Leather sandals,footwear,1,1300.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-189EDE3E2D,ORD-ID-244db229ff,SKU-E6732F87CC,Ceramic vase,home,2,3512.00,INR,not_applicable,customer_or_fixture_report
+ITM-391607D294,ORD-ID-14b226de24,SKU-E0B243FA73,Glass lunch box,kitchen,1,9842.00,INR,not_applicable,customer_or_fixture_report
+ITM-33E793A46A,ORD-ID-6eaab6b52d,SKU-1FED425D0E,Children's story collection,books,1,1116.00,INR,not_applicable,customer_or_fixture_report
+ITM-80ED1F20FA,ORD-ID-30a39ae581,SKU-14FA2238DA,Face moisturiser,beauty,1,568.00,INR,not_applicable,customer_or_fixture_report
+ITM-A3C1F2DE1F,ORD-ID-5e6931666f,SKU-64E2A4CF79,Pet grooming brush,pet_supplies,1,383.00,INR,not_applicable,customer_or_fixture_report
+ITM-73D1742DC2,ORD-ID-e65f13ef0d,SKU-FE60A6DD7A,Document organiser,office,2,1276.00,INR,not_applicable,customer_or_fixture_report
+ITM-34742194CC,ORD-ID-f139fad96e,SKU-E31735110A,Notebook set,office,1,3035.00,INR,not_applicable,customer_or_fixture_report
+ITM-85749704F3,ORD-ID-f139fad96e,SKU-8BB23E28DD,Dog lead,pet_supplies,1,1514.00,INR,not_applicable,customer_or_fixture_report
+ITM-947056ABDA,ORD-ID-59a4758625,SKU-FAB5405560,Noise-cancelling headphones,electronics,1,4237.00,INR,not_applicable,customer_or_fixture_report
+ITM-B09BD283DA,ORD-ID-46a35d7c1b,SKU-BE5BCF07CD,Snack variety box,grocery,1,493.00,INR,not_applicable,customer_or_fixture_report
+ITM-3379E3AF5E,ORD-ID-eae72a0d1e,SKU-B0ECFA784A,Noise-cancelling headphones,electronics,3,2407.00,INR,not_applicable,customer_or_fixture_report
+ITM-B51815580E,ORD-ID-2274857b80,SKU-95985C9942,Cricket bat,sports,1,7384.00,INR,not_applicable,customer_or_fixture_report
+ITM-D35B3D27DE,ORD-ID-d37abd7136,SKU-B7DE46C645,Organic tea pack,grocery,1,2057.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-8243284C2B,ORD-ID-5c1c83931d,SKU-CC54D6787A,Chef knife,kitchen,1,9648.00,INR,not_applicable,customer_or_fixture_report
+ITM-E3CE3B1321,ORD-ID-2c2e416df8,SKU-ED29F978AF,Noise-cancelling headphones,electronics,1,4246.00,INR,not_applicable,customer_or_fixture_report
+ITM-BD2B08538A,ORD-ID-079a36c65c,SKU-026D8F1FCB,Printed saree,clothing,1,3399.00,INR,not_applicable,customer_or_fixture_report
+ITM-4B269C305E,ORD-ID-b33db75554,SKU-675A2B3085,Soft toy,baby,1,4057.00,INR,not_applicable,customer_or_fixture_report
+ITM-110582862D,ORD-ID-d49892dc5a,SKU-4EAD7D808E,Coffee sampler,grocery,1,785.00,INR,not_applicable,customer_or_fixture_report
+ITM-F694663B00,ORD-ID-d49892dc5a,SKU-33DF872E23,Resistance bands,sports,3,5263.00,INR,not_applicable,customer_or_fixture_report
+ITM-C08B135A70,ORD-ID-a3d4190bcd,SKU-C5D3D0BFA1,Board game,toys,1,3941.00,INR,not_applicable,customer_or_fixture_report
+ITM-22E6A49974,ORD-ID-13cd0fac57,SKU-27243D98EF,Yoga mat,sports,1,7995.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E59DC34CA,ORD-ID-13cd0fac57,SKU-4897640D9E,Watering can,garden,1,4876.00,INR,not_applicable,customer_or_fixture_report
+ITM-1C05B7E042,ORD-ID-cc892505d2,SKU-899B0FF3FD,Dog lead,pet_supplies,2,4610.00,INR,not_applicable,customer_or_fixture_report
+ITM-0A5AF95EBD,ORD-ID-955478ac95,SKU-C7D256C97B,Denim jacket,clothing,1,1864.00,INR,not_applicable,customer_or_fixture_report
+ITM-569F22F6AC,ORD-ID-2f8e5e8934,SKU-C94CBF7729,Hand blender,home_appliance,1,16230.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AD83B0C50,ORD-ID-b181efe431,SKU-EB37676B0A,Dry fruit assortment,grocery,1,1430.00,INR,not_applicable,customer_or_fixture_report
+ITM-4417A888CC,ORD-ID-89cff8a4d8,SKU-69B99FF263,Laptop sleeve,luggage,1,11189.00,INR,not_applicable,customer_or_fixture_report
+ITM-5D2DCC995D,ORD-ID-e00b211040,SKU-963D73EC30,Baby care kit,baby,1,3977.00,INR,not_applicable,customer_or_fixture_report
+ITM-C5D40ACF55,ORD-ID-06535b15a5,SKU-4364707C6A,Art activity kit,toys,1,706.00,INR,not_applicable,customer_or_fixture_report
+ITM-62084A734C,ORD-ID-e2399fc75a,SKU-E75388D783,Microfibre cleaning kit,automotive,1,3516.00,INR,not_applicable,customer_or_fixture_report
+ITM-BE1F94E66E,ORD-ID-6147de515d,SKU-59C80AFD4A,Pet grooming brush,pet_supplies,1,1591.00,INR,not_applicable,customer_or_fixture_report
+ITM-56538F990A,ORD-ID-4c97eb6a66,SKU-C6D608F021,Resistance bands,sports,1,6941.00,INR,not_applicable,customer_or_fixture_report
+ITM-4CFB2DE80A,ORD-ID-c90a36de6b,SKU-351C29DBE2,Coffee sampler,grocery,1,1612.00,INR,not_applicable,customer_or_fixture_report
+ITM-328A03C417,ORD-ID-c22e2aa13e,SKU-EB5CFA4EC1,Cotton baby blanket,baby,1,4896.00,INR,not_applicable,customer_or_fixture_report
+ITM-A7BEC9FC4C,ORD-ID-3d00e1585d,SKU-1E84FD7A0A,Sunscreen lotion,beauty,1,3287.00,INR,not_applicable,customer_or_fixture_report
+ITM-47D10B08E2,ORD-ID-deeb195a15,SKU-32B3FCFD08,Leather sandals,footwear,1,5578.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AA487FE6F,ORD-ID-cdf6d85309,SKU-B96807AF13,Sunscreen lotion,beauty,2,2964.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-A24F902876,ORD-ID-082a27c2a5,SKU-64520E8FB3,Cotton baby blanket,baby,1,1010.00,INR,not_applicable,customer_or_fixture_report
+ITM-AFC8F9FE48,ORD-ID-bbb0f53cbd,SKU-A12A80EE1B,Pet grooming brush,pet_supplies,1,3658.00,INR,not_applicable,customer_or_fixture_report
+ITM-9B37B5CB1A,ORD-ID-45d1957187,SKU-EC2CEBFE0F,Cat scratcher,pet_supplies,1,3840.00,INR,not_applicable,customer_or_fixture_report
+ITM-C699208740,ORD-ID-347e2a17d6,SKU-621ED81163,Leather sandals,footwear,3,3714.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFD4FB273F,ORD-ID-4e83e7f30d,SKU-8E64DC3991,Denim jacket,clothing,1,2764.00,INR,not_applicable,customer_or_fixture_report
+ITM-F1C34E4DA1,ORD-ID-b70a155835,SKU-C58F75F24C,Children's story collection,books,1,1618.00,INR,not_applicable,customer_or_fixture_report
+ITM-5D2D93F59D,ORD-ID-79adef2b67,SKU-92835B978B,Coffee sampler,grocery,2,2353.00,INR,not_applicable,customer_or_fixture_report
+ITM-916D532AF5,ORD-ID-2e4e540fed,SKU-FB38E0532E,Coffee sampler,grocery,1,2127.00,INR,not_applicable,customer_or_fixture_report
+ITM-1DFCB16E49,ORD-ID-2ca4ff83d4,SKU-8DD04351FB,Cookbook,books,2,2298.00,INR,not_applicable,customer_or_fixture_report
+ITM-A00AA0E4C5,ORD-ID-44e00d05c9,SKU-50D4BA2CE2,Leather sandals,footwear,1,825.00,INR,not_applicable,customer_or_fixture_report
+ITM-DD64D7F81A,ORD-ID-23774d0ede,SKU-823495A57D,Seed starter kit,garden,1,3277.00,INR,not_applicable,customer_or_fixture_report
+ITM-9FDDEFCCB3,ORD-ID-b038dbeb70,SKU-85A8B1B48D,Yoga mat,sports,1,4353.00,INR,not_applicable,customer_or_fixture_report
+ITM-F4428EBFA5,ORD-ID-733fb45535,SKU-F8A8B8BBA7,Board game,toys,1,3578.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-AD990CFC73,ORD-ID-733fb45535,SKU-3FF61F9587,Coffee sampler,grocery,1,1617.00,INR,not_applicable,customer_or_fixture_report
+ITM-768EB813D0,ORD-ID-733fb45535,SKU-31ACB781AF,Notebook set,office,1,8835.00,INR,not_applicable,customer_or_fixture_report
+ITM-5F1DA3D5EA,ORD-ID-193dc96c16,SKU-04BB52AF4A,Denim jacket,clothing,1,2070.00,INR,not_applicable,customer_or_fixture_report
+ITM-100D97600D,ORD-ID-193dc96c16,SKU-A3F071D822,Tyre inflator,automotive,1,3714.00,INR,not_applicable,customer_or_fixture_report
+ITM-1670837233,ORD-ID-3055ea4b07,SKU-A5A68F8E22,Air fryer,home_appliance,1,9524.00,INR,not_applicable,customer_or_fixture_report
+ITM-6BF6FB717E,ORD-ID-ac48fee4de,SKU-D2D5CCBE82,Cabin backpack,luggage,1,10648.00,INR,not_applicable,customer_or_fixture_report
+ITM-F0DA752CCB,ORD-ID-77da22b2b7,SKU-5DAD7933F9,Coffee sampler,grocery,1,2983.00,INR,not_applicable,customer_or_fixture_report
+ITM-BF872F4DB3,ORD-ID-ef398f7452,SKU-9DAC49A14E,Desk fan,home_appliance,1,14481.00,INR,not_applicable,customer_or_fixture_report
+ITM-83F09214DB,ORD-ID-ef398f7452,SKU-9AB5F88217,Organic tea pack,grocery,1,1719.00,INR,not_applicable,customer_or_fixture_report
+ITM-0F4D722262,ORD-ID-ef398f7452,SKU-1005A1B87F,Linen shirt,clothing,1,2626.00,INR,not_applicable,customer_or_fixture_report
+ITM-E8B202ECD7,ORD-ID-6b6dc6e63a,SKU-9E68623DDD,Noise-cancelling headphones,electronics,1,19530.00,INR,not_applicable,customer_or_fixture_report
+ITM-2ADBB06073,ORD-ID-9706a405fc,SKU-80090ED771,Seed starter kit,garden,1,605.00,INR,not_applicable,customer_or_fixture_report
+ITM-F15CC6DE92,ORD-ID-9706a405fc,SKU-467627D4C9,Desk fan,home_appliance,2,10408.00,INR,not_applicable,customer_or_fixture_report
+ITM-22A78E0F50,ORD-ID-4c09fdd5df,SKU-D26A07FE2A,Electric kettle,home_appliance,3,14200.00,INR,not_applicable,customer_or_fixture_report
+ITM-43D72CD51F,ORD-ID-67ce552ce5,SKU-B330BBFF68,Minimalist watch,jewellery,2,10040.00,INR,not_applicable,customer_or_fixture_report
+ITM-E20D2A3789,ORD-ID-9d19dd3a0b,SKU-2C01656430,Insulated flask,kitchen,1,1878.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-2BD7189A12,ORD-ID-9d19dd3a0b,SKU-87EB742DF7,Canvas sneakers,footwear,1,7379.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B4F9764BD,ORD-ID-a6e37ed2cf,SKU-FAC9007BC7,Pendant necklace,jewellery,1,14974.00,INR,not_applicable,customer_or_fixture_report
+ITM-895D33142C,ORD-ID-fc36668afd,SKU-D4D029FC9C,Dog lead,pet_supplies,1,2398.00,INR,not_applicable,customer_or_fixture_report
+ITM-346FA5E15A,ORD-ID-7f2f72ff4d,SKU-603DB8CD60,Wireless mouse,electronics,1,4820.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA6CAD2868,ORD-ID-2d977edd0f,SKU-D1581FB4A9,Book set,books,1,1237.00,INR,not_applicable,customer_or_fixture_report
+ITM-6A216D0BAB,ORD-ID-0429c39d01,SKU-E28F9463A1,Children's story collection,books,1,2479.00,INR,not_applicable,customer_or_fixture_report
+ITM-781E32DB8A,ORD-ID-0429c39d01,SKU-AB882C695D,Baby care kit,baby,2,2654.00,INR,not_applicable,customer_or_fixture_report
+ITM-4AFDA554B7,ORD-ID-862f907a57,SKU-2DB7E67E95,Electric kettle,home_appliance,1,15076.00,INR,not_applicable,customer_or_fixture_report
+ITM-6F6C65D513,ORD-ID-cced2798d4,SKU-74ECA3FFAA,Tyre inflator,automotive,1,6265.00,INR,not_applicable,customer_or_fixture_report
+ITM-231DBE3823,ORD-ID-9b23297c4d,SKU-94DE60474F,Face moisturiser,beauty,1,3638.00,INR,not_applicable,customer_or_fixture_report
+ITM-64082F621B,ORD-ID-9b23297c4d,SKU-4558ED6822,Pet travel bowl,pet_supplies,1,4215.00,INR,not_applicable,customer_or_fixture_report
+ITM-61BF376EC8,ORD-ID-a15d80b929,SKU-7C0C3132BB,Seat organiser,automotive,1,4843.00,INR,not_applicable,customer_or_fixture_report
+ITM-82486CE499,ORD-ID-624d5c6937,SKU-4BC1A4AE7C,Printed saree,clothing,1,4036.00,INR,not_applicable,customer_or_fixture_report
+ITM-A0904A63D8,ORD-ID-6c6b52899b,SKU-1538F503FD,Planter set,garden,1,848.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-FE859487FF,ORD-ID-0d36a1d4e5,SKU-397061ABDA,Seat organiser,automotive,1,8722.00,INR,not_applicable,customer_or_fixture_report
+ITM-E79001E1C0,ORD-ID-5fda43b99f,SKU-C36540172E,Electric kettle,home_appliance,1,4745.00,INR,not_applicable,customer_or_fixture_report
+ITM-41D17FA881,ORD-ID-f7de55bd9c,SKU-601B10A76A,Silver-plated earrings,jewellery,1,6975.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AD42F8752,ORD-ID-2a2adca9ea,SKU-B90660F616,Silver-plated earrings,jewellery,1,11295.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-D445BF5CAD,ORD-ID-cdde0ba885,SKU-7078921C6E,Yoga mat,sports,1,6497.00,INR,not_applicable,customer_or_fixture_report
+ITM-9645C00C54,ORD-ID-1b5fd6f368,SKU-A5736A0ED5,Seat organiser,automotive,1,5580.00,INR,not_applicable,customer_or_fixture_report
+ITM-79C87F53AD,ORD-ID-ba998fdbe5,SKU-1BD136859A,Pet grooming brush,pet_supplies,1,4613.00,INR,not_applicable,customer_or_fixture_report
+ITM-28285486DE,ORD-ID-b9815482b2,SKU-D629462C85,Pet travel bowl,pet_supplies,2,3498.00,INR,not_applicable,customer_or_fixture_report
+ITM-45255AC340,ORD-ID-38ab84c4fd,SKU-8B8DB489D8,Walking shoes,footwear,1,1777.00,INR,not_applicable,customer_or_fixture_report
+ITM-1DBB340E7F,ORD-ID-9f98385871,SKU-D3ADE7F612,Table organiser,home,1,1797.00,INR,not_applicable,customer_or_fixture_report
+ITM-0DC4BAFB13,ORD-ID-9f98385871,SKU-D59822AAAB,Soft toy,baby,1,5862.00,INR,not_applicable,customer_or_fixture_report
+ITM-677CAABB3A,ORD-ID-9f98385871,SKU-2E633253C6,Steel cookware set,kitchen,1,2223.00,INR,not_applicable,customer_or_fixture_report
+ITM-056C6F1142,ORD-ID-d076f99ae5,SKU-7E717ED3F6,Building blocks,toys,1,1694.00,INR,not_applicable,customer_or_fixture_report
+ITM-EE6EC42833,ORD-ID-2732c9c300,SKU-E67941287C,Coffee sampler,grocery,1,1315.00,INR,not_applicable,customer_or_fixture_report
+ITM-F72096F2C4,ORD-ID-3ef2567941,SKU-2FD643FB8E,USB-C charger,electronics,1,6742.00,INR,not_applicable,customer_or_fixture_report
+ITM-D515819912,ORD-ID-dc1e64091b,SKU-A7D5A8B29B,Notebook set,office,1,4362.00,INR,not_applicable,customer_or_fixture_report
+ITM-2BA2D89D06,ORD-ID-f5cac62eb8,SKU-19F3DBDBA0,Storage basket,home,1,4668.00,INR,not_applicable,customer_or_fixture_report
+ITM-CF8C359C18,ORD-ID-f5cac62eb8,SKU-0E7F62FE22,Desk lamp,home,2,1448.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2AF9AFA02,ORD-ID-919b8cf526,SKU-F78B6FC15D,Cycling helmet,sports,1,6394.00,INR,not_applicable,customer_or_fixture_report
+ITM-261D7C1E67,ORD-ID-fa606988aa,SKU-95AD28D416,Pet grooming brush,pet_supplies,1,3623.00,INR,not_applicable,customer_or_fixture_report
+ITM-2419F4CFF8,ORD-ID-ed1d8e25fe,SKU-E82D83D15D,Noise-cancelling headphones,electronics,1,12135.00,INR,not_applicable,customer_or_fixture_report
+ITM-CE2DFB93D3,ORD-ID-8136baf789,SKU-BF4D60C775,Pet grooming brush,pet_supplies,1,1622.00,INR,not_applicable,customer_or_fixture_report
+ITM-028630495E,ORD-ID-85252472c2,SKU-25B8115D56,Walking shoes,footwear,1,7638.00,INR,not_applicable,customer_or_fixture_report
+ITM-A414A2D730,ORD-ID-414bf46949,SKU-238F0A5381,Steel cookware set,kitchen,1,6866.00,INR,not_applicable,customer_or_fixture_report
+ITM-0EEC387CAA,ORD-ID-37e648f820,SKU-464AF3B10B,Building blocks,toys,1,2321.00,INR,not_applicable,customer_or_fixture_report
+ITM-44B02996B3,ORD-ID-df73f0c979,SKU-4B36E9C00B,Steel cookware set,kitchen,1,2569.00,INR,not_applicable,customer_or_fixture_report
+ITM-2062D002D8,ORD-ID-7a9577aa06,SKU-0B3022136D,Building blocks,toys,1,1449.00,INR,not_applicable,customer_or_fixture_report
+ITM-A2E748C2FF,ORD-ID-7a9577aa06,SKU-7B255F1348,Art activity kit,toys,1,4939.00,INR,not_applicable,customer_or_fixture_report
+ITM-198503B732,ORD-ID-8dc1f8c885,SKU-84A5FC6BAF,Desk fan,home_appliance,1,6174.00,INR,not_applicable,customer_or_fixture_report
+ITM-B3D6852EE8,ORD-ID-e3e2ddb71e,SKU-80266C745C,Pruning shears,garden,1,2323.00,INR,not_applicable,customer_or_fixture_report
+ITM-0BD40969DC,ORD-ID-d193358904,SKU-A3E609E8CD,Baby care kit,baby,1,4738.00,INR,not_applicable,customer_or_fixture_report
+ITM-ADA4CAB944,ORD-ID-7460cfd5db,SKU-CEEEBF41AF,Coffee sampler,grocery,1,1857.00,INR,not_applicable,customer_or_fixture_report
+ITM-954322CE7F,ORD-ID-16883d7cca,SKU-908F90D6D7,Chef knife,kitchen,1,9260.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFE1C2BF82,ORD-ID-1baf11560d,SKU-AA8107FB26,Pendant necklace,jewellery,1,11800.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-B7E08D3237,ORD-ID-1baf11560d,SKU-4835AFFD51,Hand blender,home_appliance,1,18517.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA7871A636,ORD-ID-6b91539f5a,SKU-0F7536A10A,Sunscreen lotion,beauty,1,3928.00,INR,not_applicable,customer_or_fixture_report
+ITM-A0F374BB23,ORD-ID-dfdbf86860,SKU-9861F8400D,Plush animal,toys,1,3420.00,INR,not_applicable,customer_or_fixture_report
+ITM-38AF1F4FCA,ORD-ID-f9557e8430,SKU-C966E335DF,Walking shoes,footwear,1,4780.00,INR,not_applicable,customer_or_fixture_report
+ITM-1113EABB74,ORD-ID-738493f71f,SKU-DCE6ADAA76,Ceramic vase,home,1,4710.00,INR,not_applicable,customer_or_fixture_report
+ITM-BEDDF70582,ORD-ID-c7577028d4,SKU-2F5EBA67E6,Chef knife,kitchen,1,6964.00,INR,not_applicable,customer_or_fixture_report
+ITM-75DD1BA6CB,ORD-ID-0a5e593bc9,SKU-0DCC11C7D6,Linen shirt,clothing,2,2784.00,INR,not_applicable,customer_or_fixture_report
+ITM-AE278CAB35,ORD-ID-aad3348c48,SKU-E37DC5F3D0,Dog lead,pet_supplies,1,2784.00,INR,not_applicable,customer_or_fixture_report
+ITM-35091CC4DD,ORD-ID-86ce801e54,SKU-353B332489,Bath and body set,beauty,1,2206.00,INR,not_applicable,customer_or_fixture_report
+ITM-418C358BEA,ORD-ID-86ce801e54,SKU-87311CB9B1,Leather sandals,footwear,2,8435.00,INR,not_applicable,customer_or_fixture_report
+ITM-B606FC93AA,ORD-ID-0559ea777f,SKU-9A06DE5113,Face moisturiser,beauty,1,2193.00,INR,not_applicable,customer_or_fixture_report
+ITM-F877D049B4,ORD-ID-0559ea777f,SKU-FF17B22AE9,Smart watch,electronics,1,10374.00,INR,not_applicable,customer_or_fixture_report
+ITM-4817F182F2,ORD-ID-0559ea777f,SKU-8BFD99FFCD,Soft toy,baby,1,3270.00,INR,not_applicable,customer_or_fixture_report
+ITM-E36CE6227E,ORD-ID-419e67c1bb,SKU-480C55147A,Cabin backpack,luggage,1,7215.00,INR,not_applicable,customer_or_fixture_report
+ITM-808E14FFE1,ORD-ID-4a13a37b00,SKU-B2D5157530,Car phone mount,automotive,1,7445.00,INR,not_applicable,customer_or_fixture_report
+ITM-73FBA96BA9,ORD-ID-80aaf050d8,SKU-9A282F4C43,Snack variety box,grocery,1,794.00,INR,not_applicable,customer_or_fixture_report
+ITM-A4A9A99D4A,ORD-ID-80aaf050d8,SKU-F278BA9028,Plush animal,toys,1,1119.00,INR,not_applicable,customer_or_fixture_report
+ITM-019ABBB2A1,ORD-ID-d27df4352f,SKU-4C79236A23,Baby care kit,baby,1,6519.00,INR,not_applicable,customer_or_fixture_report
+ITM-8BB7C2C0F3,ORD-ID-1e5d594b3e,SKU-F758467A8A,Canvas sneakers,footwear,1,4045.00,INR,not_applicable,customer_or_fixture_report
+ITM-3900FD7B13,ORD-ID-1e5d594b3e,SKU-CB66E9EBA9,Pet travel bowl,pet_supplies,1,2529.00,INR,not_applicable,customer_or_fixture_report
+ITM-74AFD1B523,ORD-ID-00d824ff87,SKU-E3EEC372AE,Cat scratcher,pet_supplies,1,1599.00,INR,not_applicable,customer_or_fixture_report
+ITM-408F0FE2F2,ORD-ID-00d824ff87,SKU-68A58089B9,Fountain pen,office,1,8879.00,INR,not_applicable,customer_or_fixture_report
+ITM-DC29978147,ORD-ID-6ce80ce3d4,SKU-4348B41EA5,Denim jacket,clothing,1,980.00,INR,not_applicable,customer_or_fixture_report
+ITM-5E10571C77,ORD-ID-be8d82bd1c,SKU-1AC8CDA5DE,Fountain pen,office,1,8125.00,INR,not_applicable,customer_or_fixture_report
+ITM-7DD663FA70,ORD-ID-63f2338857,SKU-81F80C22AA,Electric kettle,home_appliance,1,11131.00,INR,not_applicable,customer_or_fixture_report
+ITM-5088B6C478,ORD-ID-0943b01b09,SKU-4BD450FF73,Seed starter kit,garden,1,3181.00,INR,not_applicable,customer_or_fixture_report
+ITM-2A570D4919,ORD-ID-a66cc7c33f,SKU-C12557FDFA,Linen shirt,clothing,1,2683.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-08486511FE,ORD-ID-eae87a16c5,SKU-11A9BD496F,Table organiser,home,1,3007.00,INR,not_applicable,customer_or_fixture_report
+ITM-A70EADCEBD,ORD-ID-eae87a16c5,SKU-0CC406CCEE,Notebook set,office,1,5648.00,INR,not_applicable,customer_or_fixture_report
+ITM-496D932E88,ORD-ID-eae87a16c5,SKU-C3D01C0A00,Canvas sneakers,footwear,1,6636.00,INR,not_applicable,customer_or_fixture_report
+ITM-AD27334A41,ORD-ID-8e6d1429a3,SKU-E5F9EA4E4E,Pruning shears,garden,1,1176.00,INR,not_applicable,customer_or_fixture_report
+ITM-5F87BA592C,ORD-ID-30a71926a7,SKU-0374F294F1,Cabin backpack,luggage,3,5834.00,INR,not_applicable,customer_or_fixture_report
+ITM-FE4E3B4D2B,ORD-ID-9f2c631bea,SKU-8651EE165B,Fountain pen,office,2,4050.00,INR,not_applicable,customer_or_fixture_report
+ITM-E67C1C47F9,ORD-ID-ecce60f6bc,SKU-D7F90ACF74,Snack variety box,grocery,2,625.00,INR,not_applicable,customer_or_fixture_report
+ITM-DA6403DA71,ORD-ID-a7ee8ec4f3,SKU-B8341D74D2,Laptop sleeve,luggage,3,5282.00,INR,not_applicable,customer_or_fixture_report
+ITM-D7066E5954,ORD-ID-a7ee8ec4f3,SKU-D33535194B,Travel duffel,luggage,1,5052.00,INR,not_applicable,customer_or_fixture_report
+ITM-9E19AF5CAD,ORD-ID-bfd13fde24,SKU-C4CF6B840A,Laptop sleeve,luggage,1,12106.00,INR,not_applicable,customer_or_fixture_report
+ITM-5586D6A19B,ORD-ID-f89e21a063,SKU-520E099C0E,Running shoes,footwear,1,3780.00,INR,not_applicable,customer_or_fixture_report
+ITM-0BDD8F9FC8,ORD-ID-f89e21a063,SKU-7C486C8B53,Coffee sampler,grocery,1,772.00,INR,not_applicable,customer_or_fixture_report
+ITM-956CA771A6,ORD-ID-8a1bdf930d,SKU-8CCC4C3CAC,Storage basket,home,1,6265.00,INR,not_applicable,customer_or_fixture_report
+ITM-3A831C0B1A,ORD-ID-8a1bdf930d,SKU-ABA21BF5D0,Cricket bat,sports,1,1985.00,INR,not_applicable,customer_or_fixture_report
+ITM-A2DE04BE67,ORD-ID-c661d7d0f7,SKU-60895D6827,Wireless keyboard,office,1,6823.00,INR,not_applicable,customer_or_fixture_report
+ITM-7113CEE4CB,ORD-ID-735c95558a,SKU-B9BC37B296,Seat organiser,automotive,1,593.00,INR,not_applicable,customer_or_fixture_report
+ITM-EC0F90DACA,ORD-ID-b19b652639,SKU-A79FC72205,Beaded bracelet,jewellery,1,3406.00,INR,not_applicable,customer_or_fixture_report
+ITM-D2FEED637C,ORD-ID-b19b652639,SKU-0E7EEA8C85,Pruning shears,garden,3,1096.00,INR,not_applicable,customer_or_fixture_report
+ITM-615E88C3F7,ORD-ID-b19b652639,SKU-F5220BE4C3,Organic tea pack,grocery,1,1895.00,INR,not_applicable,customer_or_fixture_report
+ITM-A91DB1C5AC,ORD-ID-7876eb0f31,SKU-372B6C9B41,Document organiser,office,2,6336.00,INR,not_applicable,customer_or_fixture_report
+ITM-C3A551AD22,ORD-ID-4e82cc603f,SKU-2FCE8EACA6,Travel duffel,luggage,2,10176.00,INR,not_applicable,customer_or_fixture_report
+ITM-23CCAF2439,ORD-ID-e2d5e62ed1,SKU-E1EF45CF75,Children's story collection,books,1,351.00,INR,not_applicable,customer_or_fixture_report
+ITM-44CFF53EB0,ORD-ID-96765e1599,SKU-5BC1A9359E,Pet travel bowl,pet_supplies,1,2722.00,INR,not_applicable,customer_or_fixture_report
+ITM-49B9E35BDD,ORD-ID-f36647600b,SKU-8C226D3E8C,Packing cube set,luggage,2,5679.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-3E8A7D8CFC,ORD-ID-c8b45645eb,SKU-B3113ED77D,Pet grooming brush,pet_supplies,1,2953.00,INR,not_applicable,customer_or_fixture_report
+ITM-E40FA9A3D5,ORD-ID-b7237a7cbb,SKU-234CE2ED3A,Tyre inflator,automotive,1,1762.00,INR,not_applicable,customer_or_fixture_report
+ITM-6C18F11A7C,ORD-ID-ee03598b0a,SKU-A9B3050DEE,Running shoes,footwear,1,2806.00,INR,not_applicable,customer_or_fixture_report
+ITM-C4A01A4A09,ORD-ID-ee03598b0a,SKU-F8F3BACA5C,Building blocks,toys,1,4381.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B3BCD825B,ORD-ID-49c86a8d73,SKU-5CBE1F08A2,Cotton baby blanket,baby,1,6802.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-35746250C0,ORD-ID-49c86a8d73,SKU-E4CE1E4B2D,Wireless mouse,electronics,1,9841.00,INR,not_applicable,customer_or_fixture_report
+ITM-AB1683C530,ORD-ID-8c13318d2b,SKU-62BF28246D,Cotton baby blanket,baby,2,3026.00,INR,not_applicable,customer_or_fixture_report
+ITM-7D09D708DB,ORD-ID-ac56b6d81b,SKU-6635F26890,Yoga mat,sports,3,3398.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A6AABCED8,ORD-ID-c662e3a31b,SKU-3759D25DF6,Wireless mouse,electronics,1,12765.00,INR,not_applicable,customer_or_fixture_report
+ITM-973BE323AB,ORD-ID-c662e3a31b,SKU-C8E9F76F93,Insulated flask,kitchen,1,3732.00,INR,not_applicable,customer_or_fixture_report
+ITM-9B8ABF06F5,ORD-ID-10a74f7a7c,SKU-A18AF6D29A,Desk lamp,home,1,3122.00,INR,not_applicable,customer_or_fixture_report
+ITM-11B2A1EFFE,ORD-ID-10a74f7a7c,SKU-0C6DF7844C,Baby care kit,baby,1,874.00,INR,not_applicable,customer_or_fixture_report
+ITM-FD2FCEBAA4,ORD-ID-5876c5561e,SKU-6FFD511D8F,Travel essays,books,1,275.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-38A2DDE16E,ORD-ID-0207efc03c,SKU-95F0F12486,Snack variety box,grocery,1,725.00,INR,not_applicable,customer_or_fixture_report
+ITM-17D6CFCE49,ORD-ID-6821304285,SKU-2A6D1D074C,Minimalist watch,jewellery,1,7734.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-21B8A2118C,ORD-ID-6821304285,SKU-F82E313A14,Dry fruit assortment,grocery,1,1764.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA8D373007,ORD-ID-40a5365d61,SKU-A69AC4DE14,Cricket bat,sports,1,5901.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-09522D86EA,ORD-ID-40a5365d61,SKU-2C5F0EBF3B,Leather sandals,footwear,1,2797.00,INR,not_applicable,customer_or_fixture_report
+ITM-1C70F9ADE4,ORD-ID-13a1ebb590,SKU-F6023C9579,Cabin backpack,luggage,1,10387.00,INR,not_applicable,customer_or_fixture_report
+ITM-1232DF1AE0,ORD-ID-13a1ebb590,SKU-FCAA0FBA8D,Book set,books,1,2082.00,INR,not_applicable,customer_or_fixture_report
+ITM-3020CC0AA2,ORD-ID-9b247c67b1,SKU-803FA6810E,Children's story collection,books,1,2170.00,INR,not_applicable,customer_or_fixture_report
+ITM-7CCAF79870,ORD-ID-1abb3a251c,SKU-FFF28BFB9F,Linen shirt,clothing,1,3083.00,INR,not_applicable,customer_or_fixture_report
+ITM-42A427AFFF,ORD-ID-68272514cf,SKU-78B5601A4D,Cabin backpack,luggage,1,12373.00,INR,not_applicable,customer_or_fixture_report
+ITM-EF142074BA,ORD-ID-adf36dd5e3,SKU-52E3295D4D,Hair serum,beauty,1,3123.00,INR,not_applicable,customer_or_fixture_report
+ITM-2BDF2D6942,ORD-ID-3d795d1419,SKU-C3DCD9B286,Steel cookware set,kitchen,1,1297.00,INR,not_applicable,customer_or_fixture_report
+ITM-13DC6C96CB,ORD-ID-2d98e9ae6a,SKU-71E0977D78,Desk lamp,home,1,4059.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-843E11610D,ORD-ID-2d98e9ae6a,SKU-7AFF68BF67,Coffee sampler,grocery,1,268.00,INR,not_applicable,customer_or_fixture_report
+ITM-8B4BC1B969,ORD-ID-4546ed359b,SKU-18900018C4,Cotton baby blanket,baby,1,3172.00,INR,not_applicable,customer_or_fixture_report
+ITM-0D35CA34D5,ORD-ID-869a9db9b5,SKU-AAD0175CF2,Storage basket,home,1,3688.00,INR,not_applicable,customer_or_fixture_report
+ITM-36AD0B2AE9,ORD-ID-0dd749c157,SKU-779E903AF6,Air fryer,home_appliance,1,5110.00,INR,not_applicable,customer_or_fixture_report
+ITM-DA95179B8E,ORD-ID-a50d4a928d,SKU-C2EE55476C,Face moisturiser,beauty,1,3771.00,INR,not_applicable,customer_or_fixture_report
+ITM-063587D3B8,ORD-ID-0954e0aa02,SKU-2D406EA6EF,Leather sandals,footwear,1,7942.00,INR,not_applicable,customer_or_fixture_report
+ITM-2418D6C6A3,ORD-ID-048858dac0,SKU-9D018B9059,Cycling helmet,sports,1,2548.00,INR,not_applicable,customer_or_fixture_report
+ITM-A44AFF5349,ORD-ID-67abd5d91b,SKU-04ABCFF72F,Desk fan,home_appliance,2,15302.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-B91CDCAD95,ORD-ID-f563f7034f,SKU-EA1D9D8F48,Chef knife,kitchen,1,917.00,INR,not_applicable,customer_or_fixture_report
+ITM-6862173569,ORD-ID-4f45d5fdaa,SKU-C527DEF820,Running shoes,footwear,1,2245.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B581D64AB,ORD-ID-f89741dde8,SKU-FBDF36FFEB,Tyre inflator,automotive,1,8473.00,INR,not_applicable,customer_or_fixture_report
+ITM-9B1252D1E3,ORD-ID-f89741dde8,SKU-5CF020E6FF,Pendant necklace,jewellery,2,11231.00,INR,not_applicable,customer_or_fixture_report
+ITM-38AB45EC7A,ORD-ID-72c96f87af,SKU-712B6059DE,Wireless keyboard,office,1,1380.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B1BDFD3AB,ORD-ID-4e75bcda82,SKU-AA52D14410,Bluetooth speaker,electronics,1,7000.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-9D069F57D0,ORD-ID-1aafcb2b44,SKU-8DC09DD193,Chef knife,kitchen,1,9990.00,INR,not_applicable,customer_or_fixture_report
+ITM-C6E2F97489,ORD-ID-f753a28388,SKU-A99C90C69F,Children's story collection,books,2,993.00,INR,not_applicable,customer_or_fixture_report
+ITM-F250C7DBAE,ORD-ID-335a1e34aa,SKU-3FA153E487,Ceramic vase,home,1,4525.00,INR,not_applicable,customer_or_fixture_report
+ITM-6E52EE71D5,ORD-ID-3b778d4dea,SKU-7789C97F32,Pet grooming brush,pet_supplies,1,232.00,INR,not_applicable,customer_or_fixture_report
+ITM-F324F9A60F,ORD-ID-3ed69dbfd0,SKU-808DC59D08,Building blocks,toys,1,1412.00,INR,not_applicable,customer_or_fixture_report
+ITM-542BEB5F41,ORD-ID-76521e0e86,SKU-E6BC88BBCD,Air fryer,home_appliance,1,4402.00,INR,not_applicable,customer_or_fixture_report
+ITM-46506D8F90,ORD-ID-09844249b0,SKU-F90FCB1F9B,Smart watch,electronics,1,10681.00,INR,not_applicable,customer_or_fixture_report
+ITM-16D7659E81,ORD-ID-09844249b0,SKU-A5CA04857B,Building blocks,toys,1,250.00,INR,not_applicable,customer_or_fixture_report
+ITM-656F648BFD,ORD-ID-feff5ad4cf,SKU-00F9A0F124,Document organiser,office,1,4118.00,INR,not_applicable,customer_or_fixture_report
+ITM-EF0D4C879C,ORD-ID-f6e15e8210,SKU-A9EA88E86F,Tyre inflator,automotive,2,5892.00,INR,not_applicable,customer_or_fixture_report
+ITM-93638A8E3D,ORD-ID-48f2622ca7,SKU-130782A11D,Desk fan,home_appliance,1,9029.00,INR,not_applicable,customer_or_fixture_report
+ITM-4DBFC8C411,ORD-ID-8b676a9885,SKU-11E400DC54,Wireless keyboard,office,1,8108.00,INR,not_applicable,customer_or_fixture_report
+ITM-5C64EFEB22,ORD-ID-4212fdf673,SKU-658C6DFFFD,Yoga mat,sports,1,7305.00,INR,not_applicable,customer_or_fixture_report
+ITM-90873FCB40,ORD-ID-8961fbc0c9,SKU-E59913B6F4,Linen shirt,clothing,1,1733.00,INR,not_applicable,customer_or_fixture_report
+ITM-D3AA74824B,ORD-ID-63f581c4a3,SKU-A456812F67,Hand blender,home_appliance,1,5146.00,INR,not_applicable,customer_or_fixture_report
+ITM-382B5470E4,ORD-ID-042b3fe16f,SKU-6060AF768C,Sunscreen lotion,beauty,1,3684.00,INR,not_applicable,customer_or_fixture_report
+ITM-B48DDAA105,ORD-ID-042b3fe16f,SKU-D80030CFFE,Steel cookware set,kitchen,1,6304.00,INR,not_applicable,customer_or_fixture_report
+ITM-9EA2D05AA7,ORD-ID-293dad0f39,SKU-893D4542B3,Seed starter kit,garden,2,1942.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B23842060,ORD-ID-293dad0f39,SKU-91C53AA56C,Feeding bottle set,baby,2,3401.00,INR,not_applicable,customer_or_fixture_report
+ITM-84EF32E4B7,ORD-ID-2d561298fe,SKU-87714520D2,Car phone mount,automotive,1,1534.00,INR,not_applicable,customer_or_fixture_report
+ITM-DCDEA5A81C,ORD-ID-c09ce2425f,SKU-06CD5C7A79,Cotton bedsheet,home,3,4755.00,INR,not_applicable,customer_or_fixture_report
+ITM-F7794645C9,ORD-ID-72e50110c6,SKU-B61F0CA32A,Dog lead,pet_supplies,1,331.00,INR,not_applicable,customer_or_fixture_report
+ITM-028CAE06EC,ORD-ID-56199a59d2,SKU-AC51C91E19,Minimalist watch,jewellery,1,14007.00,INR,not_applicable,customer_or_fixture_report
+ITM-2D2A1FA373,ORD-ID-89bfa3cc1f,SKU-37550C26B6,Hair serum,beauty,1,626.00,INR,not_applicable,customer_or_fixture_report
+ITM-B6801A2BBD,ORD-ID-1bf9a7e438,SKU-4C4DAF5EDD,Notebook set,office,1,8524.00,INR,not_applicable,customer_or_fixture_report
+ITM-44FFF24028,ORD-ID-1bf9a7e438,SKU-836A80D590,Minimalist watch,jewellery,1,7583.00,INR,not_applicable,customer_or_fixture_report
+ITM-0D3BFE4C8C,ORD-ID-0970bf2715,SKU-9356D787A2,Running shoes,footwear,1,7853.00,INR,not_applicable,customer_or_fixture_report
+ITM-A8682D3040,ORD-ID-cf9b4b4553,SKU-109DB4FE68,Cotton kurta,clothing,1,3956.00,INR,not_applicable,customer_or_fixture_report
+ITM-543E546C5A,ORD-ID-97d5a82c2d,SKU-26C2CAFE11,Sunscreen lotion,beauty,1,2414.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-B0780B16CE,ORD-ID-41c17bb71a,SKU-37581BB693,Building blocks,toys,1,4691.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1BD60F26B,ORD-ID-753365c9f1,SKU-6BA44672E0,Cotton kurta,clothing,1,1704.00,INR,not_applicable,customer_or_fixture_report
+ITM-8695387477,ORD-ID-1cbef4c818,SKU-127536ECF1,Soft toy,baby,1,5036.00,INR,not_applicable,customer_or_fixture_report
+ITM-E7225F4E1C,ORD-ID-1cbef4c818,SKU-44043472AE,Printed saree,clothing,1,3557.00,INR,not_applicable,customer_or_fixture_report
+ITM-21FF4B38A3,ORD-ID-cc5fcdd988,SKU-72C14080BC,Snack variety box,grocery,1,2565.00,INR,not_applicable,customer_or_fixture_report
+ITM-E992C1B509,ORD-ID-ba7240b7f7,SKU-8487D8B984,Pendant necklace,jewellery,1,5935.00,INR,not_applicable,customer_or_fixture_report
+ITM-AC03A6104C,ORD-ID-b10a8c111a,SKU-EC16DE6A4C,Children's story collection,books,1,681.00,INR,not_applicable,customer_or_fixture_report
+ITM-91C9703C0D,ORD-ID-947931b9e3,SKU-47A1232FFD,Air fryer,home_appliance,1,7101.00,INR,not_applicable,customer_or_fixture_report
+ITM-A714AFC2F7,ORD-ID-c65aa63b6e,SKU-EB2E3D1DD1,Hair serum,beauty,1,620.00,INR,not_applicable,customer_or_fixture_report
+ITM-A50882A129,ORD-ID-c693209b11,SKU-6802975C5A,Ceramic vase,home,1,4979.00,INR,not_applicable,customer_or_fixture_report
+ITM-DC20329C42,ORD-ID-bd77e9d6de,SKU-93F580DF02,Cotton baby blanket,baby,2,6319.00,INR,not_applicable,customer_or_fixture_report
+ITM-963F767C2E,ORD-ID-0e15753064,SKU-133CDF50CA,Yoga mat,sports,2,892.00,INR,not_applicable,customer_or_fixture_report
+ITM-DB7BB51A61,ORD-ID-a1b1b300fc,SKU-19ECAEC1C7,Insulated flask,kitchen,1,3538.00,INR,not_applicable,customer_or_fixture_report
+ITM-F60C539ACD,ORD-ID-3b1152b323,SKU-8D67EDB447,Bath and body set,beauty,1,3192.00,INR,not_applicable,customer_or_fixture_report
+ITM-F912DFD837,ORD-ID-3b1152b323,SKU-254AEE84B4,Walking shoes,footwear,3,4174.00,INR,not_applicable,customer_or_fixture_report
+ITM-FDF7266FB0,ORD-ID-3a71165667,SKU-36CE94A294,Sunscreen lotion,beauty,1,558.00,INR,not_applicable,customer_or_fixture_report
+ITM-1EBCEF4BF3,ORD-ID-8ff3c0d0be,SKU-0F32AAB062,Tyre inflator,automotive,2,5138.00,INR,not_applicable,customer_or_fixture_report
+ITM-E705838C60,ORD-ID-8ff3c0d0be,SKU-2948C49602,Canvas sneakers,footwear,2,1145.00,INR,not_applicable,customer_or_fixture_report
+ITM-029AA73D64,ORD-ID-df83979ac9,SKU-A9A85E5633,Coffee sampler,grocery,1,500.00,INR,not_applicable,customer_or_fixture_report
+ITM-1B283950EA,ORD-ID-d74f114c78,SKU-EAF2307ECE,Face moisturiser,beauty,1,1727.00,INR,not_applicable,customer_or_fixture_report
+ITM-4EFCF725FA,ORD-ID-af603ba2bb,SKU-235D04DE16,Cotton kurta,clothing,1,1736.00,INR,not_applicable,customer_or_fixture_report
+ITM-86C6F09086,ORD-ID-2956d8050a,SKU-9175D7C2F0,Hair serum,beauty,1,3113.00,INR,not_applicable,customer_or_fixture_report
+ITM-8CE4BADCB2,ORD-ID-2956d8050a,SKU-D0D50C3B77,Bluetooth speaker,electronics,1,7456.00,INR,not_applicable,customer_or_fixture_report
+ITM-1562E321F4,ORD-ID-77e85dad8f,SKU-A5EC03CA61,Ceramic vase,home,1,4168.00,INR,not_applicable,customer_or_fixture_report
+ITM-4966C0D8BC,ORD-ID-a005224d7e,SKU-27EC50AE7B,Microfibre cleaning kit,automotive,1,7981.00,INR,not_applicable,customer_or_fixture_report
+ITM-67DB1D4863,ORD-ID-b2d5fe6b22,SKU-D3BC5AB156,Hair serum,beauty,1,2704.00,INR,not_applicable,customer_or_fixture_report
+ITM-0C28949F33,ORD-ID-50e2fd73f6,SKU-C3ED3740CB,Pruning shears,garden,1,1777.00,INR,not_applicable,customer_or_fixture_report
+ITM-F2A3FC63EA,ORD-ID-701643584e,SKU-2D6264F081,Chef knife,kitchen,3,1422.00,INR,not_applicable,customer_or_fixture_report
+ITM-C6F68EEBCC,ORD-ID-263c9bcd5c,SKU-C68000200D,Hand blender,home_appliance,1,12123.00,INR,not_applicable,customer_or_fixture_report
+ITM-6C565C678C,ORD-ID-6d703b1c91,SKU-9C20C482D4,Running shorts,clothing,1,1767.00,INR,not_applicable,customer_or_fixture_report
+ITM-8C3D4AFE5B,ORD-ID-6d703b1c91,SKU-EDAA242195,Hair serum,beauty,1,1051.00,INR,not_applicable,customer_or_fixture_report
+ITM-CA390EAB9A,ORD-ID-666aef5d63,SKU-D1F4B7D02E,Tyre inflator,automotive,1,6953.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-7A8B965E27,ORD-ID-dc535bea7b,SKU-9C82960BEE,Planter set,garden,1,4838.00,INR,not_applicable,customer_or_fixture_report
+ITM-4C2B4002C1,ORD-ID-5bbc071512,SKU-4AC1479138,Walking shoes,footwear,1,2963.00,INR,not_applicable,customer_or_fixture_report
+ITM-BDD81A8196,ORD-ID-9b7ac2525d,SKU-3D8642BEE7,Feeding bottle set,baby,1,5456.00,INR,not_applicable,customer_or_fixture_report
+ITM-2BED0E71B3,ORD-ID-9b7ac2525d,SKU-B4332570B7,Walking shoes,footwear,1,1640.00,INR,not_applicable,customer_or_fixture_report
+ITM-0611461E3D,ORD-ID-3c83279606,SKU-87081E56A6,Beaded bracelet,jewellery,2,1901.00,INR,not_applicable,customer_or_fixture_report
+ITM-38F0913158,ORD-ID-814d2b6ef2,SKU-45673B3061,Children's story collection,books,1,233.00,INR,not_applicable,customer_or_fixture_report
+ITM-25120D292B,ORD-ID-6cecb10089,SKU-12F862DC37,Steel cookware set,kitchen,1,5632.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-7E6DFB1805,ORD-ID-49552a2c35,SKU-189330F10C,Wireless mouse,electronics,1,24438.00,INR,not_applicable,customer_or_fixture_report
+ITM-633B6DEAE1,ORD-ID-49552a2c35,SKU-2A6E52D20F,Minimalist watch,jewellery,2,9037.00,INR,not_applicable,customer_or_fixture_report
+ITM-1E55DD0605,ORD-ID-390675ef09,SKU-B9C871AAAE,Cookbook,books,1,602.00,INR,not_applicable,customer_or_fixture_report
+ITM-A13F0177C7,ORD-ID-e36448de0f,SKU-ECB8192ACD,Desk lamp,home,1,4026.00,INR,not_applicable,customer_or_fixture_report
+ITM-8E7335E8EE,ORD-ID-61319cc82f,SKU-67B670EC3A,Chef knife,kitchen,1,5797.00,INR,not_applicable,customer_or_fixture_report
+ITM-D8FF63004D,ORD-ID-95b1c3223a,SKU-09D40F485E,Cricket bat,sports,1,1584.00,INR,not_applicable,customer_or_fixture_report
+ITM-258B97E828,ORD-ID-16fbd41a1e,SKU-062BD7D443,Wireless keyboard,office,1,7186.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-958FC67C2F,ORD-ID-70c03780f9,SKU-08AE88EEE3,Travel essays,books,1,614.00,INR,not_applicable,customer_or_fixture_report
+ITM-6C847877BD,ORD-ID-b0d2570b02,SKU-7E0C73B573,Seed starter kit,garden,2,1569.00,INR,not_applicable,customer_or_fixture_report
+ITM-C621A6394E,ORD-ID-4fadbeff41,SKU-A8FBB0B183,Walking shoes,footwear,1,2003.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-799844A22E,ORD-ID-4fadbeff41,SKU-5BE147067A,Hair serum,beauty,3,211.00,INR,not_applicable,customer_or_fixture_report
+ITM-706983EB1F,ORD-ID-be5a24a85b,SKU-58F974C1CB,Watering can,garden,2,3303.00,INR,not_applicable,customer_or_fixture_report
+ITM-FB98229CAF,ORD-ID-35bafbb870,SKU-7BED0D2F12,Ceramic vase,home,1,2110.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-E6D97C987F,ORD-ID-35bafbb870,SKU-44C672CC4F,Pruning shears,garden,1,3993.00,INR,not_applicable,customer_or_fixture_report
+ITM-FCF686CF90,ORD-ID-2cc066a38d,SKU-2AF4CD4D9E,Coffee sampler,grocery,1,602.00,INR,not_applicable,customer_or_fixture_report
+ITM-F16B90E67C,ORD-ID-1cc0ae61d7,SKU-6BF26FC824,Beaded bracelet,jewellery,2,8422.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-275B07090C,ORD-ID-1cc0ae61d7,SKU-E8B071C814,Laptop sleeve,luggage,1,8062.00,INR,not_applicable,customer_or_fixture_report
+ITM-F3EC553C76,ORD-ID-ff1531eb11,SKU-BBC70338BE,Wireless keyboard,office,1,4951.00,INR,not_applicable,customer_or_fixture_report
+ITM-791525A8ED,ORD-ID-962f2201e8,SKU-BFB99F9089,Sunscreen lotion,beauty,1,1568.00,INR,not_applicable,customer_or_fixture_report
+ITM-64119C1C51,ORD-ID-962f2201e8,SKU-845DF28165,Plush animal,toys,1,1633.00,INR,not_applicable,customer_or_fixture_report
+ITM-D8FA0D18FA,ORD-ID-a1a15eae42,SKU-8DFF8EB706,Car phone mount,automotive,1,1816.00,INR,not_applicable,customer_or_fixture_report
+ITM-9ED1078B68,ORD-ID-17a5cde10d,SKU-196B84FA1C,Pendant necklace,jewellery,1,7706.00,INR,not_applicable,customer_or_fixture_report
+ITM-9F99B7D7CD,ORD-ID-95d2d252d6,SKU-A553F02BCE,Yoga mat,sports,1,4604.00,INR,not_applicable,customer_or_fixture_report
+ITM-2886C60BD8,ORD-ID-a0d6d52a8a,SKU-CA792B8B93,Planter set,garden,1,432.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-BB83958660,ORD-ID-18029d8990,SKU-0276FC64D6,Bluetooth speaker,electronics,1,20638.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-31B1A02FC6,ORD-ID-abb924aef0,SKU-C0DA22B151,Watering can,garden,1,2418.00,INR,not_applicable,customer_or_fixture_report
+ITM-C99EA04680,ORD-ID-24cc0454fe,SKU-EF88F053A0,Baby care kit,baby,1,391.00,INR,not_applicable,customer_or_fixture_report
+ITM-199C02AF81,ORD-ID-24cc0454fe,SKU-493B266102,Fountain pen,office,1,4828.00,INR,not_applicable,customer_or_fixture_report
+ITM-C641B11AB5,ORD-ID-a8306b8649,SKU-12AD3C23FD,Cricket bat,sports,1,742.00,INR,not_applicable,customer_or_fixture_report
+ITM-A923CC1AB5,ORD-ID-a7a5b8e1ff,SKU-D0B983D991,Microfibre cleaning kit,automotive,1,1891.00,INR,not_applicable,customer_or_fixture_report
+ITM-11ECC18A81,ORD-ID-80349e1e80,SKU-F6177D28EF,Pendant necklace,jewellery,1,12480.00,INR,not_applicable,customer_or_fixture_report
+ITM-2A3DC1DF47,ORD-ID-1c47869e2d,SKU-C405AAAF8D,Feeding bottle set,baby,1,1368.00,INR,not_applicable,customer_or_fixture_report
+ITM-9BCF18039B,ORD-ID-3da01c128a,SKU-C64691D188,Pruning shears,garden,1,2224.00,INR,not_applicable,customer_or_fixture_report
+ITM-4B71DE21CA,ORD-ID-6cd1229e69,SKU-B9FE290304,Feeding bottle set,baby,1,3263.00,INR,not_applicable,customer_or_fixture_report
+ITM-DEF12813A0,ORD-ID-ede488e96e,SKU-A0ACCD4A2C,Desk fan,home_appliance,1,9857.00,INR,not_applicable,customer_or_fixture_report
+ITM-927086793D,ORD-ID-5c48a7f25c,SKU-C9C3C2946E,Book set,books,1,444.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-C6EA788326,ORD-ID-50e2dccb3b,SKU-4B428DBB3C,Smart watch,electronics,1,21944.00,INR,not_applicable,customer_or_fixture_report
+ITM-26CA35BFEC,ORD-ID-50e2dccb3b,SKU-179191EA2E,Notebook set,office,1,5035.00,INR,not_applicable,customer_or_fixture_report
+ITM-68338828BE,ORD-ID-c6ff146471,SKU-0CE3508211,Cotton bedsheet,home,1,2218.00,INR,not_applicable,customer_or_fixture_report
+ITM-C495BE7907,ORD-ID-c6ff146471,SKU-C4B220AE5C,Minimalist watch,jewellery,1,946.00,INR,not_applicable,customer_or_fixture_report
+ITM-CF44C58E10,ORD-ID-6f1035a989,SKU-635D3EC0CC,Storage basket,home,1,6407.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-4795CEC240,ORD-ID-6f1035a989,SKU-48ABF4DA8F,Desk lamp,home,2,5810.00,INR,not_applicable,customer_or_fixture_report
+ITM-884F74A916,ORD-ID-e44c4234d1,SKU-5691DA221D,Dog lead,pet_supplies,1,3264.00,INR,not_applicable,customer_or_fixture_report
+ITM-2687C7F010,ORD-ID-386c241609,SKU-02CD9D60D4,Glass lunch box,kitchen,1,4978.00,INR,not_applicable,customer_or_fixture_report
+ITM-27D3E45813,ORD-ID-15b7e5e4ea,SKU-778EF9DF93,Travel essays,books,1,1476.00,INR,not_applicable,customer_or_fixture_report
+ITM-BA127C562C,ORD-ID-57a347b11c,SKU-DF422762C9,Seed starter kit,garden,1,3803.00,INR,not_applicable,customer_or_fixture_report
+ITM-3C72A9636B,ORD-ID-d61529fe78,SKU-509CC28F9E,Insulated flask,kitchen,1,1203.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-8150E89394,ORD-ID-a1276a5f23,SKU-E2FA524CE6,Cotton bedsheet,home,1,4243.00,INR,not_applicable,customer_or_fixture_report
+ITM-35F7E74F15,ORD-ID-a1276a5f23,SKU-9FC8E2372E,Tyre inflator,automotive,1,8637.00,INR,not_applicable,customer_or_fixture_report
+ITM-69AF00C3C4,ORD-ID-92c07d4a9f,SKU-CCA2855169,Ceramic vase,home,1,2518.00,INR,not_applicable,customer_or_fixture_report
+ITM-3603F8731A,ORD-ID-411e3c05f1,SKU-3B95247845,Resistance bands,sports,1,5221.00,INR,not_applicable,customer_or_fixture_report
+ITM-023F27BB51,ORD-ID-6fe7177258,SKU-0D4AC0CD4E,Coffee sampler,grocery,1,2285.00,INR,not_applicable,customer_or_fixture_report
+ITM-93E861BE64,ORD-ID-47c75da789,SKU-D145DDB57E,Children's story collection,books,1,2472.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-CF2BDCB4B0,ORD-ID-47c75da789,SKU-0F541DF382,Mixer grinder,home_appliance,2,5720.00,INR,not_applicable,customer_or_fixture_report
+ITM-8E74F3F3BE,ORD-ID-91a0d45f3c,SKU-35CE32D246,Document organiser,office,1,5417.00,INR,not_applicable,customer_or_fixture_report
+ITM-9C060D9940,ORD-ID-4808f12c50,SKU-9399F4775C,Coffee sampler,grocery,1,1793.00,INR,not_applicable,customer_or_fixture_report
+ITM-43D18216AC,ORD-ID-2b0d1b833f,SKU-F29B0B27D6,Ceramic vase,home,1,4776.00,INR,not_applicable,customer_or_fixture_report
+ITM-EE7588C3C7,ORD-ID-27fa592fec,SKU-832B048087,Hair serum,beauty,1,3695.00,INR,not_applicable,customer_or_fixture_report
+ITM-BB435A7E78,ORD-ID-6515387c7a,SKU-4C0B5BE04D,Packing cube set,luggage,1,1277.00,INR,not_applicable,customer_or_fixture_report
+ITM-4235F183FF,ORD-ID-c47e87a74c,SKU-9DA1DE803C,Snack variety box,grocery,1,2065.00,INR,not_applicable,customer_or_fixture_report
+ITM-A692039C6F,ORD-ID-d197a51beb,SKU-B1893F8D87,Denim jacket,clothing,1,1055.00,INR,not_applicable,customer_or_fixture_report
+ITM-F746AF923C,ORD-ID-1a70ffb713,SKU-F6AEA152F9,Cat scratcher,pet_supplies,1,4188.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-4331232335,ORD-ID-f6af053902,SKU-CAC5B1AE15,Storage basket,home,1,4509.00,INR,not_applicable,customer_or_fixture_report
+ITM-B07206068F,ORD-ID-5e665fd591,SKU-B153E8BD16,Sunscreen lotion,beauty,1,2101.00,INR,not_applicable,customer_or_fixture_report
+ITM-972933D473,ORD-ID-5e665fd591,SKU-6748919B39,Minimalist watch,jewellery,1,8149.00,INR,not_applicable,customer_or_fixture_report
+ITM-F9387BE813,ORD-ID-bc5327cbda,SKU-EAAD0CF53F,Seed starter kit,garden,1,2872.00,INR,not_applicable,customer_or_fixture_report
+ITM-FC3FC82CC6,ORD-ID-bc5327cbda,SKU-CFA8018E73,Coffee sampler,grocery,1,568.00,INR,not_applicable,customer_or_fixture_report
+ITM-E1C3123AC0,ORD-ID-291178f052,SKU-F9072DEE18,Silver-plated earrings,jewellery,2,5801.00,INR,not_applicable,customer_or_fixture_report
+ITM-8131000F3A,ORD-ID-093be8f89e,SKU-486C60C07C,Noise-cancelling headphones,electronics,1,21223.00,INR,not_applicable,customer_or_fixture_report
+ITM-8A16EB4910,ORD-ID-fef0562a36,SKU-FF95433541,Walking shoes,footwear,1,6935.00,INR,not_applicable,customer_or_fixture_report
+ITM-9B61617397,ORD-ID-06f08f071a,SKU-A38105298B,Minimalist watch,jewellery,1,11883.00,INR,not_applicable,customer_or_fixture_report
+ITM-F2AA7A017B,ORD-ID-8e03486fa8,SKU-1831809203,Denim jacket,clothing,1,3317.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-2DA43096A1,ORD-ID-863b83b8d6,SKU-61F11F6A57,Storage basket,home,1,3198.00,INR,not_applicable,customer_or_fixture_report
+ITM-3BF75A924A,ORD-ID-863b83b8d6,SKU-129BEEB5C4,Yoga mat,sports,2,5489.00,INR,not_applicable,customer_or_fixture_report
+ITM-A7D702FBA5,ORD-ID-863b83b8d6,SKU-14FC74BA5B,Art activity kit,toys,1,4909.00,INR,not_applicable,customer_or_fixture_report
+ITM-A07856955D,ORD-ID-a30899ae55,SKU-79923AB67A,Insulated flask,kitchen,1,575.00,INR,not_applicable,customer_or_fixture_report
+ITM-59C5D27ED5,ORD-ID-799720e191,SKU-40FFCDF547,Noise-cancelling headphones,electronics,1,9415.00,INR,not_applicable,customer_or_fixture_report
+ITM-8AE9E05F99,ORD-ID-6a92a0fb79,SKU-290D800784,Fountain pen,office,1,2330.00,INR,not_applicable,customer_or_fixture_report
+ITM-55A9F4303B,ORD-ID-6a92a0fb79,SKU-B887FC96B4,Hand blender,home_appliance,1,8754.00,INR,not_applicable,customer_or_fixture_report
+ITM-BCAB04E019,ORD-ID-a7d4227aaa,SKU-DDABB1B80F,Fountain pen,office,1,2942.00,INR,not_applicable,customer_or_fixture_report
+ITM-3A97CCD1A7,ORD-ID-adf8c03d63,SKU-865CC97CCF,Cotton kurta,clothing,1,2916.00,INR,not_applicable,customer_or_fixture_report
+ITM-68102B88D1,ORD-ID-d35eb7c639,SKU-72A3E10ECE,Air fryer,home_appliance,1,13629.00,INR,not_applicable,customer_or_fixture_report
+ITM-C2DE243DCC,ORD-ID-d35eb7c639,SKU-65BB9D8BC8,Pruning shears,garden,1,4399.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B267EE17F,ORD-ID-6cc83dc624,SKU-2FE7D56562,Watering can,garden,1,4059.00,INR,not_applicable,customer_or_fixture_report
+ITM-F0A1EEB1CD,ORD-ID-3f43409cf3,SKU-9A15051E46,Cricket bat,sports,1,1247.00,INR,not_applicable,customer_or_fixture_report
+ITM-F7D05E41DE,ORD-ID-7cb038e415,SKU-DFA01E74D1,Bluetooth speaker,electronics,1,4916.00,INR,not_applicable,customer_or_fixture_report
+ITM-93E24A836C,ORD-ID-ef97d162e7,SKU-0DDAEF42A1,Canvas sneakers,footwear,1,1274.00,INR,not_applicable,customer_or_fixture_report
+ITM-698CE998B1,ORD-ID-ef97d162e7,SKU-38B6E6299D,Laptop sleeve,luggage,1,7890.00,INR,not_applicable,customer_or_fixture_report
+ITM-91A357BFA1,ORD-ID-506ec79285,SKU-ADD98E2B4C,Face moisturiser,beauty,1,2221.00,INR,not_applicable,customer_or_fixture_report
+ITM-01F5483C87,ORD-ID-03820daec5,SKU-98437C9398,Watering can,garden,1,2219.00,INR,not_applicable,customer_or_fixture_report
+ITM-6402583AA9,ORD-ID-03820daec5,SKU-7BFA8F5CFC,Board game,toys,1,3063.00,INR,not_applicable,customer_or_fixture_report
+ITM-13FACE3493,ORD-ID-5abcaa5aa0,SKU-063CC76865,Book set,books,3,210.00,INR,not_applicable,customer_or_fixture_report
+ITM-991BD0BDDE,ORD-ID-a812230301,SKU-75DE64F279,Cotton bedsheet,home,2,1502.00,INR,not_applicable,customer_or_fixture_report
+ITM-EAE581BFC8,ORD-ID-5b52fb0dcd,SKU-D5161E34B4,Resistance bands,sports,1,3684.00,INR,not_applicable,customer_or_fixture_report
+ITM-69385C38B3,ORD-ID-8fb199d810,SKU-DE7A46DD44,Cabin backpack,luggage,1,6659.00,INR,not_applicable,customer_or_fixture_report
+ITM-CF6C98FB5A,ORD-ID-2117b1ddc7,SKU-EB933CBFF4,Art activity kit,toys,2,422.00,INR,not_applicable,customer_or_fixture_report
+ITM-C9E23E785E,ORD-ID-fd5cc2a9eb,SKU-00C365F1FE,Leather sandals,footwear,1,5447.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-28802D9C04,ORD-ID-a2f370fbfe,SKU-00DC253233,Wireless mouse,electronics,1,1944.00,INR,not_applicable,customer_or_fixture_report
+ITM-35A07999C5,ORD-ID-6119d6a646,SKU-4DFFA71105,Organic tea pack,grocery,1,1388.00,INR,not_applicable,customer_or_fixture_report
+ITM-57B6BB46F0,ORD-ID-6173bf4a88,SKU-B759820C32,Seat organiser,automotive,2,417.00,INR,not_applicable,customer_or_fixture_report
+ITM-26AA2CD39D,ORD-ID-16f7205aea,SKU-AA34581660,Face moisturiser,beauty,1,704.00,INR,not_applicable,customer_or_fixture_report
+ITM-1D34B418CE,ORD-ID-af68c832e1,SKU-B59A3B660E,Leather sandals,footwear,1,6396.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA32498EBA,ORD-ID-5b8bfdcfb9,SKU-07F4B0B8FA,Car phone mount,automotive,1,1314.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-201E9D2F3B,ORD-ID-3eba7d707f,SKU-B2DEEBE35F,Printed saree,clothing,3,1103.00,INR,not_applicable,customer_or_fixture_report
+ITM-A0056A2003,ORD-ID-3eba7d707f,SKU-0BD16F97D5,Plush animal,toys,1,4870.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFBF76925C,ORD-ID-589f7620e0,SKU-58504EA024,Running shoes,footwear,1,5099.00,INR,not_applicable,customer_or_fixture_report
+ITM-DACA8395FF,ORD-ID-0007fcbee9,SKU-9789193BDA,Feeding bottle set,baby,1,3785.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-56CD48BF48,ORD-ID-e36d0412f0,SKU-BF0870C5AB,Minimalist watch,jewellery,1,7924.00,INR,not_applicable,customer_or_fixture_report
+ITM-200E4D9BB5,ORD-ID-94013ef951,SKU-8D88450BC3,Mixer grinder,home_appliance,1,15164.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-9CD243E1E2,ORD-ID-81aeabcc07,SKU-D0F96000CB,Board game,toys,1,2987.00,INR,not_applicable,customer_or_fixture_report
+ITM-082B4A3AF4,ORD-ID-f6eab1cb81,SKU-DA65983F12,Insulated flask,kitchen,1,8147.00,INR,not_applicable,customer_or_fixture_report
+ITM-0E988D1687,ORD-ID-f6eab1cb81,SKU-BCDC857176,Wireless keyboard,office,1,2084.00,INR,not_applicable,customer_or_fixture_report
+ITM-BDDFA06E2C,ORD-ID-f6eab1cb81,SKU-228D114EA7,Pruning shears,garden,1,4130.00,INR,not_applicable,customer_or_fixture_report
+ITM-E0D4A8D248,ORD-ID-d6e743f7aa,SKU-69ACF9DADC,Sunscreen lotion,beauty,1,3709.00,INR,not_applicable,customer_or_fixture_report
+ITM-F2C7FC297F,ORD-ID-081ae0c685,SKU-96F7875B1F,Running shoes,footwear,1,1464.00,INR,not_applicable,customer_or_fixture_report
+ITM-A208101DFD,ORD-ID-c1bba99046,SKU-B832B670E5,Steel cookware set,kitchen,2,2958.00,INR,not_applicable,customer_or_fixture_report
+ITM-ECC4BD326C,ORD-ID-c1bba99046,SKU-ADC929EADC,Desk lamp,home,1,5912.00,INR,not_applicable,customer_or_fixture_report
+ITM-002976FB89,ORD-ID-c2add62e28,SKU-9E8C301B36,Hand blender,home_appliance,1,11583.00,INR,not_applicable,customer_or_fixture_report
+ITM-5D61F01ACA,ORD-ID-c2add62e28,SKU-94AD8D8C0E,Glass lunch box,kitchen,1,4437.00,INR,not_applicable,customer_or_fixture_report
+ITM-6C43ABBE93,ORD-ID-9bc237555d,SKU-615C312064,Cabin backpack,luggage,1,10891.00,INR,not_applicable,customer_or_fixture_report
+ITM-A6AA27888F,ORD-ID-2a56d83e59,SKU-9CC8285779,Insulated flask,kitchen,1,7957.00,INR,not_applicable,customer_or_fixture_report
+ITM-A60FB27846,ORD-ID-2a56d83e59,SKU-2EB66B616E,Table organiser,home,1,1059.00,INR,not_applicable,customer_or_fixture_report
+ITM-C184645D12,ORD-ID-240ff308f2,SKU-14E00DA320,Organic tea pack,grocery,1,718.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-1855290E79,ORD-ID-ab0b837926,SKU-4B87E49329,Wireless keyboard,office,1,7826.00,INR,not_applicable,customer_or_fixture_report
+ITM-5F863D04F8,ORD-ID-e95a9f0bc9,SKU-D8B0C79CB5,Packing cube set,luggage,1,12384.00,INR,not_applicable,customer_or_fixture_report
+ITM-4623DE5C7A,ORD-ID-5b408efc4b,SKU-DE30E358E3,Plush animal,toys,1,1317.00,INR,not_applicable,customer_or_fixture_report
+ITM-E9729C369C,ORD-ID-73b49d1c32,SKU-7BD6008EBD,Noise-cancelling headphones,electronics,1,20921.00,INR,not_applicable,customer_or_fixture_report
+ITM-FF9A8849A0,ORD-ID-958417061c,SKU-CF88ED56C6,Pet grooming brush,pet_supplies,1,2427.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-ED6B850814,ORD-ID-04ff46c9c9,SKU-D222083822,Organic tea pack,grocery,1,2949.00,INR,not_applicable,customer_or_fixture_report
+ITM-7BFF5CB3C3,ORD-ID-ef84f7001f,SKU-BC3590F42A,Travel essays,books,1,2148.00,INR,not_applicable,customer_or_fixture_report
+ITM-66A5560196,ORD-ID-ef84f7001f,SKU-DD15B8FF5C,Resistance bands,sports,1,4945.00,INR,not_applicable,customer_or_fixture_report
+ITM-1A0B2F455C,ORD-ID-7f9037293d,SKU-8326A3F5D4,Storage basket,home,1,424.00,INR,not_applicable,customer_or_fixture_report
+ITM-910DC31818,ORD-ID-62507e10d0,SKU-C9CD3C214E,Plush animal,toys,1,4457.00,INR,not_applicable,customer_or_fixture_report
+ITM-5D6048E6A5,ORD-ID-cc90191855,SKU-865A588709,Cotton baby blanket,baby,1,1522.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-93D1DC7CC2,ORD-ID-bd51b9ede0,SKU-CA54749F8B,Face moisturiser,beauty,1,3563.00,INR,not_applicable,customer_or_fixture_report
+ITM-48E6F7BAC4,ORD-ID-bd51b9ede0,SKU-26D6EA66CC,Hand blender,home_appliance,2,18291.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1B6503869,ORD-ID-17ca9873c4,SKU-9067B539D0,USB-C charger,electronics,1,4637.00,INR,not_applicable,customer_or_fixture_report
+ITM-E3826138BE,ORD-ID-0a45a9ccd2,SKU-18EA7FB41F,Cotton baby blanket,baby,1,5578.00,INR,not_applicable,customer_or_fixture_report
+ITM-FE1C21839A,ORD-ID-f64eed18c8,SKU-F8E7E01401,Art activity kit,toys,1,811.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-BC8F212DA3,ORD-ID-422558b297,SKU-D6B4250CA7,Soft toy,baby,1,5541.00,INR,not_applicable,customer_or_fixture_report
+ITM-7419F15924,ORD-ID-d99d78b99d,SKU-93A7762465,Dog lead,pet_supplies,1,4899.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-D49A096DBA,ORD-ID-3cc7a8ff3d,SKU-A6D7FFB3ED,Cricket bat,sports,1,6186.00,INR,not_applicable,customer_or_fixture_report
+ITM-D6F4DA4601,ORD-ID-936bf2ef96,SKU-B66A7E50B0,Electric kettle,home_appliance,1,3775.00,INR,not_applicable,customer_or_fixture_report
+ITM-F2C3686E9F,ORD-ID-1ad804fc90,SKU-B82DC277AB,Packing cube set,luggage,1,2198.00,INR,not_applicable,customer_or_fixture_report
+ITM-C1BFB15F1A,ORD-ID-25f87d9131,SKU-2DD878A15A,Glass lunch box,kitchen,1,2960.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFFC1DA7ED,ORD-ID-1a64a178e4,SKU-D02F643B7D,Smart watch,electronics,1,17154.00,INR,not_applicable,customer_or_fixture_report
+ITM-A4D07C32CE,ORD-ID-8bfdf99a01,SKU-2F7FA5EDCF,Travel duffel,luggage,1,3509.00,INR,not_applicable,customer_or_fixture_report
+ITM-924740E94A,ORD-ID-62cd65f387,SKU-4EA20E5EF8,Face moisturiser,beauty,1,1906.00,INR,not_applicable,customer_or_fixture_report
+ITM-8E249F1103,ORD-ID-e6c8c6770f,SKU-C2483150B6,Cat scratcher,pet_supplies,1,4584.00,INR,not_applicable,customer_or_fixture_report
+ITM-64E768376A,ORD-ID-c17f10b83c,SKU-C04BF53C93,Art activity kit,toys,1,528.00,INR,not_applicable,customer_or_fixture_report
+ITM-43615D442F,ORD-ID-c17f10b83c,SKU-3FB44810F6,Printed saree,clothing,2,2339.00,INR,not_applicable,customer_or_fixture_report
+ITM-218200C41D,ORD-ID-ae60d18f4f,SKU-E1176F4E79,Book set,books,1,2049.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E7C718530,ORD-ID-ae60d18f4f,SKU-BD61228A95,Cotton bedsheet,home,2,1163.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA5FCA53DB,ORD-ID-05f06f538b,SKU-2C47359AE4,Children's story collection,books,1,1242.00,INR,not_applicable,customer_or_fixture_report
+ITM-DA08146267,ORD-ID-05f06f538b,SKU-D2AFB20D09,Minimalist watch,jewellery,1,9090.00,INR,not_applicable,customer_or_fixture_report
+ITM-60E44A551F,ORD-ID-05f06f538b,SKU-09A030FF1A,Steel cookware set,kitchen,1,4555.00,INR,not_applicable,customer_or_fixture_report
+ITM-44826722B1,ORD-ID-e8627ec824,SKU-2401E78CAC,Book set,books,1,276.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-256704F311,ORD-ID-5781b2f030,SKU-9CB037D823,Insulated flask,kitchen,1,1906.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-9FA4A03A31,ORD-ID-390dc07cbe,SKU-9648D35940,Smart watch,electronics,1,18309.00,INR,not_applicable,customer_or_fixture_report
+ITM-D32E3B0CAA,ORD-ID-80e46a449d,SKU-04E63573D3,Ceramic vase,home,1,3736.00,INR,not_applicable,customer_or_fixture_report
+ITM-6850E912E4,ORD-ID-80e46a449d,SKU-4BC88BB1B5,Children's story collection,books,1,1641.00,INR,not_applicable,customer_or_fixture_report
+ITM-10D40DF575,ORD-ID-0ec59e8bd7,SKU-4E8C9B3906,Car phone mount,automotive,1,1003.00,INR,not_applicable,customer_or_fixture_report
+ITM-D42BEAF6D8,ORD-ID-db5f6c2876,SKU-0A1615535F,Wireless keyboard,office,1,1265.00,INR,not_applicable,customer_or_fixture_report
+ITM-CBA27A75A3,ORD-ID-81560fa141,SKU-E1DAE91D0C,Car phone mount,automotive,1,4608.00,INR,not_applicable,customer_or_fixture_report
+ITM-9F12A5613D,ORD-ID-f6fa7cbaae,SKU-7531C579D3,Cat scratcher,pet_supplies,1,2644.00,INR,not_applicable,customer_or_fixture_report
+ITM-42CF383F28,ORD-ID-6a0d7a90f6,SKU-5CF759BB7F,Denim jacket,clothing,1,3247.00,INR,not_applicable,customer_or_fixture_report
+ITM-EEA0FA4EEF,ORD-ID-aec29a03ca,SKU-628FB6B3A9,Yoga mat,sports,1,7690.00,INR,not_applicable,customer_or_fixture_report
+ITM-2DB0C7FFE2,ORD-ID-68db344396,SKU-C34FC677AF,Tyre inflator,automotive,2,3479.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA207350EB,ORD-ID-cd89b32c3c,SKU-2D017F9090,Mixer grinder,home_appliance,1,12168.00,INR,not_applicable,customer_or_fixture_report
+ITM-7D2F21BF90,ORD-ID-bb011803a1,SKU-6FBCD50C25,Cabin backpack,luggage,1,1241.00,INR,not_applicable,customer_or_fixture_report
+ITM-1A07F6B1F3,ORD-ID-0c7bd104f2,SKU-0F1B4074BB,Sunscreen lotion,beauty,1,3095.00,INR,not_applicable,customer_or_fixture_report
+ITM-3426BD54E5,ORD-ID-845053af9f,SKU-CD4B7F4FEB,Minimalist watch,jewellery,1,7300.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AC25476D1,ORD-ID-7ff472e8c4,SKU-056589A8A9,Pet travel bowl,pet_supplies,1,4143.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-0EE8F0D92B,ORD-ID-a231e59d20,SKU-D46D221338,Canvas sneakers,footwear,1,2015.00,INR,not_applicable,customer_or_fixture_report
+ITM-CBBBB4D0A4,ORD-ID-d2c860b456,SKU-6707CEF3D5,Bluetooth speaker,electronics,1,8619.00,INR,not_applicable,customer_or_fixture_report
+ITM-345908C5AF,ORD-ID-025fc3be0f,SKU-E44FC3990A,Microfibre cleaning kit,automotive,1,6795.00,INR,not_applicable,customer_or_fixture_report
+ITM-8AD2DF01BA,ORD-ID-0ecfdb5657,SKU-5A733CA2FF,Hair serum,beauty,1,2709.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B1BAB4010,ORD-ID-9e8a26390e,SKU-B2A76C2273,Document organiser,office,1,1150.00,INR,not_applicable,customer_or_fixture_report
+ITM-00B3638F1A,ORD-ID-fcde96ea0f,SKU-C77F81E2C2,Canvas sneakers,footwear,1,5994.00,INR,not_applicable,customer_or_fixture_report
+ITM-81FFF99A41,ORD-ID-fcde96ea0f,SKU-4C6112E0CA,Board game,toys,1,4166.00,INR,not_applicable,customer_or_fixture_report
+ITM-43F16FF19D,ORD-ID-a1dcad914a,SKU-8AD2AADBCC,Wireless keyboard,office,2,5411.00,INR,not_applicable,customer_or_fixture_report
+ITM-D263CDF6C0,ORD-ID-5ae3866ac7,SKU-CDB5AC2DF4,USB-C charger,electronics,1,24599.00,INR,not_applicable,customer_or_fixture_report
+ITM-E4E683CC64,ORD-ID-04938758d6,SKU-86BA878561,Printed saree,clothing,1,3821.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEF90042AE,ORD-ID-dde2c5db2f,SKU-C4B6607D4F,Car phone mount,automotive,1,4204.00,INR,not_applicable,customer_or_fixture_report
+ITM-F4C7B36A78,ORD-ID-37bc5a040a,SKU-6F229D1AF3,Board game,toys,1,4068.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E0F956D22,ORD-ID-37bc5a040a,SKU-B9045197F0,Cotton baby blanket,baby,2,6173.00,INR,not_applicable,customer_or_fixture_report
+ITM-ADD2591596,ORD-ID-ead039e00f,SKU-383355A6FF,Denim jacket,clothing,1,1413.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-12D716122A,ORD-ID-ead039e00f,SKU-8A7E80CA61,Snack variety box,grocery,1,1383.00,INR,not_applicable,customer_or_fixture_report
+ITM-F81000CE78,ORD-ID-ead039e00f,SKU-5960540608,Car phone mount,automotive,1,2513.00,INR,not_applicable,customer_or_fixture_report
+ITM-939B3F87B7,ORD-ID-ab6d989487,SKU-D347799C50,Art activity kit,toys,1,1280.00,INR,not_applicable,customer_or_fixture_report
+ITM-D7C3B7926D,ORD-ID-be585d87ac,SKU-31241C3BC4,Travel duffel,luggage,1,4274.00,INR,not_applicable,customer_or_fixture_report
+ITM-6F8789503B,ORD-ID-be585d87ac,SKU-AE4D69CCBE,Chef knife,kitchen,2,4835.00,INR,not_applicable,customer_or_fixture_report
+ITM-671FB8AC89,ORD-ID-fdc7775808,SKU-03EEE1227E,Pet grooming brush,pet_supplies,1,484.00,INR,not_applicable,customer_or_fixture_report
+ITM-7CE5DE0EA0,ORD-ID-fdc7775808,SKU-B0E06EB8CC,Watering can,garden,1,4309.00,INR,not_applicable,customer_or_fixture_report
+ITM-2C9F34B533,ORD-ID-eac94d2cd2,SKU-E62B453817,Cotton baby blanket,baby,1,2473.00,INR,not_applicable,customer_or_fixture_report
+ITM-258A0B0A23,ORD-ID-eac94d2cd2,SKU-4DC95AACDF,Book set,books,1,227.00,INR,not_applicable,customer_or_fixture_report
+ITM-4DB1A9FFBB,ORD-ID-0eb7edad75,SKU-D2BBB9A26D,USB-C charger,electronics,1,23901.00,INR,not_applicable,customer_or_fixture_report
+ITM-140F6D716D,ORD-ID-48e6c0d55c,SKU-947F97E2C8,Cotton bedsheet,home,1,693.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-5A6BFFC776,ORD-ID-f3211bc708,SKU-07EDE6ECEB,Pet travel bowl,pet_supplies,1,2194.00,INR,not_applicable,customer_or_fixture_report
+ITM-39E4E027A1,ORD-ID-f3211bc708,SKU-6CB457218F,Book set,books,1,1995.00,INR,not_applicable,customer_or_fixture_report
+ITM-69E5FF6C5C,ORD-ID-22fd3adc16,SKU-117D384250,Walking shoes,footwear,1,3037.00,INR,not_applicable,customer_or_fixture_report
+ITM-DC1958E4AA,ORD-ID-6f204048c4,SKU-09D267E67C,Travel essays,books,1,1797.00,INR,not_applicable,customer_or_fixture_report
+ITM-4BF222C163,ORD-ID-86d886d0eb,SKU-425005B53E,Cotton kurta,clothing,1,820.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-C9AB429FDC,ORD-ID-86d886d0eb,SKU-422CB66B82,Dog lead,pet_supplies,2,546.00,INR,not_applicable,customer_or_fixture_report
+ITM-DD665275E4,ORD-ID-b5ae59ab71,SKU-1113F51EE0,Pet grooming brush,pet_supplies,1,281.00,INR,not_applicable,customer_or_fixture_report
+ITM-9726823F35,ORD-ID-185c8c5611,SKU-BAC671BA7E,Travel essays,books,1,1453.00,INR,not_applicable,customer_or_fixture_report
+ITM-45C354C15A,ORD-ID-4b7d35246a,SKU-04C1B42DC3,Seat organiser,automotive,1,1180.00,INR,not_applicable,customer_or_fixture_report
+ITM-B55AAE0DB9,ORD-ID-36b1326c55,SKU-E1660233E9,Seed starter kit,garden,1,4724.00,INR,not_applicable,customer_or_fixture_report
+ITM-A4414DFFCE,ORD-ID-e4910a54f9,SKU-9412E63D2E,Steel cookware set,kitchen,1,7896.00,INR,not_applicable,customer_or_fixture_report
+ITM-588848B70E,ORD-ID-2af71f4cc4,SKU-8111271D18,USB-C charger,electronics,1,16491.00,INR,not_applicable,customer_or_fixture_report
+ITM-C39062F734,ORD-ID-bac5d66734,SKU-3E7A6D96B2,Smart watch,electronics,1,24936.00,INR,not_applicable,customer_or_fixture_report
+ITM-30E8B3CA96,ORD-ID-bac5d66734,SKU-6D8F10A7D0,Smart watch,electronics,1,23297.00,INR,not_applicable,customer_or_fixture_report
+ITM-FB3508C29C,ORD-ID-bac5d66734,SKU-5484B341A4,Soft toy,baby,1,3453.00,INR,not_applicable,customer_or_fixture_report
+ITM-A0CD16993F,ORD-ID-ed286add6a,SKU-1858037713,Book set,books,1,455.00,INR,not_applicable,customer_or_fixture_report
+ITM-705BA8BFCC,ORD-ID-b8213edb46,SKU-6B88E4191C,Cotton baby blanket,baby,1,3107.00,INR,not_applicable,customer_or_fixture_report
+ITM-84EDFEAE4D,ORD-ID-8c88eee287,SKU-1542947F7A,Noise-cancelling headphones,electronics,1,18692.00,INR,not_applicable,customer_or_fixture_report
+ITM-9BB63013F6,ORD-ID-8231fc71ee,SKU-9BEFB77E4A,Running shorts,clothing,1,3429.00,INR,not_applicable,customer_or_fixture_report
+ITM-952533A337,ORD-ID-8231fc71ee,SKU-D6386AFA5D,Document organiser,office,2,1226.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A65C4740C,ORD-ID-2fec15a806,SKU-C0CF06DA03,Laptop sleeve,luggage,1,7273.00,INR,not_applicable,customer_or_fixture_report
+ITM-497635C0DF,ORD-ID-a9b95ecc45,SKU-8027C1BC02,Tyre inflator,automotive,1,5582.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-8FCC6673B4,ORD-ID-228f87bcc5,SKU-8B1939D006,Fountain pen,office,1,4499.00,INR,not_applicable,customer_or_fixture_report
+ITM-280E883829,ORD-ID-fcfbb84c9d,SKU-35CE698633,Running shoes,footwear,1,2108.00,INR,not_applicable,customer_or_fixture_report
+ITM-820D8C58DC,ORD-ID-ef0c8067b9,SKU-288E63D43A,Face moisturiser,beauty,1,839.00,INR,not_applicable,customer_or_fixture_report
+ITM-253DEF821F,ORD-ID-4f33157118,SKU-41A9602500,Cookbook,books,1,1757.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-06BB85F6A3,ORD-ID-280a181a30,SKU-1EB995B1B8,Children's story collection,books,1,2059.00,INR,not_applicable,customer_or_fixture_report
+ITM-8E44E6FC18,ORD-ID-a5ce8da919,SKU-F7B0286F10,Electric kettle,home_appliance,1,7114.00,INR,not_applicable,customer_or_fixture_report
+ITM-69D42FCBA3,ORD-ID-fcdc010710,SKU-24EFEEA4B6,Planter set,garden,1,1445.00,INR,not_applicable,customer_or_fixture_report
+ITM-CDC87B291C,ORD-ID-a0562fb9c2,SKU-98CB8E7DF3,Feeding bottle set,baby,1,3021.00,INR,not_applicable,customer_or_fixture_report
+ITM-6F25C67B3F,ORD-ID-5a5e896660,SKU-68F707E771,Resistance bands,sports,1,6578.00,INR,not_applicable,customer_or_fixture_report
+ITM-6EB03F3C1A,ORD-ID-1731f4251d,SKU-FB2DC844A7,Tyre inflator,automotive,1,4071.00,INR,not_applicable,customer_or_fixture_report
+ITM-CD1688EC16,ORD-ID-1731f4251d,SKU-2A1B25AD0C,Insulated flask,kitchen,1,487.00,INR,not_applicable,customer_or_fixture_report
+ITM-9A8AEA3375,ORD-ID-3e09f39240,SKU-ABD01B9739,Cabin backpack,luggage,1,1458.00,INR,not_applicable,customer_or_fixture_report
+ITM-65F82E9FA6,ORD-ID-da968bac63,SKU-D563282FEA,Wireless mouse,electronics,1,3240.00,INR,not_applicable,customer_or_fixture_report
+ITM-31B2CA6E92,ORD-ID-9b154277d7,SKU-8A3A7D3DBF,Wireless mouse,electronics,3,13466.00,INR,not_applicable,customer_or_fixture_report
+ITM-D6494149B3,ORD-ID-9d356984ae,SKU-79B3CF556B,Building blocks,toys,2,4418.00,INR,not_applicable,customer_or_fixture_report
+ITM-6339336AEE,ORD-ID-c77c0c07b0,SKU-CEEC1D4819,Pruning shears,garden,1,4763.00,INR,not_applicable,customer_or_fixture_report
+ITM-67BDCBC3FD,ORD-ID-c77c0c07b0,SKU-0DB1D8F4FE,Hair serum,beauty,1,3206.00,INR,not_applicable,customer_or_fixture_report
+ITM-2955981711,ORD-ID-d55a7cf93a,SKU-4331BDE0AC,Hand blender,home_appliance,1,6333.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA154FBA18,ORD-ID-faee9b80b2,SKU-B9EF18DBFF,Yoga mat,sports,1,947.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA0AA3FB51,ORD-ID-41b85e905f,SKU-4727316AC5,Travel duffel,luggage,1,10229.00,INR,not_applicable,customer_or_fixture_report
+ITM-096B93D208,ORD-ID-3687e68267,SKU-CE537A7D07,Wireless keyboard,office,1,1377.00,INR,not_applicable,customer_or_fixture_report
+ITM-454CACB82E,ORD-ID-9325df60c6,SKU-6A4011249F,Coffee sampler,grocery,3,2483.00,INR,not_applicable,customer_or_fixture_report
+ITM-88E6C627F2,ORD-ID-b98aded4f7,SKU-56AE56D3E7,Laptop sleeve,luggage,1,3592.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-A49B52D965,ORD-ID-b98aded4f7,SKU-98BF92FF86,Resistance bands,sports,1,1554.00,INR,not_applicable,customer_or_fixture_report
+ITM-88F00A4DB7,ORD-ID-2df698db65,SKU-18DB56C8BC,Resistance bands,sports,1,4142.00,INR,not_applicable,customer_or_fixture_report
+ITM-D510F6C12F,ORD-ID-95304ee100,SKU-E6F99D466F,Travel duffel,luggage,2,11228.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B2366A958,ORD-ID-d2f6e8555d,SKU-8FEB6F6233,Pendant necklace,jewellery,1,8172.00,INR,not_applicable,customer_or_fixture_report
+ITM-B634FE477F,ORD-ID-d83d9c5d54,SKU-B761B1BEDC,Desk fan,home_appliance,1,11733.00,INR,not_applicable,customer_or_fixture_report
+ITM-30F815A2F9,ORD-ID-bffa31d973,SKU-52C7C1B382,Snack variety box,grocery,1,2173.00,INR,not_applicable,customer_or_fixture_report
+ITM-66620F024B,ORD-ID-b5e1138677,SKU-015D105F83,Dry fruit assortment,grocery,1,963.00,INR,not_applicable,customer_or_fixture_report
+ITM-47133A306B,ORD-ID-b5e1138677,SKU-00BDB0943E,Pruning shears,garden,1,1527.00,INR,not_applicable,customer_or_fixture_report
+ITM-CD771AAD09,ORD-ID-7d854cb6f2,SKU-B1D76DD8C8,Document organiser,office,1,8626.00,INR,not_applicable,customer_or_fixture_report
+ITM-C4EE8AAFB3,ORD-ID-7d854cb6f2,SKU-DCF6BAFE9A,Ceramic vase,home,1,1125.00,INR,not_applicable,customer_or_fixture_report
+ITM-7AD829692F,ORD-ID-6569e9851c,SKU-F56ACF3733,Fountain pen,office,2,2298.00,INR,not_applicable,customer_or_fixture_report
+ITM-863348D3D4,ORD-ID-27c7713fba,SKU-66D9857467,Desk lamp,home,2,1286.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-99C8EF4C2B,ORD-ID-2f15773775,SKU-59405ACC12,Document organiser,office,1,4933.00,INR,not_applicable,customer_or_fixture_report
+ITM-815610242A,ORD-ID-2caccce97c,SKU-D87CB2071B,Storage basket,home,1,768.00,INR,not_applicable,customer_or_fixture_report
+ITM-088E964F01,ORD-ID-2caccce97c,SKU-6A3D24C55E,Pruning shears,garden,1,1634.00,INR,not_applicable,customer_or_fixture_report
+ITM-F55232589A,ORD-ID-957ca3192f,SKU-F4CFB89398,Electric kettle,home_appliance,1,6778.00,INR,not_applicable,customer_or_fixture_report
+ITM-6274031604,ORD-ID-cc2c5c7fb7,SKU-3C98420DA9,Cabin backpack,luggage,1,6648.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-E37B042293,ORD-ID-6098580c72,SKU-392767F6B8,Hand blender,home_appliance,1,12231.00,INR,not_applicable,customer_or_fixture_report
+ITM-3D483901B3,ORD-ID-b34e22b066,SKU-7A2FDFD279,Steel cookware set,kitchen,1,4940.00,INR,not_applicable,customer_or_fixture_report
+ITM-C77202FF61,ORD-ID-b34e22b066,SKU-BCA07A9412,Cotton baby blanket,baby,1,1896.00,INR,not_applicable,customer_or_fixture_report
+ITM-7400D9D8E9,ORD-ID-e8ddf19c6a,SKU-4EF9D307FA,Plush animal,toys,1,2621.00,INR,not_applicable,customer_or_fixture_report
+ITM-AC88F221BC,ORD-ID-c48e63f5d2,SKU-316DF7F725,Noise-cancelling headphones,electronics,1,13330.00,INR,not_applicable,customer_or_fixture_report
+ITM-335852DBDF,ORD-ID-c48e63f5d2,SKU-8EFC2204CE,Cycling helmet,sports,1,4211.00,INR,not_applicable,customer_or_fixture_report
+ITM-D83B20761A,ORD-ID-50d0bea8ca,SKU-DF3BE48A15,Electric kettle,home_appliance,2,1424.00,INR,not_applicable,customer_or_fixture_report
+ITM-A800E0C35B,ORD-ID-50d0bea8ca,SKU-CD5BE774D5,Dog lead,pet_supplies,1,2710.00,INR,not_applicable,customer_or_fixture_report
+ITM-89BE5F827D,ORD-ID-9885c81789,SKU-F21BF08758,Seed starter kit,garden,1,2946.00,INR,not_applicable,customer_or_fixture_report
+ITM-A735DC10EC,ORD-ID-1b25b9a29c,SKU-36F45F16B3,USB-C charger,electronics,2,18313.00,INR,not_applicable,customer_or_fixture_report
+ITM-83B58D15D5,ORD-ID-1b25b9a29c,SKU-E7E3AA6F47,Car phone mount,automotive,1,8087.00,INR,not_applicable,customer_or_fixture_report
+ITM-CD563E3032,ORD-ID-ff249df451,SKU-CDFD9E01B0,Seed starter kit,garden,1,2811.00,INR,not_applicable,customer_or_fixture_report
+ITM-8153474FAA,ORD-ID-8664e297e3,SKU-C7E58C1B38,Storage basket,home,1,5907.00,INR,not_applicable,customer_or_fixture_report
+ITM-9A9956915F,ORD-ID-414e96cd41,SKU-885FDBEA2B,Mixer grinder,home_appliance,1,17075.00,INR,not_applicable,customer_or_fixture_report
+ITM-268AAB8127,ORD-ID-88f1188257,SKU-D11915B957,Travel duffel,luggage,1,9721.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-BF77270243,ORD-ID-7ee426681c,SKU-BFAA9AA136,Packing cube set,luggage,1,4901.00,INR,not_applicable,customer_or_fixture_report
+ITM-AAAEA93F2B,ORD-ID-85dca7825e,SKU-33327C0B52,Walking shoes,footwear,1,1203.00,INR,not_applicable,customer_or_fixture_report
+ITM-63462BE100,ORD-ID-85dca7825e,SKU-4DCA90F5E8,Travel essays,books,1,645.00,INR,not_applicable,customer_or_fixture_report
+ITM-29C09CBEB7,ORD-ID-85dca7825e,SKU-A6EDB8EDF4,Wireless keyboard,office,1,5329.00,INR,not_applicable,customer_or_fixture_report
+ITM-4BFE3BEB9A,ORD-ID-b8ebe20855,SKU-17A44A9652,Plush animal,toys,2,3093.00,INR,not_applicable,customer_or_fixture_report
+ITM-42C5A5E3B7,ORD-ID-e3539cae2b,SKU-8CED680041,USB-C charger,electronics,1,2813.00,INR,not_applicable,customer_or_fixture_report
+ITM-E41CF73C7A,ORD-ID-572e58b6e9,SKU-C13436AE89,Cycling helmet,sports,1,1097.00,INR,not_applicable,customer_or_fixture_report
+ITM-79C9BA67ED,ORD-ID-572e58b6e9,SKU-A92305179E,Car phone mount,automotive,1,2363.00,INR,not_applicable,customer_or_fixture_report
+ITM-EDDDD47DE0,ORD-ID-80eeac10dc,SKU-EEB4163870,Glass lunch box,kitchen,2,9150.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-A3313455AA,ORD-ID-23faa4a223,SKU-809713DD5A,Chef knife,kitchen,1,5604.00,INR,not_applicable,customer_or_fixture_report
+ITM-887B5438AA,ORD-ID-f609ddd1ee,SKU-0C42591E6C,Dry fruit assortment,grocery,1,1908.00,INR,not_applicable,customer_or_fixture_report
+ITM-DB8381458C,ORD-ID-e5423fbdf0,SKU-3F66B48257,Printed saree,clothing,1,2258.00,INR,not_applicable,customer_or_fixture_report
+ITM-0DFC0C482B,ORD-ID-e5423fbdf0,SKU-1ABCEE1A3F,Dog lead,pet_supplies,1,721.00,INR,not_applicable,customer_or_fixture_report
+ITM-E56E317B40,ORD-ID-6102e9b773,SKU-0EC0F198DE,Cookbook,books,1,1672.00,INR,not_applicable,customer_or_fixture_report
+ITM-96727BDD40,ORD-ID-e82b25f07a,SKU-D97A213F33,Beaded bracelet,jewellery,2,2974.00,INR,not_applicable,customer_or_fixture_report
+ITM-13430E90EB,ORD-ID-fee1ad1ade,SKU-9555497637,Printed saree,clothing,1,505.00,INR,not_applicable,customer_or_fixture_report
+ITM-7D0A2ED2F1,ORD-ID-6a69396614,SKU-4D67D8C2A1,Cabin backpack,luggage,3,7426.00,INR,not_applicable,customer_or_fixture_report
+ITM-640EB04277,ORD-ID-d774ae5c94,SKU-A8F503E514,Beaded bracelet,jewellery,1,3488.00,INR,not_applicable,customer_or_fixture_report
+ITM-3BD2A9B50E,ORD-ID-28c46b6da3,SKU-41F91F2675,Mixer grinder,home_appliance,1,12080.00,INR,not_applicable,customer_or_fixture_report
+ITM-297BCB462D,ORD-ID-70076e82d4,SKU-6B095649A3,Document organiser,office,1,1289.00,INR,not_applicable,customer_or_fixture_report
+ITM-C98818EED2,ORD-ID-a78b3e71e2,SKU-B3772A5C21,Notebook set,office,2,2629.00,INR,not_applicable,customer_or_fixture_report
+ITM-6143BF8AA0,ORD-ID-a78b3e71e2,SKU-8DAA54C96E,Baby care kit,baby,1,3626.00,INR,not_applicable,customer_or_fixture_report
+ITM-2CF7C6DF06,ORD-ID-6874d275fd,SKU-AEA48C1EDA,Cotton baby blanket,baby,1,3027.00,INR,not_applicable,customer_or_fixture_report
+ITM-4E1D1C7F03,ORD-ID-b492580186,SKU-B7D1768534,Pendant necklace,jewellery,1,13232.00,INR,not_applicable,customer_or_fixture_report
+ITM-32D634E922,ORD-ID-2bcf13e049,SKU-FF1CAD5C52,Ceramic vase,home,1,1290.00,INR,not_applicable,customer_or_fixture_report
+ITM-96CECF8A89,ORD-ID-c33255feec,SKU-7AB6C3FEEA,Seat organiser,automotive,3,1064.00,INR,not_applicable,customer_or_fixture_report
+ITM-D0B2EBD09B,ORD-ID-9e31e2bfc8,SKU-A73258B897,Book set,books,1,2329.00,INR,not_applicable,customer_or_fixture_report
+ITM-63E1223725,ORD-ID-b8e5b4b248,SKU-1DC927A583,Children's story collection,books,1,1859.00,INR,not_applicable,customer_or_fixture_report
+ITM-82F0020353,ORD-ID-b8e5b4b248,SKU-DB44843670,Hair serum,beauty,1,3911.00,INR,not_applicable,customer_or_fixture_report
+ITM-28CF3EA5C0,ORD-ID-150e39ab0e,SKU-0799FE2B95,Chef knife,kitchen,1,9551.00,INR,not_applicable,customer_or_fixture_report
+ITM-1E6E914439,ORD-ID-4154313e35,SKU-39D9E0E98B,Ceramic vase,home,1,1078.00,INR,not_applicable,customer_or_fixture_report
+ITM-70257D43B7,ORD-ID-4154313e35,SKU-CC9128B65E,Pendant necklace,jewellery,1,8787.00,INR,not_applicable,customer_or_fixture_report
+ITM-4C2A1357B4,ORD-ID-a4d88cb3dd,SKU-34D9E78B35,Planter set,garden,1,3171.00,INR,not_applicable,customer_or_fixture_report
+ITM-BB8394A4D2,ORD-ID-a4d88cb3dd,SKU-5FD98E38AC,Hair serum,beauty,1,2695.00,INR,not_applicable,customer_or_fixture_report
+ITM-2EA4F066D5,ORD-ID-42dac65841,SKU-9CFAC27C4B,Noise-cancelling headphones,electronics,1,12611.00,INR,not_applicable,customer_or_fixture_report
+ITM-F469F4576B,ORD-ID-42dac65841,SKU-1F3266DF01,Running shoes,footwear,1,5411.00,INR,not_applicable,customer_or_fixture_report
+ITM-93E9918220,ORD-ID-c976864e12,SKU-EEEC375D41,Ceramic vase,home,3,5285.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-A4D2BFB2AC,ORD-ID-aa4c84e13e,SKU-ABCCB86431,Art activity kit,toys,2,1778.00,INR,not_applicable,customer_or_fixture_report
+ITM-440AA9FF33,ORD-ID-4456446c25,SKU-2417A62452,Resistance bands,sports,1,6876.00,INR,not_applicable,customer_or_fixture_report
+ITM-FFAA3CCDC1,ORD-ID-4456446c25,SKU-97F1B3D9BA,Coffee sampler,grocery,1,926.00,INR,not_applicable,customer_or_fixture_report
+ITM-CB4B95EAA4,ORD-ID-2c0e964eb2,SKU-1530A4E92E,Wireless mouse,electronics,1,5182.00,INR,not_applicable,customer_or_fixture_report
+ITM-9D03E5DD44,ORD-ID-2c0e964eb2,SKU-C29F425CB2,Storage basket,home,2,4614.00,INR,not_applicable,customer_or_fixture_report
+ITM-5C7A7A68D7,ORD-ID-6148ffd9b6,SKU-4EDD021A2F,Dry fruit assortment,grocery,1,1754.00,INR,not_applicable,customer_or_fixture_report
+ITM-0D85DCA8DE,ORD-ID-6148ffd9b6,SKU-AEE3C5D88C,Plush animal,toys,1,4650.00,INR,not_applicable,customer_or_fixture_report
+ITM-99A0148F23,ORD-ID-e7ed36be7b,SKU-661C4E3668,Building blocks,toys,1,2891.00,INR,not_applicable,customer_or_fixture_report
+ITM-D39DBF6EAF,ORD-ID-5d811309d1,SKU-B6CA73FD9B,Travel essays,books,3,452.00,INR,not_applicable,customer_or_fixture_report
+ITM-0077C580F1,ORD-ID-3ec3964fad,SKU-B84C59DE07,Pet travel bowl,pet_supplies,1,2256.00,INR,not_applicable,customer_or_fixture_report
+ITM-2B4CD9BBEA,ORD-ID-3ec3964fad,SKU-30087262B6,Chef knife,kitchen,1,1656.00,INR,not_applicable,customer_or_fixture_report
+ITM-7642E1FD15,ORD-ID-3ec3964fad,SKU-DAA496ED65,Canvas sneakers,footwear,1,2966.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2B1710276,ORD-ID-e82c2d29bc,SKU-CDB4680375,Board game,toys,1,3852.00,INR,not_applicable,customer_or_fixture_report
+ITM-814406C0B1,ORD-ID-f3757eac2d,SKU-8C27F5F2EF,Organic tea pack,grocery,1,1799.00,INR,not_applicable,customer_or_fixture_report
+ITM-DCDB559147,ORD-ID-a5826b0b71,SKU-AD8ACCBDD8,Pet grooming brush,pet_supplies,1,1427.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2D01CC06D,ORD-ID-3b607fab2e,SKU-894AA818FE,Wireless mouse,electronics,1,7462.00,INR,not_applicable,customer_or_fixture_report
+ITM-BA777E480D,ORD-ID-a7508a8064,SKU-882C16C895,Face moisturiser,beauty,1,2529.00,INR,not_applicable,customer_or_fixture_report
+ITM-5FAB7F7A88,ORD-ID-96f0639dca,SKU-9BE117DFE8,Desk fan,home_appliance,2,15466.00,INR,not_applicable,customer_or_fixture_report
+ITM-EC4E0856C2,ORD-ID-70c211d7f7,SKU-0009E8432F,Chef knife,kitchen,1,9231.00,INR,not_applicable,customer_or_fixture_report
+ITM-C9FC274B72,ORD-ID-b66d6dc880,SKU-80E0E2643E,Minimalist watch,jewellery,1,4749.00,INR,not_applicable,customer_or_fixture_report
+ITM-C672AC7966,ORD-ID-9f50ba4ec7,SKU-6B0C2FBED2,Table organiser,home,1,4909.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-2414BFF682,ORD-ID-94ff420ffe,SKU-EBE720F621,Organic tea pack,grocery,2,2631.00,INR,not_applicable,customer_or_fixture_report
+ITM-C8C7E63F89,ORD-ID-ec900a8ed1,SKU-C9B622C3EF,Board game,toys,1,1846.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AB64076DC,ORD-ID-401847dcbf,SKU-C6AAC87A40,Pet travel bowl,pet_supplies,1,438.00,INR,not_applicable,customer_or_fixture_report
+ITM-F441B904A7,ORD-ID-36c82b0e24,SKU-C2B88AD69E,Cookbook,books,1,414.00,INR,not_applicable,customer_or_fixture_report
+ITM-8C05B787E3,ORD-ID-42e2669ebf,SKU-B67A853587,Leather sandals,footwear,1,7217.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E60A3EC0E,ORD-ID-ea0cf307e8,SKU-0B4DFC1903,Cookbook,books,1,1694.00,INR,not_applicable,customer_or_fixture_report
+ITM-D71A31B71B,ORD-ID-2bc589f5a0,SKU-F27DC4B09F,Cotton bedsheet,home,1,2268.00,INR,not_applicable,customer_or_fixture_report
+ITM-9590623153,ORD-ID-2bc589f5a0,SKU-7012C2230B,Silver-plated earrings,jewellery,1,14919.00,INR,not_applicable,customer_or_fixture_report
+ITM-88AC87F2EF,ORD-ID-fceb2c2b88,SKU-415C034209,Coffee sampler,grocery,1,645.00,INR,not_applicable,customer_or_fixture_report
+ITM-378158180F,ORD-ID-fceb2c2b88,SKU-0CE05A0992,Cricket bat,sports,1,6542.00,INR,not_applicable,customer_or_fixture_report
+ITM-96FEA39D9C,ORD-ID-23707237e7,SKU-161B98147B,Plush animal,toys,1,1641.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B0C304F59,ORD-ID-cef5e5eeaa,SKU-3B00D8454D,Pet grooming brush,pet_supplies,1,1325.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEE8D9006A,ORD-ID-aae4232cb3,SKU-7A9D535E7E,Art activity kit,toys,1,3982.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-ADB0279F96,ORD-ID-aae4232cb3,SKU-B386FC50D8,Canvas sneakers,footwear,1,6330.00,INR,not_applicable,customer_or_fixture_report
+ITM-1CDD890407,ORD-ID-944322e5e9,SKU-EFBF6E1781,Cat scratcher,pet_supplies,1,2116.00,INR,not_applicable,customer_or_fixture_report
+ITM-8B97418E52,ORD-ID-08f6551726,SKU-174156F479,Chef knife,kitchen,1,4991.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-9667493467,ORD-ID-3fcb8ffc10,SKU-9A5DBE5527,Cabin backpack,luggage,1,11633.00,INR,not_applicable,customer_or_fixture_report
+ITM-DC5BFF22DE,ORD-ID-ee5d91ed75,SKU-5828A3873A,Tyre inflator,automotive,1,5781.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-190D4AC348,ORD-ID-f5575987ee,SKU-30A166AB8A,Seed starter kit,garden,1,2285.00,INR,not_applicable,customer_or_fixture_report
+ITM-002196816C,ORD-ID-44319aea3c,SKU-6517BA9A95,Watering can,garden,1,4722.00,INR,not_applicable,customer_or_fixture_report
+ITM-5FA8216DD7,ORD-ID-44319aea3c,SKU-B5582A1785,Microfibre cleaning kit,automotive,1,4053.00,INR,not_applicable,customer_or_fixture_report
+ITM-32F43FB42A,ORD-ID-8d373108d8,SKU-0783B5B0AF,Bluetooth speaker,electronics,1,9558.00,INR,not_applicable,customer_or_fixture_report
+ITM-47CAC152D5,ORD-ID-4b5478be55,SKU-ACA23F4085,Resistance bands,sports,1,7807.00,INR,not_applicable,customer_or_fixture_report
+ITM-7AF4D63250,ORD-ID-afef2c1418,SKU-23306EE68C,Pet travel bowl,pet_supplies,1,584.00,INR,not_applicable,customer_or_fixture_report
+ITM-2DF51CDCE9,ORD-ID-afef2c1418,SKU-2103E27BEB,Tyre inflator,automotive,3,5042.00,INR,not_applicable,customer_or_fixture_report
+ITM-C0B05A9503,ORD-ID-e315871471,SKU-38C99F2D7A,Canvas sneakers,footwear,2,2269.00,INR,not_applicable,customer_or_fixture_report
+ITM-F058744EF1,ORD-ID-4e43293bab,SKU-650B587C4A,Printed saree,clothing,1,1258.00,INR,not_applicable,customer_or_fixture_report
+ITM-FB66695BE2,ORD-ID-491666ffe8,SKU-E60019E45C,Book set,books,1,1898.00,INR,not_applicable,customer_or_fixture_report
+ITM-4681C0F190,ORD-ID-491666ffe8,SKU-8BD092E1DB,Resistance bands,sports,1,5630.00,INR,not_applicable,customer_or_fixture_report
+ITM-6CE8E50CD8,ORD-ID-69bbd84450,SKU-605FA53234,Glass lunch box,kitchen,1,2777.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-8B2F58BAA0,ORD-ID-27098eb1c0,SKU-00EF6141B2,Steel cookware set,kitchen,3,4927.00,INR,not_applicable,customer_or_fixture_report
+ITM-BD1759103C,ORD-ID-714e008c15,SKU-AF904AC534,Wireless keyboard,office,1,3959.00,INR,not_applicable,customer_or_fixture_report
+ITM-6341081120,ORD-ID-5a311ae136,SKU-1233964F25,Electric kettle,home_appliance,1,7674.00,INR,not_applicable,customer_or_fixture_report
+ITM-64CF4E56B9,ORD-ID-548778ec2a,SKU-26A1F776F1,Resistance bands,sports,1,7371.00,INR,not_applicable,customer_or_fixture_report
+ITM-B98696F4F0,ORD-ID-95077b0aed,SKU-491FA6D8F4,Notebook set,office,1,2018.00,INR,not_applicable,customer_or_fixture_report
+ITM-8239F64314,ORD-ID-41011907b8,SKU-2B62052FC6,Canvas sneakers,footwear,1,8102.00,INR,not_applicable,customer_or_fixture_report
+ITM-B0EF09708C,ORD-ID-80c71306a9,SKU-83DD367C50,Steel cookware set,kitchen,1,9179.00,INR,not_applicable,customer_or_fixture_report
+ITM-75AF00818B,ORD-ID-15c6455e02,SKU-784B941442,Document organiser,office,1,3955.00,INR,not_applicable,customer_or_fixture_report
+ITM-D0EF59BE72,ORD-ID-c61a15dafc,SKU-73DB4D0CAD,Bluetooth speaker,electronics,1,14287.00,INR,not_applicable,customer_or_fixture_report
+ITM-021CA6CC80,ORD-ID-4fa19d974a,SKU-D3D2EC35F9,Pet grooming brush,pet_supplies,1,3313.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA8A3619E2,ORD-ID-4fa19d974a,SKU-C12DBB74FA,USB-C charger,electronics,1,4814.00,INR,not_applicable,customer_or_fixture_report
+ITM-75ED4D501B,ORD-ID-6414fe7939,SKU-AC91DF26F4,Printed saree,clothing,3,725.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-AB09A4C003,ORD-ID-f11802ccd4,SKU-5DCA48A446,Children's story collection,books,1,1269.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B3EA18F1E,ORD-ID-7c88ddb834,SKU-A35940F62E,Coffee sampler,grocery,1,346.00,INR,not_applicable,customer_or_fixture_report
+ITM-8C14590739,ORD-ID-7027f98fe9,SKU-05403DCFF6,Organic tea pack,grocery,1,1273.00,INR,not_applicable,customer_or_fixture_report
+ITM-195AE37F29,ORD-ID-78715ce8c2,SKU-B0CDD708C5,Seat organiser,automotive,1,4056.00,INR,not_applicable,customer_or_fixture_report
+ITM-83C5F9648E,ORD-ID-af90c52b24,SKU-2353F712FC,Sunscreen lotion,beauty,1,1776.00,INR,not_applicable,customer_or_fixture_report
+ITM-1B1245D6E2,ORD-ID-6f0d19247a,SKU-EB9F25B0D3,Fountain pen,office,2,2088.00,INR,not_applicable,customer_or_fixture_report
+ITM-27688B99CA,ORD-ID-9082ae74ce,SKU-8346C9B093,Book set,books,1,1562.00,INR,not_applicable,customer_or_fixture_report
+ITM-A695118821,ORD-ID-4bf2cea49f,SKU-1F89469F6A,Microfibre cleaning kit,automotive,1,6581.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-65FFA4A598,ORD-ID-1e69cdc738,SKU-F2ED92C5D7,Document organiser,office,1,4038.00,INR,not_applicable,customer_or_fixture_report
+ITM-C8CDDA7BF4,ORD-ID-1e69cdc738,SKU-188D210857,Minimalist watch,jewellery,1,3749.00,INR,not_applicable,customer_or_fixture_report
+ITM-C89DF47110,ORD-ID-e184f90d93,SKU-4B0C224F36,Hand blender,home_appliance,1,1930.00,INR,not_applicable,customer_or_fixture_report
+ITM-952C543C4E,ORD-ID-ca5858af20,SKU-46EA117BA4,Notebook set,office,1,5428.00,INR,not_applicable,customer_or_fixture_report
+ITM-0CDED09212,ORD-ID-ca5858af20,SKU-B42038CB01,Hand blender,home_appliance,1,17895.00,INR,not_applicable,customer_or_fixture_report
+ITM-B88C217922,ORD-ID-51565a3165,SKU-8EEE3FBECC,Hand blender,home_appliance,1,14732.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-5C3A7F8AC5,ORD-ID-8f49da0037,SKU-5CB324EB66,Noise-cancelling headphones,electronics,1,5037.00,INR,not_applicable,customer_or_fixture_report
+ITM-65573A57BA,ORD-ID-1929ac78ad,SKU-166A1D0D47,Art activity kit,toys,1,3346.00,INR,not_applicable,customer_or_fixture_report
+ITM-B39F37E838,ORD-ID-6a60e8b6a6,SKU-516064AD38,Cotton baby blanket,baby,1,5209.00,INR,not_applicable,customer_or_fixture_report
+ITM-58C0F46709,ORD-ID-a9ae9f4dd0,SKU-3D1E0BC481,Board game,toys,1,4057.00,INR,not_applicable,customer_or_fixture_report
+ITM-34F42F797F,ORD-ID-a9ae9f4dd0,SKU-4EA4CED01E,Minimalist watch,jewellery,1,6029.00,INR,not_applicable,customer_or_fixture_report
+ITM-5443FB0717,ORD-ID-73be556ea9,SKU-6988882F83,Pendant necklace,jewellery,2,9561.00,INR,not_applicable,customer_or_fixture_report
+ITM-3AC0EF5F18,ORD-ID-ecbb7801de,SKU-0EBD72BFEC,Linen shirt,clothing,1,3900.00,INR,not_applicable,customer_or_fixture_report
+ITM-92A6289610,ORD-ID-b40596988a,SKU-FF54FC8275,Sunscreen lotion,beauty,1,3518.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E85D72AA9,ORD-ID-aaf72f0d23,SKU-0BF5B84C9B,Cotton kurta,clothing,1,2946.00,INR,not_applicable,customer_or_fixture_report
+ITM-99FD21C6E7,ORD-ID-86c806c9d3,SKU-4704191B1E,Bath and body set,beauty,1,702.00,INR,not_applicable,customer_or_fixture_report
+ITM-306285C714,ORD-ID-ae82db4e7f,SKU-027AB44C9F,Seat organiser,automotive,3,6615.00,INR,not_applicable,customer_or_fixture_report
+ITM-057BD25FF2,ORD-ID-a5a62f23f5,SKU-928205D3B8,Denim jacket,clothing,1,2138.00,INR,not_applicable,customer_or_fixture_report
+ITM-10966E4A5F,ORD-ID-14d20c5ded,SKU-AA30468B71,Minimalist watch,jewellery,1,4694.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-A89E57BB89,ORD-ID-14d20c5ded,SKU-20F4E09009,Soft toy,baby,1,464.00,INR,not_applicable,customer_or_fixture_report
+ITM-24B37B2CCA,ORD-ID-14d20c5ded,SKU-216E469A0A,Printed saree,clothing,3,1988.00,INR,not_applicable,customer_or_fixture_report
+ITM-3C8C1D95CA,ORD-ID-0256dd17a2,SKU-A8E0CA90E3,Cotton baby blanket,baby,1,2890.00,INR,not_applicable,customer_or_fixture_report
+ITM-972BBE187E,ORD-ID-89ef0dc1cd,SKU-97BDC5BB03,Document organiser,office,1,5349.00,INR,not_applicable,customer_or_fixture_report
+ITM-581421D574,ORD-ID-f254b474bc,SKU-3C51E92455,Notebook set,office,1,6231.00,INR,not_applicable,customer_or_fixture_report
+ITM-7DBA6180BB,ORD-ID-274e177dc8,SKU-88CC557539,Minimalist watch,jewellery,1,917.00,INR,not_applicable,customer_or_fixture_report
+ITM-169BA6F622,ORD-ID-8a1b2fd29d,SKU-29CA78385F,Resistance bands,sports,2,5086.00,INR,not_applicable,customer_or_fixture_report
+ITM-2DE749C982,ORD-ID-9ddfe67f4e,SKU-73FC3EB468,Notebook set,office,2,7051.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-8303C3D38F,ORD-ID-9ddfe67f4e,SKU-31C964BD9B,Laptop sleeve,luggage,1,9257.00,INR,not_applicable,customer_or_fixture_report
+ITM-6CE81E23DC,ORD-ID-9ddfe67f4e,SKU-BDBC16E3BD,Walking shoes,footwear,1,3444.00,INR,not_applicable,customer_or_fixture_report
+ITM-9F1DB07FEB,ORD-ID-c4b1db256d,SKU-91C4B5FE6D,Resistance bands,sports,1,3566.00,INR,not_applicable,customer_or_fixture_report
+ITM-499E21035A,ORD-ID-a881d3dcaf,SKU-F4016D6AF0,Table organiser,home,1,2973.00,INR,not_applicable,customer_or_fixture_report
+ITM-C0BE57457B,ORD-ID-83dfc9d451,SKU-3031A96A7E,Art activity kit,toys,1,4152.00,INR,not_applicable,customer_or_fixture_report
+ITM-1193310368,ORD-ID-5e03e76498,SKU-DF51FE1A8D,Insulated flask,kitchen,1,7714.00,INR,not_applicable,customer_or_fixture_report
+ITM-93B2D7C5C6,ORD-ID-05a6699863,SKU-5916FA4A0F,Cricket bat,sports,1,478.00,INR,not_applicable,customer_or_fixture_report
+ITM-DC78F2E713,ORD-ID-b8b88de501,SKU-5FC1C4D89D,Coffee sampler,grocery,1,412.00,INR,not_applicable,customer_or_fixture_report
+ITM-28710720A3,ORD-ID-b49c0d92e6,SKU-E4EEEA0B25,Cotton bedsheet,home,1,3354.00,INR,not_applicable,customer_or_fixture_report
+ITM-7245D7099F,ORD-ID-9a2ef99b5b,SKU-6E7EB1C83B,Smart watch,electronics,2,23456.00,INR,not_applicable,customer_or_fixture_report
+ITM-FDA42E1A7A,ORD-ID-5f224449a4,SKU-74A03F1923,Bath and body set,beauty,1,1482.00,INR,not_applicable,customer_or_fixture_report
+ITM-B414628F48,ORD-ID-5f224449a4,SKU-A92EBD75A8,Planter set,garden,1,4470.00,INR,not_applicable,customer_or_fixture_report
+ITM-BF9650A624,ORD-ID-13ef7e5300,SKU-1D6170901A,Microfibre cleaning kit,automotive,1,327.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-D04F93F66C,ORD-ID-57c63257ed,SKU-8A7FC398ED,Leather sandals,footwear,2,5327.00,INR,not_applicable,customer_or_fixture_report
+ITM-A48EDD4172,ORD-ID-62ac7fffcb,SKU-231697E5E6,Storage basket,home,3,2383.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A0A0353E1,ORD-ID-62ac7fffcb,SKU-41CA5E227A,Notebook set,office,1,5843.00,INR,not_applicable,customer_or_fixture_report
+ITM-F63E473A48,ORD-ID-12587f1889,SKU-FE6509972F,Dog lead,pet_supplies,1,3537.00,INR,not_applicable,customer_or_fixture_report
+ITM-38830654C5,ORD-ID-12587f1889,SKU-CC951581CD,Glass lunch box,kitchen,1,7347.00,INR,not_applicable,customer_or_fixture_report
+ITM-A258DE9680,ORD-ID-760878be1f,SKU-0DAF7D52B7,Art activity kit,toys,1,4925.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B8B152CE4,ORD-ID-760878be1f,SKU-AA139E7F95,Running shoes,footwear,2,7233.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2B93B2A96,ORD-ID-ebe35cd906,SKU-0E3F87ED1C,Silver-plated earrings,jewellery,1,14681.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-817E33E7DE,ORD-ID-ebe35cd906,SKU-14DEEE7C2D,Baby care kit,baby,1,5994.00,INR,not_applicable,customer_or_fixture_report
+ITM-1996D63E81,ORD-ID-d8cb680447,SKU-9C009A5939,Packing cube set,luggage,1,2620.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-8E8B67C121,ORD-ID-d38741a473,SKU-81B3004B11,Organic tea pack,grocery,1,670.00,INR,not_applicable,customer_or_fixture_report
+ITM-2D81315B16,ORD-ID-d38741a473,SKU-D5A7020B88,Travel duffel,luggage,1,6331.00,INR,not_applicable,customer_or_fixture_report
+ITM-BC7DC4F6EA,ORD-ID-0d0687b744,SKU-BC0B83DC48,Planter set,garden,1,4256.00,INR,not_applicable,customer_or_fixture_report
+ITM-E37DC8C901,ORD-ID-0d0687b744,SKU-9AC6FF633E,Wireless keyboard,office,1,5001.00,INR,not_applicable,customer_or_fixture_report
+ITM-88CA3D0E2C,ORD-ID-060d207ce9,SKU-F1169A26A0,Sunscreen lotion,beauty,1,3794.00,INR,not_applicable,customer_or_fixture_report
+ITM-1C600665EE,ORD-ID-060d207ce9,SKU-11A74AAC2E,Car phone mount,automotive,2,6912.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E70E5B517,ORD-ID-3f532717ca,SKU-494DD37DEC,Running shoes,footwear,1,5682.00,INR,not_applicable,customer_or_fixture_report
+ITM-EC662233E4,ORD-ID-9edd33dfc6,SKU-D401DD3CF8,Sunscreen lotion,beauty,1,741.00,INR,not_applicable,customer_or_fixture_report
+ITM-6AEC5E2C59,ORD-ID-9be395b002,SKU-A054BEBDDC,Notebook set,office,1,3253.00,INR,not_applicable,customer_or_fixture_report
+ITM-6385C9BDA0,ORD-ID-aa81c974b9,SKU-3DBEDEF382,Silver-plated earrings,jewellery,1,2876.00,INR,not_applicable,customer_or_fixture_report
+ITM-4787BF3B64,ORD-ID-8ff68efdc1,SKU-8EF87EF38E,Beaded bracelet,jewellery,2,6418.00,INR,not_applicable,customer_or_fixture_report
+ITM-1DF9104E20,ORD-ID-15b03e7526,SKU-9CE59CBD25,Cabin backpack,luggage,1,1633.00,INR,not_applicable,customer_or_fixture_report
+ITM-C66A7E8E75,ORD-ID-e36128890f,SKU-E497321A08,Car phone mount,automotive,2,8916.00,INR,not_applicable,customer_or_fixture_report
+ITM-0986C90E1A,ORD-ID-590ea74fe4,SKU-787E177F3D,Pet grooming brush,pet_supplies,1,1370.00,INR,not_applicable,customer_or_fixture_report
+ITM-8A3D1135E4,ORD-ID-a69e092c0a,SKU-BFF1FCDD9F,Tyre inflator,automotive,1,1376.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-3C70AFD68E,ORD-ID-b20b216cd0,SKU-22AF20B863,Tyre inflator,automotive,1,1437.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B9D978459,ORD-ID-b20b216cd0,SKU-0B6EFF3E6E,Noise-cancelling headphones,electronics,1,15100.00,INR,not_applicable,customer_or_fixture_report
+ITM-BB83E32B18,ORD-ID-2e666e9659,SKU-C02CF60F0C,Travel duffel,luggage,1,7220.00,INR,not_applicable,customer_or_fixture_report
+ITM-E89A15574A,ORD-ID-dee3a5ca81,SKU-3BD6676CF4,Cabin backpack,luggage,1,7041.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-F04F5CB660,ORD-ID-dee3a5ca81,SKU-4B2A977DE8,Noise-cancelling headphones,electronics,1,5628.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AC777C23B,ORD-ID-07873fa8b2,SKU-C65E38AF79,Minimalist watch,jewellery,1,7148.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B8B11348A,ORD-ID-b56bef8f08,SKU-9510FA2659,Seed starter kit,garden,1,4280.00,INR,not_applicable,customer_or_fixture_report
+ITM-70261C8320,ORD-ID-b56bef8f08,SKU-E9A70DB9CD,Coffee sampler,grocery,1,2889.00,INR,not_applicable,customer_or_fixture_report
+ITM-1D12FD99E9,ORD-ID-6bc8001a58,SKU-EE774E3DA0,Bluetooth speaker,electronics,1,13631.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-613DE8DB83,ORD-ID-6132427947,SKU-FA472EB436,Art activity kit,toys,1,612.00,INR,not_applicable,customer_or_fixture_report
+ITM-9955C9CAB6,ORD-ID-8dd923d736,SKU-CBEF1B3EF0,Silver-plated earrings,jewellery,1,13891.00,INR,not_applicable,customer_or_fixture_report
+ITM-A52773DC7C,ORD-ID-31a5bd4e18,SKU-675653FC87,Mixer grinder,home_appliance,1,10469.00,INR,not_applicable,customer_or_fixture_report
+ITM-26C37CE0B9,ORD-ID-4df61ba3d9,SKU-7570566974,Car phone mount,automotive,1,2461.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-7F0201C9B1,ORD-ID-519133a3c7,SKU-0467F4BCCC,Running shorts,clothing,1,3060.00,INR,not_applicable,customer_or_fixture_report
+ITM-0DCD17FE8F,ORD-ID-519133a3c7,SKU-373FB0D96B,Table organiser,home,1,4997.00,INR,not_applicable,customer_or_fixture_report
+ITM-064A88FD84,ORD-ID-efa98017d7,SKU-2E52CC395E,Yoga mat,sports,1,7184.00,INR,not_applicable,customer_or_fixture_report
+ITM-2DA16D3983,ORD-ID-babb0f53eb,SKU-BB938F7D61,Hair serum,beauty,1,1057.00,INR,not_applicable,customer_or_fixture_report
+ITM-A936B1A885,ORD-ID-5532dbd62d,SKU-FF676D532D,Bluetooth speaker,electronics,1,18706.00,INR,not_applicable,customer_or_fixture_report
+ITM-5C2F1FD565,ORD-ID-c14d0cad39,SKU-E1D7436B2A,Pruning shears,garden,1,1635.00,INR,not_applicable,customer_or_fixture_report
+ITM-95DD39AE22,ORD-ID-44a54a4425,SKU-965C8EF25F,Pet travel bowl,pet_supplies,1,1926.00,INR,not_applicable,customer_or_fixture_report
+ITM-4768520449,ORD-ID-44a54a4425,SKU-32219D710A,Travel essays,books,1,439.00,INR,not_applicable,customer_or_fixture_report
+ITM-2E9E050678,ORD-ID-90976c642f,SKU-F9174DD028,Travel essays,books,1,2298.00,INR,not_applicable,customer_or_fixture_report
+ITM-3A2C409AA4,ORD-ID-e70d3c51a1,SKU-7BE869D96F,Wireless keyboard,office,1,6997.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-D9A1D610F5,ORD-ID-ca301a14cf,SKU-6B14A503FD,Notebook set,office,1,1789.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-7E5CC18444,ORD-ID-ca301a14cf,SKU-0379E365EE,Hand blender,home_appliance,1,14727.00,INR,not_applicable,customer_or_fixture_report
+ITM-BD2F87E5A5,ORD-ID-58de693943,SKU-A8E52A2029,Cricket bat,sports,1,5337.00,INR,not_applicable,customer_or_fixture_report
+ITM-37B31F5C13,ORD-ID-58de693943,SKU-04FD398212,Resistance bands,sports,2,646.00,INR,not_applicable,customer_or_fixture_report
+ITM-1A237822DD,ORD-ID-e8ec855af1,SKU-C9C1EF250A,Seat organiser,automotive,1,8820.00,INR,not_applicable,customer_or_fixture_report
+ITM-950B0BC64D,ORD-ID-e8ec855af1,SKU-EDA78FF9DF,Noise-cancelling headphones,electronics,1,12825.00,INR,not_applicable,customer_or_fixture_report
+ITM-8F289735C1,ORD-ID-53ecf9dfc9,SKU-E79185CDC7,Bluetooth speaker,electronics,1,11111.00,INR,not_applicable,customer_or_fixture_report
+ITM-2F8018FC5A,ORD-ID-653efe201b,SKU-0E04B21936,Resistance bands,sports,1,6951.00,INR,not_applicable,customer_or_fixture_report
+ITM-14901BCE39,ORD-ID-d1f92c1bdb,SKU-7F01F0CDFC,Denim jacket,clothing,1,4169.00,INR,not_applicable,customer_or_fixture_report
+ITM-6360142FC4,ORD-ID-6aafa9e03c,SKU-0815204357,Canvas sneakers,footwear,2,8803.00,INR,not_applicable,customer_or_fixture_report
+ITM-7020CC3A10,ORD-ID-796e40aa85,SKU-A10570822C,USB-C charger,electronics,2,22537.00,INR,not_applicable,customer_or_fixture_report
+ITM-A988FA708D,ORD-ID-faaec2c0b4,SKU-DDA1C91C62,Desk lamp,home,1,3026.00,INR,not_applicable,customer_or_fixture_report
+ITM-312623B0CC,ORD-ID-faaec2c0b4,SKU-9DA882E0AF,Cotton bedsheet,home,1,5461.00,INR,not_applicable,customer_or_fixture_report
+ITM-3FB59F9939,ORD-ID-e5d55eea11,SKU-8ECCBDC5F5,Yoga mat,sports,1,2471.00,INR,not_applicable,customer_or_fixture_report
+ITM-04D9CA58B7,ORD-ID-a1ce8e3df5,SKU-6CEB147039,Microfibre cleaning kit,automotive,2,7658.00,INR,not_applicable,customer_or_fixture_report
+ITM-49120361E1,ORD-ID-e805f1a91c,SKU-E39E49896D,Yoga mat,sports,1,7306.00,INR,not_applicable,customer_or_fixture_report
+ITM-C298F9DB7E,ORD-ID-eb9c9eb931,SKU-56BFB0C15F,Packing cube set,luggage,1,8539.00,INR,not_applicable,customer_or_fixture_report
+ITM-C5D7CB852C,ORD-ID-071de56ed7,SKU-D74EFD1E36,Travel duffel,luggage,3,634.00,INR,not_applicable,customer_or_fixture_report
+ITM-4B7BE8341B,ORD-ID-759cb272a2,SKU-5EB043B1F5,Noise-cancelling headphones,electronics,1,22670.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-ECE1957812,ORD-ID-759cb272a2,SKU-E5D4AD9393,Desk lamp,home,1,3437.00,INR,not_applicable,customer_or_fixture_report
+ITM-562BC08383,ORD-ID-52ffea00b6,SKU-4542E7A68D,Plush animal,toys,1,1720.00,INR,not_applicable,customer_or_fixture_report
+ITM-F02162BD9D,ORD-ID-52ffea00b6,SKU-F70539B8E2,Ceramic vase,home,1,4906.00,INR,not_applicable,customer_or_fixture_report
+ITM-AD489F0FB2,ORD-ID-52ffea00b6,SKU-8B3FCD31AA,Leather sandals,footwear,2,1926.00,INR,not_applicable,customer_or_fixture_report
+ITM-38B22BBC8C,ORD-ID-6943e4aeab,SKU-75CC48339E,Book set,books,3,1525.00,INR,not_applicable,customer_or_fixture_report
+ITM-608C34C9A6,ORD-ID-53d6a3a148,SKU-5AA06D076F,Chef knife,kitchen,1,668.00,INR,not_applicable,customer_or_fixture_report
+ITM-E236D723AF,ORD-ID-a6ed89196f,SKU-F841E8F82A,Denim jacket,clothing,1,2294.00,INR,not_applicable,customer_or_fixture_report
+ITM-8B7DEC0386,ORD-ID-1518ee09fa,SKU-5DF66A115D,Printed saree,clothing,1,1011.00,INR,not_applicable,customer_or_fixture_report
+ITM-9E268B92B5,ORD-ID-bf47fa511f,SKU-BE09C028DE,Yoga mat,sports,1,3875.00,INR,not_applicable,customer_or_fixture_report
+ITM-A5AA2AE200,ORD-ID-bf47fa511f,SKU-80D58F6C78,Cycling helmet,sports,1,1865.00,INR,not_applicable,customer_or_fixture_report
+ITM-4FA0B39153,ORD-ID-1d383390aa,SKU-D165909BEF,Dry fruit assortment,grocery,1,1144.00,INR,not_applicable,customer_or_fixture_report
+ITM-CD9D8F48DE,ORD-ID-5b2cb9f546,SKU-04F82D36E4,Face moisturiser,beauty,1,2168.00,INR,not_applicable,customer_or_fixture_report
+ITM-5F26BE1F23,ORD-ID-ec273a87ca,SKU-867449FB2D,Seat organiser,automotive,1,6748.00,INR,not_applicable,customer_or_fixture_report
+ITM-F4B3C1AF61,ORD-ID-30a3c6e1fc,SKU-9A02A6F913,Walking shoes,footwear,2,5990.00,INR,not_applicable,customer_or_fixture_report
+ITM-025E33A36E,ORD-ID-7d811a2513,SKU-5010E55AE8,Glass lunch box,kitchen,1,2437.00,INR,not_applicable,customer_or_fixture_report
+ITM-E5C102CAE6,ORD-ID-baee260f65,SKU-E42916A5AD,Travel duffel,luggage,1,11033.00,INR,not_applicable,customer_or_fixture_report
+ITM-8F653EC5A7,ORD-ID-bf13aea3af,SKU-70BC8D9EE1,Steel cookware set,kitchen,1,875.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B9CF5BD9B,ORD-ID-fbb867c0b6,SKU-A8A243E81B,Noise-cancelling headphones,electronics,1,12403.00,INR,not_applicable,customer_or_fixture_report
+ITM-D8EE5D0288,ORD-ID-125ddcd099,SKU-16DD8DC346,Electric kettle,home_appliance,1,13882.00,INR,not_applicable,customer_or_fixture_report
+ITM-C703BC5BEF,ORD-ID-287f37c85d,SKU-3F8F97A48E,Sunscreen lotion,beauty,1,2352.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-FC33B23CBE,ORD-ID-287f37c85d,SKU-EA661EB520,Laptop sleeve,luggage,1,6186.00,INR,not_applicable,customer_or_fixture_report
+ITM-03CFC20DC9,ORD-ID-99169d8b7c,SKU-AD16F52B73,Face moisturiser,beauty,1,2237.00,INR,not_applicable,customer_or_fixture_report
+ITM-A6C6490E58,ORD-ID-c4403847ea,SKU-7143BF45FB,Chef knife,kitchen,1,2821.00,INR,not_applicable,customer_or_fixture_report
+ITM-BE0DF12F90,ORD-ID-4fafa04aa2,SKU-15FC99E16C,Feeding bottle set,baby,1,2533.00,INR,not_applicable,customer_or_fixture_report
+ITM-A0D02D0092,ORD-ID-4fafa04aa2,SKU-586D1E5F4C,Yoga mat,sports,1,2934.00,INR,not_applicable,customer_or_fixture_report
+ITM-5867DDC3F3,ORD-ID-c773adaed7,SKU-A0BFCDC6E3,Electric kettle,home_appliance,1,18125.00,INR,not_applicable,customer_or_fixture_report
+ITM-E6472619A1,ORD-ID-1b88664295,SKU-C32A1387CB,Yoga mat,sports,1,5172.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-5718376138,ORD-ID-1b88664295,SKU-82ACFA8488,USB-C charger,electronics,1,17460.00,INR,not_applicable,customer_or_fixture_report
+ITM-E5AEE0A35D,ORD-ID-bc8cbc57c0,SKU-E1E0D338D5,Cotton baby blanket,baby,1,3602.00,INR,not_applicable,customer_or_fixture_report
+ITM-4FDF18B04F,ORD-ID-bc8cbc57c0,SKU-5317F779CA,Organic tea pack,grocery,1,2238.00,INR,not_applicable,customer_or_fixture_report
+ITM-0A3BFD7D96,ORD-ID-131d4231ab,SKU-ECB55DB254,Wireless mouse,electronics,1,22708.00,INR,not_applicable,customer_or_fixture_report
+ITM-837C357A04,ORD-ID-b4f7525da8,SKU-671C33AA65,Linen shirt,clothing,1,629.00,INR,not_applicable,customer_or_fixture_report
+ITM-03D49277AE,ORD-ID-b4f7525da8,SKU-D4B77E2852,Dry fruit assortment,grocery,1,1323.00,INR,not_applicable,customer_or_fixture_report
+ITM-6620CCF1F5,ORD-ID-887333d124,SKU-CF3002BA1A,Storage basket,home,1,4137.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-D8AA30C888,ORD-ID-0388ee198a,SKU-4FA94A42B2,Hand blender,home_appliance,1,1397.00,INR,not_applicable,customer_or_fixture_report
+ITM-9746C05416,ORD-ID-3eddc2974a,SKU-FCB9303916,Steel cookware set,kitchen,1,2395.00,INR,not_applicable,customer_or_fixture_report
+ITM-510D1A3AFE,ORD-ID-3eddc2974a,SKU-24DA739A74,Baby care kit,baby,1,536.00,INR,not_applicable,customer_or_fixture_report
+ITM-82DFE55134,ORD-ID-fe098bb505,SKU-0C46D360D4,Storage basket,home,1,5347.00,INR,not_applicable,customer_or_fixture_report
+ITM-CAF44CAECD,ORD-ID-d8658e08f4,SKU-679352F65F,Document organiser,office,1,4662.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E46384E3C,ORD-ID-ddf83ab9d4,SKU-3F036C8BCA,USB-C charger,electronics,1,14719.00,INR,not_applicable,customer_or_fixture_report
+ITM-2020285F51,ORD-ID-1266d20134,SKU-8DAF4F384D,Plush animal,toys,1,4457.00,INR,not_applicable,customer_or_fixture_report
+ITM-658B3F31A8,ORD-ID-c19b1255f9,SKU-052C3FE92F,Leather sandals,footwear,1,4547.00,INR,not_applicable,customer_or_fixture_report
+ITM-6F43AE0B7A,ORD-ID-d8f22b3825,SKU-77EFD55E02,Steel cookware set,kitchen,1,1874.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B1ABFDA1D,ORD-ID-fd93dad0ed,SKU-572E453CD0,Insulated flask,kitchen,1,4318.00,INR,not_applicable,customer_or_fixture_report
+ITM-D50938BAE5,ORD-ID-e5afa3b1be,SKU-974E10C7D8,Resistance bands,sports,3,7463.00,INR,not_applicable,customer_or_fixture_report
+ITM-7473E44ECF,ORD-ID-e5afa3b1be,SKU-E9BAF57CC6,Linen shirt,clothing,1,1768.00,INR,not_applicable,customer_or_fixture_report
+ITM-DBE711DFE1,ORD-ID-e5afa3b1be,SKU-227911B730,Sunscreen lotion,beauty,2,395.00,INR,not_applicable,customer_or_fixture_report
+ITM-14E5FBCB9B,ORD-ID-f3ccaff17a,SKU-EBE59D8A67,Bluetooth speaker,electronics,1,14364.00,INR,not_applicable,customer_or_fixture_report
+ITM-E46D16225D,ORD-ID-f3ccaff17a,SKU-7383B1E8F5,Bath and body set,beauty,1,3516.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEF3C35505,ORD-ID-2662190261,SKU-EC4F80F861,Canvas sneakers,footwear,1,5328.00,INR,not_applicable,customer_or_fixture_report
+ITM-A413EC5F3E,ORD-ID-6ce06e35d1,SKU-275CD96A0C,Minimalist watch,jewellery,1,6259.00,INR,not_applicable,customer_or_fixture_report
+ITM-A3FD75DF71,ORD-ID-6ce06e35d1,SKU-725E327A9C,Fountain pen,office,1,5356.00,INR,not_applicable,customer_or_fixture_report
+ITM-A76DBF9BF5,ORD-ID-6ce06e35d1,SKU-A66D0D9304,Plush animal,toys,1,283.00,INR,not_applicable,customer_or_fixture_report
+ITM-CD0AB629DE,ORD-ID-d5b54be9fe,SKU-8EEC38E667,Children's story collection,books,1,921.00,INR,not_applicable,customer_or_fixture_report
+ITM-5E523541D8,ORD-ID-f9d3540bad,SKU-2BE84C266D,Printed saree,clothing,1,3880.00,INR,not_applicable,customer_or_fixture_report
+ITM-60F9379FAA,ORD-ID-db4f075a56,SKU-937C9E19B8,Pruning shears,garden,2,3384.00,INR,not_applicable,customer_or_fixture_report
+ITM-2EDE8E2DEF,ORD-ID-db4f075a56,SKU-58C2F4D95F,USB-C charger,electronics,1,13410.00,INR,not_applicable,customer_or_fixture_report
+ITM-82143678D3,ORD-ID-26e0a60e18,SKU-6B3A36FD28,Cycling helmet,sports,1,1702.00,INR,not_applicable,customer_or_fixture_report
+ITM-50D67D1095,ORD-ID-9e81c49559,SKU-176120E64A,Glass lunch box,kitchen,1,4013.00,INR,not_applicable,customer_or_fixture_report
+ITM-EC253DE4AD,ORD-ID-d207cbab50,SKU-2668B9712C,Dry fruit assortment,grocery,1,368.00,INR,not_applicable,customer_or_fixture_report
+ITM-EA3FEC5AF9,ORD-ID-5d3e3300ac,SKU-56A734D155,Board game,toys,1,987.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-34D0DAA28F,ORD-ID-a84df2a3b1,SKU-DFE1942086,Cookbook,books,1,2051.00,INR,not_applicable,customer_or_fixture_report
+ITM-8CEDAEBEA5,ORD-ID-a84df2a3b1,SKU-229A6364E7,Face moisturiser,beauty,1,2084.00,INR,not_applicable,customer_or_fixture_report
+ITM-77C39A4755,ORD-ID-a84df2a3b1,SKU-D2B6A807FE,Sunscreen lotion,beauty,1,181.00,INR,not_applicable,customer_or_fixture_report
+ITM-1C63E8F836,ORD-ID-9531340b3d,SKU-1A9ADA6C13,Hand blender,home_appliance,1,12577.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-16A6FD05D4,ORD-ID-3754c9a70c,SKU-30044C782C,Pet grooming brush,pet_supplies,1,1876.00,INR,not_applicable,customer_or_fixture_report
+ITM-63245BFC10,ORD-ID-753f1d58bd,SKU-BCA997FE13,Pendant necklace,jewellery,1,6622.00,INR,not_applicable,customer_or_fixture_report
+ITM-AB6AA23490,ORD-ID-fcc7ba4c8b,SKU-74EF3318C9,Storage basket,home,1,3974.00,INR,not_applicable,customer_or_fixture_report
+ITM-ABFFF27B5D,ORD-ID-e8e19b6c29,SKU-1205305946,Book set,books,1,980.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-1BB8621664,ORD-ID-ba4a37231d,SKU-0EA6999344,Resistance bands,sports,3,3201.00,INR,not_applicable,customer_or_fixture_report
+ITM-78C5DE62AF,ORD-ID-c37303a641,SKU-B125B28491,Running shoes,footwear,1,5351.00,INR,not_applicable,customer_or_fixture_report
+ITM-33A2769F42,ORD-ID-c37303a641,SKU-F5AACD10D4,Tyre inflator,automotive,1,1057.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B7D7EF6E4,ORD-ID-a920f9ff0f,SKU-B0EACB5D40,Dry fruit assortment,grocery,1,2823.00,INR,not_applicable,customer_or_fixture_report
+ITM-669DB54905,ORD-ID-51cfe0691d,SKU-766884BFD2,Yoga mat,sports,1,7813.00,INR,not_applicable,customer_or_fixture_report
+ITM-7040C110C0,ORD-ID-057670475c,SKU-CF12587700,Noise-cancelling headphones,electronics,1,13490.00,INR,not_applicable,customer_or_fixture_report
+ITM-4C8E8FB331,ORD-ID-022d195439,SKU-36E60C2D8A,Hair serum,beauty,1,3922.00,INR,not_applicable,customer_or_fixture_report
+ITM-9A0777112C,ORD-ID-b92c43e947,SKU-1A49DF6C98,USB-C charger,electronics,1,13867.00,INR,not_applicable,customer_or_fixture_report
+ITM-884C7E0EE0,ORD-ID-b92c43e947,SKU-AEB1ABD4CE,Coffee sampler,grocery,1,2972.00,INR,not_applicable,customer_or_fixture_report
+ITM-2A4DD4E80B,ORD-ID-67917a0d0c,SKU-6B52B31416,Organic tea pack,grocery,1,486.00,INR,not_applicable,customer_or_fixture_report
+ITM-FFD1931D43,ORD-ID-9fdb58310e,SKU-E43FA9BB67,Microfibre cleaning kit,automotive,1,6411.00,INR,not_applicable,customer_or_fixture_report
+ITM-ACCCF5C71E,ORD-ID-622543e461,SKU-E8CBF8DDB2,Bath and body set,beauty,3,3151.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-9A24836A19,ORD-ID-7ce531641a,SKU-12879309B0,Chef knife,kitchen,1,7480.00,INR,not_applicable,customer_or_fixture_report
+ITM-1B251F3305,ORD-ID-c0083c7196,SKU-7A44DA0AF6,Microfibre cleaning kit,automotive,1,4369.00,INR,not_applicable,customer_or_fixture_report
+ITM-3D6C81F078,ORD-ID-c0083c7196,SKU-694E1822A2,Wireless mouse,electronics,1,3563.00,INR,not_applicable,customer_or_fixture_report
+ITM-1F792EA854,ORD-ID-ed0c08e02f,SKU-478E5B43E5,Book set,books,1,1112.00,INR,not_applicable,customer_or_fixture_report
+ITM-54E1B7F29E,ORD-ID-44121221a1,SKU-3BFB064BE4,Bluetooth speaker,electronics,2,9738.00,INR,not_applicable,customer_or_fixture_report
+ITM-49F38F886B,ORD-ID-7387afc9cb,SKU-A5E9B1BBB7,Seat organiser,automotive,1,5971.00,INR,not_applicable,customer_or_fixture_report
+ITM-F042E1956E,ORD-ID-20777c94eb,SKU-A76EF1F614,Bath and body set,beauty,1,912.00,INR,not_applicable,customer_or_fixture_report
+ITM-6A1491B90B,ORD-ID-0420d696ee,SKU-63221AE25D,Feeding bottle set,baby,1,1166.00,INR,not_applicable,customer_or_fixture_report
+ITM-A50B7628A3,ORD-ID-0420d696ee,SKU-063214266B,Soft toy,baby,1,6733.00,INR,not_applicable,customer_or_fixture_report
+ITM-4CD7CB7414,ORD-ID-a5b851d34c,SKU-D329ED6BC4,USB-C charger,electronics,1,22775.00,INR,not_applicable,customer_or_fixture_report
+ITM-388C02BA23,ORD-ID-9a97b69f81,SKU-FC6EE9BCD1,Cookbook,books,1,409.00,INR,not_applicable,customer_or_fixture_report
+ITM-FD4C4BCBE6,ORD-ID-6bfdebd40e,SKU-91362119F7,Plush animal,toys,3,1259.00,INR,not_applicable,customer_or_fixture_report
+ITM-1956C1A5ED,ORD-ID-a841e0e790,SKU-4D1B72A4C5,Steel cookware set,kitchen,1,4476.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-A643986FF6,ORD-ID-4e66da619d,SKU-72903AD354,Running shoes,footwear,1,6329.00,INR,not_applicable,customer_or_fixture_report
+ITM-C519E30B8F,ORD-ID-b71f989b74,SKU-E10232EB8C,Cricket bat,sports,1,7301.00,INR,not_applicable,customer_or_fixture_report
+ITM-D0E49897EA,ORD-ID-82cf13b477,SKU-A00E18EDD0,Resistance bands,sports,1,6927.00,INR,not_applicable,customer_or_fixture_report
+ITM-0350B7CCE7,ORD-ID-853cbf47e1,SKU-3B9E6D4EDF,Laptop sleeve,luggage,1,11186.00,INR,not_applicable,customer_or_fixture_report
+ITM-1D330C5B5E,ORD-ID-57a9fe2a98,SKU-572BF34CB1,Fountain pen,office,1,1362.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-854EB56C00,ORD-ID-57a9fe2a98,SKU-2918F10A6C,Cricket bat,sports,1,1679.00,INR,not_applicable,customer_or_fixture_report
+ITM-10FA0270BA,ORD-ID-f5f1f83a81,SKU-3094AD5DF3,Mixer grinder,home_appliance,1,9268.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-F621C51DD8,ORD-ID-1fa4e7af60,SKU-107AD38C09,Board game,toys,1,1609.00,INR,not_applicable,customer_or_fixture_report
+ITM-5E81166F88,ORD-ID-98f220d2dc,SKU-AE1E12A0CE,Travel essays,books,1,223.00,INR,not_applicable,customer_or_fixture_report
+ITM-FE2C5B54B2,ORD-ID-f70fa52e52,SKU-4ABAC7C97F,Cotton baby blanket,baby,2,3480.00,INR,not_applicable,customer_or_fixture_report
+ITM-8EC3BE54E4,ORD-ID-5ce90473fe,SKU-D6E4B45F6D,Snack variety box,grocery,1,2830.00,INR,not_applicable,customer_or_fixture_report
+ITM-BED3ECAA14,ORD-ID-5ce90473fe,SKU-BC2F03C520,Cotton baby blanket,baby,1,4325.00,INR,not_applicable,customer_or_fixture_report
+ITM-27BD5FC35E,ORD-ID-e2b158b871,SKU-DE0944968F,Cat scratcher,pet_supplies,1,3051.00,INR,not_applicable,customer_or_fixture_report
+ITM-A3862469D5,ORD-ID-817905c092,SKU-02978C1871,Cat scratcher,pet_supplies,1,312.00,INR,not_applicable,customer_or_fixture_report
+ITM-F546423607,ORD-ID-c94fa376f3,SKU-F35C4554EE,Ceramic vase,home,1,3931.00,INR,not_applicable,customer_or_fixture_report
+ITM-1AB6CB9CA5,ORD-ID-9bd632cee4,SKU-FB638E0418,Watering can,garden,1,264.00,INR,not_applicable,customer_or_fixture_report
+ITM-9DDEDBAA60,ORD-ID-b7f47e3a94,SKU-2F35BC0AD7,Children's story collection,books,1,519.00,INR,not_applicable,customer_or_fixture_report
+ITM-6B6CFB77E7,ORD-ID-abf8bd52e4,SKU-49111BCEB7,Bath and body set,beauty,1,768.00,INR,not_applicable,customer_or_fixture_report
+ITM-4528BA0B81,ORD-ID-a7de36c8c8,SKU-FF97649963,Silver-plated earrings,jewellery,2,6889.00,INR,not_applicable,customer_or_fixture_report
+ITM-00F9B8731B,ORD-ID-7f0298d0d1,SKU-A38328D6DE,Notebook set,office,1,925.00,INR,not_applicable,customer_or_fixture_report
+ITM-2AE8E9E582,ORD-ID-9c07956d06,SKU-66B984B970,Building blocks,toys,1,1445.00,INR,not_applicable,customer_or_fixture_report
+ITM-0157DCB585,ORD-ID-957c81982f,SKU-10D7A15D36,Dry fruit assortment,grocery,1,2759.00,INR,not_applicable,customer_or_fixture_report
+ITM-A59131343D,ORD-ID-f2a7312219,SKU-C5FFD4190E,Cricket bat,sports,1,5788.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A0B2C0754,ORD-ID-f2a7312219,SKU-F2B51C78D2,Packing cube set,luggage,2,2977.00,INR,not_applicable,customer_or_fixture_report
+ITM-9D1533C27C,ORD-ID-bbffcd1174,SKU-116E382883,Bluetooth speaker,electronics,2,17378.00,INR,not_applicable,customer_or_fixture_report
+ITM-E01C1D8E59,ORD-ID-3a5b56dc50,SKU-3F38460B6C,Hand blender,home_appliance,1,1797.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-2EC88070EE,ORD-ID-738588a314,SKU-CE82637830,Children's story collection,books,1,321.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-8CA535F9B4,ORD-ID-738588a314,SKU-92F825318B,Pendant necklace,jewellery,1,13117.00,INR,not_applicable,customer_or_fixture_report
+ITM-728679D21E,ORD-ID-6402220f12,SKU-EC16068E69,Wireless mouse,electronics,1,14986.00,INR,not_applicable,customer_or_fixture_report
+ITM-5B50A633D9,ORD-ID-c95de0b0a1,SKU-A608A477B6,Fountain pen,office,1,3983.00,INR,not_applicable,customer_or_fixture_report
+ITM-E24F6CC7EE,ORD-ID-c95de0b0a1,SKU-FA09992A98,Denim jacket,clothing,1,577.00,INR,not_applicable,customer_or_fixture_report
+ITM-511C9E5A86,ORD-ID-9b7a4cd04e,SKU-B4B583FF2F,Cookbook,books,1,363.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-5D627D3092,ORD-ID-9b7a4cd04e,SKU-7A91F6D043,Air fryer,home_appliance,1,16839.00,INR,not_applicable,customer_or_fixture_report
+ITM-7782AF8E0A,ORD-ID-9142c5fcbf,SKU-EB9AA29737,Ceramic vase,home,1,2793.00,INR,not_applicable,customer_or_fixture_report
+ITM-5D9CF8DEB4,ORD-ID-7cd1a4a36c,SKU-0F61BBC96A,Beaded bracelet,jewellery,1,5272.00,INR,not_applicable,customer_or_fixture_report
+ITM-46B7F62ABB,ORD-ID-deb0b58eba,SKU-655C2FEC64,Art activity kit,toys,1,4212.00,INR,not_applicable,customer_or_fixture_report
+ITM-08D483C899,ORD-ID-bf7743fe58,SKU-F09047C763,Denim jacket,clothing,1,1391.00,INR,not_applicable,customer_or_fixture_report
+ITM-DAF844C169,ORD-ID-bf7743fe58,SKU-21E6130F4B,Microfibre cleaning kit,automotive,2,7547.00,INR,not_applicable,customer_or_fixture_report
+ITM-5E2F04A0AC,ORD-ID-1c304453a2,SKU-77E505BD64,Building blocks,toys,2,3650.00,INR,not_applicable,customer_or_fixture_report
+ITM-010CCCDA2C,ORD-ID-39f98b261f,SKU-AD3C038C8F,Cotton bedsheet,home,1,2961.00,INR,not_applicable,customer_or_fixture_report
+ITM-9C454053EC,ORD-ID-affd39c19c,SKU-99EBB5D4C3,Silver-plated earrings,jewellery,1,9765.00,INR,not_applicable,customer_or_fixture_report
+ITM-187F7EB0B3,ORD-ID-4129f45e26,SKU-B3270233DF,Snack variety box,grocery,1,2839.00,INR,not_applicable,customer_or_fixture_report
+ITM-D7D916BF1A,ORD-ID-4129f45e26,SKU-F3E1539EED,Minimalist watch,jewellery,2,7587.00,INR,not_applicable,customer_or_fixture_report
+ITM-B1E040B534,ORD-ID-92a2d8c423,SKU-6D9DAB5E78,Minimalist watch,jewellery,1,6337.00,INR,not_applicable,customer_or_fixture_report
+ITM-A1B0BEA12F,ORD-ID-9ce142f78b,SKU-264BF32C9B,Building blocks,toys,1,1026.00,INR,not_applicable,customer_or_fixture_report
+ITM-6D163722E7,ORD-ID-14694917bf,SKU-87815AEDAC,Seed starter kit,garden,1,2461.00,INR,not_applicable,customer_or_fixture_report
+ITM-D3AC268250,ORD-ID-c7569ed1b8,SKU-043C488F02,Ceramic vase,home,1,1098.00,INR,not_applicable,customer_or_fixture_report
+ITM-93F35D15E9,ORD-ID-b495c0ca5f,SKU-2419B36D0E,Mixer grinder,home_appliance,1,3028.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA558D7199,ORD-ID-39611e5532,SKU-49B8D27000,Packing cube set,luggage,1,11421.00,INR,not_applicable,customer_or_fixture_report
+ITM-D48B696E3C,ORD-ID-39611e5532,SKU-6C17C3E7C0,Glass lunch box,kitchen,1,1490.00,INR,not_applicable,customer_or_fixture_report
+ITM-73AA98219E,ORD-ID-a318f3f692,SKU-AFE2BF9783,Steel cookware set,kitchen,1,2320.00,INR,not_applicable,customer_or_fixture_report
+ITM-B665ADDF70,ORD-ID-a02ef77039,SKU-0E54EFC6F7,Soft toy,baby,1,2869.00,INR,not_applicable,customer_or_fixture_report
+ITM-E01F00018D,ORD-ID-93e17251e8,SKU-DD804EB73D,Canvas sneakers,footwear,1,5818.00,INR,not_applicable,customer_or_fixture_report
+ITM-944237F7F1,ORD-ID-93e17251e8,SKU-4F38672EDF,Fountain pen,office,1,2354.00,INR,not_applicable,customer_or_fixture_report
+ITM-561A8A3354,ORD-ID-93e17251e8,SKU-B709DE50FF,Noise-cancelling headphones,electronics,1,15293.00,INR,not_applicable,customer_or_fixture_report
+ITM-16DDC159BE,ORD-ID-a065bad5e8,SKU-2117774756,Tyre inflator,automotive,1,473.00,INR,not_applicable,customer_or_fixture_report
+ITM-56EF5210D2,ORD-ID-340cf3e2b4,SKU-4E795C2CEA,Coffee sampler,grocery,1,1439.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-986707377B,ORD-ID-340cf3e2b4,SKU-021A41B2E3,Cotton kurta,clothing,1,2993.00,INR,not_applicable,customer_or_fixture_report
+ITM-89CAC621B6,ORD-ID-03978d78df,SKU-0052CC5535,Art activity kit,toys,1,3353.00,INR,not_applicable,customer_or_fixture_report
+ITM-9EEC64A1A1,ORD-ID-7549e2edf3,SKU-20CE5021A2,Plush animal,toys,1,616.00,INR,not_applicable,customer_or_fixture_report
+ITM-AF42A0A638,ORD-ID-26644531a6,SKU-C6EA075CA3,Pendant necklace,jewellery,2,12185.00,INR,not_applicable,customer_or_fixture_report
+ITM-6A38FB9C78,ORD-ID-47d6194775,SKU-99F281A917,Travel duffel,luggage,2,7072.00,INR,not_applicable,customer_or_fixture_report
+ITM-A114561C67,ORD-ID-26f3e664c5,SKU-37EA87AEAB,Hand blender,home_appliance,1,2750.00,INR,not_applicable,customer_or_fixture_report
+ITM-2CF60FD117,ORD-ID-d6cd94d0d3,SKU-4D15BE69EF,Face moisturiser,beauty,1,3242.00,INR,not_applicable,customer_or_fixture_report
+ITM-91E7689735,ORD-ID-bf95bded95,SKU-5ABD5EF1E0,Travel duffel,luggage,1,11065.00,INR,not_applicable,customer_or_fixture_report
+ITM-4ED23C578E,ORD-ID-c23ee72f1f,SKU-447641DE3D,Tyre inflator,automotive,1,5017.00,INR,not_applicable,customer_or_fixture_report
+ITM-C359581C45,ORD-ID-c23ee72f1f,SKU-0CA0AEF072,Cycling helmet,sports,1,2739.00,INR,not_applicable,customer_or_fixture_report
+ITM-13F2B1ADD9,ORD-ID-fd2d790cb0,SKU-A7AC5300C0,Hair serum,beauty,1,3895.00,INR,not_applicable,customer_or_fixture_report
+ITM-8D8C2E1166,ORD-ID-fd2d790cb0,SKU-3BFDA3CBC7,Storage basket,home,2,5766.00,INR,not_applicable,customer_or_fixture_report
+ITM-C8DBBEBB4D,ORD-ID-bfc7db7641,SKU-7DEE6C79C4,Smart watch,electronics,1,14713.00,INR,not_applicable,customer_or_fixture_report
+ITM-C15DEA48C2,ORD-ID-bfc7db7641,SKU-BAA03DFCB8,Beaded bracelet,jewellery,1,10990.00,INR,not_applicable,customer_or_fixture_report
+ITM-92B2B8791F,ORD-ID-4ae1fa3770,SKU-2920ABF9FF,Cookbook,books,1,1858.00,INR,not_applicable,customer_or_fixture_report
+ITM-834AF4C252,ORD-ID-5d2194fe20,SKU-73AFACEEC6,Silver-plated earrings,jewellery,1,7604.00,INR,not_applicable,customer_or_fixture_report
+ITM-0264775EB0,ORD-ID-5d2194fe20,SKU-E55F8F7D9F,Leather sandals,footwear,1,6481.00,INR,not_applicable,customer_or_fixture_report
+ITM-3D01351770,ORD-ID-9076aad97e,SKU-915DFF4588,Feeding bottle set,baby,1,5158.00,INR,not_applicable,customer_or_fixture_report
+ITM-5C5B4E5BB2,ORD-ID-1fe54f61b3,SKU-26C35BDF2C,Beaded bracelet,jewellery,1,12669.00,INR,not_applicable,customer_or_fixture_report
+ITM-C503C7B1CC,ORD-ID-bc7c797071,SKU-364794F70D,Organic tea pack,grocery,1,2250.00,INR,not_applicable,customer_or_fixture_report
+ITM-D48DAA49E4,ORD-ID-4837788d56,SKU-270D34BF1F,Steel cookware set,kitchen,1,9722.00,INR,not_applicable,customer_or_fixture_report
+ITM-D7B8A4E950,ORD-ID-a90e1f3a19,SKU-A058523ECA,Cycling helmet,sports,1,6584.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-ACFD9B5417,ORD-ID-de536275a8,SKU-BC01A023BF,Cricket bat,sports,1,1960.00,INR,not_applicable,customer_or_fixture_report
+ITM-7DBCC0DB43,ORD-ID-f1e90b0241,SKU-9DB55BEE6E,Face moisturiser,beauty,1,3287.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E734E56EA,ORD-ID-17b383f4e8,SKU-BB182E2DA2,Hair serum,beauty,1,3905.00,INR,not_applicable,customer_or_fixture_report
+ITM-FDA2A8AF45,ORD-ID-433eaf3480,SKU-D55B1FFA69,Mixer grinder,home_appliance,1,15696.00,INR,not_applicable,customer_or_fixture_report
+ITM-F314FE8007,ORD-ID-433eaf3480,SKU-8E7510B38A,Pruning shears,garden,1,201.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEDE935747,ORD-ID-063a9570f6,SKU-B6CF9CB1FC,Walking shoes,footwear,1,2647.00,INR,not_applicable,customer_or_fixture_report
+ITM-52E2007462,ORD-ID-1ccf1dde4f,SKU-327B77D063,Tyre inflator,automotive,2,6458.00,INR,not_applicable,customer_or_fixture_report
+ITM-B8829649FB,ORD-ID-1c0430b89e,SKU-350CC86964,Running shorts,clothing,1,4045.00,INR,not_applicable,customer_or_fixture_report
+ITM-B368437A49,ORD-ID-8f654253e0,SKU-376DA79245,Pet travel bowl,pet_supplies,1,3587.00,INR,not_applicable,customer_or_fixture_report
+ITM-711B9F8203,ORD-ID-01ef5a198e,SKU-DC81B56633,Denim jacket,clothing,1,469.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA95F5696E,ORD-ID-f997fb46bc,SKU-C69F88AF53,USB-C charger,electronics,1,16112.00,INR,not_applicable,customer_or_fixture_report
+ITM-F88237683E,ORD-ID-4dfd9dee32,SKU-AA56FDFBCA,Fountain pen,office,1,1377.00,INR,not_applicable,customer_or_fixture_report
+ITM-CB7B7746BB,ORD-ID-02b90efe1d,SKU-979CF0D456,Fountain pen,office,1,7824.00,INR,not_applicable,customer_or_fixture_report
+ITM-3C459D98FB,ORD-ID-c251662126,SKU-BB10C06C9E,Cat scratcher,pet_supplies,1,3240.00,INR,not_applicable,customer_or_fixture_report
+ITM-21F4025CAE,ORD-ID-c251662126,SKU-7CA114F0E9,Bath and body set,beauty,1,538.00,INR,not_applicable,customer_or_fixture_report
+ITM-8AC8532A84,ORD-ID-f1dc9863ad,SKU-107D9FE888,Notebook set,office,2,1149.00,INR,not_applicable,customer_or_fixture_report
+ITM-2B080D17D8,ORD-ID-2406f1a43b,SKU-D09D7E6E1F,Plush animal,toys,1,4770.00,INR,not_applicable,customer_or_fixture_report
+ITM-80F800BC8B,ORD-ID-b7e92aa979,SKU-D02D0B862A,Tyre inflator,automotive,1,6951.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-34132503E6,ORD-ID-eaf87ec94a,SKU-AE008B177C,Planter set,garden,1,4830.00,INR,not_applicable,customer_or_fixture_report
+ITM-5CAE710249,ORD-ID-1bf1ac28ff,SKU-D8A950798A,Face moisturiser,beauty,1,3763.00,INR,not_applicable,customer_or_fixture_report
+ITM-9E6AFFAB49,ORD-ID-9f31dd88b4,SKU-AF79177DC0,Canvas sneakers,footwear,1,7584.00,INR,not_applicable,customer_or_fixture_report
+ITM-A9F2AEF0A3,ORD-ID-9f31dd88b4,SKU-93D94E11D2,Pruning shears,garden,1,4821.00,INR,not_applicable,customer_or_fixture_report
+ITM-7A0DD862DB,ORD-ID-9f31dd88b4,SKU-A77E1DAA59,Cotton kurta,clothing,1,1589.00,INR,not_applicable,customer_or_fixture_report
+ITM-AB3BB18F88,ORD-ID-2bb2173bc8,SKU-70E261A8FA,Tyre inflator,automotive,1,8709.00,INR,not_applicable,customer_or_fixture_report
+ITM-B997FB81D0,ORD-ID-2bb2173bc8,SKU-2BCD6092C9,Air fryer,home_appliance,1,14718.00,INR,not_applicable,customer_or_fixture_report
+ITM-B44C4455C9,ORD-ID-2bb2173bc8,SKU-16F762F83C,Watering can,garden,2,230.00,INR,not_applicable,customer_or_fixture_report
+ITM-8B7A4E0CB0,ORD-ID-5901e08f34,SKU-4B3C1D9E90,Document organiser,office,1,3270.00,INR,not_applicable,customer_or_fixture_report
+ITM-B2632232E2,ORD-ID-5ac7965cc1,SKU-381339B1AC,Packing cube set,luggage,1,9457.00,INR,not_applicable,customer_or_fixture_report
+ITM-35F7CF3491,ORD-ID-ea12240cb7,SKU-9B33E4336F,Electric kettle,home_appliance,1,13481.00,INR,not_applicable,customer_or_fixture_report
+ITM-5E344B7264,ORD-ID-ea12240cb7,SKU-26A6E71458,Hair serum,beauty,3,2997.00,INR,not_applicable,customer_or_fixture_report
+ITM-F3AAC42A46,ORD-ID-7d3f0e809b,SKU-33EDF1F726,Pet travel bowl,pet_supplies,1,3547.00,INR,not_applicable,customer_or_fixture_report
+ITM-AAD79654EE,ORD-ID-8ba4e92a17,SKU-1AE2C3B098,Wireless keyboard,office,1,1176.00,INR,not_applicable,customer_or_fixture_report
+ITM-918BED55AE,ORD-ID-f2dd5f5347,SKU-99A5A992BC,Glass lunch box,kitchen,2,9891.00,INR,not_applicable,customer_or_fixture_report
+ITM-75553E78CF,ORD-ID-707ec1eca0,SKU-3DE43A9E56,Soft toy,baby,1,6014.00,INR,not_applicable,customer_or_fixture_report
+ITM-BCDD5F3BAC,ORD-ID-77cb67a840,SKU-61AB0A5751,Leather sandals,footwear,1,2242.00,INR,not_applicable,customer_or_fixture_report
+ITM-ABAFDB9FE7,ORD-ID-b39ba1d47b,SKU-00D06DDE83,Bath and body set,beauty,1,3224.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B93B33B36,ORD-ID-b39ba1d47b,SKU-AF8D35C5FF,Dry fruit assortment,grocery,1,1794.00,INR,not_applicable,customer_or_fixture_report
+ITM-3BA3D0CECB,ORD-ID-dda89bf591,SKU-CBD577677C,Seat organiser,automotive,1,2871.00,INR,not_applicable,customer_or_fixture_report
+ITM-D6ECEAE6AE,ORD-ID-d504b84591,SKU-13B1140B34,Children's story collection,books,2,402.00,INR,not_applicable,customer_or_fixture_report
+ITM-F6F2635811,ORD-ID-f42f1a15dc,SKU-9FDE8D6080,Leather sandals,footwear,1,1083.00,INR,not_applicable,customer_or_fixture_report
+ITM-B124AC7C55,ORD-ID-f42f1a15dc,SKU-0D7F963893,Watering can,garden,1,2777.00,INR,not_applicable,customer_or_fixture_report
+ITM-03AF696A5C,ORD-ID-20cb3237be,SKU-9AF93C6B81,Wireless mouse,electronics,1,6170.00,INR,not_applicable,customer_or_fixture_report
+ITM-A3FCB93BF0,ORD-ID-20cb3237be,SKU-D304A70C47,Pet travel bowl,pet_supplies,1,3383.00,INR,not_applicable,customer_or_fixture_report
+ITM-84E8ED2E4F,ORD-ID-4a96b1fd9e,SKU-5A1D2F3C53,Hair serum,beauty,1,2304.00,INR,not_applicable,customer_or_fixture_report
+ITM-7824141096,ORD-ID-41d8ca15c2,SKU-9C6A946F21,Yoga mat,sports,1,7139.00,INR,not_applicable,customer_or_fixture_report
+ITM-420C0AC778,ORD-ID-9ef89aca16,SKU-B89EAC1D44,Printed saree,clothing,1,1564.00,INR,not_applicable,customer_or_fixture_report
+ITM-01ADAE121D,ORD-ID-f37b1f734d,SKU-A9ECACD508,Ceramic vase,home,1,3851.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-81F0FAE191,ORD-ID-f37b1f734d,SKU-E6B9404BDF,Walking shoes,footwear,1,8969.00,INR,not_applicable,customer_or_fixture_report
+ITM-483D0462BF,ORD-ID-f37b1f734d,SKU-29AB61472E,Cat scratcher,pet_supplies,1,2055.00,INR,not_applicable,customer_or_fixture_report
+ITM-3EA06AE516,ORD-ID-7eafaf2920,SKU-2762DBC4E1,Dog lead,pet_supplies,1,3500.00,INR,not_applicable,customer_or_fixture_report
+ITM-EE65F1D45D,ORD-ID-c76a61c864,SKU-92ECAF8F27,Seed starter kit,garden,1,236.00,INR,not_applicable,customer_or_fixture_report
+ITM-76CF4EBCD2,ORD-ID-c76a61c864,SKU-78F3A3CBD6,Cricket bat,sports,1,6794.00,INR,not_applicable,customer_or_fixture_report
+ITM-098495235A,ORD-ID-7dc02006c9,SKU-7350FA32B7,Microfibre cleaning kit,automotive,1,5964.00,INR,not_applicable,customer_or_fixture_report
+ITM-9F31C678B1,ORD-ID-b6949a46ac,SKU-4AE215ABAD,Organic tea pack,grocery,2,2773.00,INR,not_applicable,customer_or_fixture_report
+ITM-F47E3CFBF0,ORD-ID-b6949a46ac,SKU-BE4A680DBF,Beaded bracelet,jewellery,1,14928.00,INR,not_applicable,customer_or_fixture_report
+ITM-B1AE02DA2C,ORD-ID-41f1b0f2e1,SKU-3C56F27EAC,Microfibre cleaning kit,automotive,3,8334.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E23BE7AC0,ORD-ID-d797dfefad,SKU-DBDD41DF44,Cricket bat,sports,1,658.00,INR,not_applicable,customer_or_fixture_report
+ITM-4A44BBCC5C,ORD-ID-64e4d8a1db,SKU-6BFE9E26F2,Pet travel bowl,pet_supplies,2,657.00,INR,not_applicable,customer_or_fixture_report
+ITM-D9CB8A1C3C,ORD-ID-5fdbde6468,SKU-08FB390ED9,Pruning shears,garden,1,4613.00,INR,not_applicable,customer_or_fixture_report
+ITM-2F0DD82875,ORD-ID-56cd6664a8,SKU-D02CCCECB5,Pet travel bowl,pet_supplies,1,833.00,INR,not_applicable,customer_or_fixture_report
+ITM-6A1848BA2E,ORD-ID-c4b87a54cb,SKU-DC524284E1,Seat organiser,automotive,1,7042.00,INR,not_applicable,customer_or_fixture_report
+ITM-ECEC33E1D2,ORD-ID-ea62f64d66,SKU-06EDC6203E,Travel duffel,luggage,1,3594.00,INR,not_applicable,customer_or_fixture_report
+ITM-CE6E117D81,ORD-ID-737d6468dc,SKU-B065F77F33,Coffee sampler,grocery,1,2123.00,INR,not_applicable,customer_or_fixture_report
+ITM-077C51E41E,ORD-ID-737d6468dc,SKU-9B7DAF5969,Printed saree,clothing,1,2515.00,INR,not_applicable,customer_or_fixture_report
+ITM-4962AF97DF,ORD-ID-f0bbf1f65b,SKU-8E38F03F28,Beaded bracelet,jewellery,1,6628.00,INR,not_applicable,customer_or_fixture_report
+ITM-D3757A9623,ORD-ID-ccee55e738,SKU-2917884727,Art activity kit,toys,1,3060.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1F62D8BE0,ORD-ID-792d9dea8f,SKU-7DDD3DDE31,Sunscreen lotion,beauty,1,3599.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-9EE790DAB6,ORD-ID-925b8a0d11,SKU-713A48F8EB,USB-C charger,electronics,1,23559.00,INR,not_applicable,customer_or_fixture_report
+ITM-BF68A4C91F,ORD-ID-ad34b40fa9,SKU-2786AAD495,Smart watch,electronics,1,9103.00,INR,not_applicable,customer_or_fixture_report
+ITM-233DB4BA24,ORD-ID-0c8db1e66b,SKU-45F6270415,Yoga mat,sports,1,539.00,INR,not_applicable,customer_or_fixture_report
+ITM-F5B201E4C8,ORD-ID-dc68bbda25,SKU-8904416905,Linen shirt,clothing,1,3525.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-19A31B1CC3,ORD-ID-dc68bbda25,SKU-058BD30684,Seed starter kit,garden,1,4481.00,INR,not_applicable,customer_or_fixture_report
+ITM-32CC39E283,ORD-ID-0563e1e3fc,SKU-28C42353AA,Desk lamp,home,1,5804.00,INR,not_applicable,customer_or_fixture_report
+ITM-B21AC082F0,ORD-ID-a8a1d4122d,SKU-6E9ABA0618,Mixer grinder,home_appliance,1,11175.00,INR,not_applicable,customer_or_fixture_report
+ITM-FC746B8D81,ORD-ID-71db92f9ad,SKU-E81BDC29D7,Storage basket,home,2,3349.00,INR,not_applicable,customer_or_fixture_report
+ITM-79995C5EBE,ORD-ID-329822b758,SKU-D0721F0C31,Storage basket,home,1,2740.00,INR,not_applicable,customer_or_fixture_report
+ITM-610A6D6C17,ORD-ID-f3731ec139,SKU-556EA4139A,Baby care kit,baby,1,1171.00,INR,not_applicable,customer_or_fixture_report
+ITM-EC3D3B605F,ORD-ID-7be90d2012,SKU-0D256130F6,Silver-plated earrings,jewellery,1,3961.00,INR,not_applicable,customer_or_fixture_report
+ITM-00CF7FE91C,ORD-ID-4c423abe43,SKU-4820CDF5C1,Noise-cancelling headphones,electronics,1,19053.00,INR,not_applicable,customer_or_fixture_report
+ITM-AD41B1663E,ORD-ID-4a00c42aa8,SKU-4E3973A177,Pet travel bowl,pet_supplies,1,2629.00,INR,not_applicable,customer_or_fixture_report
+ITM-0775C1E518,ORD-ID-0b9fbc2d0e,SKU-24C2B55B35,Cricket bat,sports,1,6076.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-9550392396,ORD-ID-3779c2fd74,SKU-78EDA4E178,Yoga mat,sports,1,4986.00,INR,not_applicable,customer_or_fixture_report
+ITM-03047BD49B,ORD-ID-a040c45773,SKU-C5BE1BF380,Insulated flask,kitchen,1,2161.00,INR,not_applicable,customer_or_fixture_report
+ITM-031175785A,ORD-ID-61a3282e49,SKU-6D76EEF470,Smart watch,electronics,1,20172.00,INR,not_applicable,customer_or_fixture_report
+ITM-C353E0DAC1,ORD-ID-67a03360dd,SKU-87FD45FC45,Cat scratcher,pet_supplies,1,3900.00,INR,not_applicable,customer_or_fixture_report
+ITM-B67B21186B,ORD-ID-d425c1313a,SKU-A19F57A75E,Air fryer,home_appliance,1,17673.00,INR,not_applicable,customer_or_fixture_report
+ITM-D8FB78884C,ORD-ID-cbd9dd6355,SKU-7E94887F84,Building blocks,toys,2,1882.00,INR,not_applicable,customer_or_fixture_report
+ITM-79541F56A9,ORD-ID-0db8263ae7,SKU-33C035686B,Sunscreen lotion,beauty,1,1415.00,INR,not_applicable,customer_or_fixture_report
+ITM-AD508D29B2,ORD-ID-2e9bf3e1b1,SKU-37805F27D5,Desk lamp,home,2,848.00,INR,not_applicable,customer_or_fixture_report
+ITM-DB6542DA61,ORD-ID-23a5a95f5e,SKU-0C3B2F203D,Printed saree,clothing,1,3418.00,INR,not_applicable,customer_or_fixture_report
+ITM-A4A6B15A22,ORD-ID-23a5a95f5e,SKU-E7FB240C0D,Board game,toys,1,2276.00,INR,not_applicable,customer_or_fixture_report
+ITM-3F905CE6CF,ORD-ID-2287c76bd7,SKU-E7A7174FB2,Snack variety box,grocery,1,1331.00,INR,not_applicable,customer_or_fixture_report
+ITM-862F995DDE,ORD-ID-2287c76bd7,SKU-B76F5CAC35,Dry fruit assortment,grocery,2,2673.00,INR,not_applicable,customer_or_fixture_report
+ITM-D8771F1549,ORD-ID-c1babeff21,SKU-5E02945A73,Snack variety box,grocery,1,1045.00,INR,not_applicable,customer_or_fixture_report
+ITM-619D061D07,ORD-ID-2d8d5aa718,SKU-303B2E3D72,Sunscreen lotion,beauty,1,502.00,INR,not_applicable,customer_or_fixture_report
+ITM-2400BCDE8F,ORD-ID-2d8d5aa718,SKU-0E8232BB9B,Leather sandals,footwear,1,3881.00,INR,not_applicable,customer_or_fixture_report
+ITM-60764FD38D,ORD-ID-364e77576c,SKU-2C24DCE2D2,Face moisturiser,beauty,1,1199.00,INR,not_applicable,customer_or_fixture_report
+ITM-358A300203,ORD-ID-8b40189820,SKU-92295C8902,Insulated flask,kitchen,1,5591.00,INR,not_applicable,customer_or_fixture_report
+ITM-068325F12E,ORD-ID-4f9d665171,SKU-538EA0EA5E,Children's story collection,books,1,2130.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B0F080BB8,ORD-ID-643d7f9fc3,SKU-AEAA6B6D5A,Cricket bat,sports,1,3130.00,INR,not_applicable,customer_or_fixture_report
+ITM-1BCE7C5C15,ORD-ID-2ca0630375,SKU-4FF23B6048,Snack variety box,grocery,1,1725.00,INR,not_applicable,customer_or_fixture_report
+ITM-D88D76D4F7,ORD-ID-2ca0630375,SKU-8FAA3A1A23,Seat organiser,automotive,1,6660.00,INR,not_applicable,customer_or_fixture_report
+ITM-2C98D56266,ORD-ID-7233574059,SKU-04F252284A,Desk lamp,home,1,4538.00,INR,not_applicable,customer_or_fixture_report
+ITM-E72066E4E5,ORD-ID-1ad5945559,SKU-D1FDE1A008,Pendant necklace,jewellery,1,8421.00,INR,not_applicable,customer_or_fixture_report
+ITM-A50A06D839,ORD-ID-1ad5945559,SKU-1905BD2916,Cotton baby blanket,baby,1,2062.00,INR,not_applicable,customer_or_fixture_report
+ITM-9C528576B7,ORD-ID-d87416a77d,SKU-CB8146069B,Glass lunch box,kitchen,1,6225.00,INR,not_applicable,customer_or_fixture_report
+ITM-945583395A,ORD-ID-d87416a77d,SKU-58215CB7EA,Glass lunch box,kitchen,1,8614.00,INR,not_applicable,customer_or_fixture_report
+ITM-F2AC8ABE8F,ORD-ID-ea7bc70a57,SKU-2A29CC8759,Pruning shears,garden,1,1639.00,INR,not_applicable,customer_or_fixture_report
+ITM-524808681E,ORD-ID-162ea595cc,SKU-1EE9F660AD,Laptop sleeve,luggage,1,4075.00,INR,not_applicable,customer_or_fixture_report
+ITM-39A82E3F72,ORD-ID-d017e92855,SKU-ABB7F43054,Wireless mouse,electronics,1,24621.00,INR,not_applicable,customer_or_fixture_report
+ITM-55545D4CFC,ORD-ID-d017e92855,SKU-7129F854F5,Minimalist watch,jewellery,1,2973.00,INR,not_applicable,customer_or_fixture_report
+ITM-6CF963CA86,ORD-ID-25b2971d35,SKU-338D5785A0,Art activity kit,toys,1,2753.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-8BA3CD9FEF,ORD-ID-f1252e2310,SKU-3BA84543E3,Watering can,garden,1,1851.00,INR,not_applicable,customer_or_fixture_report
+ITM-89174842DF,ORD-ID-f1252e2310,SKU-EF18F6D4FE,Hand blender,home_appliance,1,18784.00,INR,not_applicable,customer_or_fixture_report
+ITM-9B5553505C,ORD-ID-3f57149ec6,SKU-343E01C20A,Desk fan,home_appliance,1,18026.00,INR,not_applicable,customer_or_fixture_report
+ITM-C3092477A8,ORD-ID-3f57149ec6,SKU-AC694F122C,Microfibre cleaning kit,automotive,1,5977.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E6137D6B8,ORD-ID-e8a4f7e208,SKU-38C2399C99,Chef knife,kitchen,1,4331.00,INR,not_applicable,customer_or_fixture_report
+ITM-7EB60FA2A8,ORD-ID-a9b6c4f91b,SKU-0034D8B546,Fountain pen,office,1,1951.00,INR,not_applicable,customer_or_fixture_report
+ITM-3C39105C1A,ORD-ID-a9b6c4f91b,SKU-B26C298274,Running shoes,footwear,1,1854.00,INR,not_applicable,customer_or_fixture_report
+ITM-8392D74F82,ORD-ID-a9b6c4f91b,SKU-24B90423D9,Pendant necklace,jewellery,1,13484.00,INR,not_applicable,customer_or_fixture_report
+ITM-FDF02E646F,ORD-ID-29798b7710,SKU-BD18BC2E4E,Face moisturiser,beauty,2,770.00,INR,not_applicable,customer_or_fixture_report
+ITM-D14A124258,ORD-ID-29798b7710,SKU-292C889E6E,Minimalist watch,jewellery,1,3122.00,INR,not_applicable,customer_or_fixture_report
+ITM-04B22FD099,ORD-ID-1dc36a8d56,SKU-8AD886366D,Notebook set,office,1,4868.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-970DAF5B90,ORD-ID-4741c63feb,SKU-679E329C68,Coffee sampler,grocery,1,2142.00,INR,not_applicable,customer_or_fixture_report
+ITM-41212B195B,ORD-ID-c18a5b6b5d,SKU-D7DB5C78A1,Travel duffel,luggage,1,2061.00,INR,not_applicable,customer_or_fixture_report
+ITM-441502A0DE,ORD-ID-69969bb84e,SKU-414056CF37,Hair serum,beauty,1,1126.00,INR,not_applicable,customer_or_fixture_report
+ITM-789BFE7A1F,ORD-ID-69969bb84e,SKU-D5FFBA6A19,Packing cube set,luggage,1,9517.00,INR,not_applicable,customer_or_fixture_report
+ITM-49B92B0AAA,ORD-ID-b2e44e77c6,SKU-B19DFA52D1,Walking shoes,footwear,1,7226.00,INR,not_applicable,customer_or_fixture_report
+ITM-079B92F655,ORD-ID-b2e44e77c6,SKU-F198BAAE33,Wireless keyboard,office,2,5601.00,INR,not_applicable,customer_or_fixture_report
+ITM-3463DAADC3,ORD-ID-afe829bc80,SKU-8E46040FD1,Car phone mount,automotive,2,5529.00,INR,not_applicable,customer_or_fixture_report
+ITM-5BDCBEBC5B,ORD-ID-c4d1e4e530,SKU-7E4AD38834,Storage basket,home,1,5789.00,INR,not_applicable,customer_or_fixture_report
+ITM-4FA829CC32,ORD-ID-ac2c5c1e08,SKU-722122D48B,Cookbook,books,2,996.00,INR,not_applicable,customer_or_fixture_report
+ITM-67C7987298,ORD-ID-5b24686be0,SKU-D70A7EF63C,Microfibre cleaning kit,automotive,1,2325.00,INR,not_applicable,customer_or_fixture_report
+ITM-65013CFD98,ORD-ID-5712575ec0,SKU-6C5FA1F125,Yoga mat,sports,3,546.00,INR,not_applicable,customer_or_fixture_report
+ITM-9CE0BEB0F7,ORD-ID-4b9947a049,SKU-969C6E8C58,Travel essays,books,1,223.00,INR,not_applicable,customer_or_fixture_report
+ITM-F7B992EA66,ORD-ID-315b578b24,SKU-C218D42AAC,Seed starter kit,garden,1,754.00,INR,not_applicable,customer_or_fixture_report
+ITM-0B859F1CD1,ORD-ID-0e11ee6f9c,SKU-3CE09D393B,Notebook set,office,1,4813.00,INR,not_applicable,customer_or_fixture_report
+ITM-A4AA6CC1A9,ORD-ID-7366402d4c,SKU-9D17155BDF,Cricket bat,sports,1,5832.00,INR,not_applicable,customer_or_fixture_report
+ITM-ACCF19A2AC,ORD-ID-7e46855b64,SKU-E905E19112,Minimalist watch,jewellery,1,13508.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-6280085F2B,ORD-ID-7e46855b64,SKU-71AA83A304,Bluetooth speaker,electronics,1,12960.00,INR,not_applicable,customer_or_fixture_report
+ITM-883E31A5DB,ORD-ID-c4d734ee89,SKU-73A2E52DF4,Seed starter kit,garden,1,1658.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-C948263D15,ORD-ID-c81f104564,SKU-E486627960,Storage basket,home,1,6322.00,INR,not_applicable,customer_or_fixture_report
+ITM-A9E258D1F1,ORD-ID-cd9a7eca94,SKU-24EAE0625C,Microfibre cleaning kit,automotive,2,4874.00,INR,not_applicable,customer_or_fixture_report
+ITM-696BB9EC83,ORD-ID-d1aabe20a4,SKU-BBA65AB525,Ceramic vase,home,1,4597.00,INR,not_applicable,customer_or_fixture_report
+ITM-7D2FA6C4D4,ORD-ID-0ca107f061,SKU-E49F8194AB,Building blocks,toys,1,4874.00,INR,not_applicable,customer_or_fixture_report
+ITM-7927BA941F,ORD-ID-962c8e16f7,SKU-C055C2354C,Pruning shears,garden,1,1185.00,INR,not_applicable,customer_or_fixture_report
+ITM-A6FE4C168F,ORD-ID-962c8e16f7,SKU-5CB53395CC,Pendant necklace,jewellery,1,8599.00,INR,not_applicable,customer_or_fixture_report
+ITM-EAC3F495C4,ORD-ID-56cc949817,SKU-F8F3878986,Resistance bands,sports,1,1837.00,INR,not_applicable,customer_or_fixture_report
+ITM-1B1D1A238A,ORD-ID-fc361ec999,SKU-FAD76C3108,Insulated flask,kitchen,1,9231.00,INR,not_applicable,customer_or_fixture_report
+ITM-9565EBA9C1,ORD-ID-fc361ec999,SKU-63CE7504A6,Insulated flask,kitchen,1,3497.00,INR,not_applicable,customer_or_fixture_report
+ITM-B3598C0EEF,ORD-ID-8ec3795060,SKU-B6AA724788,Silver-plated earrings,jewellery,1,335.00,INR,not_applicable,customer_or_fixture_report
+ITM-C105DA110E,ORD-ID-20c557d809,SKU-A31B7B38A9,Pruning shears,garden,1,3070.00,INR,not_applicable,customer_or_fixture_report
+ITM-790E65F18C,ORD-ID-8f5d6509da,SKU-E710BCA54E,Travel essays,books,1,1442.00,INR,not_applicable,customer_or_fixture_report
+ITM-C5566776C3,ORD-ID-30d704f00d,SKU-8E68D742FA,Running shoes,footwear,1,1905.00,INR,not_applicable,customer_or_fixture_report
+ITM-B67EE27A71,ORD-ID-434de59b2a,SKU-3E64CB375D,Snack variety box,grocery,1,2223.00,INR,not_applicable,customer_or_fixture_report
+ITM-11A57FD762,ORD-ID-c94f1aead0,SKU-B69AAD24C9,Feeding bottle set,baby,1,4305.00,INR,not_applicable,customer_or_fixture_report
+ITM-BBE238FFD2,ORD-ID-dbed19ee13,SKU-CBEE41A9D6,Noise-cancelling headphones,electronics,3,15370.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-28E00265E2,ORD-ID-b072562d45,SKU-F215830B2B,Children's story collection,books,1,273.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFC3E9059A,ORD-ID-43597d6d04,SKU-07122ABB23,Running shoes,footwear,1,1822.00,INR,not_applicable,customer_or_fixture_report
+ITM-A8CC8B87FB,ORD-ID-13b51add3a,SKU-F444758B5B,Snack variety box,grocery,1,1272.00,INR,not_applicable,customer_or_fixture_report
+ITM-A8D810C8FD,ORD-ID-bc463e7ac9,SKU-8212CF45EA,Walking shoes,footwear,1,1996.00,INR,not_applicable,customer_or_fixture_report
+ITM-133805C732,ORD-ID-cbd49276fe,SKU-A92453B031,Silver-plated earrings,jewellery,1,2451.00,INR,not_applicable,customer_or_fixture_report
+ITM-BA3B3D33E7,ORD-ID-3496b247c7,SKU-ADBD7C92F7,Cycling helmet,sports,1,4040.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-B9A3FB182E,ORD-ID-c0fdfca511,SKU-B91E1FEA77,Packing cube set,luggage,1,5373.00,INR,not_applicable,customer_or_fixture_report
+ITM-D9D4D8B8E6,ORD-ID-4900acf2ac,SKU-88E5D2DEC6,Walking shoes,footwear,1,7221.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-59A7078309,ORD-ID-3bd4021c9b,SKU-CDEF5E00A4,Canvas sneakers,footwear,1,8427.00,INR,not_applicable,customer_or_fixture_report
+ITM-959E9235AC,ORD-ID-9258d3ad33,SKU-7CAEC915F1,Wireless keyboard,office,1,3572.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1596588C9,ORD-ID-8957f79559,SKU-F26DF21BE9,Document organiser,office,1,5105.00,INR,not_applicable,customer_or_fixture_report
+ITM-DD37B8078A,ORD-ID-8957f79559,SKU-DA3042BAC9,Cotton bedsheet,home,1,6290.00,INR,not_applicable,customer_or_fixture_report
+ITM-13C7644537,ORD-ID-c7fa1c8af9,SKU-422B830732,Pet grooming brush,pet_supplies,1,2616.00,INR,not_applicable,customer_or_fixture_report
+ITM-D829BA67DA,ORD-ID-c7fa1c8af9,SKU-0E03815EC9,Building blocks,toys,1,1146.00,INR,not_applicable,customer_or_fixture_report
+ITM-CE87C63D37,ORD-ID-c7fa1c8af9,SKU-CCB9111F84,Minimalist watch,jewellery,1,10434.00,INR,not_applicable,customer_or_fixture_report
+ITM-5BE123A01D,ORD-ID-62dd11a743,SKU-2614261DB1,Mixer grinder,home_appliance,1,10657.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-E7AD05DF22,ORD-ID-5a72d28610,SKU-86022FEC63,Notebook set,office,1,6310.00,INR,not_applicable,customer_or_fixture_report
+ITM-338C21F1C2,ORD-ID-08e58e0f02,SKU-E7E400F488,Car phone mount,automotive,1,7588.00,INR,not_applicable,customer_or_fixture_report
+ITM-6435C32827,ORD-ID-08e58e0f02,SKU-FA667CF6FB,Running shoes,footwear,1,3550.00,INR,not_applicable,customer_or_fixture_report
+ITM-E24E1E57A7,ORD-ID-fb1ba801da,SKU-639BCD0F1D,Bath and body set,beauty,1,3056.00,INR,not_applicable,customer_or_fixture_report
+ITM-C882DA6E97,ORD-ID-df520a3f38,SKU-3C8F1DBE02,Chef knife,kitchen,1,5601.00,INR,not_applicable,customer_or_fixture_report
+ITM-36BA9F4DDB,ORD-ID-4faaf47bf4,SKU-EECFA26CF3,Steel cookware set,kitchen,1,7877.00,INR,not_applicable,customer_or_fixture_report
+ITM-AFF6C2B393,ORD-ID-2c05bce045,SKU-E5C121CA26,Electric kettle,home_appliance,1,16815.00,INR,not_applicable,customer_or_fixture_report
+ITM-F629BBFC05,ORD-ID-1eb5052336,SKU-764A538BCB,Silver-plated earrings,jewellery,3,7827.00,INR,not_applicable,customer_or_fixture_report
+ITM-B50571B277,ORD-ID-763d90dbe0,SKU-EE1078A2BF,Silver-plated earrings,jewellery,1,1080.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-0A2029A976,ORD-ID-c8a1137fad,SKU-2E76ADB8EE,Cotton bedsheet,home,1,5335.00,INR,not_applicable,customer_or_fixture_report
+ITM-B84DA2F0BC,ORD-ID-c8a1137fad,SKU-7C85CC6560,Fountain pen,office,1,6828.00,INR,not_applicable,customer_or_fixture_report
+ITM-AE6A65F393,ORD-ID-f8211395f8,SKU-46A61A04FC,Pendant necklace,jewellery,1,2119.00,INR,not_applicable,customer_or_fixture_report
+ITM-2E41E57300,ORD-ID-db41142e2e,SKU-624EEA2969,Cotton baby blanket,baby,1,597.00,INR,not_applicable,customer_or_fixture_report
+ITM-45EF416807,ORD-ID-6e87845437,SKU-240D504D35,Yoga mat,sports,1,1482.00,INR,not_applicable,customer_or_fixture_report
+ITM-8329B439E6,ORD-ID-8dfc92aaf6,SKU-21FB1ACDE4,Denim jacket,clothing,1,1140.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA00109062,ORD-ID-8dfc92aaf6,SKU-81E9BDEA1A,Snack variety box,grocery,1,1755.00,INR,not_applicable,customer_or_fixture_report
+ITM-8ACEC89CA6,ORD-ID-320e2ad550,SKU-ADBFF4744F,Coffee sampler,grocery,1,2211.00,INR,not_applicable,customer_or_fixture_report
+ITM-31860193FF,ORD-ID-320e2ad550,SKU-E8E1AEF07B,Pet travel bowl,pet_supplies,1,4712.00,INR,not_applicable,customer_or_fixture_report
+ITM-76213B6E9F,ORD-ID-3ab5c47b6e,SKU-079FD4E9AE,Yoga mat,sports,1,6018.00,INR,not_applicable,customer_or_fixture_report
+ITM-82D3D86B48,ORD-ID-cbe8bb7f78,SKU-57B8D5D82C,USB-C charger,electronics,1,20971.00,INR,not_applicable,customer_or_fixture_report
+ITM-D1A34D5208,ORD-ID-25a753f4a4,SKU-9BC4136152,Chef knife,kitchen,1,6454.00,INR,not_applicable,customer_or_fixture_report
+ITM-EAF898851E,ORD-ID-6a4568c633,SKU-E69C85F4DC,Glass lunch box,kitchen,1,6643.00,INR,not_applicable,customer_or_fixture_report
+ITM-5C5F37B561,ORD-ID-7d4cd5458f,SKU-043593E0B7,Yoga mat,sports,1,1156.00,INR,not_applicable,customer_or_fixture_report
+ITM-C2DE9D142F,ORD-ID-2ab644fab3,SKU-81FEC133EB,Hand blender,home_appliance,1,8428.00,INR,not_applicable,customer_or_fixture_report
+ITM-D5ADC03356,ORD-ID-2ab644fab3,SKU-DA1F52236C,Travel essays,books,1,1310.00,INR,not_applicable,customer_or_fixture_report
+ITM-56E3D00BEE,ORD-ID-81542eb4f5,SKU-8C10E56399,Glass lunch box,kitchen,1,4432.00,INR,not_applicable,customer_or_fixture_report
+ITM-4B3A105030,ORD-ID-66441a1e9b,SKU-C338207F5E,Smart watch,electronics,1,11718.00,INR,not_applicable,customer_or_fixture_report
+ITM-48DD86E397,ORD-ID-10b5f7f669,SKU-E75A62E75A,Book set,books,1,773.00,INR,not_applicable,customer_or_fixture_report
+ITM-462E207894,ORD-ID-17bd7fc337,SKU-A90DCAEEAD,Cookbook,books,2,816.00,INR,not_applicable,customer_or_fixture_report
+ITM-276A5CE101,ORD-ID-17bd7fc337,SKU-C31D9FC9EE,Car phone mount,automotive,1,2003.00,INR,not_applicable,customer_or_fixture_report
+ITM-8E1FBD06F0,ORD-ID-aefb9b65c6,SKU-424AEC8114,Smart watch,electronics,1,24908.00,INR,not_applicable,customer_or_fixture_report
+ITM-61BCB29008,ORD-ID-b15782e1ed,SKU-7220A2AEB7,Linen shirt,clothing,1,3760.00,INR,not_applicable,customer_or_fixture_report
+ITM-ECBC4E1D76,ORD-ID-f08bc64b57,SKU-045FF2661A,Bluetooth speaker,electronics,1,15896.00,INR,not_applicable,customer_or_fixture_report
+ITM-1D1BBC472C,ORD-ID-9118aef33f,SKU-188AF6E3FD,Pendant necklace,jewellery,1,584.00,INR,not_applicable,customer_or_fixture_report
+ITM-909EEFE1A3,ORD-ID-22782ac922,SKU-678E10A6E7,Pet grooming brush,pet_supplies,1,3311.00,INR,not_applicable,customer_or_fixture_report
+ITM-CEB421AD09,ORD-ID-8596725369,SKU-FDB3E7AC8E,Linen shirt,clothing,1,1931.00,INR,not_applicable,customer_or_fixture_report
+ITM-5196A3039C,ORD-ID-14ca547c7b,SKU-A6D988B1A8,Seed starter kit,garden,1,4440.00,INR,not_applicable,customer_or_fixture_report
+ITM-C03E88770E,ORD-ID-d3a4bbd6b4,SKU-5879542CCF,Resistance bands,sports,2,5245.00,INR,not_applicable,customer_or_fixture_report
+ITM-093C7B422A,ORD-ID-d3a4bbd6b4,SKU-92DB781558,Tyre inflator,automotive,1,5479.00,INR,not_applicable,customer_or_fixture_report
+ITM-AA4DDF1D50,ORD-ID-d3a4bbd6b4,SKU-E39043ECF4,Children's story collection,books,1,1037.00,INR,not_applicable,customer_or_fixture_report
+ITM-B0DF8E140C,ORD-ID-26ed053650,SKU-7520C344CE,Watering can,garden,1,4410.00,INR,not_applicable,customer_or_fixture_report
+ITM-448418486A,ORD-ID-6ed12cf320,SKU-4FB1C3F144,Cycling helmet,sports,1,6014.00,INR,not_applicable,customer_or_fixture_report
+ITM-C731329085,ORD-ID-1e0ad79ec1,SKU-910773C3B8,Electric kettle,home_appliance,1,6373.00,INR,not_applicable,customer_or_fixture_report
+ITM-CB3C101BB5,ORD-ID-1e0ad79ec1,SKU-D07E1E9325,Watering can,garden,1,648.00,INR,not_applicable,customer_or_fixture_report
+ITM-F14AC9EE74,ORD-ID-a6d8c78765,SKU-DEE38D01C1,Travel duffel,luggage,3,11231.00,INR,not_applicable,customer_or_fixture_report
+ITM-A8DADC7FB3,ORD-ID-6916b83f71,SKU-387B20E1F8,Pendant necklace,jewellery,1,14295.00,INR,not_applicable,customer_or_fixture_report
+ITM-309C6CAE99,ORD-ID-5184cc55c4,SKU-37FC7D1582,Leather sandals,footwear,2,977.00,INR,not_applicable,customer_or_fixture_report
+ITM-4E872F58BE,ORD-ID-5184cc55c4,SKU-A687B234D3,Pet grooming brush,pet_supplies,1,4193.00,INR,not_applicable,customer_or_fixture_report
+ITM-CCBD71C060,ORD-ID-32e208fcb4,SKU-0C75537772,Tyre inflator,automotive,1,5751.00,INR,not_applicable,customer_or_fixture_report
+ITM-526D518A32,ORD-ID-c3e395b42e,SKU-CB7719E774,Chef knife,kitchen,1,5768.00,INR,not_applicable,customer_or_fixture_report
+ITM-8501671D9C,ORD-ID-f450bdc6e0,SKU-C37B3D8A50,Art activity kit,toys,2,2387.00,INR,not_applicable,customer_or_fixture_report
+ITM-7B33F39D17,ORD-ID-d8a592c0d1,SKU-1DC2E7B080,Yoga mat,sports,1,6777.00,INR,not_applicable,customer_or_fixture_report
+ITM-EDCA17BF79,ORD-ID-0f600627b8,SKU-DC26F5629D,Plush animal,toys,1,3900.00,INR,not_applicable,customer_or_fixture_report
+ITM-3DDD242ABA,ORD-ID-d1f07d5098,SKU-ACEFB2F0D4,Building blocks,toys,1,1662.00,INR,not_applicable,customer_or_fixture_report
+ITM-2B2723F40B,ORD-ID-d1f07d5098,SKU-A228447CFD,Glass lunch box,kitchen,1,466.00,INR,not_applicable,customer_or_fixture_report
+ITM-BAAA68CB29,ORD-ID-55f0f6ad55,SKU-986EBA0C1B,Resistance bands,sports,1,3030.00,INR,not_applicable,customer_or_fixture_report
+ITM-47958A4BE3,ORD-ID-61bad24cea,SKU-AE13D5520B,Running shorts,clothing,1,599.00,INR,customer_reports_damaged,customer_or_fixture_report
+ITM-C5F38695F9,ORD-ID-594a286906,SKU-1305AAC40C,Pruning shears,garden,1,4316.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-8D24EE48AA,ORD-ID-eccbd24396,SKU-EFECCCF386,Cotton baby blanket,baby,1,1803.00,INR,not_applicable,customer_or_fixture_report
+ITM-471C23ED46,ORD-ID-42fe67c6d0,SKU-AB866A31EF,Canvas sneakers,footwear,2,7168.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-6549D36057,ORD-ID-d9ec548672,SKU-A9530C69CC,Plush animal,toys,1,1472.00,INR,not_applicable,customer_or_fixture_report
+ITM-0F8F747F50,ORD-ID-3830ac1c2b,SKU-16D872991C,Plush animal,toys,1,2922.00,INR,not_applicable,customer_or_fixture_report
+ITM-87975EDDB6,ORD-ID-313341fa05,SKU-E3B7544A18,Art activity kit,toys,1,2826.00,INR,not_applicable,customer_or_fixture_report
+ITM-BFEFDB3F8F,ORD-ID-a507dc13d8,SKU-2CCE47D770,Tyre inflator,automotive,1,6231.00,INR,not_applicable,customer_or_fixture_report
+ITM-A9EC2FB56B,ORD-ID-45927f278c,SKU-7FCA5EF518,Denim jacket,clothing,1,1581.00,INR,not_applicable,customer_or_fixture_report
+ITM-FDD95F08A4,ORD-ID-45927f278c,SKU-A98E65C9ED,Wireless keyboard,office,1,3844.00,INR,not_applicable,customer_or_fixture_report
+ITM-3E1471306A,ORD-ID-12cd2b873d,SKU-D1CED0E4D6,Seed starter kit,garden,1,1330.00,INR,not_applicable,customer_or_fixture_report
+ITM-FC6C297CAF,ORD-ID-20aebbb1e7,SKU-6B2627CB00,Travel essays,books,1,1776.00,INR,not_applicable,customer_or_fixture_report
+ITM-4D010340D2,ORD-ID-c2932a75bd,SKU-C36EC6B187,Baby care kit,baby,2,1164.00,INR,not_applicable,customer_or_fixture_report
+ITM-DDDB8D3E9C,ORD-ID-c2932a75bd,SKU-63A45C9038,Travel essays,books,3,542.00,INR,not_applicable,customer_or_fixture_report
+ITM-578B777771,ORD-ID-b75ea68234,SKU-4F7FDA6DF4,Cat scratcher,pet_supplies,1,4319.00,INR,not_applicable,customer_or_fixture_report
+ITM-DE0BC43616,ORD-ID-86ebbf6119,SKU-58F151E926,Silver-plated earrings,jewellery,1,8770.00,INR,not_applicable,customer_or_fixture_report
+ITM-F82E72FACA,ORD-ID-e55c136e43,SKU-5F49C0F5FC,Hair serum,beauty,1,3302.00,INR,not_applicable,customer_or_fixture_report
+ITM-BCE2C4755C,ORD-ID-13278fd543,SKU-FCDD0C513C,Glass lunch box,kitchen,1,5109.00,INR,not_applicable,customer_or_fixture_report
+ITM-1E38EBFAA1,ORD-ID-58da23f44f,SKU-889743C9D7,Silver-plated earrings,jewellery,1,9624.00,INR,not_applicable,customer_or_fixture_report
+ITM-9104599230,ORD-ID-f8d5f72099,SKU-516F56B699,Children's story collection,books,1,780.00,INR,not_applicable,customer_or_fixture_report
+ITM-01CD3041E5,ORD-ID-a2df91e283,SKU-53F4FFB7F1,Minimalist watch,jewellery,1,3004.00,INR,not_applicable,customer_or_fixture_report
+ITM-35C9BF5B2A,ORD-ID-50afc3e144,SKU-C36FCD71E2,Tyre inflator,automotive,1,3927.00,INR,not_applicable,customer_or_fixture_report
+ITM-09A422ED6C,ORD-ID-7487c26dd8,SKU-F856F02479,Ceramic vase,home,1,1201.00,INR,not_applicable,customer_or_fixture_report
+ITM-C9EA6A6A77,ORD-ID-7487c26dd8,SKU-B21A061773,Laptop sleeve,luggage,1,1791.00,INR,not_applicable,customer_or_fixture_report
+ITM-7E38AB1256,ORD-ID-d0f97b6c90,SKU-5AC34482DE,Steel cookware set,kitchen,1,4455.00,INR,not_applicable,customer_or_fixture_report
+ITM-79CED2A56F,ORD-ID-082000853e,SKU-D8E4A8385B,Seed starter kit,garden,2,4008.00,INR,not_applicable,customer_or_fixture_report
+ITM-83960C11A2,ORD-ID-bd23095748,SKU-739B78FDA8,Mixer grinder,home_appliance,1,16346.00,INR,wrong_item_reported,customer_or_fixture_report
+ITM-E2F24C3C65,ORD-ID-bd23095748,SKU-CD07AEF76B,Planter set,garden,1,4929.00,INR,not_applicable,customer_or_fixture_report
+ITM-7630287E79,ORD-ID-1587515232,SKU-FF0A482CA3,Smart watch,electronics,2,12549.00,INR,not_applicable,customer_or_fixture_report
+ITM-6904CF19F5,ORD-ID-8f37e655de,SKU-AE491D5815,Plush animal,toys,1,1330.00,INR,not_applicable,customer_or_fixture_report
+ITM-F23FD40440,ORD-ID-8f37e655de,SKU-A21EBF67A6,Desk lamp,home,1,1427.00,INR,not_applicable,customer_or_fixture_report
+ITM-E5B48143D4,ORD-ID-952a64014a,SKU-3E1D2117EB,Beaded bracelet,jewellery,1,9709.00,INR,not_applicable,customer_or_fixture_report
+ITM-E26D44843E,ORD-ID-599d63c805,SKU-28439AB311,Leather sandals,footwear,1,7743.00,INR,not_applicable,customer_or_fixture_report
+ITM-2419E4FAAA,ORD-ID-3a50a6eab2,SKU-CB52BDCA37,Steel cookware set,kitchen,1,2103.00,INR,not_applicable,customer_or_fixture_report
+ITM-6A4C0BB34F,ORD-ID-3a50a6eab2,SKU-30F70B839E,Pet grooming brush,pet_supplies,1,2000.00,INR,not_applicable,customer_or_fixture_report
+ITM-88864A59CB,ORD-ID-a386778759,SKU-CB822597E2,Minimalist watch,jewellery,1,7902.00,INR,not_applicable,customer_or_fixture_report
+ITM-774FA2053C,ORD-ID-1059b2fa66,SKU-7130FDB436,Canvas sneakers,footwear,1,5476.00,INR,not_applicable,customer_or_fixture_report
+ITM-626162CC94,ORD-ID-e28d3cec1d,SKU-6691EEE8D6,Sunscreen lotion,beauty,1,2121.00,INR,not_applicable,customer_or_fixture_report
+ITM-9044B3622B,ORD-ID-ab39579920,SKU-541FC38D09,Plush animal,toys,1,3150.00,INR,not_applicable,customer_or_fixture_report
+ITM-24E82DC3B1,ORD-ID-1742f8f19c,SKU-4009F9C38B,Laptop sleeve,luggage,1,3787.00,INR,not_applicable,customer_or_fixture_report

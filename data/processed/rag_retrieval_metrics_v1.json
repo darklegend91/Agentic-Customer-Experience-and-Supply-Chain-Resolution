@@ -1,0 +1,25 @@
+{
+  "keyword": {
+    "query_count": 11,
+    "hit_at_1": 0.7272727272727273,
+    "hit_at_3": 1.0,
+    "mrr_at_3": 0.8484848484848485,
+    "expected_section_at_1": 0.6363636363636364,
+    "expected_version_at_1": 0.7272727272727273,
+    "scope_compliance": 1.0,
+    "citation_metadata_completeness": 1.0
+  },
+  "semantic_milvus": {
+    "query_count": 11,
+    "hit_at_1": 0.7272727272727273,
+    "hit_at_3": 1.0,
+    "mrr_at_3": 0.8333333333333333,
+    "expected_section_at_1": 0.6363636363636364,
+    "expected_version_at_1": 0.7272727272727273,
+    "scope_compliance": 1.0,
+    "citation_metadata_completeness": 1.0
+  },
+  "evaluation_set": "data/processed/rag_policy_evaluation_v1.csv",
+  "collection": "agentic_customer_support_dev_policies_v1",
+  "corpus_scope": "synthetic development-only draft policies; not a production policy benchmark"
+}

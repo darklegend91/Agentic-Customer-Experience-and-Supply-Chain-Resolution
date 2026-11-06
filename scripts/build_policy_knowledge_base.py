@@ -1,0 +1,347 @@
+"""Build a clean, chunk-optimized Policy Knowledge Base PDF for RAG."""
+
+import subprocess
+from pathlib import Path
+import pypdf
+
+ROOT = Path(__file__).resolve().parent.parent
+OUTPUT_DIR = ROOT / "output" / "pdf"
+HTML_PATH = OUTPUT_DIR / "marketplace_policy_knowledge_base.html"
+PDF_PATH = OUTPUT_DIR / "marketplace_policy_knowledge_base.pdf"
+CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marketplace Policy Knowledge Base</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 9pt;
+      color: #666;
+    }
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.55;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #0f172a;
+    border-bottom: 2pt solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: #475569;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .metadata-box {
+    background-color: #f1f5f9;
+    border-left: 4px solid #2563eb;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 9.5pt;
+  }
+  .metadata-box p {
+    margin: 3px 0;
+  }
+  h2 {
+    font-size: 14pt;
+    color: #1e3a8a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 11.5pt;
+    color: #0f172a;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+  p {
+    margin: 6px 0;
+    text-align: justify;
+  }
+  ul, ol {
+    margin: 6px 0 10px 20px;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+  }
+  tr:nth-child(even) td {
+    background-color: #fcfdfe;
+  }
+  .provenance {
+    font-size: 8.5pt;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 2px;
+    margin-bottom: 8px;
+  }
+  .warning-box {
+    background-color: #fef2f2;
+    border-left: 4px solid #dc2626;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 9pt;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+<h1>Marketplace Policy Knowledge Base</h1>
+<div class="subtitle">Authoritative Grounding Corpus for Agentic Customer Experience & Support Resolution</div>
+
+<div class="metadata-box">
+  <p><strong>Document ID:</strong> KB-MKT-POL-2026-V1</p>
+  <p><strong>Marketplace Scope:</strong> Primary: Amazon.in | Cross-Platform Reference: Flipkart, Myntra | Quarantined: Amazon.com (US)</p>
+  <p><strong>Target Use:</strong> Strict evidence retrieval, vector chunking, and deterministic policy enforcement.</p>
+  <p><strong>Citations:</strong> Reference all policy decisions by Document ID, Section Number, and Page Number.</p>
+</div>
+
+<h2>Section 1: Amazon.in Core Returns, Replacements & Refunds Policy</h2>
+<div class="provenance">Source: AMZ-IN-RETURNS | Verified from official Amazon.in documentation</div>
+
+<h3>1.1 General Return Eligibility & Acceptance Rules</h3>
+<p>Most items purchased from sellers listed on Amazon.in are returnable within the specified return window, except those explicitly identified as non-returnable. A product is eligible for return if received in physically damaged condition, missing parts/accessories, defective, or noticeably different from its description on the product detail page.</p>
+<p>Returns will only be accepted and processed under the following mandatory conditions:</p>
+<ul>
+  <li><strong>Positional Integrity:</strong> It is verified that the item was not damaged while in the customer's possession.</li>
+  <li><strong>Serial & Model Match:</strong> The product returned matches exactly what was shipped (matching serial numbers, IMEI, and brand tags).</li>
+  <li><strong>Original Condition:</strong> The product must be returned in its original condition with the brand packaging, MRP tag intact, user manuals, warranty cards, and all manufacturer accessories.</li>
+  <li><strong>Data Erasure:</strong> For electronic devices storing personal data, customers are required to remove all personal accounts and data prior to pickup.</li>
+  <li><strong>Buyer's Remorse Limitation:</strong> Items are not eligible for return due to change of mind or accidental ordering after delivery unless the specific product category explicitly advertises a free return window.</li>
+</ul>
+
+<h3>1.2 Technician Evaluation & On-Site Inspection Workflow</h3>
+<p>For high-value or technical appliance categories (including Smartphones, Tablets, Laptops, Televisions, Air Conditioners, Refrigerators, Washing Machines, and Microwaves), Amazon does not issue immediate uninspected refunds. Instead:</p>
+<ol>
+  <li>Amazon Home Services schedules an authorized technician visit to the customer's delivery pincode.</li>
+  <li>The technician inspects the device on-site to verify reported hardware defects, shipping impact, or physical damage.</li>
+  <li>Resolution (replacement or refund) is issued strictly based on the technician's logged evaluation report. If customer tampering or accidental liquid damage is identified, return eligibility is formally denied.</li>
+</ol>
+
+<h3>1.3 Account History, Anti-Abuse & Inspection Service Rules</h3>
+<p>Amazon.in enforces automated anti-abuse guardrails across returns. If an account displays excessive return velocity, serial cancellations, or repeated claims of empty boxes, Amazon reserves the right to restrict return self-service, suspend accounts, or require manager approval. Furthermore, where Open Box Delivery / OTP Inspection Service is provided at doorstep delivery, customer OTP submission confirms that the outer item is undamaged and complete; post-delivery claims of missing accessories or physical exterior damage are strictly non-returnable.</p>
+
+<div class="page-break"></div>
+
+<h3>1.4 Category Return & Replacement Matrix</h3>
+<p>The following table defines the binding return windows, eligible resolution types, and category caveats for Amazon.in orders:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">Category</th>
+      <th style="width: 14%;">Return Window</th>
+      <th style="width: 26%;">Eligible Resolution</th>
+      <th style="width: 40%;">Mandatory Conditions & Exceptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Electronics, Laptops & Mobile Phones</strong></td>
+      <td>7 Days</td>
+      <td>Free Replacement / Technician Visit</td>
+      <td>Replacement only if same SKU is in seller stock; otherwise refund. Requires technician verification for defect claims.</td>
+    </tr>
+    <tr>
+      <td><strong>Large Appliances & Televisions</strong></td>
+      <td>10 Days</td>
+      <td>Technician Visit & Replacement</td>
+      <td>Technician diagnosis required before dispatching replacement unit or processing refund. Original packaging required.</td>
+    </tr>
+    <tr>
+      <td><strong>Clothing, Apparel & Footwear</strong></td>
+      <td>10 Days</td>
+      <td>Free Return, Exchange or Refund</td>
+      <td>Eligible for return or exchange for different size/color. Unworn condition, original brand tags, and packaging mandatory.</td>
+    </tr>
+    <tr>
+      <td><strong>Home, Kitchen & Small Appliances</strong></td>
+      <td>10 Days</td>
+      <td>Free Return or Replacement</td>
+      <td>Eligible if defective or damaged. Full refund or replacement with original box and all accessories intact.</td>
+    </tr>
+    <tr>
+      <td><strong>Books & Media</strong></td>
+      <td>10 Days</td>
+      <td>Free Replacement / Refund</td>
+      <td>Physical books returnable if damaged or misprinted. Sealed media non-returnable once shrink-wrap is broken.</td>
+    </tr>
+    <tr>
+      <td><strong>Amazon Digital Devices (Echo, Fire TV, Kindle)</strong></td>
+      <td>7 Days</td>
+      <td>7 Days Replacement Only</td>
+      <td>Warranty claims handled through official Amazon Device Replacement Policy. Free replacement for hardware defects.</td>
+    </tr>
+    <tr>
+      <td><strong>Kindle E-Books</strong></td>
+      <td>7 Days</td>
+      <td>Full Refund</td>
+      <td>Accidental purchase refund available within 7 days via self-service manage content or customer support.</td>
+    </tr>
+    <tr>
+      <td><strong>Alexa Paid Skills & Digital Subscriptions</strong></td>
+      <td>3 Days</td>
+      <td>Full Refund</td>
+      <td>Refund available within 3 days of purchase by contacting customer support. One-time consumables non-refundable.</td>
+    </tr>
+    <tr>
+      <td><strong>Grocery, Gourmet & Pet Food</strong></td>
+      <td>Non-Returnable</td>
+      <td>Refund / Replacement on Damaged Delivery</td>
+      <td>Consumable nature makes items non-returnable. Full refund or replacement granted if delivered expired, damaged, or spoiled.</td>
+    </tr>
+    <tr>
+      <td><strong>Beauty, Health & Personal Care</strong></td>
+      <td>Non-Returnable</td>
+      <td>Refund / Replacement on Damaged Delivery</td>
+      <td>Hygienic seal items non-returnable once opened. Full refund issued if outer seal is damaged or wrong product arrived.</td>
+    </tr>
+    <tr>
+      <td><strong>Customized & Engraved Products</strong></td>
+      <td>Non-Returnable</td>
+      <td>Full Refund for Merchant Defect</td>
+      <td>Non-returnable due to custom fabrication. Full refund granted under A-to-z Guarantee if seller made misprint or defect.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>1.5 Non-Returnable Items & Damaged Delivery Protection Clause</h3>
+<p>Items designated as "Non-Returnable" cannot be sent back for buyer remorse or preference changes. However, under the <strong>Amazon.in Damaged Delivery Protection Clause</strong>, if a non-returnable product arrives in physically damaged condition, defective, or with missing pieces, the customer is entitled to a full refund or free replacement. Amazon customer support may request photographic evidence or coordinate a carrier inspection before issuing financial resolution.</p>
+
+<div class="page-break"></div>
+
+<h2>Section 2: Amazon.in Seller-Fulfilled & FBA Operational Policies</h2>
+<div class="provenance">Sources: AMZ-IN-SELLER-REPLACEMENTS, AMZ-IN-SELLER-CANCEL, AMZ-IN-FBA-FAQ</div>
+
+<h3>2.1 Seller-Fulfilled (MFN) Replacement Workflow</h3>
+<p>For orders fulfilled directly by third-party sellers (Merchant Fulfilled Network), return and replacement rules follow specialized workflow gates:</p>
+<ul>
+  <li><strong>Replacement Conditionality:</strong> A seller-fulfilled replacement is created only when the buyer reports damage, defect, or wrong item within the category return window, and the seller has identical inventory in stock.</li>
+  <li><strong>Out-of-Stock Fallback:</strong> If the seller does not possess replacement stock at the time of return processing, a full refund must be issued in place of replacement.</li>
+  <li><strong>Notification Window for Sellers:</strong> For high-value collectibles, fine art, or sports memorabilia, buyers must notify the seller of defect or damage within 10 days of delivery.</li>
+  <li><strong>A-to-z Guarantee Safeguard:</strong> If a third-party seller refuses a legitimate return or replacement within policy terms, the buyer is covered under the Amazon A-to-z Guarantee.</li>
+</ul>
+
+<h3>2.2 Order Cancellation Guidelines</h3>
+<p>Order cancellation options are strictly bound by fulfillment status:</p>
+<ul>
+  <li><strong>Unshipped State:</strong> Customers and sellers can cancel orders directly without penalty prior to package dispatch. For prepaid orders, full refund is initiated immediately to the original payment source.</li>
+  <li><strong>Shipped / In-Transit State:</strong> Once an order is handed to the logistics carrier and assigned a tracking scan, digital cancellation is locked. The customer must refuse delivery at the doorstep or initiate a return post-delivery.</li>
+  <li><strong>Doorstep Rejection:</strong> If a package is rejected at the doorstep, refund processing begins only after the logistics carrier records the "Return to Origin" (RTO) scan.</li>
+</ul>
+
+<h3>2.3 Fulfillment by Amazon (FBA) Customer Service Jurisdiction</h3>
+<p>For all orders designated as "Amazon Fulfilled" (FBA), Amazon Customer Service owns 100% of the customer support lifecycle, returns intake, logistics tracking, and refund authorization. Third-party sellers on FBA cannot override Amazon customer service decisions or instruct buyers to bypass Amazon's return portal.</p>
+
+<div class="page-break"></div>
+
+<h2>Section 3: Cross-Platform Reference Policies (Routing & Guardrails)</h2>
+<div class="provenance">Sources: FLIPKART-RETURNS, FLIPKART-RETURN-PROCESS, MYNTRA-REFUND-POLICY</div>
+
+<h3>3.1 Flipkart Policy Reference (Cross-Platform)</h3>
+<p>Flipkart policy applies exclusively to Flipkart-tagged transactions. Key operational boundaries include:</p>
+<ul>
+  <li><strong>Category Discretion:</strong> Return windows vary by category (typically 7 to 10 days for lifestyle and electronics). Individual product detail page terms supersede general site guidance.</li>
+  <li><strong>Doorstep Rejection:</strong> Customers can cancel orders prior to dispatch; once out for delivery, cancellation is executed by rejecting delivery at the doorstep.</li>
+  <li><strong>Resolution Types:</strong> Resolutions include Exchange (same or alternate size), Replacement (identical product), or Refund (to original payment mode or Flipkart Gift Card).</li>
+  <li><strong>Verification:</strong> Flipkart reserves the right to conduct visual and diagnostic checks during pickup.</li>
+</ul>
+
+<h3>3.2 Myntra Policy Reference (Cross-Platform)</h3>
+<p>Myntra operates as a lifestyle and fashion marketplace with specific return terms:</p>
+<ul>
+  <li><strong>14-Day Return Window:</strong> High-level platform policy allows returns within 14 days of delivery for eligible apparel and footwear.</li>
+  <li><strong>Hygiene Exceptions:</strong> Undergarments, innerwear, cosmetics, and certain personalized accessories are strictly non-returnable.</li>
+  <li><strong>Original Tags & Quality Check:</strong> Pickup agents perform physical quality checks. All tags and original packaging must remain intact.</li>
+</ul>
+
+<div class="warning-box">
+  <strong>MANDATORY RAG RETRIEVAL GUARDRAIL:</strong><br>
+  Under no circumstances may Flipkart or Myntra policy evidence be used to resolve or advise Amazon.in customer inquiries. If an agent detects mismatched marketplace metadata, the evidence must be discarded, and the ticket routed to the appropriate platform specialist.
+</div>
+
+<h2>Section 4: Quarantined Sources (Cross-Marketplace Isolation)</h2>
+<div class="provenance">Source: AMZ-US-RETURNS-EXCLUDED | Excluded Reference</div>
+
+<h3>4.1 Amazon.com (US) Jurisdiction Exclusion</h3>
+<p>Amazon.com (United States) returns policy documents operate under Federal Trade Commission regulations, US consumer statutes, and standard 30-day cross-category return windows. These terms <strong>do not apply</strong> to Amazon India (Amazon.in) transactions.</p>
+<ul>
+  <li><strong>Quarantine Protocol:</strong> Document <code>AMZ-US-RETURNS-EXCLUDED</code> is maintained strictly for regression testing and red-teaming cross-marketplace isolation.</li>
+  <li><strong>Zero-Retrieval Enforcement:</strong> The vector database and retrieval orchestrator must enforce <code>marketplace == "Amazon.in" AND is_excluded == False</code>, permanently blocking US policy retrieval in production customer-facing pipelines.</li>
+</ul>
+
+</body>
+</html>
+"""
+
+
+def build_pdf() -> Path:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    with HTML_PATH.open("w", encoding="utf-8") as f:
+        f.write(HTML_CONTENT)
+
+    cmd = [
+        CHROME_BIN,
+        "--headless",
+        "--disable-gpu",
+        "--no-pdf-header-footer",
+        f"--print-to-pdf={PDF_PATH}",
+        str(HTML_PATH),
+    ]
+
+    print(f"Compiling clean policy knowledge base HTML -> {PDF_PATH.name}...")
+    subprocess.run(cmd, check=True)
+
+    reader = pypdf.PdfReader(str(PDF_PATH))
+    total_text = ""
+    for idx, page in enumerate(reader.pages, 1):
+        total_text += page.extract_text() or ""
+
+    print(f"SUCCESS: Generated {PDF_PATH.name}")
+    print(f"Total Pages: {len(reader.pages)} | Total Characters: {len(total_text.strip())}")
+    return PDF_PATH
+
+
+if __name__ == "__main__":
+    build_pdf()
+

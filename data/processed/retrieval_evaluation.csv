@@ -1,0 +1,11 @@
+evaluation_set_version,case_id,query,target_marketplace,expected_document_id,expected_page,expected_policy_version,version_label_status
+retrieval-eval-v1,RAG-01,My mixer grinder arrived with a broken outer box and won't turn on. Can I return it?,Amazon.in,AMZ-IN-RETURNS,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-02,Technician visit required for refrigerator or microwave cooling defect,Amazon.in,AMZ-IN-RETURNS,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-03,What is the return window for clothing and footwear?,Amazon.in,AMZ-IN-RETURNS,2,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-04,How are customer returns handled for FBA inventory by Amazon customer service?,Amazon.in,AMZ-IN-FBA-FAQ,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-05,Seller-fulfilled replacement out of stock fallback to full refund,Amazon.in,AMZ-IN-SELLER-REPLACEMENTS,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-06,How do I cancel an order that is already shipped and handed to the carrier?,Amazon.in,AMZ-IN-SELLER-CANCEL,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-07,Tracking says delivered but I did not receive the package. Escalation SLA,Amazon.in,AMZ-IN-CUSTOMER-CARE,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-08,GST invoice adjustment and credit note for Amazon Business returns,Amazon.in,AMZ-IN-BUSINESS-RETURNS,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-09,What is the return window for Flipkart lifestyle items?,Flipkart,FLIPKART-RETURNS,1,,unavailable_in_current_milvus_schema
+retrieval-eval-v1,RAG-10,Myntra 14 day return policy for apparel and footwear,Myntra,MYNTRA-REFUND-POLICY,1,,unavailable_in_current_milvus_schema

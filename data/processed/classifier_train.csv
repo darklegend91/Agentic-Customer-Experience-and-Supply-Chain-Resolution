@@ -1,0 +1,945 @@
+ticket_id,message,intent
+T-001,My speaker arrived a day late. Can you check the order?,delivery_delay
+T-002,My parcel has not arrived and the date has passed.,delivery_delay
+T-003,The mixer grinder is damaged. I want help with a return.,damaged_item
+T-004,I received different shoes from the ones I ordered.,incorrect_item
+T-005,The return pickup has not happened yet.,return_status
+T-006,Where is my refund for the book set?,refund_status
+T-007,Please cancel my water bottle order.,order_cancellation
+T-008,Can I still return my mouse?,return_eligibility
+T-009,What is happening with my yoga mat order?,order_status
+T-014,"The tracking page says delivered, but I do not have the parcel.",non_delivery
+T-015,I got the wrong product and want a replacement.,incorrect_item
+T-016,Has the return centre received my item yet?,return_status
+T-018,The parcel was attempted but I was home all day.,delivery_dispute
+T-020,Please check my order ORD-ID-593d1d7587.,order_status
+T-021,"Hello, I'm following up about Bath and body set (order ORD-ID-b5e3a746d9). the refund line is still pending in my account Please advise when you can.",refund_status
+T-022,Would you please review order ORD-ID-85724ccfc5? please tell me the status shown on the order The item is Ceramic vase. Thanks.,refund_status
+T-024,I'm following up about Tyre inflator (order ORD-ID-0d37321f48). could you point me to the item-specific return terms Could you look into this for me?,return_eligibility
+T-025,"Hello, the Book set from order ORD-ID-9fe77a0344 has an issue. please tell me the status shown on the order Could you look into this for me?",refund_status
+T-026,Would you please review order ORD-ID-67c4632e65? please explain the payment status visible for this order The item is Insulated flask. Thanks.,payment_question
+T-028,"Hi team, could you check order ORD-ID-59a1f8fc46 for my Art activity kit? the returned parcel was received but I have no refund update Please advise when you can.",late_refund
+T-029,Order ORD-ID-dfb0d8e4c9: I was home when the delivery attempt was marked It concerns the Dog lead.,non_delivery
+T-030,"Hello, the Planter set from order ORD-ID-cec7d03ea4 has an issue. only one package from the order has arrived Please advise when you can.",partial_delivery
+T-031,"Hello, I placed order ORD-ID-220073d1bc for Running shoes; my bank shows a debit and I want to confirm the order record Please advise when you can.",payment_question
+T-032,Could someone help? could you check order ORD-ID-b0c07ac95d for my Smart watch? I need help understanding what was included Please advise when you can.,product_question
+T-033,Order ORD-ID-e675cb4283: I would like to understand the options shown for this item It concerns the Cookbook. Please advise when you can.,return_eligibility
+T-034,Could someone help? could you check order ORD-ID-83954478bc for my Leather sandals? one corner arrived cracked I can share more details if needed.,damaged_item
+T-035,Order ORD-ID-244db229ff: could you point me to the item-specific return terms It concerns the Ceramic vase.,return_eligibility
+T-036,Could someone help? I'm following up about Glass lunch box (order ORD-ID-14b226de24). could you help me locate the tax invoice Please advise when you can.,invoice_request
+T-037,Could someone help? could you check order ORD-ID-6eaab6b52d for my Children's story collection? the estimated date has passed and the parcel is still moving I can share more details if needed.,delivery_delay
+T-038,"Hello, could you check order ORD-ID-30a39ae581 for my Face moisturiser? I cancelled before dispatch and want to confirm the status Please advise when you can.",order_cancellation
+T-039,Could someone help? I placed order ORD-ID-5e6931666f for Pet grooming brush; please check whether an exchange option is available,exchange_request
+T-040,I need a quick update. I'm following up about Document organiser (order ORD-ID-e65f13ef0d). please check whether an invoice is available Could you look into this for me?,invoice_request
+T-041,the Notebook set from order ORD-ID-f139fad96e has an issue. I need a different size and want to see available options Could you look into this for me?,exchange_request
+T-042,Order ORD-ID-59a4758625: the returned parcel was received but I have no refund update It concerns the Noise-cancelling headphones.,late_refund
+T-044,could you check order ORD-ID-eae72a0d1e for my Noise-cancelling headphones? please confirm the item price and any recorded discount I can share more details if needed.,price_difference
+T-045,Order ORD-ID-2274857b80: the receipt shows a different total than I expected It concerns the Cricket bat. Thanks.,price_difference
+T-046,Could someone help? I placed order ORD-ID-d37abd7136 for Organic tea pack; i received another colour and size Could you look into this for me?,incorrect_item
+T-047,I need a quick update. could you check order ORD-ID-5c1c83931d for my Chef knife? the status has not changed since inspection Thanks.,late_refund
+T-048,Could someone help? I placed order ORD-ID-2c2e416df8 for Noise-cancelling headphones; the package did not include one listed accessory I can share more details if needed.,missing_accessory
+T-051,Would you please review order ORD-ID-d49892dc5a? my bank shows a debit and I want to confirm the order record The item is Coffee sampler. Thanks.,payment_question
+T-053,Order ORD-ID-13cd0fac57: the pickup window passed without a scan It concerns the Yoga mat. Could you look into this for me?,return_pickup
+T-055,"Good morning, could you check order ORD-ID-955478ac95 for my Denim jacket? I need to know whether payment was captured I can share more details if needed.",payment_question
+T-056,I need a quick update. I'm following up about Hand blender (order ORD-ID-2f8e5e8934). the pickup was booked but nobody came Thanks.,return_status
+T-057,Would you please review order ORD-ID-b181efe431? the attempt note does not match what happened at my address The item is Dry fruit assortment. Could you look into this for me?,delivery_dispute
+T-058,Would you please review order ORD-ID-89cff8a4d8? the parcel is packed; please check the pickup slot The item is Laptop sleeve. I can share more details if needed.,return_pickup
+T-059,Would you please review order ORD-ID-e00b211040? the parcel is packed; please check the pickup slot The item is Baby care kit.,return_pickup
+T-060,Could someone help? I'm following up about Art activity kit (order ORD-ID-06535b15a5). I want to know whether it has left the fulfilment centre Thanks.,order_status
+T-062,"Hi team, the Pet grooming brush from order ORD-ID-6147de515d has an issue. please check whether an invoice is available Please advise when you can.",invoice_request
+T-063,"Good morning, the Resistance bands from order ORD-ID-4c97eb6a66 has an issue. please explain the payment status visible for this order Could you look into this for me?",payment_question
+T-064,"Hello, I placed order ORD-ID-c90a36de6b for Coffee sampler; the order is marked cancelled but I need to know what happens next Please advise when you can.",order_cancellation
+T-066,Could someone help? the Sunscreen lotion from order ORD-ID-3d00e1585d has an issue. I need the invoice for my records Thanks.,invoice_request
+T-067,Order ORD-ID-deeb195a15: please check whether cancellation was recorded It concerns the Leather sandals. Could you look into this for me?,order_cancellation
+T-068,"Hello, the Sunscreen lotion from order ORD-ID-cdf6d85309 has an issue. I received another colour and size Could you look into this for me?",incorrect_item
+T-070,"Hello, I'm following up about Pet grooming brush (order ORD-ID-bbb0f53cbd). my bank shows a debit and I want to confirm the order record Could you look into this for me?",payment_question
+T-071,Order ORD-ID-45d1957187: I rescheduled collection and need the updated status It concerns the Cat scratcher.,return_pickup
+T-072,I need a quick update. could you check order ORD-ID-347e2a17d6 for my Leather sandals? the estimated date has passed and the parcel is still moving I can share more details if needed.,delivery_delay
+T-073,"Hello, the Denim jacket from order ORD-ID-4e83e7f30d has an issue. only one package from the order has arrived Please advise when you can.",partial_delivery
+T-074,"Good morning, I'm following up about Children's story collection (order ORD-ID-b70a155835). I received the main item but not its cable Could you look into this for me?",missing_accessory
+T-075,I placed order ORD-ID-79adef2b67 for Coffee sampler; could you check the remaining parcel's scan Thanks.,partial_delivery
+T-076,Would you please review order ORD-ID-2e4e540fed? could you check the remaining parcel's scan The item is Coffee sampler. Thanks.,partial_delivery
+T-077,Could someone help? I'm following up about Cookbook (order ORD-ID-2ca4ff83d4). please check the order page before advising me I can share more details if needed.,return_eligibility
+T-078,Would you please review order ORD-ID-44e00d05c9? the estimated date has passed and the parcel is still moving The item is Leather sandals.,delivery_delay
+T-079,"Good morning, I'm following up about Seed starter kit (order ORD-ID-23774d0ede). the fit is not right; what does this item's page allow",exchange_request
+T-080,"Hi team, could you check order ORD-ID-b038dbeb70 for my Yoga mat? could you help me locate the tax invoice Thanks.",invoice_request
+T-081,"Good morning, I placed order ORD-ID-733fb45535 for Board game; one corner arrived cracked I can share more details if needed.",damaged_item
+T-083,Could someone help? could you check order ORD-ID-3055ea4b07 for my Air fryer? the status has not changed since inspection Could you look into this for me?,late_refund
+T-084,"Hello, I'm following up about Cabin backpack (order ORD-ID-ac48fee4de). the order has two items but I have received one Could you look into this for me?",partial_delivery
+T-086,Would you please review order ORD-ID-ef398f7452? my bank shows a debit and I want to confirm the order record The item is Desk fan. Could you look into this for me?,payment_question
+T-087,"Would you please review order ORD-ID-6b6dc6e63a? tracking says delivered, although I haven't found the parcel The item is Noise-cancelling headphones. Could you look into this for me?",non_delivery
+T-088,"Good morning, could you check order ORD-ID-9706a405fc for my Seed starter kit? the status has not changed since inspection I can share more details if needed.",late_refund
+T-090,Would you please review order ORD-ID-67ce552ce5? please confirm whether the parcel has been handed to the carrier The item is Minimalist watch. Please advise when you can.,address_change
+T-091,Order ORD-ID-9d19dd3a0b: the parcel contains a different model It concerns the Insulated flask. I can share more details if needed.,incorrect_item
+T-092,Could someone help? the Pendant necklace from order ORD-ID-a6e37ed2cf has an issue. I need to know whether payment was captured I can share more details if needed.,payment_question
+T-093,Order ORD-ID-fc36668afd: the scan says delivered but the security desk has no parcel It concerns the Dog lead.,delivery_dispute
+T-094,Order ORD-ID-7f2f72ff4d: please tell me the status shown on the order It concerns the Wireless mouse. I can share more details if needed.,refund_status
+T-095,"Hello, could you check order ORD-ID-2d977edd0f for my Book set? I was home when the delivery attempt was marked I can share more details if needed.",non_delivery
+T-096,I placed order ORD-ID-0429c39d01 for Children's story collection; could you help me locate the tax invoice,invoice_request
+T-098,Order ORD-ID-cced2798d4: the return page still says pickup pending It concerns the Tyre inflator.,return_status
+T-100,Would you please review order ORD-ID-a15d80b929? I am checking on the refund timeline recorded for this return The item is Seat organiser. Could you look into this for me?,late_refund
+T-1000,Could someone help? could you check order ORD-ID-1742f8f19c for my Laptop sleeve? the delivery scan appears incorrect; I checked with reception,non_delivery
+T-101,"Hi team, I placed order ORD-ID-624d5c6937 for Printed saree; the delivery date slipped by two days",delivery_delay
+T-102,I need a quick update. the Planter set from order ORD-ID-6c6b52899b has an issue. I received another colour and size Thanks.,incorrect_item
+T-103,"Good morning, the Seat organiser from order ORD-ID-0d36a1d4e5 has an issue. the pickup window passed without a scan",return_pickup
+T-104,Order ORD-ID-5fda43b99f: could you confirm the selected variant It concerns the Electric kettle. Could you look into this for me?,product_question
+T-105,"Hello, I placed order ORD-ID-f7de55bd9c for Silver-plated earrings; the attempt note does not match what happened at my address Thanks.",delivery_dispute
+T-106,"Hi team, I'm following up about Silver-plated earrings (order ORD-ID-2a2adca9ea). I received another colour and size I can share more details if needed.",incorrect_item
+T-107,I'm following up about Yoga mat (order ORD-ID-cdde0ba885). I need help understanding what was included Please advise when you can.,product_question
+T-108,the Seat organiser from order ORD-ID-1b5fd6f368 has an issue. I need to know whether payment was captured Could you look into this for me?,payment_question
+T-109,Could someone help? I'm following up about Pet grooming brush (order ORD-ID-ba998fdbe5). please explain the payment status visible for this order Thanks.,payment_question
+T-110,I need a quick update. could you check order ORD-ID-b9815482b2 for my Pet travel bowl? the charger was missing from the sealed box Thanks.,missing_accessory
+T-111,"Hi team, the Walking shoes from order ORD-ID-38ab84c4fd has an issue. the delivery date slipped by two days",delivery_delay
+T-112,"Good morning, could you check order ORD-ID-9f98385871 for my Table organiser? I need the invoice for my records Could you look into this for me?",invoice_request
+T-113,"Hi team, the Building blocks from order ORD-ID-d076f99ae5 has an issue. please explain the payment status visible for this order",payment_question
+T-114,"Hello, the Coffee sampler from order ORD-ID-2732c9c300 has an issue. I noticed a typo in the address before dispatch I can share more details if needed.",address_change
+T-115,the USB-C charger from order ORD-ID-3ef2567941 has an issue. please check whether an invoice is available Please advise when you can.,invoice_request
+T-116,"Hello, the Notebook set from order ORD-ID-dc1e64091b has an issue. I was home when the delivery attempt was marked Could you look into this for me?",non_delivery
+T-117,Would you please review order ORD-ID-f5cac62eb8? I was home when the delivery attempt was marked The item is Storage basket. Please advise when you can.,non_delivery
+T-119,I placed order ORD-ID-fa606988aa for Pet grooming brush; i want to understand the amount charged at checkout I can share more details if needed.,price_difference
+T-120,"Hi team, I placed order ORD-ID-ed1d8e25fe for Noise-cancelling headphones; i received the main item but not its cable Please advise when you can.",missing_accessory
+T-121,"Hi team, I placed order ORD-ID-8136baf789 for Pet grooming brush; the returned parcel was received but I have no refund update",late_refund
+T-122,"Hello, the Walking shoes from order ORD-ID-85252472c2 has an issue. the charger was missing from the sealed box I can share more details if needed.",missing_accessory
+T-123,"Good morning, I'm following up about Steel cookware set (order ORD-ID-414bf46949). please confirm the item price and any recorded discount Could you look into this for me?",price_difference
+T-124,Order ORD-ID-37e648f820: the receipt shows a different total than I expected It concerns the Building blocks.,price_difference
+T-126,Order ORD-ID-7a9577aa06: I need the invoice for my records It concerns the Building blocks. I can share more details if needed.,invoice_request
+T-127,Order ORD-ID-8dc1f8c885: please explain the payment status visible for this order It concerns the Desk fan. Could you look into this for me?,payment_question
+T-128,Could someone help? I'm following up about Pruning shears (order ORD-ID-e3e2ddb71e). please check whether an exchange option is available Thanks.,exchange_request
+T-129,Would you please review order ORD-ID-d193358904? please check the order page before advising me The item is Baby care kit. I can share more details if needed.,return_eligibility
+T-130,Order ORD-ID-7460cfd5db: could you point me to the item-specific return terms It concerns the Coffee sampler. Thanks.,return_eligibility
+T-131,"Hello, I'm following up about Chef knife (order ORD-ID-16883d7cca). tracking has shown the same scan for a while Thanks.",delivery_delay
+T-132,I'm following up about Pendant necklace (order ORD-ID-1baf11560d). the parcel contains a different model I can share more details if needed.,incorrect_item
+T-134,I'm following up about Plush animal (order ORD-ID-dfdbf86860). I need to check whether the delivery address can still be updated I can share more details if needed.,address_change
+T-135,"Good morning, could you check order ORD-ID-f9557e8430 for my Walking shoes? I would like to understand the options shown for this item Please advise when you can.",return_eligibility
+T-137,"Hello, the Chef knife from order ORD-ID-c7577028d4 has an issue. the estimated date has passed and the parcel is still moving",delivery_delay
+T-138,"Hi team, I placed order ORD-ID-0a5e593bc9 for Linen shirt; please explain the payment status visible for this order",payment_question
+T-139,"Hello, could you check order ORD-ID-aad3348c48 for my Dog lead? the scan says delivered but the security desk has no parcel Please advise when you can.",delivery_dispute
+T-140,I need a quick update. could you check order ORD-ID-86ce801e54 for my Bath and body set? the charger was missing from the sealed box Thanks.,missing_accessory
+T-141,"Hi team, could you check order ORD-ID-0559ea777f for my Face moisturiser? the delivery date slipped by two days",delivery_delay
+T-142,Order ORD-ID-419e67c1bb: I need the invoice for my records It concerns the Cabin backpack. I can share more details if needed.,invoice_request
+T-144,"Good morning, the Snack variety box from order ORD-ID-80aaf050d8 has an issue. could you point me to the item-specific return terms",return_eligibility
+T-145,Order ORD-ID-d27df4352f: the return page still says pickup pending It concerns the Baby care kit. I can share more details if needed.,return_status
+T-146,"Good morning, the Canvas sneakers from order ORD-ID-1e5d594b3e has an issue. the return page still says pickup pending I can share more details if needed.",return_status
+T-147,"Good morning, I'm following up about Cat scratcher (order ORD-ID-00d824ff87). the pickup window passed without a scan I can share more details if needed.",return_pickup
+T-148,I placed order ORD-ID-6ce80ce3d4 for Denim jacket; i need to check whether the delivery address can still be updated I can share more details if needed.,address_change
+T-149,I need a quick update. I placed order ORD-ID-be8d82bd1c for Fountain pen; i was home when the delivery attempt was marked Could you look into this for me?,non_delivery
+T-150,I'm following up about Electric kettle (order ORD-ID-63f2338857). the order is marked cancelled but I need to know what happens next I can share more details if needed.,order_cancellation
+T-151,"Good morning, I'm following up about Seed starter kit (order ORD-ID-0943b01b09). please check whether an exchange option is available Could you look into this for me?",exchange_request
+T-154,Order ORD-ID-8e6d1429a3: I handed the parcel over and want to know the next step It concerns the Pruning shears.,return_status
+T-155,Order ORD-ID-30a71926a7: the tracking page hasn't changed since yesterday It concerns the Cabin backpack. Thanks.,order_status
+T-156,I need a quick update. could you check order ORD-ID-9f2c631bea for my Fountain pen? the refund line is still pending in my account,refund_status
+T-157,"Good morning, the Snack variety box from order ORD-ID-ecce60f6bc has an issue. the status has not changed since inspection Please advise when you can.",late_refund
+T-158,"Hello, the Laptop sleeve from order ORD-ID-a7ee8ec4f3 has an issue. the charger was missing from the sealed box",missing_accessory
+T-159,Would you please review order ORD-ID-bfd13fde24? I need to check whether the delivery address can still be updated The item is Laptop sleeve. Please advise when you can.,address_change
+T-160,Would you please review order ORD-ID-f89e21a063? could you check the remaining parcel's scan The item is Running shoes. Could you look into this for me?,partial_delivery
+T-161,I need a quick update. I'm following up about Storage basket (order ORD-ID-8a1bdf930d). the delivery date slipped by two days I can share more details if needed.,delivery_delay
+T-162,Would you please review order ORD-ID-c661d7d0f7? I received the main item but not its cable The item is Wireless keyboard.,missing_accessory
+T-163,Would you please review order ORD-ID-735c95558a? the package did not include one listed accessory The item is Seat organiser. Please advise when you can.,missing_accessory
+T-164,"Good morning, I placed order ORD-ID-b19b652639 for Beaded bracelet; i have a question about the item details shown on the order Could you look into this for me?",product_question
+T-165,I need a quick update. I'm following up about Document organiser (order ORD-ID-7876eb0f31). I did not receive a call before the failed attempt Thanks.,delivery_dispute
+T-166,"Hello, I'm following up about Travel duffel (order ORD-ID-4e82cc603f). the returned parcel was received but I have no refund update Please advise when you can.",late_refund
+T-167,Order ORD-ID-e2d5e62ed1: I have a question about the item details shown on the order It concerns the Children's story collection. Please advise when you can.,product_question
+T-168,Could someone help? could you check order ORD-ID-96765e1599 for my Pet travel bowl? I want to understand the amount charged at checkout I can share more details if needed.,price_difference
+T-169,Order ORD-ID-f36647600b: one corner arrived cracked It concerns the Packing cube set. Please advise when you can.,damaged_item
+T-171,Order ORD-ID-b7237a7cbb: please explain the payment status visible for this order It concerns the Tyre inflator. I can share more details if needed.,payment_question
+T-172,"Good morning, I placed order ORD-ID-ee03598b0a for Running shoes; the attempt note does not match what happened at my address Thanks.",delivery_dispute
+T-173,Would you please review order ORD-ID-49c86a8d73? the label and item do not match my order The item is Cotton baby blanket. Please advise when you can.,incorrect_item
+T-174,"Hi team, could you check order ORD-ID-8c13318d2b for my Cotton baby blanket? I noticed a typo in the address before dispatch Could you look into this for me?",address_change
+T-175,Order ORD-ID-ac56b6d81b: please check whether an invoice is available It concerns the Yoga mat. Could you look into this for me?,invoice_request
+T-176,could you check order ORD-ID-c662e3a31b for my Wireless mouse? the receipt shows a different total than I expected,price_difference
+T-177,Could someone help? the Desk lamp from order ORD-ID-10a74f7a7c has an issue. the delivery date slipped by two days Thanks.,delivery_delay
+T-178,Order ORD-ID-5876c5561e: the outer box was wet and the item is scratched It concerns the Travel essays. Thanks.,damaged_item
+T-179,Would you please review order ORD-ID-0207efc03c? please confirm the item price and any recorded discount The item is Snack variety box. Please advise when you can.,price_difference
+T-180,Would you please review order ORD-ID-6821304285? the parcel contains a different model The item is Minimalist watch. Could you look into this for me?,incorrect_item
+T-181,Order ORD-ID-40a5365d61: one corner arrived cracked It concerns the Cricket bat.,damaged_item
+T-182,I need a quick update. the Cabin backpack from order ORD-ID-13a1ebb590 has an issue. the delivery date slipped by two days Thanks.,delivery_delay
+T-184,I need a quick update. the Linen shirt from order ORD-ID-1abb3a251c has an issue. I need to check whether the delivery address can still be updated,address_change
+T-185,Would you please review order ORD-ID-68272514cf? the charger was missing from the sealed box The item is Cabin backpack.,missing_accessory
+T-186,Order ORD-ID-adf36dd5e3: I want to know whether it has left the fulfilment centre It concerns the Hair serum. Could you look into this for me?,order_status
+T-187,"Hello, I'm following up about Steel cookware set (order ORD-ID-3d795d1419). the status has not changed since inspection Could you look into this for me?",late_refund
+T-188,Would you please review order ORD-ID-2d98e9ae6a? one corner arrived cracked The item is Desk lamp. I can share more details if needed.,damaged_item
+T-189,I need a quick update. could you check order ORD-ID-4546ed359b for my Cotton baby blanket? the charger was missing from the sealed box I can share more details if needed.,missing_accessory
+T-190,"Good morning, I placed order ORD-ID-869a9db9b5 for Storage basket; the receipt shows a different total than I expected Thanks.",price_difference
+T-191,I placed order ORD-ID-0dd749c157 for Air fryer; i need to check whether the delivery address can still be updated Thanks.,address_change
+T-192,"Hello, I'm following up about Face moisturiser (order ORD-ID-a50d4a928d). could you check the remaining parcel's scan Please advise when you can.",partial_delivery
+T-193,Order ORD-ID-0954e0aa02: please confirm the item price and any recorded discount It concerns the Leather sandals. I can share more details if needed.,price_difference
+T-194,Would you please review order ORD-ID-048858dac0? I want to understand the amount charged at checkout The item is Cycling helmet.,price_difference
+T-195,Order ORD-ID-67abd5d91b: I received another colour and size It concerns the Desk fan.,incorrect_item
+T-196,"Hi team, I placed order ORD-ID-f563f7034f for Chef knife; the status has not changed since inspection Could you look into this for me?",late_refund
+T-197,Order ORD-ID-4f45d5fdaa: could you check the remaining parcel's scan It concerns the Running shoes. I can share more details if needed.,partial_delivery
+T-198,Would you please review order ORD-ID-f89741dde8? I need to know whether payment was captured The item is Tyre inflator. Could you look into this for me?,payment_question
+T-199,Would you please review order ORD-ID-72c96f87af? the order is marked cancelled but I need to know what happens next The item is Wireless keyboard.,order_cancellation
+T-200,Could someone help? I'm following up about Bluetooth speaker (order ORD-ID-4e75bcda82). the outer box was wet and the item is scratched Thanks.,damaged_item
+T-201,Order ORD-ID-1aafcb2b44: could you confirm the selected variant It concerns the Chef knife.,product_question
+T-202,"Good morning, the Children's story collection from order ORD-ID-f753a28388 has an issue. please tell me the status shown on the order Thanks.",refund_status
+T-203,"Hi team, the Ceramic vase from order ORD-ID-335a1e34aa has an issue. the delivery scan appears incorrect; I checked with reception Could you look into this for me?",non_delivery
+T-204,Order ORD-ID-3b778d4dea: I need help understanding what was included It concerns the Pet grooming brush. I can share more details if needed.,product_question
+T-206,"Hi team, could you check order ORD-ID-76521e0e86 for my Air fryer? I want to understand the amount charged at checkout",price_difference
+T-208,Order ORD-ID-feff5ad4cf: only one package from the order has arrived It concerns the Document organiser. I can share more details if needed.,partial_delivery
+T-210,Order ORD-ID-48f2622ca7: I need to check whether the delivery address can still be updated It concerns the Desk fan. Please advise when you can.,address_change
+T-211,I need a quick update. the Wireless keyboard from order ORD-ID-8b676a9885 has an issue. please explain the payment status visible for this order,payment_question
+T-212,Would you please review order ORD-ID-4212fdf673? I received the main item but not its cable The item is Yoga mat. Please advise when you can.,missing_accessory
+T-213,Would you please review order ORD-ID-8961fbc0c9? I have a question about the item details shown on the order The item is Linen shirt. Could you look into this for me?,product_question
+T-215,Would you please review order ORD-ID-042b3fe16f? I need the invoice for my records The item is Sunscreen lotion. Thanks.,invoice_request
+T-216,"Hi team, could you check order ORD-ID-293dad0f39 for my Seed starter kit? the delivery date slipped by two days Could you look into this for me?",delivery_delay
+T-217,"Hello, could you check order ORD-ID-2d561298fe for my Car phone mount? the pickup window passed without a scan I can share more details if needed.",return_pickup
+T-218,"Hi team, I placed order ORD-ID-c09ce2425f for Cotton bedsheet; the parcel is packed; please check the pickup slot Please advise when you can.",return_pickup
+T-219,I need a quick update. the Dog lead from order ORD-ID-72e50110c6 has an issue. only one package from the order has arrived,partial_delivery
+T-220,Could someone help? the Minimalist watch from order ORD-ID-56199a59d2 has an issue. the charger was missing from the sealed box,missing_accessory
+T-222,Order ORD-ID-1bf9a7e438: the tracking page hasn't changed since yesterday It concerns the Notebook set. I can share more details if needed.,order_status
+T-223,"Would you please review order ORD-ID-0970bf2715? tracking says delivered, although I haven't found the parcel The item is Running shoes. Thanks.",non_delivery
+T-224,Order ORD-ID-cf9b4b4553: please explain the payment status visible for this order It concerns the Cotton kurta. Could you look into this for me?,payment_question
+T-225,I need a quick update. could you check order ORD-ID-97d5a82c2d for my Sunscreen lotion? one corner arrived cracked Please advise when you can.,damaged_item
+T-226,"Hello, I placed order ORD-ID-41c17bb71a for Building blocks; the returned parcel was received but I have no refund update I can share more details if needed.",late_refund
+T-227,Could someone help? could you check order ORD-ID-753365c9f1 for my Cotton kurta? could you help me locate the tax invoice Please advise when you can.,invoice_request
+T-228,I need a quick update. I'm following up about Soft toy (order ORD-ID-1cbef4c818). please check whether an exchange option is available Thanks.,exchange_request
+T-230,"Hello, I placed order ORD-ID-ba7240b7f7 for Pendant necklace; the scan says delivered but the security desk has no parcel",delivery_dispute
+T-231,could you check order ORD-ID-b10a8c111a for my Children's story collection? please explain the payment status visible for this order I can share more details if needed.,payment_question
+T-232,Order ORD-ID-947931b9e3: the receipt shows a different total than I expected It concerns the Air fryer. Thanks.,price_difference
+T-233,"Hi team, could you check order ORD-ID-c65aa63b6e for my Hair serum? the pickup window passed without a scan",return_pickup
+T-234,"Hi team, the Ceramic vase from order ORD-ID-c693209b11 has an issue. the fit is not right; what does this item's page allow Could you look into this for me?",exchange_request
+T-235,Would you please review order ORD-ID-bd77e9d6de? the fit is not right; what does this item's page allow The item is Cotton baby blanket. I can share more details if needed.,exchange_request
+T-236,Would you please review order ORD-ID-0e15753064? I need a different size and want to see available options The item is Yoga mat. Please advise when you can.,exchange_request
+T-237,Could someone help? the Insulated flask from order ORD-ID-a1b1b300fc has an issue. could you point me to the item-specific return terms Please advise when you can.,return_eligibility
+T-238,Order ORD-ID-3b1152b323: I rescheduled collection and need the updated status It concerns the Bath and body set. Thanks.,return_pickup
+T-240,Order ORD-ID-8ff3c0d0be: I can see the return but no refund update It concerns the Tyre inflator. I can share more details if needed.,refund_status
+T-241,Order ORD-ID-df83979ac9: I handed the parcel over and want to know the next step It concerns the Coffee sampler. Thanks.,return_status
+T-242,Order ORD-ID-d74f114c78: the pickup window passed without a scan It concerns the Face moisturiser. Thanks.,return_pickup
+T-243,"Hello, could you check order ORD-ID-af603ba2bb for my Cotton kurta? could you check the remaining parcel's scan I can share more details if needed.",partial_delivery
+T-244,"Hello, I'm following up about Hair serum (order ORD-ID-2956d8050a). the returned parcel was received but I have no refund update I can share more details if needed.",late_refund
+T-245,I need a quick update. I'm following up about Ceramic vase (order ORD-ID-77e85dad8f). the package did not include one listed accessory,missing_accessory
+T-246,"Hello, I'm following up about Microfibre cleaning kit (order ORD-ID-a005224d7e). I rescheduled collection and need the updated status Thanks.",return_pickup
+T-247,"Good morning, I placed order ORD-ID-b2d5fe6b22 for Hair serum; the estimated date has passed and the parcel is still moving",delivery_delay
+T-248,I placed order ORD-ID-50e2fd73f6 for Pruning shears; could you confirm the selected variant I can share more details if needed.,product_question
+T-249,"Hi team, I'm following up about Chef knife (order ORD-ID-701643584e). the pickup was booked but nobody came Thanks.",return_status
+T-250,Would you please review order ORD-ID-263c9bcd5c? I need to know whether payment was captured The item is Hand blender. I can share more details if needed.,payment_question
+T-251,Order ORD-ID-6d703b1c91: tracking has shown the same scan for a while It concerns the Running shorts. I can share more details if needed.,delivery_delay
+T-252,Could someone help? I'm following up about Tyre inflator (order ORD-ID-666aef5d63). it does not power on after unpacking Could you look into this for me?,damaged_item
+T-253,Order ORD-ID-dc535bea7b: please confirm whether the parcel has been handed to the carrier It concerns the Planter set. Thanks.,address_change
+T-254,could you check order ORD-ID-5bbc071512 for my Walking shoes? the status has not changed since inspection Thanks.,late_refund
+T-255,Order ORD-ID-9b7ac2525d: only one package from the order has arrived It concerns the Feeding bottle set. Please advise when you can.,partial_delivery
+T-256,"Hi team, the Beaded bracelet from order ORD-ID-3c83279606 has an issue. tracking says delivered, although I haven't found the parcel Could you look into this for me?",non_delivery
+T-257,I need a quick update. I placed order ORD-ID-814d2b6ef2 for Children's story collection; the estimated date has passed and the parcel is still moving Could you look into this for me?,delivery_delay
+T-258,Order ORD-ID-6cecb10089: it does not power on after unpacking It concerns the Steel cookware set. Thanks.,damaged_item
+T-259,"Hello, I placed order ORD-ID-49552a2c35 for Wireless mouse; i have a question about the item details shown on the order Could you look into this for me?",product_question
+T-260,Order ORD-ID-390675ef09: I am checking on the refund timeline recorded for this return It concerns the Cookbook. Please advise when you can.,late_refund
+T-261,"Good morning, I'm following up about Desk lamp (order ORD-ID-e36448de0f). my bank shows a debit and I want to confirm the order record Thanks.",payment_question
+T-263,I need a quick update. the Cricket bat from order ORD-ID-95b1c3223a has an issue. the order has two items but I have received one Thanks.,partial_delivery
+T-265,Order ORD-ID-70c03780f9: the return page still says pickup pending It concerns the Travel essays. I can share more details if needed.,return_status
+T-266,"Hi team, I placed order ORD-ID-b0d2570b02 for Seed starter kit; please check whether an exchange option is available Please advise when you can.",exchange_request
+T-267,"Hello, could you check order ORD-ID-4fadbeff41 for my Walking shoes? one corner arrived cracked I can share more details if needed.",damaged_item
+T-268,Would you please review order ORD-ID-be5a24a85b? the estimated date has passed and the parcel is still moving The item is Watering can.,delivery_delay
+T-269,"Hi team, I'm following up about Ceramic vase (order ORD-ID-35bafbb870). the label and item do not match my order Thanks.",incorrect_item
+T-270,I need a quick update. the Coffee sampler from order ORD-ID-2cc066a38d has an issue. I did not receive a call before the failed attempt,delivery_dispute
+T-271,I'm following up about Beaded bracelet (order ORD-ID-1cc0ae61d7). I received another colour and size Thanks.,incorrect_item
+T-272,"Hello, I placed order ORD-ID-ff1531eb11 for Wireless keyboard; the package did not include one listed accessory",missing_accessory
+T-273,Would you please review order ORD-ID-962f2201e8? I want to understand the amount charged at checkout The item is Sunscreen lotion.,price_difference
+T-274,I need a quick update. I'm following up about Car phone mount (order ORD-ID-a1a15eae42). the fit is not right; what does this item's page allow,exchange_request
+T-275,Could someone help? I placed order ORD-ID-17a5cde10d for Pendant necklace; tracking has shown the same scan for a while Please advise when you can.,delivery_delay
+T-276,"Hi team, could you check order ORD-ID-95d2d252d6 for my Yoga mat? could you confirm the selected variant Could you look into this for me?",product_question
+T-277,Would you please review order ORD-ID-a0d6d52a8a? one corner arrived cracked The item is Planter set. Thanks.,damaged_item
+T-278,I need a quick update. I'm following up about Bluetooth speaker (order ORD-ID-18029d8990). one corner arrived cracked I can share more details if needed.,damaged_item
+T-279,Would you please review order ORD-ID-abb924aef0? the fit is not right; what does this item's page allow The item is Watering can. I can share more details if needed.,exchange_request
+T-281,Order ORD-ID-a8306b8649: could you check the remaining parcel's scan It concerns the Cricket bat.,partial_delivery
+T-282,Could someone help? the Microfibre cleaning kit from order ORD-ID-a7a5b8e1ff has an issue. I need a different size and want to see available options,exchange_request
+T-283,"Good morning, I placed order ORD-ID-80349e1e80 for Pendant necklace; please check whether cancellation was recorded",order_cancellation
+T-284,"Hi team, I placed order ORD-ID-1c47869e2d for Feeding bottle set; tracking says delivered, although I haven't found the parcel Thanks.",non_delivery
+T-285,I need a quick update. I'm following up about Pruning shears (order ORD-ID-3da01c128a). I need a different size and want to see available options Could you look into this for me?,exchange_request
+T-286,"Hello, could you check order ORD-ID-6cd1229e69 for my Feeding bottle set? could you point me to the item-specific return terms",return_eligibility
+T-287,Could someone help? I'm following up about Desk fan (order ORD-ID-ede488e96e). please check the order page before advising me I can share more details if needed.,return_eligibility
+T-288,Order ORD-ID-5c48a7f25c: the outer box was wet and the item is scratched It concerns the Book set. Could you look into this for me?,damaged_item
+T-289,I need a quick update. I'm following up about Smart watch (order ORD-ID-50e2dccb3b). the delivery scan appears incorrect; I checked with reception Could you look into this for me?,non_delivery
+T-290,the Cotton bedsheet from order ORD-ID-c6ff146471 has an issue. only one package from the order has arrived Could you look into this for me?,partial_delivery
+T-291,"Hi team, I'm following up about Storage basket (order ORD-ID-6f1035a989). the outer box was wet and the item is scratched I can share more details if needed.",damaged_item
+T-292,"Hi team, I'm following up about Dog lead (order ORD-ID-e44c4234d1). the status is unclear to me I can share more details if needed.",order_status
+T-293,I'm following up about Glass lunch box (order ORD-ID-386c241609). I received the main item but not its cable Could you look into this for me?,missing_accessory
+T-294,Order ORD-ID-15b7e5e4ea: I cancelled before dispatch and want to confirm the status It concerns the Travel essays.,order_cancellation
+T-295,"Good morning, I placed order ORD-ID-57a347b11c for Seed starter kit; i rescheduled collection and need the updated status Thanks.",return_pickup
+T-296,"Hello, I'm following up about Insulated flask (order ORD-ID-d61529fe78). I received another colour and size Please advise when you can.",incorrect_item
+T-297,could you check order ORD-ID-a1276a5f23 for my Cotton bedsheet? the fit is not right; what does this item's page allow I can share more details if needed.,exchange_request
+T-298,I need a quick update. the Ceramic vase from order ORD-ID-92c07d4a9f has an issue. the returned parcel was received but I have no refund update Please advise when you can.,late_refund
+T-299,Order ORD-ID-411e3c05f1: the receipt shows a different total than I expected It concerns the Resistance bands.,price_difference
+T-300,Order ORD-ID-6fe7177258: tracking has shown the same scan for a while It concerns the Coffee sampler. Thanks.,delivery_delay
+T-301,Order ORD-ID-47c75da789: I received another colour and size It concerns the Children's story collection. Could you look into this for me?,incorrect_item
+T-302,I need a quick update. the Document organiser from order ORD-ID-91a0d45f3c has an issue. the order is marked cancelled but I need to know what happens next,order_cancellation
+T-303,"Hi team, I'm following up about Coffee sampler (order ORD-ID-4808f12c50). I have a question about the item details shown on the order",product_question
+T-304,Order ORD-ID-2b0d1b833f: the returned parcel was received but I have no refund update It concerns the Ceramic vase. I can share more details if needed.,late_refund
+T-305,Could someone help? the Hair serum from order ORD-ID-27fa592fec has an issue. the parcel is packed; please check the pickup slot Thanks.,return_pickup
+T-306,"Hi team, could you check order ORD-ID-6515387c7a for my Packing cube set? I need to check whether the delivery address can still be updated Please advise when you can.",address_change
+T-307,"Hello, the Snack variety box from order ORD-ID-c47e87a74c has an issue. the pickup was booked but nobody came Could you look into this for me?",return_status
+T-309,Order ORD-ID-1a70ffb713: the label and item do not match my order It concerns the Cat scratcher. Could you look into this for me?,incorrect_item
+T-310,"Good morning, I'm following up about Storage basket (order ORD-ID-f6af053902). the status is unclear to me",order_status
+T-311,Order ORD-ID-5e665fd591: the status is unclear to me It concerns the Sunscreen lotion. I can share more details if needed.,order_status
+T-312,Could someone help? I placed order ORD-ID-bc5327cbda for Seed starter kit; i cancelled before dispatch and want to confirm the status I can share more details if needed.,order_cancellation
+T-314,the Noise-cancelling headphones from order ORD-ID-093be8f89e has an issue. the return page still says pickup pending Please advise when you can.,return_status
+T-315,Could someone help? I'm following up about Walking shoes (order ORD-ID-fef0562a36). the scan says delivered but the security desk has no parcel I can share more details if needed.,delivery_dispute
+T-316,Would you please review order ORD-ID-06f08f071a? I rescheduled collection and need the updated status The item is Minimalist watch. Could you look into this for me?,return_pickup
+T-317,Could someone help? the Denim jacket from order ORD-ID-8e03486fa8 has an issue. one corner arrived cracked Could you look into this for me?,damaged_item
+T-318,"Good morning, could you check order ORD-ID-863b83b8d6 for my Storage basket? the returned parcel was received but I have no refund update Could you look into this for me?",late_refund
+T-319,Would you please review order ORD-ID-a30899ae55? could you check the remaining parcel's scan The item is Insulated flask. I can share more details if needed.,partial_delivery
+T-320,I'm following up about Noise-cancelling headphones (order ORD-ID-799720e191). please tell me the status shown on the order Could you look into this for me?,refund_status
+T-321,"Hi team, the Fountain pen from order ORD-ID-6a92a0fb79 has an issue. please tell me the status shown on the order Thanks.",refund_status
+T-322,"Good morning, I'm following up about Fountain pen (order ORD-ID-a7d4227aaa). the package did not include one listed accessory Please advise when you can.",missing_accessory
+T-323,Order ORD-ID-adf8c03d63: please check whether an invoice is available It concerns the Cotton kurta. Thanks.,invoice_request
+T-324,Would you please review order ORD-ID-d35eb7c639? the delivery scan appears incorrect; I checked with reception The item is Air fryer. Thanks.,non_delivery
+T-325,"Good morning, the Watering can from order ORD-ID-6cc83dc624 has an issue. I cancelled before dispatch and want to confirm the status",order_cancellation
+T-326,"Hello, the Cricket bat from order ORD-ID-3f43409cf3 has an issue. please tell me the status shown on the order Could you look into this for me?",refund_status
+T-327,"Good morning, I'm following up about Bluetooth speaker (order ORD-ID-7cb038e415). the delivery date slipped by two days Thanks.",delivery_delay
+T-328,"Good morning, the Canvas sneakers from order ORD-ID-ef97d162e7 has an issue. please confirm whether the parcel has been handed to the carrier Thanks.",address_change
+T-329,Order ORD-ID-506ec79285: please check the order page before advising me It concerns the Face moisturiser. Please advise when you can.,return_eligibility
+T-330,I placed order ORD-ID-03820daec5 for Watering can; i need help understanding what was included I can share more details if needed.,product_question
+T-331,"Hi team, the Book set from order ORD-ID-5abcaa5aa0 has an issue. could you confirm the selected variant",product_question
+T-332,I need a quick update. the Cotton bedsheet from order ORD-ID-a812230301 has an issue. could you confirm the selected variant,product_question
+T-333,Order ORD-ID-5b52fb0dcd: the parcel is packed; please check the pickup slot It concerns the Resistance bands.,return_pickup
+T-334,the Cabin backpack from order ORD-ID-8fb199d810 has an issue. the order is marked cancelled but I need to know what happens next Please advise when you can.,order_cancellation
+T-337,Would you please review order ORD-ID-a2f370fbfe? the attempt note does not match what happened at my address The item is Wireless mouse. Could you look into this for me?,delivery_dispute
+T-338,Would you please review order ORD-ID-6119d6a646? the order is marked cancelled but I need to know what happens next The item is Organic tea pack. Could you look into this for me?,order_cancellation
+T-340,Order ORD-ID-16f7205aea: please check whether an invoice is available It concerns the Face moisturiser. Thanks.,invoice_request
+T-341,Would you please review order ORD-ID-af68c832e1? I would like to understand the options shown for this item The item is Leather sandals.,return_eligibility
+T-342,I need a quick update. I'm following up about Car phone mount (order ORD-ID-5b8bfdcfb9). I received another colour and size,incorrect_item
+T-343,Would you please review order ORD-ID-3eba7d707f? I need to check whether the delivery address can still be updated The item is Printed saree. I can share more details if needed.,address_change
+T-344,Would you please review order ORD-ID-589f7620e0? the pickup was booked but nobody came The item is Running shoes. Please advise when you can.,return_status
+T-345,Would you please review order ORD-ID-0007fcbee9? the parcel contains a different model The item is Feeding bottle set.,incorrect_item
+T-347,I need a quick update. the Mixer grinder from order ORD-ID-94013ef951 has an issue. the outer box was wet and the item is scratched Could you look into this for me?,damaged_item
+T-348,I need a quick update. I'm following up about Board game (order ORD-ID-81aeabcc07). only one package from the order has arrived I can share more details if needed.,partial_delivery
+T-349,Would you please review order ORD-ID-f6eab1cb81? could you help me locate the tax invoice The item is Insulated flask. Thanks.,invoice_request
+T-351,Would you please review order ORD-ID-081ae0c685? the returned parcel was received but I have no refund update The item is Running shoes. Could you look into this for me?,late_refund
+T-352,"Good morning, I placed order ORD-ID-c1bba99046 for Steel cookware set; the receipt shows a different total than I expected I can share more details if needed.",price_difference
+T-354,Could someone help? I'm following up about Cabin backpack (order ORD-ID-9bc237555d). please explain the payment status visible for this order Thanks.,payment_question
+T-355,Would you please review order ORD-ID-2a56d83e59? the attempt note does not match what happened at my address The item is Insulated flask. Please advise when you can.,delivery_dispute
+T-356,"Good morning, I placed order ORD-ID-240ff308f2 for Organic tea pack; the parcel contains a different model Could you look into this for me?",incorrect_item
+T-357,Would you please review order ORD-ID-ab0b837926? I can see the return but no refund update The item is Wireless keyboard.,refund_status
+T-358,"Hello, I'm following up about Packing cube set (order ORD-ID-e95a9f0bc9). I am checking on the refund timeline recorded for this return",late_refund
+T-359,"Hi team, I placed order ORD-ID-5b408efc4b for Plush animal; please check whether an exchange option is available Please advise when you can.",exchange_request
+T-360,"Good morning, could you check order ORD-ID-73b49d1c32 for my Noise-cancelling headphones? could you confirm the selected variant I can share more details if needed.",product_question
+T-362,Order ORD-ID-04ff46c9c9: the return page still says pickup pending It concerns the Organic tea pack. Please advise when you can.,return_status
+T-363,"Hello, could you check order ORD-ID-ef84f7001f for my Travel essays? the status is unclear to me",order_status
+T-364,Would you please review order ORD-ID-7f9037293d? the status is unclear to me The item is Storage basket. Thanks.,order_status
+T-365,I'm following up about Plush animal (order ORD-ID-62507e10d0). tracking has shown the same scan for a while Please advise when you can.,delivery_delay
+T-366,"Hello, could you check order ORD-ID-cc90191855 for my Cotton baby blanket? one corner arrived cracked Please advise when you can.",damaged_item
+T-367,"Good morning, the Face moisturiser from order ORD-ID-bd51b9ede0 has an issue. the delivery date slipped by two days I can share more details if needed.",delivery_delay
+T-368,Would you please review order ORD-ID-17ca9873c4? I want to know whether it has left the fulfilment centre The item is USB-C charger. I can share more details if needed.,order_status
+T-369,"Hi team, I'm following up about Cotton baby blanket (order ORD-ID-0a45a9ccd2). I rescheduled collection and need the updated status I can share more details if needed.",return_pickup
+T-370,Order ORD-ID-f64eed18c8: the outer box was wet and the item is scratched It concerns the Art activity kit. Could you look into this for me?,damaged_item
+T-371,I need a quick update. the Soft toy from order ORD-ID-422558b297 has an issue. I rescheduled collection and need the updated status I can share more details if needed.,return_pickup
+T-372,"Good morning, could you check order ORD-ID-d99d78b99d for my Dog lead? it does not power on after unpacking",damaged_item
+T-373,Order ORD-ID-3cc7a8ff3d: please confirm whether the parcel has been handed to the carrier It concerns the Cricket bat. Could you look into this for me?,address_change
+T-374,Could someone help? could you check order ORD-ID-936bf2ef96 for my Electric kettle? the return page still says pickup pending Thanks.,return_status
+T-375,"Good morning, could you check order ORD-ID-1ad804fc90 for my Packing cube set? I received the main item but not its cable",missing_accessory
+T-376,Order ORD-ID-25f87d9131: I need to know whether payment was captured It concerns the Glass lunch box. Could you look into this for me?,payment_question
+T-377,"Hello, I placed order ORD-ID-1a64a178e4 for Smart watch; the fit is not right; what does this item's page allow Please advise when you can.",exchange_request
+T-378,"Hi team, could you check order ORD-ID-8bfdf99a01 for my Travel duffel? the attempt note does not match what happened at my address Could you look into this for me?",delivery_dispute
+T-379,"Hello, I'm following up about Face moisturiser (order ORD-ID-62cd65f387). the parcel is packed; please check the pickup slot Please advise when you can.",return_pickup
+T-380,Order ORD-ID-e6c8c6770f: the pickup window passed without a scan It concerns the Cat scratcher. Thanks.,return_pickup
+T-381,Could someone help? I'm following up about Art activity kit (order ORD-ID-c17f10b83c). I handed the parcel over and want to know the next step Please advise when you can.,return_status
+T-382,I placed order ORD-ID-ae60d18f4f for Book set; the estimated date has passed and the parcel is still moving Please advise when you can.,delivery_delay
+T-383,"Good morning, I'm following up about Children's story collection (order ORD-ID-05f06f538b). the attempt note does not match what happened at my address Could you look into this for me?",delivery_dispute
+T-384,I need a quick update. I placed order ORD-ID-e8627ec824 for Book set; the label and item do not match my order Thanks.,incorrect_item
+T-385,Would you please review order ORD-ID-5781b2f030? I received another colour and size The item is Insulated flask. Thanks.,incorrect_item
+T-386,the Smart watch from order ORD-ID-390dc07cbe has an issue. the return page still says pickup pending Could you look into this for me?,return_status
+T-387,Would you please review order ORD-ID-80e46a449d? please check whether cancellation was recorded The item is Ceramic vase.,order_cancellation
+T-388,"Hello, the Car phone mount from order ORD-ID-0ec59e8bd7 has an issue. please tell me the status shown on the order Thanks.",refund_status
+T-389,"Good morning, I placed order ORD-ID-db5f6c2876 for Wireless keyboard; i need the invoice for my records I can share more details if needed.",invoice_request
+T-390,Would you please review order ORD-ID-81560fa141? I am checking on the refund timeline recorded for this return The item is Car phone mount.,late_refund
+T-391,Would you please review order ORD-ID-f6fa7cbaae? the package did not include one listed accessory The item is Cat scratcher. Could you look into this for me?,missing_accessory
+T-392,"Hi team, I placed order ORD-ID-6a0d7a90f6 for Denim jacket; please tell me the status shown on the order Thanks.",refund_status
+T-393,Could someone help? I placed order ORD-ID-aec29a03ca for Yoga mat; please check whether cancellation was recorded Thanks.,order_cancellation
+T-394,Could someone help? I placed order ORD-ID-68db344396 for Tyre inflator; i rescheduled collection and need the updated status Could you look into this for me?,return_pickup
+T-395,"the Mixer grinder from order ORD-ID-cd89b32c3c has an issue. tracking says delivered, although I haven't found the parcel Could you look into this for me?",non_delivery
+T-397,Would you please review order ORD-ID-0c7bd104f2? could you check the remaining parcel's scan The item is Sunscreen lotion. I can share more details if needed.,partial_delivery
+T-398,Could someone help? I placed order ORD-ID-845053af9f for Minimalist watch; could you help me locate the tax invoice Could you look into this for me?,invoice_request
+T-399,Could someone help? could you check order ORD-ID-7ff472e8c4 for my Pet travel bowl? I received another colour and size Thanks.,incorrect_item
+T-400,"Hi team, could you check order ORD-ID-a231e59d20 for my Canvas sneakers? the delivery scan appears incorrect; I checked with reception I can share more details if needed.",non_delivery
+T-401,Would you please review order ORD-ID-d2c860b456? please check the order page before advising me The item is Bluetooth speaker.,return_eligibility
+T-402,Order ORD-ID-025fc3be0f: the estimated date has passed and the parcel is still moving It concerns the Microfibre cleaning kit. Thanks.,delivery_delay
+T-403,Would you please review order ORD-ID-0ecfdb5657? I need the invoice for my records The item is Hair serum. Could you look into this for me?,invoice_request
+T-404,"Good morning, the Document organiser from order ORD-ID-9e8a26390e has an issue. the delivery scan appears incorrect; I checked with reception",non_delivery
+T-405,Would you please review order ORD-ID-fcde96ea0f? the pickup window passed without a scan The item is Canvas sneakers. Could you look into this for me?,return_pickup
+T-406,"Hi team, I placed order ORD-ID-a1dcad914a for Wireless keyboard; i cancelled before dispatch and want to confirm the status I can share more details if needed.",order_cancellation
+T-407,Would you please review order ORD-ID-5ae3866ac7? the fit is not right; what does this item's page allow The item is USB-C charger. Could you look into this for me?,exchange_request
+T-408,Order ORD-ID-04938758d6: please check the order page before advising me It concerns the Printed saree. Please advise when you can.,return_eligibility
+T-409,"Could someone help? could you check order ORD-ID-dde2c5db2f for my Car phone mount? tracking says delivered, although I haven't found the parcel Please advise when you can.",non_delivery
+T-410,could you check order ORD-ID-37bc5a040a for my Board game? I need the invoice for my records Please advise when you can.,invoice_request
+T-411,"Good morning, I'm following up about Denim jacket (order ORD-ID-ead039e00f). the label and item do not match my order",incorrect_item
+T-412,Order ORD-ID-ab6d989487: I need help understanding what was included It concerns the Art activity kit. Could you look into this for me?,product_question
+T-413,"Good morning, I'm following up about Travel duffel (order ORD-ID-be585d87ac). the pickup window passed without a scan Please advise when you can.",return_pickup
+T-414,I placed order ORD-ID-fdc7775808 for Pet grooming brush; i need to know whether payment was captured,payment_question
+T-415,Would you please review order ORD-ID-eac94d2cd2? the refund line is still pending in my account The item is Cotton baby blanket. Please advise when you can.,refund_status
+T-416,Could someone help? I'm following up about USB-C charger (order ORD-ID-0eb7edad75). the status is unclear to me I can share more details if needed.,order_status
+T-417,I need a quick update. I'm following up about Cotton bedsheet (order ORD-ID-48e6c0d55c). I received another colour and size,incorrect_item
+T-418,Order ORD-ID-f3211bc708: please check whether an exchange option is available It concerns the Pet travel bowl. I can share more details if needed.,exchange_request
+T-419,Would you please review order ORD-ID-22fd3adc16? please tell me the status shown on the order The item is Walking shoes. Could you look into this for me?,refund_status
+T-421,Would you please review order ORD-ID-86d886d0eb? I received another colour and size The item is Cotton kurta. Thanks.,incorrect_item
+T-422,I'm following up about Pet grooming brush (order ORD-ID-b5ae59ab71). the estimated date has passed and the parcel is still moving Please advise when you can.,delivery_delay
+T-423,Would you please review order ORD-ID-185c8c5611? I need to know whether payment was captured The item is Travel essays. Please advise when you can.,payment_question
+T-424,"Good morning, I'm following up about Seat organiser (order ORD-ID-4b7d35246a). I noticed a typo in the address before dispatch Could you look into this for me?",address_change
+T-425,could you check order ORD-ID-36b1326c55 for my Seed starter kit? I need the invoice for my records I can share more details if needed.,invoice_request
+T-426,Could someone help? I placed order ORD-ID-e4910a54f9 for Steel cookware set; i can see the return but no refund update Could you look into this for me?,refund_status
+T-427,"Hi team, could you check order ORD-ID-2af71f4cc4 for my USB-C charger? the fit is not right; what does this item's page allow Thanks.",exchange_request
+T-428,the Smart watch from order ORD-ID-bac5d66734 has an issue. the scan says delivered but the security desk has no parcel Could you look into this for me?,delivery_dispute
+T-429,"Hi team, I placed order ORD-ID-ed286add6a for Book set; i need to know whether payment was captured Thanks.",payment_question
+T-430,the Cotton baby blanket from order ORD-ID-b8213edb46 has an issue. I rescheduled collection and need the updated status,return_pickup
+T-431,Would you please review order ORD-ID-8c88eee287? I was home when the delivery attempt was marked The item is Noise-cancelling headphones. Could you look into this for me?,non_delivery
+T-432,"Hello, the Running shorts from order ORD-ID-8231fc71ee has an issue. the order is marked cancelled but I need to know what happens next I can share more details if needed.",order_cancellation
+T-434,Would you please review order ORD-ID-a9b95ecc45? I received another colour and size The item is Tyre inflator. Please advise when you can.,incorrect_item
+T-435,"Hello, the Fountain pen from order ORD-ID-228f87bcc5 has an issue. I need a different size and want to see available options I can share more details if needed.",exchange_request
+T-436,"Hi team, could you check order ORD-ID-fcfbb84c9d for my Running shoes? please check the order page before advising me Could you look into this for me?",return_eligibility
+T-437,Order ORD-ID-ef0c8067b9: the attempt note does not match what happened at my address It concerns the Face moisturiser. I can share more details if needed.,delivery_dispute
+T-438,Would you please review order ORD-ID-4f33157118? the label and item do not match my order The item is Cookbook. Please advise when you can.,incorrect_item
+T-439,"Hello, could you check order ORD-ID-280a181a30 for my Children's story collection? I need the invoice for my records Please advise when you can.",invoice_request
+T-440,Would you please review order ORD-ID-a5ce8da919? please check the order page before advising me The item is Electric kettle.,return_eligibility
+T-441,the Planter set from order ORD-ID-fcdc010710 has an issue. I want to know whether it has left the fulfilment centre Please advise when you can.,order_status
+T-443,the Resistance bands from order ORD-ID-5a5e896660 has an issue. the parcel is packed; please check the pickup slot,return_pickup
+T-445,Order ORD-ID-3e09f39240: I cancelled before dispatch and want to confirm the status It concerns the Cabin backpack. Could you look into this for me?,order_cancellation
+T-447,"Good morning, I placed order ORD-ID-9b154277d7 for Wireless mouse; i need to check whether the delivery address can still be updated Could you look into this for me?",address_change
+T-448,Could someone help? I placed order ORD-ID-9d356984ae for Building blocks; my bank shows a debit and I want to confirm the order record Could you look into this for me?,payment_question
+T-450,Order ORD-ID-d55a7cf93a: please confirm whether the parcel has been handed to the carrier It concerns the Hand blender. I can share more details if needed.,address_change
+T-451,Would you please review order ORD-ID-faee9b80b2? the attempt note does not match what happened at my address The item is Yoga mat. Could you look into this for me?,delivery_dispute
+T-454,"Hello, I placed order ORD-ID-9325df60c6 for Coffee sampler; only one package from the order has arrived",partial_delivery
+T-455,Order ORD-ID-b98aded4f7: the parcel contains a different model It concerns the Laptop sleeve.,incorrect_item
+T-456,Would you please review order ORD-ID-2df698db65? I want to understand the amount charged at checkout The item is Resistance bands.,price_difference
+T-457,Order ORD-ID-95304ee100: I have a question about the item details shown on the order It concerns the Travel duffel. I can share more details if needed.,product_question
+T-458,Order ORD-ID-d2f6e8555d: the fit is not right; what does this item's page allow It concerns the Pendant necklace. Thanks.,exchange_request
+T-459,Order ORD-ID-d83d9c5d54: please confirm whether the parcel has been handed to the carrier It concerns the Desk fan. Thanks.,address_change
+T-460,"Hello, the Snack variety box from order ORD-ID-bffa31d973 has an issue. I did not receive a call before the failed attempt Please advise when you can.",delivery_dispute
+T-462,Order ORD-ID-7d854cb6f2: please explain the payment status visible for this order It concerns the Document organiser. Please advise when you can.,payment_question
+T-463,I'm following up about Fountain pen (order ORD-ID-6569e9851c). the status has not changed since inspection Please advise when you can.,late_refund
+T-465,Would you please review order ORD-ID-2f15773775? the pickup window passed without a scan The item is Document organiser. Thanks.,return_pickup
+T-466,Order ORD-ID-2caccce97c: could you point me to the item-specific return terms It concerns the Storage basket. Could you look into this for me?,return_eligibility
+T-467,Order ORD-ID-957ca3192f: the return page still says pickup pending It concerns the Electric kettle. Thanks.,return_status
+T-468,I need a quick update. I placed order ORD-ID-cc2c5c7fb7 for Cabin backpack; the outer box was wet and the item is scratched I can share more details if needed.,damaged_item
+T-469,could you check order ORD-ID-6098580c72 for my Hand blender? the status is unclear to me Thanks.,order_status
+T-470,"Hello, the Steel cookware set from order ORD-ID-b34e22b066 has an issue. the scan says delivered but the security desk has no parcel",delivery_dispute
+T-471,could you check order ORD-ID-e8ddf19c6a for my Plush animal? my bank shows a debit and I want to confirm the order record I can share more details if needed.,payment_question
+T-472,Would you please review order ORD-ID-c48e63f5d2? I cancelled before dispatch and want to confirm the status The item is Noise-cancelling headphones. I can share more details if needed.,order_cancellation
+T-473,Would you please review order ORD-ID-50d0bea8ca? please check whether cancellation was recorded The item is Electric kettle. Could you look into this for me?,order_cancellation
+T-475,Would you please review order ORD-ID-1b25b9a29c? I need a different size and want to see available options The item is USB-C charger. Please advise when you can.,exchange_request
+T-476,"Hello, I'm following up about Seed starter kit (order ORD-ID-ff249df451). the fit is not right; what does this item's page allow Please advise when you can.",exchange_request
+T-477,Order ORD-ID-8664e297e3: please confirm the item price and any recorded discount It concerns the Storage basket. Please advise when you can.,price_difference
+T-478,"Hi team, could you check order ORD-ID-414e96cd41 for my Mixer grinder? please confirm whether the parcel has been handed to the carrier Thanks.",address_change
+T-479,Order ORD-ID-88f1188257: the outer box was wet and the item is scratched It concerns the Travel duffel.,damaged_item
+T-480,Could someone help? I'm following up about Packing cube set (order ORD-ID-7ee426681c). tracking has shown the same scan for a while Thanks.,delivery_delay
+T-481,I'm following up about Walking shoes (order ORD-ID-85dca7825e). I am checking on the refund timeline recorded for this return Could you look into this for me?,late_refund
+T-482,Order ORD-ID-b8ebe20855: please check whether an exchange option is available It concerns the Plush animal. Thanks.,exchange_request
+T-483,I need a quick update. I'm following up about USB-C charger (order ORD-ID-e3539cae2b). the order is marked cancelled but I need to know what happens next,order_cancellation
+T-484,I need a quick update. I placed order ORD-ID-572e58b6e9 for Cycling helmet; the scan says delivered but the security desk has no parcel Thanks.,delivery_dispute
+T-485,"Hello, I placed order ORD-ID-80eeac10dc for Glass lunch box; the outer box was wet and the item is scratched Thanks.",damaged_item
+T-486,"Good morning, could you check order ORD-ID-23faa4a223 for my Chef knife? I have a question about the item details shown on the order I can share more details if needed.",product_question
+T-488,Would you please review order ORD-ID-e5423fbdf0? the order has two items but I have received one The item is Printed saree.,partial_delivery
+T-489,"Hi team, I placed order ORD-ID-6102e9b773 for Cookbook; could you help me locate the tax invoice Could you look into this for me?",invoice_request
+T-490,Would you please review order ORD-ID-e82b25f07a? I did not receive a call before the failed attempt The item is Beaded bracelet. Thanks.,delivery_dispute
+T-491,Order ORD-ID-fee1ad1ade: the status has not changed since inspection It concerns the Printed saree. Could you look into this for me?,late_refund
+T-493,Order ORD-ID-d774ae5c94: my bank shows a debit and I want to confirm the order record It concerns the Beaded bracelet. Could you look into this for me?,payment_question
+T-494,I need a quick update. I placed order ORD-ID-28c46b6da3 for Mixer grinder; the package did not include one listed accessory I can share more details if needed.,missing_accessory
+T-495,Would you please review order ORD-ID-70076e82d4? the parcel is packed; please check the pickup slot The item is Document organiser. Could you look into this for me?,return_pickup
+T-496,Could someone help? I placed order ORD-ID-a78b3e71e2 for Notebook set; the pickup was booked but nobody came,return_status
+T-497,Would you please review order ORD-ID-6874d275fd? the returned parcel was received but I have no refund update The item is Cotton baby blanket.,late_refund
+T-499,"Could someone help? I'm following up about Ceramic vase (order ORD-ID-2bcf13e049). tracking says delivered, although I haven't found the parcel I can share more details if needed.",non_delivery
+T-501,Could someone help? could you check order ORD-ID-9e31e2bfc8 for my Book set? please confirm whether the parcel has been handed to the carrier Thanks.,address_change
+T-503,"Hello, I placed order ORD-ID-150e39ab0e for Chef knife; the delivery scan appears incorrect; I checked with reception Please advise when you can.",non_delivery
+T-504,"Good morning, the Ceramic vase from order ORD-ID-4154313e35 has an issue. I can see the return but no refund update Please advise when you can.",refund_status
+T-505,"Hi team, the Planter set from order ORD-ID-a4d88cb3dd has an issue. the scan says delivered but the security desk has no parcel I can share more details if needed.",delivery_dispute
+T-506,"Hello, I placed order ORD-ID-42dac65841 for Noise-cancelling headphones; i am checking on the refund timeline recorded for this return Thanks.",late_refund
+T-507,Would you please review order ORD-ID-c976864e12? it does not power on after unpacking The item is Ceramic vase. I can share more details if needed.,damaged_item
+T-508,"Hello, the Art activity kit from order ORD-ID-aa4c84e13e has an issue. tracking has shown the same scan for a while Could you look into this for me?",delivery_delay
+T-509,Would you please review order ORD-ID-4456446c25? please check whether an exchange option is available The item is Resistance bands. Thanks.,exchange_request
+T-510,Order ORD-ID-2c0e964eb2: please check whether an exchange option is available It concerns the Wireless mouse. Please advise when you can.,exchange_request
+T-511,"Hi team, could you check order ORD-ID-6148ffd9b6 for my Dry fruit assortment? the receipt shows a different total than I expected Thanks.",price_difference
+T-513,"Would you please review order ORD-ID-5d811309d1? tracking says delivered, although I haven't found the parcel The item is Travel essays. Please advise when you can.",non_delivery
+T-515,the Board game from order ORD-ID-e82c2d29bc has an issue. could you help me locate the tax invoice I can share more details if needed.,invoice_request
+T-516,Could someone help? I'm following up about Organic tea pack (order ORD-ID-f3757eac2d). the scan says delivered but the security desk has no parcel Thanks.,delivery_dispute
+T-517,"I need a quick update. I'm following up about Pet grooming brush (order ORD-ID-a5826b0b71). tracking says delivered, although I haven't found the parcel I can share more details if needed.",non_delivery
+T-518,I placed order ORD-ID-3b607fab2e for Wireless mouse; could you check the remaining parcel's scan Thanks.,partial_delivery
+T-519,"Hello, could you check order ORD-ID-a7508a8064 for my Face moisturiser? tracking has shown the same scan for a while Please advise when you can.",delivery_delay
+T-520,could you check order ORD-ID-96f0639dca for my Desk fan? the pickup window passed without a scan,return_pickup
+T-521,Order ORD-ID-70c211d7f7: please check whether cancellation was recorded It concerns the Chef knife. Could you look into this for me?,order_cancellation
+T-522,"Good morning, I'm following up about Minimalist watch (order ORD-ID-b66d6dc880). I need to check whether the delivery address can still be updated Please advise when you can.",address_change
+T-523,Order ORD-ID-9f50ba4ec7: the parcel contains a different model It concerns the Table organiser. Please advise when you can.,incorrect_item
+T-524,"Good morning, could you check order ORD-ID-94ff420ffe for my Organic tea pack? I noticed a typo in the address before dispatch Could you look into this for me?",address_change
+T-525,Could someone help? the Board game from order ORD-ID-ec900a8ed1 has an issue. the delivery scan appears incorrect; I checked with reception Please advise when you can.,non_delivery
+T-526,I need a quick update. the Pet travel bowl from order ORD-ID-401847dcbf has an issue. please confirm whether the parcel has been handed to the carrier I can share more details if needed.,address_change
+T-527,I'm following up about Cookbook (order ORD-ID-36c82b0e24). the returned parcel was received but I have no refund update Thanks.,late_refund
+T-528,Could someone help? I placed order ORD-ID-42e2669ebf for Leather sandals; the receipt shows a different total than I expected Thanks.,price_difference
+T-529,"Hello, the Cookbook from order ORD-ID-ea0cf307e8 has an issue. please check whether an exchange option is available I can share more details if needed.",exchange_request
+T-531,"Hi team, I'm following up about Coffee sampler (order ORD-ID-fceb2c2b88). I can see the return but no refund update Thanks.",refund_status
+T-532,"Hi team, I'm following up about Plush animal (order ORD-ID-23707237e7). the tracking page hasn't changed since yesterday Thanks.",order_status
+T-534,Would you please review order ORD-ID-aae4232cb3? I received another colour and size The item is Art activity kit. Thanks.,incorrect_item
+T-535,Would you please review order ORD-ID-944322e5e9? I need a different size and want to see available options The item is Cat scratcher. I can share more details if needed.,exchange_request
+T-536,I placed order ORD-ID-08f6551726 for Chef knife; i received another colour and size,incorrect_item
+T-537,I need a quick update. could you check order ORD-ID-3fcb8ffc10 for my Cabin backpack? could you check the remaining parcel's scan I can share more details if needed.,partial_delivery
+T-538,Would you please review order ORD-ID-ee5d91ed75? the outer box was wet and the item is scratched The item is Tyre inflator. Could you look into this for me?,damaged_item
+T-539,Order ORD-ID-f5575987ee: I did not receive a call before the failed attempt It concerns the Seed starter kit.,delivery_dispute
+T-540,I'm following up about Watering can (order ORD-ID-44319aea3c). the receipt shows a different total than I expected Thanks.,price_difference
+T-541,"Hi team, could you check order ORD-ID-8d373108d8 for my Bluetooth speaker? the package did not include one listed accessory",missing_accessory
+T-542,could you check order ORD-ID-4b5478be55 for my Resistance bands? the scan says delivered but the security desk has no parcel I can share more details if needed.,delivery_dispute
+T-543,"Hello, could you check order ORD-ID-afef2c1418 for my Pet travel bowl? could you help me locate the tax invoice Thanks.",invoice_request
+T-544,Would you please review order ORD-ID-e315871471? the refund line is still pending in my account The item is Canvas sneakers. Thanks.,refund_status
+T-545,Order ORD-ID-4e43293bab: could you help me locate the tax invoice It concerns the Printed saree. Thanks.,invoice_request
+T-547,Would you please review order ORD-ID-69bbd84450? it does not power on after unpacking The item is Glass lunch box. I can share more details if needed.,damaged_item
+T-548,I need a quick update. could you check order ORD-ID-27098eb1c0 for my Steel cookware set? I have a question about the item details shown on the order,product_question
+T-550,"Good morning, the Electric kettle from order ORD-ID-5a311ae136 has an issue. I would like to understand the options shown for this item Thanks.",return_eligibility
+T-551,"Good morning, the Resistance bands from order ORD-ID-548778ec2a has an issue. the status is unclear to me Please advise when you can.",order_status
+T-552,I need a quick update. I'm following up about Notebook set (order ORD-ID-95077b0aed). please confirm the item price and any recorded discount,price_difference
+T-553,"Hello, I'm following up about Canvas sneakers (order ORD-ID-41011907b8). I rescheduled collection and need the updated status Could you look into this for me?",return_pickup
+T-554,I need a quick update. I'm following up about Steel cookware set (order ORD-ID-80c71306a9). I would like to understand the options shown for this item,return_eligibility
+T-555,Could someone help? I'm following up about Document organiser (order ORD-ID-15c6455e02). the package did not include one listed accessory I can share more details if needed.,missing_accessory
+T-556,I'm following up about Bluetooth speaker (order ORD-ID-c61a15dafc). I cancelled before dispatch and want to confirm the status Thanks.,order_cancellation
+T-557,"Hello, I placed order ORD-ID-4fa19d974a for Pet grooming brush; the return page still says pickup pending",return_status
+T-558,Order ORD-ID-6414fe7939: it does not power on after unpacking It concerns the Printed saree.,damaged_item
+T-559,"Hello, I'm following up about Children's story collection (order ORD-ID-f11802ccd4). only one package from the order has arrived Please advise when you can.",partial_delivery
+T-560,Order ORD-ID-7c88ddb834: the fit is not right; what does this item's page allow It concerns the Coffee sampler. I can share more details if needed.,exchange_request
+T-561,Could someone help? the Organic tea pack from order ORD-ID-7027f98fe9 has an issue. the fit is not right; what does this item's page allow Thanks.,exchange_request
+T-563,Could someone help? the Sunscreen lotion from order ORD-ID-af90c52b24 has an issue. I need the invoice for my records Thanks.,invoice_request
+T-564,Could someone help? could you check order ORD-ID-6f0d19247a for my Fountain pen? the attempt note does not match what happened at my address Please advise when you can.,delivery_dispute
+T-565,"Good morning, could you check order ORD-ID-9082ae74ce for my Book set? the parcel is packed; please check the pickup slot",return_pickup
+T-567,Could someone help? I placed order ORD-ID-1e69cdc738 for Document organiser; the returned parcel was received but I have no refund update Could you look into this for me?,late_refund
+T-568,Could someone help? I placed order ORD-ID-e184f90d93 for Hand blender; i need the invoice for my records Could you look into this for me?,invoice_request
+T-569,"Hi team, the Notebook set from order ORD-ID-ca5858af20 has an issue. please check whether an invoice is available Could you look into this for me?",invoice_request
+T-570,Order ORD-ID-51565a3165: it does not power on after unpacking It concerns the Hand blender. I can share more details if needed.,damaged_item
+T-571,Would you please review order ORD-ID-8f49da0037? I noticed a typo in the address before dispatch The item is Noise-cancelling headphones. Thanks.,address_change
+T-572,Would you please review order ORD-ID-1929ac78ad? I need to check whether the delivery address can still be updated The item is Art activity kit. Please advise when you can.,address_change
+T-573,Could someone help? I placed order ORD-ID-6a60e8b6a6 for Cotton baby blanket; the order is marked cancelled but I need to know what happens next,order_cancellation
+T-574,I need a quick update. I placed order ORD-ID-a9ae9f4dd0 for Board game; the fit is not right; what does this item's page allow Thanks.,exchange_request
+T-575,Order ORD-ID-73be556ea9: the estimated date has passed and the parcel is still moving It concerns the Pendant necklace. I can share more details if needed.,delivery_delay
+T-576,"Hello, I'm following up about Linen shirt (order ORD-ID-ecbb7801de). please explain the payment status visible for this order Could you look into this for me?",payment_question
+T-577,Would you please review order ORD-ID-b40596988a? the estimated date has passed and the parcel is still moving The item is Sunscreen lotion. Please advise when you can.,delivery_delay
+T-579,"Hi team, I placed order ORD-ID-86c806c9d3 for Bath and body set; the order has two items but I have received one Thanks.",partial_delivery
+T-582,"Good morning, I'm following up about Minimalist watch (order ORD-ID-14d20c5ded). the parcel contains a different model",incorrect_item
+T-584,"Hello, the Document organiser from order ORD-ID-89ef0dc1cd has an issue. I handed the parcel over and want to know the next step Thanks.",return_status
+T-585,"Good morning, could you check order ORD-ID-f254b474bc for my Notebook set? could you check the remaining parcel's scan I can share more details if needed.",partial_delivery
+T-586,I placed order ORD-ID-274e177dc8 for Minimalist watch; only one package from the order has arrived I can share more details if needed.,partial_delivery
+T-587,Would you please review order ORD-ID-8a1b2fd29d? please check the order page before advising me The item is Resistance bands. I can share more details if needed.,return_eligibility
+T-588,I need a quick update. I placed order ORD-ID-9ddfe67f4e for Notebook set; the outer box was wet and the item is scratched Thanks.,damaged_item
+T-589,Order ORD-ID-c4b1db256d: the delivery date slipped by two days It concerns the Resistance bands.,delivery_delay
+T-590,Order ORD-ID-a881d3dcaf: please check the order page before advising me It concerns the Table organiser. Thanks.,return_eligibility
+T-591,"Hi team, I placed order ORD-ID-83dfc9d451 for Art activity kit; could you confirm the selected variant",product_question
+T-592,Would you please review order ORD-ID-5e03e76498? I need a different size and want to see available options The item is Insulated flask. Thanks.,exchange_request
+T-593,Could someone help? I placed order ORD-ID-05a6699863 for Cricket bat; only one package from the order has arrived,partial_delivery
+T-594,could you check order ORD-ID-b8b88de501 for my Coffee sampler? the pickup was booked but nobody came Thanks.,return_status
+T-595,"Hi team, the Cotton bedsheet from order ORD-ID-b49c0d92e6 has an issue. the status has not changed since inspection Please advise when you can.",late_refund
+T-596,"Hi team, could you check order ORD-ID-9a2ef99b5b for my Smart watch? could you help me locate the tax invoice Could you look into this for me?",invoice_request
+T-597,"Hi team, I placed order ORD-ID-5f224449a4 for Bath and body set; i would like to understand the options shown for this item Thanks.",return_eligibility
+T-598,"Hi team, I placed order ORD-ID-13ef7e5300 for Microfibre cleaning kit; the parcel contains a different model Thanks.",incorrect_item
+T-599,I need a quick update. I'm following up about Leather sandals (order ORD-ID-57c63257ed). the delivery date slipped by two days,delivery_delay
+T-601,Could someone help? I'm following up about Dog lead (order ORD-ID-12587f1889). the pickup was booked but nobody came Thanks.,return_status
+T-602,Order ORD-ID-760878be1f: I was home when the delivery attempt was marked It concerns the Art activity kit. Could you look into this for me?,non_delivery
+T-603,Would you please review order ORD-ID-ebe35cd906? the label and item do not match my order The item is Silver-plated earrings. Please advise when you can.,incorrect_item
+T-604,Would you please review order ORD-ID-d8cb680447? it does not power on after unpacking The item is Packing cube set. I can share more details if needed.,damaged_item
+T-606,"Good morning, I'm following up about Planter set (order ORD-ID-0d0687b744). the scan says delivered but the security desk has no parcel Thanks.",delivery_dispute
+T-607,Would you please review order ORD-ID-060d207ce9? I would like to understand the options shown for this item The item is Sunscreen lotion. Thanks.,return_eligibility
+T-608,"Good morning, could you check order ORD-ID-3f532717ca for my Running shoes? could you help me locate the tax invoice Could you look into this for me?",invoice_request
+T-609,"Good morning, I placed order ORD-ID-9edd33dfc6 for Sunscreen lotion; the returned parcel was received but I have no refund update I can share more details if needed.",late_refund
+T-610,"Good morning, the Notebook set from order ORD-ID-9be395b002 has an issue. the order is marked cancelled but I need to know what happens next I can share more details if needed.",order_cancellation
+T-611,"Hello, I'm following up about Silver-plated earrings (order ORD-ID-aa81c974b9). please tell me the status shown on the order I can share more details if needed.",refund_status
+T-612,"Good morning, I'm following up about Beaded bracelet (order ORD-ID-8ff68efdc1). the package did not include one listed accessory I can share more details if needed.",missing_accessory
+T-613,"Hi team, could you check order ORD-ID-15b03e7526 for my Cabin backpack? please confirm whether the parcel has been handed to the carrier Please advise when you can.",address_change
+T-616,Order ORD-ID-a69e092c0a: I received another colour and size It concerns the Tyre inflator. I can share more details if needed.,incorrect_item
+T-617,the Tyre inflator from order ORD-ID-b20b216cd0 has an issue. my bank shows a debit and I want to confirm the order record Please advise when you can.,payment_question
+T-618,"Good morning, the Travel duffel from order ORD-ID-2e666e9659 has an issue. the estimated date has passed and the parcel is still moving Please advise when you can.",delivery_delay
+T-619,"Good morning, the Cabin backpack from order ORD-ID-dee3a5ca81 has an issue. I received another colour and size Please advise when you can.",incorrect_item
+T-620,"Hi team, I placed order ORD-ID-07873fa8b2 for Minimalist watch; the delivery scan appears incorrect; I checked with reception I can share more details if needed.",non_delivery
+T-621,I'm following up about Seed starter kit (order ORD-ID-b56bef8f08). please check whether an exchange option is available I can share more details if needed.,exchange_request
+T-622,"Good morning, I placed order ORD-ID-6bc8001a58 for Bluetooth speaker; i received another colour and size Please advise when you can.",incorrect_item
+T-623,Could someone help? could you check order ORD-ID-6132427947 for my Art activity kit? I need to check whether the delivery address can still be updated Could you look into this for me?,address_change
+T-624,Order ORD-ID-8dd923d736: I need the invoice for my records It concerns the Silver-plated earrings. I can share more details if needed.,invoice_request
+T-625,I placed order ORD-ID-31a5bd4e18 for Mixer grinder; the delivery date slipped by two days I can share more details if needed.,delivery_delay
+T-626,I placed order ORD-ID-4df61ba3d9 for Car phone mount; the outer box was wet and the item is scratched Please advise when you can.,damaged_item
+T-627,Would you please review order ORD-ID-519133a3c7? please confirm the item price and any recorded discount The item is Running shorts. Please advise when you can.,price_difference
+T-628,Order ORD-ID-efa98017d7: please confirm whether the parcel has been handed to the carrier It concerns the Yoga mat. Thanks.,address_change
+T-629,I need a quick update. could you check order ORD-ID-babb0f53eb for my Hair serum? my bank shows a debit and I want to confirm the order record Could you look into this for me?,payment_question
+T-630,the Bluetooth speaker from order ORD-ID-5532dbd62d has an issue. please confirm the item price and any recorded discount Please advise when you can.,price_difference
+T-631,Would you please review order ORD-ID-c14d0cad39? the receipt shows a different total than I expected The item is Pruning shears. Thanks.,price_difference
+T-632,Order ORD-ID-44a54a4425: the delivery scan appears incorrect; I checked with reception It concerns the Pet travel bowl. Could you look into this for me?,non_delivery
+T-633,"Hi team, I placed order ORD-ID-90976c642f for Travel essays; i need to know whether payment was captured Thanks.",payment_question
+T-634,I placed order ORD-ID-e70d3c51a1 for Wireless keyboard; the outer box was wet and the item is scratched Thanks.,damaged_item
+T-635,Order ORD-ID-ca301a14cf: the outer box was wet and the item is scratched It concerns the Notebook set. Could you look into this for me?,damaged_item
+T-636,Order ORD-ID-58de693943: I was home when the delivery attempt was marked It concerns the Cricket bat. Please advise when you can.,non_delivery
+T-637,Order ORD-ID-e8ec855af1: please check whether an exchange option is available It concerns the Seat organiser. Please advise when you can.,exchange_request
+T-638,"Good morning, I placed order ORD-ID-53ecf9dfc9 for Bluetooth speaker; i cancelled before dispatch and want to confirm the status Could you look into this for me?",order_cancellation
+T-639,Would you please review order ORD-ID-653efe201b? I was home when the delivery attempt was marked The item is Resistance bands. I can share more details if needed.,non_delivery
+T-640,"Good morning, could you check order ORD-ID-d1f92c1bdb for my Denim jacket? the status has not changed since inspection Please advise when you can.",late_refund
+T-641,"Good morning, could you check order ORD-ID-6aafa9e03c for my Canvas sneakers? the scan says delivered but the security desk has no parcel",delivery_dispute
+T-642,I'm following up about USB-C charger (order ORD-ID-796e40aa85). the tracking page hasn't changed since yesterday I can share more details if needed.,order_status
+T-646,Could someone help? the Yoga mat from order ORD-ID-e805f1a91c has an issue. please confirm the item price and any recorded discount Thanks.,price_difference
+T-647,Order ORD-ID-eb9c9eb931: I noticed a typo in the address before dispatch It concerns the Packing cube set. Thanks.,address_change
+T-648,"Good morning, the Travel duffel from order ORD-ID-071de56ed7 has an issue. could you point me to the item-specific return terms Could you look into this for me?",return_eligibility
+T-649,"Hello, the Noise-cancelling headphones from order ORD-ID-759cb272a2 has an issue. the outer box was wet and the item is scratched I can share more details if needed.",damaged_item
+T-650,"Hello, I placed order ORD-ID-52ffea00b6 for Plush animal; i am checking on the refund timeline recorded for this return Please advise when you can.",late_refund
+T-653,"Hello, I'm following up about Denim jacket (order ORD-ID-a6ed89196f). the attempt note does not match what happened at my address",delivery_dispute
+T-654,"Hello, I placed order ORD-ID-1518ee09fa for Printed saree; the package did not include one listed accessory",missing_accessory
+T-655,Would you please review order ORD-ID-bf47fa511f? I have a question about the item details shown on the order The item is Yoga mat. Thanks.,product_question
+T-657,I need a quick update. the Face moisturiser from order ORD-ID-5b2cb9f546 has an issue. the tracking page hasn't changed since yesterday,order_status
+T-658,"Hi team, I placed order ORD-ID-ec273a87ca for Seat organiser; the receipt shows a different total than I expected Please advise when you can.",price_difference
+T-659,"Hi team, could you check order ORD-ID-30a3c6e1fc for my Walking shoes? only one package from the order has arrived I can share more details if needed.",partial_delivery
+T-660,I'm following up about Glass lunch box (order ORD-ID-7d811a2513). I need to check whether the delivery address can still be updated Please advise when you can.,address_change
+T-661,I need a quick update. could you check order ORD-ID-baee260f65 for my Travel duffel? please check the order page before advising me Please advise when you can.,return_eligibility
+T-662,"Good morning, I placed order ORD-ID-bf13aea3af for Steel cookware set; the order has two items but I have received one I can share more details if needed.",partial_delivery
+T-664,I'm following up about Electric kettle (order ORD-ID-125ddcd099). only one package from the order has arrived Please advise when you can.,partial_delivery
+T-667,could you check order ORD-ID-c4403847ea for my Chef knife? I am checking on the refund timeline recorded for this return I can share more details if needed.,late_refund
+T-668,"Hello, I'm following up about Feeding bottle set (order ORD-ID-4fafa04aa2). I need to know whether payment was captured I can share more details if needed.",payment_question
+T-669,Would you please review order ORD-ID-c773adaed7? please explain the payment status visible for this order The item is Electric kettle. Could you look into this for me?,payment_question
+T-670,the Yoga mat from order ORD-ID-1b88664295 has an issue. the outer box was wet and the item is scratched,damaged_item
+T-671,I need a quick update. I placed order ORD-ID-bc8cbc57c0 for Cotton baby blanket; please tell me the status shown on the order,refund_status
+T-672,Would you please review order ORD-ID-131d4231ab? I need a different size and want to see available options The item is Wireless mouse. Thanks.,exchange_request
+T-673,Order ORD-ID-b4f7525da8: the parcel is packed; please check the pickup slot It concerns the Linen shirt. I can share more details if needed.,return_pickup
+T-674,"Hi team, could you check order ORD-ID-887333d124 for my Storage basket? the outer box was wet and the item is scratched I can share more details if needed.",damaged_item
+T-675,Order ORD-ID-0388ee198a: could you point me to the item-specific return terms It concerns the Hand blender. Could you look into this for me?,return_eligibility
+T-677,Order ORD-ID-fe098bb505: please check the order page before advising me It concerns the Storage basket. Could you look into this for me?,return_eligibility
+T-678,the Document organiser from order ORD-ID-d8658e08f4 has an issue. I can see the return but no refund update,refund_status
+T-679,"Hello, I'm following up about USB-C charger (order ORD-ID-ddf83ab9d4). the status is unclear to me Could you look into this for me?",order_status
+T-680,Order ORD-ID-1266d20134: the return page still says pickup pending It concerns the Plush animal. Thanks.,return_status
+T-682,Order ORD-ID-d8f22b3825: please check the order page before advising me It concerns the Steel cookware set.,return_eligibility
+T-684,"Hello, could you check order ORD-ID-e5afa3b1be for my Resistance bands? the pickup was booked but nobody came Thanks.",return_status
+T-685,Would you please review order ORD-ID-f3ccaff17a? the order is marked cancelled but I need to know what happens next The item is Bluetooth speaker. Could you look into this for me?,order_cancellation
+T-686,Would you please review order ORD-ID-2662190261? the parcel is packed; please check the pickup slot The item is Canvas sneakers. Could you look into this for me?,return_pickup
+T-687,"Hi team, I'm following up about Minimalist watch (order ORD-ID-6ce06e35d1). the package did not include one listed accessory I can share more details if needed.",missing_accessory
+T-688,Would you please review order ORD-ID-d5b54be9fe? please confirm the item price and any recorded discount The item is Children's story collection.,price_difference
+T-689,Order ORD-ID-f9d3540bad: the pickup was booked but nobody came It concerns the Printed saree.,return_status
+T-690,"Hi team, I'm following up about Pruning shears (order ORD-ID-db4f075a56). could you check the remaining parcel's scan Please advise when you can.",partial_delivery
+T-691,"Hi team, I'm following up about Cycling helmet (order ORD-ID-26e0a60e18). I can see the return but no refund update",refund_status
+T-692,"Good morning, I'm following up about Glass lunch box (order ORD-ID-9e81c49559). I need help understanding what was included Could you look into this for me?",product_question
+T-695,"Hi team, I placed order ORD-ID-a84df2a3b1 for Cookbook; please check the order page before advising me Could you look into this for me?",return_eligibility
+T-696,Would you please review order ORD-ID-9531340b3d? it does not power on after unpacking The item is Hand blender. Could you look into this for me?,damaged_item
+T-697,"Hello, I'm following up about Pet grooming brush (order ORD-ID-3754c9a70c). the receipt shows a different total than I expected",price_difference
+T-698,"Good morning, could you check order ORD-ID-753f1d58bd for my Pendant necklace? my bank shows a debit and I want to confirm the order record I can share more details if needed.",payment_question
+T-699,"Hello, I'm following up about Storage basket (order ORD-ID-fcc7ba4c8b). I need help understanding what was included Please advise when you can.",product_question
+T-700,I placed order ORD-ID-e8e19b6c29 for Book set; one corner arrived cracked Could you look into this for me?,damaged_item
+T-701,Would you please review order ORD-ID-ba4a37231d? the scan says delivered but the security desk has no parcel The item is Resistance bands. Could you look into this for me?,delivery_dispute
+T-702,Could someone help? I placed order ORD-ID-c37303a641 for Running shoes; the status has not changed since inspection I can share more details if needed.,late_refund
+T-704,Would you please review order ORD-ID-51cfe0691d? could you help me locate the tax invoice The item is Yoga mat. Could you look into this for me?,invoice_request
+T-705,the Noise-cancelling headphones from order ORD-ID-057670475c has an issue. please check whether an invoice is available Could you look into this for me?,invoice_request
+T-706,Would you please review order ORD-ID-022d195439? I am checking on the refund timeline recorded for this return The item is Hair serum. Could you look into this for me?,late_refund
+T-707,Could someone help? could you check order ORD-ID-b92c43e947 for my USB-C charger? I noticed a typo in the address before dispatch,address_change
+T-708,Order ORD-ID-67917a0d0c: the scan says delivered but the security desk has no parcel It concerns the Organic tea pack. Please advise when you can.,delivery_dispute
+T-709,Order ORD-ID-9fdb58310e: please check the order page before advising me It concerns the Microfibre cleaning kit. Please advise when you can.,return_eligibility
+T-712,"Good morning, the Microfibre cleaning kit from order ORD-ID-c0083c7196 has an issue. I noticed a typo in the address before dispatch",address_change
+T-713,I placed order ORD-ID-ed0c08e02f for Book set; i noticed a typo in the address before dispatch Thanks.,address_change
+T-714,"Hi team, I'm following up about Bluetooth speaker (order ORD-ID-44121221a1). please check whether an exchange option is available Could you look into this for me?",exchange_request
+T-716,Would you please review order ORD-ID-20777c94eb? I received the main item but not its cable The item is Bath and body set. Please advise when you can.,missing_accessory
+T-717,"Hi team, I'm following up about Feeding bottle set (order ORD-ID-0420d696ee). please check whether an invoice is available Could you look into this for me?",invoice_request
+T-718,Order ORD-ID-a5b851d34c: please confirm the item price and any recorded discount It concerns the USB-C charger. I can share more details if needed.,price_difference
+T-720,"Hello, I placed order ORD-ID-6bfdebd40e for Plush animal; the status has not changed since inspection I can share more details if needed.",late_refund
+T-721,"Hello, I'm following up about Steel cookware set (order ORD-ID-a841e0e790). it does not power on after unpacking Could you look into this for me?",damaged_item
+T-722,"Good morning, could you check order ORD-ID-4e66da619d for my Running shoes? please check whether cancellation was recorded Please advise when you can.",order_cancellation
+T-723,"Hello, the Cricket bat from order ORD-ID-b71f989b74 has an issue. I rescheduled collection and need the updated status Thanks.",return_pickup
+T-724,could you check order ORD-ID-82cf13b477 for my Resistance bands? I can see the return but no refund update Please advise when you can.,refund_status
+T-725,I'm following up about Laptop sleeve (order ORD-ID-853cbf47e1). the returned parcel was received but I have no refund update Thanks.,late_refund
+T-727,Order ORD-ID-f5f1f83a81: the outer box was wet and the item is scratched It concerns the Mixer grinder. Thanks.,damaged_item
+T-728,"Hello, could you check order ORD-ID-1fa4e7af60 for my Board game? the status has not changed since inspection I can share more details if needed.",late_refund
+T-729,"Good morning, I'm following up about Travel essays (order ORD-ID-98f220d2dc). I did not receive a call before the failed attempt Thanks.",delivery_dispute
+T-730,"Hi team, I'm following up about Cotton baby blanket (order ORD-ID-f70fa52e52). the pickup window passed without a scan Please advise when you can.",return_pickup
+T-731,could you check order ORD-ID-5ce90473fe for my Snack variety box? the delivery date slipped by two days I can share more details if needed.,delivery_delay
+T-732,"Hello, the Cat scratcher from order ORD-ID-e2b158b871 has an issue. the parcel is packed; please check the pickup slot",return_pickup
+T-735,I'm following up about Watering can (order ORD-ID-9bd632cee4). please explain the payment status visible for this order Thanks.,payment_question
+T-737,"Good morning, the Bath and body set from order ORD-ID-abf8bd52e4 has an issue. the package did not include one listed accessory I can share more details if needed.",missing_accessory
+T-738,the Silver-plated earrings from order ORD-ID-a7de36c8c8 has an issue. the delivery scan appears incorrect; I checked with reception,non_delivery
+T-739,Would you please review order ORD-ID-7f0298d0d1? the delivery scan appears incorrect; I checked with reception The item is Notebook set. Thanks.,non_delivery
+T-741,"Hi team, could you check order ORD-ID-957c81982f for my Dry fruit assortment? please confirm whether the parcel has been handed to the carrier Please advise when you can.",address_change
+T-742,"Good morning, I placed order ORD-ID-f2a7312219 for Cricket bat; i need help understanding what was included",product_question
+T-744,"Hello, the Hand blender from order ORD-ID-3a5b56dc50 has an issue. it does not power on after unpacking Could you look into this for me?",damaged_item
+T-745,"Hello, I'm following up about Children's story collection (order ORD-ID-738588a314). one corner arrived cracked",damaged_item
+T-746,Order ORD-ID-6402220f12: the order is marked cancelled but I need to know what happens next It concerns the Wireless mouse. Please advise when you can.,order_cancellation
+T-747,Could someone help? I'm following up about Fountain pen (order ORD-ID-c95de0b0a1). I did not receive a call before the failed attempt Thanks.,delivery_dispute
+T-748,"Good morning, I'm following up about Cookbook (order ORD-ID-9b7a4cd04e). I received another colour and size I can share more details if needed.",incorrect_item
+T-749,"Hi team, I'm following up about Ceramic vase (order ORD-ID-9142c5fcbf). the fit is not right; what does this item's page allow Please advise when you can.",exchange_request
+T-750,I need a quick update. could you check order ORD-ID-7cd1a4a36c for my Beaded bracelet? I can see the return but no refund update I can share more details if needed.,refund_status
+T-751,Could someone help? I'm following up about Art activity kit (order ORD-ID-deb0b58eba). could you help me locate the tax invoice Could you look into this for me?,invoice_request
+T-752,Order ORD-ID-bf7743fe58: the returned parcel was received but I have no refund update It concerns the Denim jacket. Thanks.,late_refund
+T-753,Could someone help? I placed order ORD-ID-1c304453a2 for Building blocks; i cancelled before dispatch and want to confirm the status Please advise when you can.,order_cancellation
+T-754,"Good morning, I placed order ORD-ID-39f98b261f for Cotton bedsheet; i need to check whether the delivery address can still be updated Could you look into this for me?",address_change
+T-755,Would you please review order ORD-ID-affd39c19c? could you point me to the item-specific return terms The item is Silver-plated earrings. Please advise when you can.,return_eligibility
+T-756,Order ORD-ID-4129f45e26: the fit is not right; what does this item's page allow It concerns the Snack variety box. Thanks.,exchange_request
+T-757,I'm following up about Minimalist watch (order ORD-ID-92a2d8c423). I want to understand the amount charged at checkout I can share more details if needed.,price_difference
+T-758,Order ORD-ID-9ce142f78b: the estimated date has passed and the parcel is still moving It concerns the Building blocks. Could you look into this for me?,delivery_delay
+T-759,Would you please review order ORD-ID-14694917bf? I want to understand the amount charged at checkout The item is Seed starter kit. Could you look into this for me?,price_difference
+T-760,Would you please review order ORD-ID-c7569ed1b8? my bank shows a debit and I want to confirm the order record The item is Ceramic vase. Could you look into this for me?,payment_question
+T-761,Order ORD-ID-b495c0ca5f: I noticed a typo in the address before dispatch It concerns the Mixer grinder. I can share more details if needed.,address_change
+T-762,I need a quick update. could you check order ORD-ID-39611e5532 for my Packing cube set? the delivery date slipped by two days Could you look into this for me?,delivery_delay
+T-764,Could someone help? the Soft toy from order ORD-ID-a02ef77039 has an issue. I need a different size and want to see available options,exchange_request
+T-765,Could someone help? I placed order ORD-ID-93e17251e8 for Canvas sneakers; i cancelled before dispatch and want to confirm the status I can share more details if needed.,order_cancellation
+T-766,"Hi team, I placed order ORD-ID-a065bad5e8 for Tyre inflator; the parcel is packed; please check the pickup slot Please advise when you can.",return_pickup
+T-768,Would you please review order ORD-ID-03978d78df? the charger was missing from the sealed box The item is Art activity kit. Could you look into this for me?,missing_accessory
+T-769,Would you please review order ORD-ID-7549e2edf3? the status is unclear to me The item is Plush animal. I can share more details if needed.,order_status
+T-770,I need a quick update. I'm following up about Pendant necklace (order ORD-ID-26644531a6). I can see the return but no refund update Please advise when you can.,refund_status
+T-771,"Good morning, the Travel duffel from order ORD-ID-47d6194775 has an issue. the refund line is still pending in my account Please advise when you can.",refund_status
+T-772,"Good morning, I placed order ORD-ID-26f3e664c5 for Hand blender; could you point me to the item-specific return terms Could you look into this for me?",return_eligibility
+T-773,Would you please review order ORD-ID-d6cd94d0d3? could you point me to the item-specific return terms The item is Face moisturiser. Please advise when you can.,return_eligibility
+T-775,the Tyre inflator from order ORD-ID-c23ee72f1f has an issue. I can see the return but no refund update Please advise when you can.,refund_status
+T-776,I placed order ORD-ID-fd2d790cb0 for Hair serum; the charger was missing from the sealed box Please advise when you can.,missing_accessory
+T-777,Could someone help? I'm following up about Smart watch (order ORD-ID-bfc7db7641). the status is unclear to me I can share more details if needed.,order_status
+T-779,Could someone help? the Silver-plated earrings from order ORD-ID-5d2194fe20 has an issue. I want to understand the amount charged at checkout Thanks.,price_difference
+T-780,"Good morning, the Feeding bottle set from order ORD-ID-9076aad97e has an issue. please check whether an invoice is available",invoice_request
+T-781,I need a quick update. I placed order ORD-ID-1fe54f61b3 for Beaded bracelet; i handed the parcel over and want to know the next step,return_status
+T-782,"Good morning, could you check order ORD-ID-bc7c797071 for my Organic tea pack? I rescheduled collection and need the updated status",return_pickup
+T-783,"Good morning, could you check order ORD-ID-4837788d56 for my Steel cookware set? the pickup window passed without a scan",return_pickup
+T-784,Order ORD-ID-a90e1f3a19: the label and item do not match my order It concerns the Cycling helmet. Could you look into this for me?,incorrect_item
+T-785,Would you please review order ORD-ID-de536275a8? the parcel is packed; please check the pickup slot The item is Cricket bat.,return_pickup
+T-786,"Hi team, could you check order ORD-ID-f1e90b0241 for my Face moisturiser? the delivery date slipped by two days Could you look into this for me?",delivery_delay
+T-787,Would you please review order ORD-ID-17b383f4e8? I received the main item but not its cable The item is Hair serum. Thanks.,missing_accessory
+T-788,Would you please review order ORD-ID-433eaf3480? the scan says delivered but the security desk has no parcel The item is Mixer grinder. Thanks.,delivery_dispute
+T-789,I need a quick update. could you check order ORD-ID-063a9570f6 for my Walking shoes? please confirm the item price and any recorded discount I can share more details if needed.,price_difference
+T-790,"Good morning, I placed order ORD-ID-1ccf1dde4f for Tyre inflator; my bank shows a debit and I want to confirm the order record Could you look into this for me?",payment_question
+T-791,"Hello, I'm following up about Running shorts (order ORD-ID-1c0430b89e). could you point me to the item-specific return terms Please advise when you can.",return_eligibility
+T-792,could you check order ORD-ID-8f654253e0 for my Pet travel bowl? could you confirm the selected variant Could you look into this for me?,product_question
+T-793,Order ORD-ID-01ef5a198e: please check whether cancellation was recorded It concerns the Denim jacket.,order_cancellation
+T-794,could you check order ORD-ID-f997fb46bc for my USB-C charger? please confirm whether the parcel has been handed to the carrier Thanks.,address_change
+T-795,"Hello, I'm following up about Fountain pen (order ORD-ID-4dfd9dee32). the tracking page hasn't changed since yesterday Thanks.",order_status
+T-796,"Good morning, I placed order ORD-ID-02b90efe1d for Fountain pen; the status is unclear to me I can share more details if needed.",order_status
+T-797,Order ORD-ID-c251662126: the charger was missing from the sealed box It concerns the Cat scratcher. Please advise when you can.,missing_accessory
+T-798,"Hello, I placed order ORD-ID-f1dc9863ad for Notebook set; i was home when the delivery attempt was marked Please advise when you can.",non_delivery
+T-799,Would you please review order ORD-ID-2406f1a43b? the pickup window passed without a scan The item is Plush animal.,return_pickup
+T-800,"Good morning, I'm following up about Tyre inflator (order ORD-ID-b7e92aa979). the label and item do not match my order",incorrect_item
+T-801,Could someone help? the Planter set from order ORD-ID-eaf87ec94a has an issue. the order has two items but I have received one Could you look into this for me?,partial_delivery
+T-802,"Good morning, the Face moisturiser from order ORD-ID-1bf1ac28ff has an issue. I cancelled before dispatch and want to confirm the status I can share more details if needed.",order_cancellation
+T-803,Order ORD-ID-9f31dd88b4: please check whether cancellation was recorded It concerns the Canvas sneakers.,order_cancellation
+T-804,"Good morning, I placed order ORD-ID-2bb2173bc8 for Tyre inflator; the tracking page hasn't changed since yesterday I can share more details if needed.",order_status
+T-805,"Good morning, the Document organiser from order ORD-ID-5901e08f34 has an issue. the tracking page hasn't changed since yesterday Could you look into this for me?",order_status
+T-806,Would you please review order ORD-ID-5ac7965cc1? I have a question about the item details shown on the order The item is Packing cube set. Could you look into this for me?,product_question
+T-807,"Hello, could you check order ORD-ID-ea12240cb7 for my Electric kettle? the tracking page hasn't changed since yesterday Please advise when you can.",order_status
+T-808,I need a quick update. I'm following up about Pet travel bowl (order ORD-ID-7d3f0e809b). the charger was missing from the sealed box,missing_accessory
+T-809,Order ORD-ID-8ba4e92a17: the returned parcel was received but I have no refund update It concerns the Wireless keyboard. Please advise when you can.,late_refund
+T-810,Would you please review order ORD-ID-f2dd5f5347? could you point me to the item-specific return terms The item is Glass lunch box. Please advise when you can.,return_eligibility
+T-811,I need a quick update. I placed order ORD-ID-707ec1eca0 for Soft toy; the package did not include one listed accessory Thanks.,missing_accessory
+T-812,"Hello, could you check order ORD-ID-77cb67a840 for my Leather sandals? I need to check whether the delivery address can still be updated Please advise when you can.",address_change
+T-813,"Hello, I'm following up about Bath and body set (order ORD-ID-b39ba1d47b). the pickup was booked but nobody came",return_status
+T-814,"Good morning, could you check order ORD-ID-dda89bf591 for my Seat organiser? the order has two items but I have received one",partial_delivery
+T-815,I placed order ORD-ID-d504b84591 for Children's story collection; could you confirm the selected variant Thanks.,product_question
+T-816,Could someone help? could you check order ORD-ID-f42f1a15dc for my Leather sandals? tracking has shown the same scan for a while Could you look into this for me?,delivery_delay
+T-817,"Hello, could you check order ORD-ID-20cb3237be for my Wireless mouse? the scan says delivered but the security desk has no parcel",delivery_dispute
+T-818,"Hi team, I'm following up about Hair serum (order ORD-ID-4a96b1fd9e). I cancelled before dispatch and want to confirm the status Thanks.",order_cancellation
+T-819,Could someone help? I placed order ORD-ID-41d8ca15c2 for Yoga mat; the order is marked cancelled but I need to know what happens next Could you look into this for me?,order_cancellation
+T-820,Could someone help? I'm following up about Printed saree (order ORD-ID-9ef89aca16). I noticed a typo in the address before dispatch Could you look into this for me?,address_change
+T-821,"Hi team, I placed order ORD-ID-f37b1f734d for Ceramic vase; the outer box was wet and the item is scratched Please advise when you can.",damaged_item
+T-822,"Hi team, could you check order ORD-ID-7eafaf2920 for my Dog lead? my bank shows a debit and I want to confirm the order record Thanks.",payment_question
+T-823,"Hi team, I placed order ORD-ID-c76a61c864 for Seed starter kit; tracking has shown the same scan for a while Please advise when you can.",delivery_delay
+T-825,Order ORD-ID-b6949a46ac: the scan says delivered but the security desk has no parcel It concerns the Organic tea pack. Thanks.,delivery_dispute
+T-826,Order ORD-ID-41f1b0f2e1: the pickup was booked but nobody came It concerns the Microfibre cleaning kit.,return_status
+T-827,Would you please review order ORD-ID-d797dfefad? the scan says delivered but the security desk has no parcel The item is Cricket bat. Please advise when you can.,delivery_dispute
+T-828,"Hi team, could you check order ORD-ID-64e4d8a1db for my Pet travel bowl? the scan says delivered but the security desk has no parcel Could you look into this for me?",delivery_dispute
+T-829,Would you please review order ORD-ID-5fdbde6468? I need help understanding what was included The item is Pruning shears. Thanks.,product_question
+T-830,"Good morning, I placed order ORD-ID-56cd6664a8 for Pet travel bowl; the order has two items but I have received one Please advise when you can.",partial_delivery
+T-831,Would you please review order ORD-ID-c4b87a54cb? the delivery scan appears incorrect; I checked with reception The item is Seat organiser. Thanks.,non_delivery
+T-832,"Hello, I placed order ORD-ID-ea62f64d66 for Travel duffel; tracking says delivered, although I haven't found the parcel I can share more details if needed.",non_delivery
+T-833,"Hello, I'm following up about Coffee sampler (order ORD-ID-737d6468dc). the status has not changed since inspection",late_refund
+T-834,"Hi team, I placed order ORD-ID-f0bbf1f65b for Beaded bracelet; the attempt note does not match what happened at my address Could you look into this for me?",delivery_dispute
+T-835,I need a quick update. the Art activity kit from order ORD-ID-ccee55e738 has an issue. could you confirm the selected variant Please advise when you can.,product_question
+T-836,I need a quick update. could you check order ORD-ID-792d9dea8f for my Sunscreen lotion? one corner arrived cracked Thanks.,damaged_item
+T-837,Could someone help? I placed order ORD-ID-925b8a0d11 for USB-C charger; the charger was missing from the sealed box I can share more details if needed.,missing_accessory
+T-838,"Good morning, I'm following up about Smart watch (order ORD-ID-ad34b40fa9). please check whether an exchange option is available",exchange_request
+T-839,Could someone help? could you check order ORD-ID-0c8db1e66b for my Yoga mat? could you confirm the selected variant I can share more details if needed.,product_question
+T-842,Order ORD-ID-a8a1d4122d: only one package from the order has arrived It concerns the Mixer grinder. Please advise when you can.,partial_delivery
+T-843,Order ORD-ID-71db92f9ad: I need to check whether the delivery address can still be updated It concerns the Storage basket. I can share more details if needed.,address_change
+T-844,I need a quick update. I placed order ORD-ID-329822b758 for Storage basket; i received the main item but not its cable Thanks.,missing_accessory
+T-845,Order ORD-ID-f3731ec139: the receipt shows a different total than I expected It concerns the Baby care kit.,price_difference
+T-846,"Good morning, the Silver-plated earrings from order ORD-ID-7be90d2012 has an issue. please check the order page before advising me Thanks.",return_eligibility
+T-847,the Noise-cancelling headphones from order ORD-ID-4c423abe43 has an issue. please tell me the status shown on the order Thanks.,refund_status
+T-849,Would you please review order ORD-ID-0b9fbc2d0e? the parcel contains a different model The item is Cricket bat. Thanks.,incorrect_item
+T-850,Order ORD-ID-3779c2fd74: the scan says delivered but the security desk has no parcel It concerns the Yoga mat. I can share more details if needed.,delivery_dispute
+T-851,Could someone help? could you check order ORD-ID-a040c45773 for my Insulated flask? I noticed a typo in the address before dispatch,address_change
+T-852,I need a quick update. I'm following up about Smart watch (order ORD-ID-61a3282e49). I did not receive a call before the failed attempt Thanks.,delivery_dispute
+T-854,I'm following up about Air fryer (order ORD-ID-d425c1313a). I have a question about the item details shown on the order Please advise when you can.,product_question
+T-855,"Good morning, the Building blocks from order ORD-ID-cbd9dd6355 has an issue. the attempt note does not match what happened at my address",delivery_dispute
+T-856,"Hi team, I'm following up about Sunscreen lotion (order ORD-ID-0db8263ae7). the parcel is packed; please check the pickup slot Thanks.",return_pickup
+T-857,Could someone help? I'm following up about Desk lamp (order ORD-ID-2e9bf3e1b1). I would like to understand the options shown for this item I can share more details if needed.,return_eligibility
+T-858,"Hi team, the Printed saree from order ORD-ID-23a5a95f5e has an issue. please confirm whether the parcel has been handed to the carrier Thanks.",address_change
+T-860,"Hello, the Snack variety box from order ORD-ID-c1babeff21 has an issue. I did not receive a call before the failed attempt Thanks.",delivery_dispute
+T-861,"Good morning, could you check order ORD-ID-2d8d5aa718 for my Sunscreen lotion? the receipt shows a different total than I expected",price_difference
+T-862,Would you please review order ORD-ID-364e77576c? tracking has shown the same scan for a while The item is Face moisturiser. Please advise when you can.,delivery_delay
+T-863,Order ORD-ID-8b40189820: the status is unclear to me It concerns the Insulated flask. Please advise when you can.,order_status
+T-864,Could someone help? I'm following up about Children's story collection (order ORD-ID-4f9d665171). I was home when the delivery attempt was marked Please advise when you can.,non_delivery
+T-865,I need a quick update. I'm following up about Cricket bat (order ORD-ID-643d7f9fc3). I received the main item but not its cable Please advise when you can.,missing_accessory
+T-866,"Good morning, I placed order ORD-ID-2ca0630375 for Snack variety box; i received the main item but not its cable Please advise when you can.",missing_accessory
+T-867,"Hi team, could you check order ORD-ID-7233574059 for my Desk lamp? I handed the parcel over and want to know the next step I can share more details if needed.",return_status
+T-869,"Hello, I placed order ORD-ID-d87416a77d for Glass lunch box; i cancelled before dispatch and want to confirm the status Please advise when you can.",order_cancellation
+T-870,I need a quick update. I placed order ORD-ID-ea7bc70a57 for Pruning shears; i was home when the delivery attempt was marked I can share more details if needed.,non_delivery
+T-871,I need a quick update. could you check order ORD-ID-162ea595cc for my Laptop sleeve? please confirm whether the parcel has been handed to the carrier Could you look into this for me?,address_change
+T-872,"Hello, I'm following up about Wireless mouse (order ORD-ID-d017e92855). the returned parcel was received but I have no refund update I can share more details if needed.",late_refund
+T-873,Order ORD-ID-25b2971d35: the parcel contains a different model It concerns the Art activity kit.,incorrect_item
+T-875,Would you please review order ORD-ID-3f57149ec6? I did not receive a call before the failed attempt The item is Desk fan. I can share more details if needed.,delivery_dispute
+T-876,I placed order ORD-ID-e8a4f7e208 for Chef knife; i can see the return but no refund update Could you look into this for me?,refund_status
+T-877,"Hi team, the Fountain pen from order ORD-ID-a9b6c4f91b has an issue. could you check the remaining parcel's scan Could you look into this for me?",partial_delivery
+T-878,"Good morning, could you check order ORD-ID-29798b7710 for my Face moisturiser? I need a different size and want to see available options I can share more details if needed.",exchange_request
+T-879,the Notebook set from order ORD-ID-1dc36a8d56 has an issue. the parcel contains a different model I can share more details if needed.,incorrect_item
+T-880,Could someone help? could you check order ORD-ID-4741c63feb for my Coffee sampler? tracking has shown the same scan for a while Please advise when you can.,delivery_delay
+T-881,Would you please review order ORD-ID-c18a5b6b5d? the attempt note does not match what happened at my address The item is Travel duffel. Could you look into this for me?,delivery_dispute
+T-882,"Hi team, could you check order ORD-ID-69969bb84e for my Hair serum? the returned parcel was received but I have no refund update",late_refund
+T-883,Order ORD-ID-b2e44e77c6: please check whether cancellation was recorded It concerns the Walking shoes. Please advise when you can.,order_cancellation
+T-884,"Hi team, I placed order ORD-ID-afe829bc80 for Car phone mount; the refund line is still pending in my account",refund_status
+T-886,Could someone help? could you check order ORD-ID-ac2c5c1e08 for my Cookbook? the return page still says pickup pending Thanks.,return_status
+T-887,Could someone help? I'm following up about Microfibre cleaning kit (order ORD-ID-5b24686be0). the tracking page hasn't changed since yesterday,order_status
+T-889,Would you please review order ORD-ID-4b9947a049? the receipt shows a different total than I expected The item is Travel essays. Please advise when you can.,price_difference
+T-891,I need a quick update. the Notebook set from order ORD-ID-0e11ee6f9c has an issue. I have a question about the item details shown on the order,product_question
+T-892,Would you please review order ORD-ID-7366402d4c? the package did not include one listed accessory The item is Cricket bat. Please advise when you can.,missing_accessory
+T-894,"Good morning, the Seed starter kit from order ORD-ID-c4d734ee89 has an issue. one corner arrived cracked Please advise when you can.",damaged_item
+T-895,Would you please review order ORD-ID-c81f104564? please check the order page before advising me The item is Storage basket. I can share more details if needed.,return_eligibility
+T-897,I need a quick update. I placed order ORD-ID-d1aabe20a4 for Ceramic vase; only one package from the order has arrived,partial_delivery
+T-898,Could someone help? I placed order ORD-ID-0ca107f061 for Building blocks; the charger was missing from the sealed box Could you look into this for me?,missing_accessory
+T-899,"Hello, the Pruning shears from order ORD-ID-962c8e16f7 has an issue. the charger was missing from the sealed box",missing_accessory
+T-900,Would you please review order ORD-ID-56cc949817? could you help me locate the tax invoice The item is Resistance bands.,invoice_request
+T-901,Order ORD-ID-fc361ec999: the estimated date has passed and the parcel is still moving It concerns the Insulated flask. Could you look into this for me?,delivery_delay
+T-902,"Hello, I placed order ORD-ID-8ec3795060 for Silver-plated earrings; i need a different size and want to see available options Could you look into this for me?",exchange_request
+T-903,Order ORD-ID-20c557d809: I received the main item but not its cable It concerns the Pruning shears.,missing_accessory
+T-904,I need a quick update. I placed order ORD-ID-8f5d6509da for Travel essays; the package did not include one listed accessory I can share more details if needed.,missing_accessory
+T-905,the Running shoes from order ORD-ID-30d704f00d has an issue. the pickup window passed without a scan Thanks.,return_pickup
+T-906,Order ORD-ID-434de59b2a: the return page still says pickup pending It concerns the Snack variety box. Could you look into this for me?,return_status
+T-907,Would you please review order ORD-ID-c94f1aead0? could you point me to the item-specific return terms The item is Feeding bottle set. Could you look into this for me?,return_eligibility
+T-908,"Good morning, the Noise-cancelling headphones from order ORD-ID-dbed19ee13 has an issue. the outer box was wet and the item is scratched Please advise when you can.",damaged_item
+T-909,Order ORD-ID-b072562d45: I am checking on the refund timeline recorded for this return It concerns the Children's story collection. Thanks.,late_refund
+T-911,"Good morning, the Snack variety box from order ORD-ID-13b51add3a has an issue. please confirm the item price and any recorded discount I can share more details if needed.",price_difference
+T-912,"Good morning, the Walking shoes from order ORD-ID-bc463e7ac9 has an issue. I need to check whether the delivery address can still be updated I can share more details if needed.",address_change
+T-913,I need a quick update. I placed order ORD-ID-cbd49276fe for Silver-plated earrings; i want to know whether it has left the fulfilment centre,order_status
+T-914,"Hi team, I'm following up about Cycling helmet (order ORD-ID-3496b247c7). the outer box was wet and the item is scratched Please advise when you can.",damaged_item
+T-915,"Hi team, I'm following up about Packing cube set (order ORD-ID-c0fdfca511). could you check the remaining parcel's scan Could you look into this for me?",partial_delivery
+T-916,"Good morning, could you check order ORD-ID-4900acf2ac for my Walking shoes? it does not power on after unpacking Thanks.",damaged_item
+T-917,I need a quick update. the Canvas sneakers from order ORD-ID-3bd4021c9b has an issue. could you point me to the item-specific return terms Please advise when you can.,return_eligibility
+T-918,"Hello, the Wireless keyboard from order ORD-ID-9258d3ad33 has an issue. could you check the remaining parcel's scan Please advise when you can.",partial_delivery
+T-919,"Hello, I placed order ORD-ID-8957f79559 for Document organiser; the order has two items but I have received one Thanks.",partial_delivery
+T-920,I need a quick update. the Pet grooming brush from order ORD-ID-c7fa1c8af9 has an issue. could you point me to the item-specific return terms Thanks.,return_eligibility
+T-921,"Hello, the Mixer grinder from order ORD-ID-62dd11a743 has an issue. the outer box was wet and the item is scratched Please advise when you can.",damaged_item
+T-923,Could someone help? the Car phone mount from order ORD-ID-08e58e0f02 has an issue. tracking has shown the same scan for a while I can share more details if needed.,delivery_delay
+T-924,the Bath and body set from order ORD-ID-fb1ba801da has an issue. please confirm the item price and any recorded discount Could you look into this for me?,price_difference
+T-925,the Chef knife from order ORD-ID-df520a3f38 has an issue. please tell me the status shown on the order I can share more details if needed.,refund_status
+T-926,"Hi team, I'm following up about Steel cookware set (order ORD-ID-4faaf47bf4). please tell me the status shown on the order Could you look into this for me?",refund_status
+T-927,Order ORD-ID-2c05bce045: only one package from the order has arrived It concerns the Electric kettle. I can share more details if needed.,partial_delivery
+T-928,"Good morning, the Silver-plated earrings from order ORD-ID-1eb5052336 has an issue. tracking says delivered, although I haven't found the parcel Could you look into this for me?",non_delivery
+T-929,I'm following up about Silver-plated earrings (order ORD-ID-763d90dbe0). it does not power on after unpacking Could you look into this for me?,damaged_item
+T-930,I need a quick update. I placed order ORD-ID-c8a1137fad for Cotton bedsheet; the order is marked cancelled but I need to know what happens next Please advise when you can.,order_cancellation
+T-931,Order ORD-ID-f8211395f8: the order has two items but I have received one It concerns the Pendant necklace. Thanks.,partial_delivery
+T-932,"Hi team, I'm following up about Cotton baby blanket (order ORD-ID-db41142e2e). the package did not include one listed accessory Thanks.",missing_accessory
+T-933,Order ORD-ID-6e87845437: I did not receive a call before the failed attempt It concerns the Yoga mat. Thanks.,delivery_dispute
+T-934,Order ORD-ID-8dfc92aaf6: I am checking on the refund timeline recorded for this return It concerns the Denim jacket. Please advise when you can.,late_refund
+T-935,Order ORD-ID-320e2ad550: the delivery date slipped by two days It concerns the Coffee sampler. I can share more details if needed.,delivery_delay
+T-936,Order ORD-ID-3ab5c47b6e: I handed the parcel over and want to know the next step It concerns the Yoga mat. Thanks.,return_status
+T-938,I'm following up about Chef knife (order ORD-ID-25a753f4a4). the order is marked cancelled but I need to know what happens next I can share more details if needed.,order_cancellation
+T-939,I need a quick update. the Glass lunch box from order ORD-ID-6a4568c633 has an issue. I did not receive a call before the failed attempt Could you look into this for me?,delivery_dispute
+T-940,"Hi team, I placed order ORD-ID-7d4cd5458f for Yoga mat; could you check the remaining parcel's scan",partial_delivery
+T-941,"Hello, I placed order ORD-ID-2ab644fab3 for Hand blender; i received the main item but not its cable I can share more details if needed.",missing_accessory
+T-942,Order ORD-ID-81542eb4f5: the delivery date slipped by two days It concerns the Glass lunch box. I can share more details if needed.,delivery_delay
+T-944,"Hi team, I placed order ORD-ID-10b5f7f669 for Book set; the tracking page hasn't changed since yesterday",order_status
+T-945,I placed order ORD-ID-17bd7fc337 for Cookbook; the package did not include one listed accessory Please advise when you can.,missing_accessory
+T-946,"Good morning, I placed order ORD-ID-aefb9b65c6 for Smart watch; i need a different size and want to see available options Please advise when you can.",exchange_request
+T-947,Could someone help? the Linen shirt from order ORD-ID-b15782e1ed has an issue. please tell me the status shown on the order,refund_status
+T-948,"Good morning, could you check order ORD-ID-f08bc64b57 for my Bluetooth speaker? the attempt note does not match what happened at my address Thanks.",delivery_dispute
+T-949,"Good morning, the Pendant necklace from order ORD-ID-9118aef33f has an issue. tracking has shown the same scan for a while Could you look into this for me?",delivery_delay
+T-950,I need a quick update. the Pet grooming brush from order ORD-ID-22782ac922 has an issue. I need to check whether the delivery address can still be updated Please advise when you can.,address_change
+T-951,"Good morning, could you check order ORD-ID-8596725369 for my Linen shirt? the pickup window passed without a scan Could you look into this for me?",return_pickup
+T-952,"Good morning, I placed order ORD-ID-14ca547c7b for Seed starter kit; the charger was missing from the sealed box",missing_accessory
+T-953,"Good morning, I'm following up about Resistance bands (order ORD-ID-d3a4bbd6b4). could you check the remaining parcel's scan Thanks.",partial_delivery
+T-954,Order ORD-ID-26ed053650: the pickup was booked but nobody came It concerns the Watering can. Thanks.,return_status
+T-955,"Hello, I placed order ORD-ID-6ed12cf320 for Cycling helmet; the tracking page hasn't changed since yesterday Thanks.",order_status
+T-956,Could someone help? I placed order ORD-ID-1e0ad79ec1 for Electric kettle; could you check the remaining parcel's scan Thanks.,partial_delivery
+T-957,"Hi team, I'm following up about Travel duffel (order ORD-ID-a6d8c78765). I rescheduled collection and need the updated status",return_pickup
+T-958,Order ORD-ID-6916b83f71: could you help me locate the tax invoice It concerns the Pendant necklace. I can share more details if needed.,invoice_request
+T-959,Order ORD-ID-5184cc55c4: please explain the payment status visible for this order It concerns the Leather sandals. Thanks.,payment_question
+T-960,"Hi team, the Tyre inflator from order ORD-ID-32e208fcb4 has an issue. could you point me to the item-specific return terms I can share more details if needed.",return_eligibility
+T-963,Would you please review order ORD-ID-d8a592c0d1? the order is marked cancelled but I need to know what happens next The item is Yoga mat.,order_cancellation
+T-964,"Hi team, I placed order ORD-ID-0f600627b8 for Plush animal; i did not receive a call before the failed attempt Could you look into this for me?",delivery_dispute
+T-965,"Hi team, the Building blocks from order ORD-ID-d1f07d5098 has an issue. the order is marked cancelled but I need to know what happens next",order_cancellation
+T-966,"Hello, could you check order ORD-ID-55f0f6ad55 for my Resistance bands? I can see the return but no refund update Thanks.",refund_status
+T-967,I need a quick update. I placed order ORD-ID-61bad24cea for Running shorts; it does not power on after unpacking,damaged_item
+T-968,Order ORD-ID-594a286906: the label and item do not match my order It concerns the Pruning shears.,incorrect_item
+T-969,I need a quick update. I placed order ORD-ID-eccbd24396 for Cotton baby blanket; i was home when the delivery attempt was marked Could you look into this for me?,non_delivery
+T-970,Order ORD-ID-42fe67c6d0: the parcel contains a different model It concerns the Canvas sneakers. Thanks.,incorrect_item
+T-971,Could someone help? could you check order ORD-ID-d9ec548672 for my Plush animal? the status is unclear to me Thanks.,order_status
+T-972,Order ORD-ID-3830ac1c2b: the delivery scan appears incorrect; I checked with reception It concerns the Plush animal. Could you look into this for me?,non_delivery
+T-974,"Hello, I'm following up about Tyre inflator (order ORD-ID-a507dc13d8). I have a question about the item details shown on the order Please advise when you can.",product_question
+T-975,Would you please review order ORD-ID-45927f278c? please tell me the status shown on the order The item is Denim jacket. Please advise when you can.,refund_status
+T-976,"Hello, I'm following up about Seed starter kit (order ORD-ID-12cd2b873d). the delivery date slipped by two days",delivery_delay
+T-977,could you check order ORD-ID-20aebbb1e7 for my Travel essays? I need to check whether the delivery address can still be updated Could you look into this for me?,address_change
+T-978,Would you please review order ORD-ID-c2932a75bd? the receipt shows a different total than I expected The item is Baby care kit.,price_difference
+T-979,"Hi team, could you check order ORD-ID-b75ea68234 for my Cat scratcher? please tell me the status shown on the order Please advise when you can.",refund_status
+T-982,"Order ORD-ID-13278fd543: tracking says delivered, although I haven't found the parcel It concerns the Glass lunch box. Please advise when you can.",non_delivery
+T-983,I placed order ORD-ID-58da23f44f for Silver-plated earrings; i handed the parcel over and want to know the next step I can share more details if needed.,return_status
+T-984,Could someone help? I'm following up about Children's story collection (order ORD-ID-f8d5f72099). I need the invoice for my records,invoice_request
+T-985,Could someone help? I'm following up about Minimalist watch (order ORD-ID-a2df91e283). the scan says delivered but the security desk has no parcel Please advise when you can.,delivery_dispute
+T-986,"Hi team, the Tyre inflator from order ORD-ID-50afc3e144 has an issue. I need to know whether payment was captured Please advise when you can.",payment_question
+T-988,I need a quick update. the Steel cookware set from order ORD-ID-d0f97b6c90 has an issue. I want to understand the amount charged at checkout Please advise when you can.,price_difference
+T-989,Would you please review order ORD-ID-082000853e? I received the main item but not its cable The item is Seed starter kit. Could you look into this for me?,missing_accessory
+T-990,Could someone help? I'm following up about Mixer grinder (order ORD-ID-bd23095748). I received another colour and size Could you look into this for me?,incorrect_item
+T-991,"Hi team, I placed order ORD-ID-1587515232 for Smart watch; please check whether an exchange option is available",exchange_request
+T-992,"Good morning, I placed order ORD-ID-8f37e655de for Plush animal; i cancelled before dispatch and want to confirm the status I can share more details if needed.",order_cancellation
+T-993,Order ORD-ID-952a64014a: I need to know whether payment was captured It concerns the Beaded bracelet. Please advise when you can.,payment_question
+T-995,"Hi team, could you check order ORD-ID-3a50a6eab2 for my Steel cookware set? I would like to understand the options shown for this item Thanks.",return_eligibility
+T-997,could you check order ORD-ID-1059b2fa66 for my Canvas sneakers? the refund line is still pending in my account Please advise when you can.,refund_status
+T-998,"Good morning, could you check order ORD-ID-e28d3cec1d for my Sunscreen lotion? the receipt shows a different total than I expected I can share more details if needed.",price_difference
+T-999,I need a quick update. I'm following up about Plush animal (order ORD-ID-ab39579920). please explain the payment status visible for this order,payment_question
+T-CTX-EXP-003,Which of my loyalty points are due to expire soon? Order ORD-ID-fc361ec999.,reward_expiry
+T-CTX-EXP-006,Please tell me if any points in my account are expiring. Order ORD-ID-73b49d1c32.,reward_expiry
+T-CTX-EXP-009,Which of my loyalty points are due to expire soon? Order ORD-ID-bac5d66734.,reward_expiry
+T-CTX-EXP-012,Please tell me if any points in my account are expiring. Order ORD-ID-59a1f8fc46.,reward_expiry
+T-CTX-EXP-015,Which of my loyalty points are due to expire soon? Order ORD-ID-13278fd543.,reward_expiry
+T-CTX-EXP-018,Please tell me if any points in my account are expiring. Order ORD-ID-548778ec2a.,reward_expiry
+T-CTX-EXP-021,Which of my loyalty points are due to expire soon? Order ORD-ID-b038dbeb70.,reward_expiry
+T-CTX-EXP-024,Please tell me if any points in my account are expiring. Order ORD-ID-022d195439.,reward_expiry
+T-CTX-EXP-027,Which of my loyalty points are due to expire soon? Order ORD-ID-b2d5fe6b22.,reward_expiry
+T-CTX-EXP-030,Please tell me if any points in my account are expiring. Order ORD-ID-2bcf13e049.,reward_expiry
+T-CTX-EXP-033,Which of my loyalty points are due to expire soon? Order ORD-ID-39611e5532.,reward_expiry
+T-CTX-EXP-036,Please tell me if any points in my account are expiring. Order ORD-ID-e6c8c6770f.,reward_expiry
+T-CTX-EXP-039,Which of my loyalty points are due to expire soon? Order ORD-ID-b0c07ac95d.,reward_expiry
+T-CTX-EXP-042,Please tell me if any points in my account are expiring. Order ORD-ID-593d1d7587.,reward_expiry
+T-CTX-EXP-045,Which of my loyalty points are due to expire soon? Order ORD-ID-ead039e00f.,reward_expiry
+T-CTX-EXP-048,Please tell me if any points in my account are expiring. Order ORD-ID-4129f45e26.,reward_expiry
+T-CTX-EXP-051,Which of my loyalty points are due to expire soon? Order ORD-ID-7d4cd5458f.,reward_expiry
+T-CTX-EXP-054,Please tell me if any points in my account are expiring. Order ORD-ID-57a347b11c.,reward_expiry
+T-CTX-EXP-057,Which of my loyalty points are due to expire soon? Order ORD-ID-e82b25f07a.,reward_expiry
+T-CTX-EXP-060,Please tell me if any points in my account are expiring. Order ORD-ID-f7de55bd9c.,reward_expiry
+T-CTX-LOY-003,Please check the points balance related to this purchase. Order ORD-ID-c23ee72f1f.,loyalty_points
+T-CTX-LOY-004,I cannot see the points for my recent order. Order ORD-ID-2c2e416df8.,loyalty_points
+T-CTX-LOY-009,Please check the points balance related to this purchase. Order ORD-ID-7366402d4c.,loyalty_points
+T-CTX-LOY-010,I cannot see the points for my recent order. Order ORD-ID-9325df60c6.,loyalty_points
+T-CTX-LOY-015,Please check the points balance related to this purchase. Order ORD-ID-f6eab1cb81.,loyalty_points
+T-CTX-LOY-016,I cannot see the points for my recent order. Order ORD-ID-b56bef8f08.,loyalty_points
+T-CTX-LOY-021,Please check the points balance related to this purchase. Order ORD-ID-f7681d8502.,loyalty_points
+T-CTX-LOY-022,I cannot see the points for my recent order. Order ORD-ID-0d37321f48.,loyalty_points
+T-CTX-LOY-027,Please check the points balance related to this purchase. Order ORD-ID-70076e82d4.,loyalty_points
+T-CTX-LOY-028,I cannot see the points for my recent order. Order ORD-ID-280443dfff.,loyalty_points
+T-CTX-LOY-033,Please check the points balance related to this purchase. Order ORD-ID-81542eb4f5.,loyalty_points
+T-CTX-LOY-034,I cannot see the points for my recent order. Order ORD-ID-3ab3e74f39.,loyalty_points
+T-CTX-LOY-039,Please check the points balance related to this purchase. Order ORD-ID-b8b88de501.,loyalty_points
+T-CTX-LOY-040,I cannot see the points for my recent order. Order ORD-ID-db4f075a56.,loyalty_points
+T-CTX-LOY-045,Please check the points balance related to this purchase. Order ORD-ID-9edd33dfc6.,loyalty_points
+T-CTX-LOY-046,I cannot see the points for my recent order. Order ORD-ID-b2e44e77c6.,loyalty_points
+T-CTX-LOY-051,Please check the points balance related to this purchase. Order ORD-ID-962c8e16f7.,loyalty_points
+T-CTX-LOY-052,I cannot see the points for my recent order. Order ORD-ID-e95a9f0bc9.,loyalty_points
+T-CTX-LOY-057,Please check the points balance related to this purchase. Order ORD-ID-e4910a54f9.,loyalty_points
+T-CTX-LOY-058,I cannot see the points for my recent order. Order ORD-ID-22782ac922.,loyalty_points
+T-CTX-RED-001,My reward redemption is not showing in the account. Order ORD-ID-17a5cde10d.,reward_redemption
+T-CTX-RED-002,Please check the recorded status of my rewards redemption. Order ORD-ID-b9815482b2.,reward_redemption
+T-CTX-RED-003,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-7a9577aa06.,reward_redemption
+T-CTX-RED-005,The reward I selected has not appeared in my account. Order ORD-ID-59a4758625.,reward_redemption
+T-CTX-RED-007,My reward redemption is not showing in the account. Order ORD-ID-03978d78df.,reward_redemption
+T-CTX-RED-008,Please check the recorded status of my rewards redemption. Order ORD-ID-bd51b9ede0.,reward_redemption
+T-CTX-RED-009,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-060d207ce9.,reward_redemption
+T-CTX-RED-011,The reward I selected has not appeared in my account. Order ORD-ID-e8e19b6c29.,reward_redemption
+T-CTX-RED-013,My reward redemption is not showing in the account. Order ORD-ID-364e77576c.,reward_redemption
+T-CTX-RED-014,Please check the recorded status of my rewards redemption. Order ORD-ID-7460cfd5db.,reward_redemption
+T-CTX-RED-015,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-b34e22b066.,reward_redemption
+T-CTX-RED-017,The reward I selected has not appeared in my account. Order ORD-ID-0eb7edad75.,reward_redemption
+T-CTX-RED-019,My reward redemption is not showing in the account. Order ORD-ID-7be90d2012.,reward_redemption
+T-CTX-RED-020,Please check the recorded status of my rewards redemption. Order ORD-ID-e8627ec824.,reward_redemption
+T-CTX-RED-021,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-bfc7db7641.,reward_redemption
+T-CTX-RED-023,The reward I selected has not appeared in my account. Order ORD-ID-80aaf050d8.,reward_redemption
+T-CTX-RED-025,My reward redemption is not showing in the account. Order ORD-ID-e65f13ef0d.,reward_redemption
+T-CTX-RED-026,Please check the recorded status of my rewards redemption. Order ORD-ID-41d8ca15c2.,reward_redemption
+T-CTX-RED-027,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-0954e0aa02.,reward_redemption
+T-CTX-RED-029,The reward I selected has not appeared in my account. Order ORD-ID-3fcb8ffc10.,reward_redemption
+T-CTX-RED-031,My reward redemption is not showing in the account. Order ORD-ID-83dfc9d451.,reward_redemption
+T-CTX-RED-032,Please check the recorded status of my rewards redemption. Order ORD-ID-3055ea4b07.,reward_redemption
+T-CTX-RED-033,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-9118aef33f.,reward_redemption
+T-CTX-RED-035,The reward I selected has not appeared in my account. Order ORD-ID-6ce80ce3d4.,reward_redemption
+T-CTX-RED-037,My reward redemption is not showing in the account. Order ORD-ID-9f2c631bea.,reward_redemption
+T-CTX-RED-038,Please check the recorded status of my rewards redemption. Order ORD-ID-fa606988aa.,reward_redemption
+T-CTX-RED-039,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-1ad804fc90.,reward_redemption
+T-CTX-RED-041,The reward I selected has not appeared in my account. Order ORD-ID-56cd6664a8.,reward_redemption
+T-CTX-RED-043,My reward redemption is not showing in the account. Order ORD-ID-0207efc03c.,reward_redemption
+T-CTX-RED-044,Please check the recorded status of my rewards redemption. Order ORD-ID-2d98e9ae6a.,reward_redemption
+T-CTX-RED-045,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-185c8c5611.,reward_redemption
+T-CTX-RED-047,The reward I selected has not appeared in my account. Order ORD-ID-13b51add3a.,reward_redemption
+T-CTX-RED-049,My reward redemption is not showing in the account. Order ORD-ID-e70d3c51a1.,reward_redemption
+T-CTX-RED-050,Please check the recorded status of my rewards redemption. Order ORD-ID-69bbd84450.,reward_redemption
+T-CTX-RED-051,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-320e2ad550.,reward_redemption
+T-CTX-RED-053,The reward I selected has not appeared in my account. Order ORD-ID-4456446c25.,reward_redemption
+T-CTX-RED-055,My reward redemption is not showing in the account. Order ORD-ID-ec900a8ed1.,reward_redemption
+T-CTX-RED-056,Please check the recorded status of my rewards redemption. Order ORD-ID-347e2a17d6.,reward_redemption
+T-CTX-RED-057,I redeemed points but did not get the reward; can you look it up? Order ORD-ID-c4b87a54cb.,reward_redemption
+T-CTX-RED-059,The reward I selected has not appeared in my account. Order ORD-ID-6fe7177258.,reward_redemption

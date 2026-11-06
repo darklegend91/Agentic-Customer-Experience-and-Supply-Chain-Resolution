@@ -1,0 +1,47 @@
+evaluation_set_version,ticket_id,message,expected_intent
+intent-eval-v1,T-461,Would you please review order ORD-ID-b5e1138677? please confirm whether the parcel has been handed to the carrier The item is Dry fruit assortment. I can share more details if needed.,address_change
+intent-eval-v1,T-841,"Hi team, I placed order ORD-ID-0563e1e3fc for Desk lamp; i need to check whether the delivery address can still be updated I can share more details if needed.",address_change
+intent-eval-v1,T-336,I need a quick update. I placed order ORD-ID-fd5cc2a9eb for Leather sandals; one corner arrived cracked Could you look into this for me?,damaged_item
+intent-eval-v1,T-840,Order ORD-ID-dc68bbda25: the outer box was wet and the item is scratched It concerns the Linen shirt.,damaged_item
+intent-eval-v1,T-207,Would you please review order ORD-ID-09844249b0? the estimated date has passed and the parcel is still moving The item is Smart watch. Please advise when you can.,delivery_delay
+intent-eval-v1,T-943,"Good morning, could you check order ORD-ID-66441a1e9b for my Smart watch? tracking has shown the same scan for a while Could you look into this for me?",delivery_delay
+intent-eval-v1,T-313,"Good morning, could you check order ORD-ID-291178f052 for my Silver-plated earrings? I did not receive a call before the failed attempt",delivery_dispute
+intent-eval-v1,T-715,Order ORD-ID-7387afc9cb: the scan says delivered but the security desk has no parcel It concerns the Seat organiser.,delivery_dispute
+intent-eval-v1,T-097,Order ORD-ID-862f907a57: I need a different size and want to see available options It concerns the Electric kettle. Thanks.,exchange_request
+intent-eval-v1,T-183,"Good morning, the Children's story collection from order ORD-ID-9b247c67b1 has an issue. I need a different size and want to see available options Could you look into this for me?",exchange_request
+intent-eval-v1,T-152,Would you please review order ORD-ID-a66cc7c33f? I received another colour and size The item is Linen shirt.,incorrect_item
+intent-eval-v1,T-361,"Hi team, the Pet grooming brush from order ORD-ID-958417061c has an issue. the label and item do not match my order Could you look into this for me?",incorrect_item
+intent-eval-v1,T-614,"Good morning, could you check order ORD-ID-e36128890f for my Car phone mount? I need the invoice for my records Could you look into this for me?",invoice_request
+intent-eval-v1,T-896,Would you please review order ORD-ID-cd9a7eca94? I need the invoice for my records The item is Microfibre cleaning kit.,invoice_request
+intent-eval-v1,T-153,"Hello, could you check order ORD-ID-eae87a16c5 for my Table organiser? the status has not changed since inspection",late_refund
+intent-eval-v1,T-442,I need a quick update. I'm following up about Feeding bottle set (order ORD-ID-a0562fb9c2). the returned parcel was received but I have no refund update Could you look into this for me?,late_refund
+intent-eval-v1,T-CTX-LOY-001,How many reward points did I earn for this order? Order ORD-ID-082a27c2a5.,loyalty_points
+intent-eval-v1,T-CTX-LOY-006,The points from this purchase have not appeared yet. Order ORD-ID-a3d4190bcd.,loyalty_points
+intent-eval-v1,T-050,the Soft toy from order ORD-ID-b33db75554 has an issue. the charger was missing from the sealed box,missing_accessory
+intent-eval-v1,T-209,Could someone help? could you check order ORD-ID-f6e15e8210 for my Tyre inflator? the package did not include one listed accessory I can share more details if needed.,missing_accessory
+intent-eval-v1,T-676,"Would you please review order ORD-ID-3eddc2974a? tracking says delivered, although I haven't found the parcel The item is Steel cookware set. Please advise when you can.",non_delivery
+intent-eval-v1,T-987,could you check order ORD-ID-7487c26dd8 for my Ceramic vase? the delivery scan appears incorrect; I checked with reception Thanks.,non_delivery
+intent-eval-v1,T-452,Would you please review order ORD-ID-41b85e905f? I cancelled before dispatch and want to confirm the status The item is Travel duffel. I can share more details if needed.,order_cancellation
+intent-eval-v1,T-615,Order ORD-ID-590ea74fe4: please check whether cancellation was recorded It concerns the Pet grooming brush. Could you look into this for me?,order_cancellation
+intent-eval-v1,T-170,the Pet grooming brush from order ORD-ID-c8b45645eb has an issue. the status is unclear to me,order_status
+intent-eval-v1,T-868,"Hello, the Pendant necklace from order ORD-ID-1ad5945559 has an issue. the status is unclear to me Thanks.",order_status
+intent-eval-v1,T-133,"Hi team, the Sunscreen lotion from order ORD-ID-6b91539f5a has an issue. could you check the remaining parcel's scan Please advise when you can.",partial_delivery
+intent-eval-v1,T-683,Could someone help? I placed order ORD-ID-fd93dad0ed for Insulated flask; could you check the remaining parcel's scan,partial_delivery
+intent-eval-v1,T-774,I need a quick update. the Travel duffel from order ORD-ID-bf95bded95 has an issue. I need to know whether payment was captured Please advise when you can.,payment_question
+intent-eval-v1,T-937,Would you please review order ORD-ID-cbe8bb7f78? I need to know whether payment was captured The item is USB-C charger.,payment_question
+intent-eval-v1,T-600,I need a quick update. I placed order ORD-ID-62ac7fffcb for Storage basket; please confirm the item price and any recorded discount Could you look into this for me?,price_difference
+intent-eval-v1,T-996,"Hello, the Minimalist watch from order ORD-ID-a386778759 has an issue. the receipt shows a different total than I expected Please advise when you can.",price_difference
+intent-eval-v1,T-027,"Hello, could you check order ORD-ID-14ce3d5048 for my Cotton kurta? I have a question about the item details shown on the order",product_question
+intent-eval-v1,T-581,"Hello, the Denim jacket from order ORD-ID-a5a62f23f5 has an issue. I have a question about the item details shown on the order Thanks.",product_question
+intent-eval-v1,T-089,Order ORD-ID-4c09fdd5df: the refund line is still pending in my account It concerns the Electric kettle. I can share more details if needed.,refund_status
+intent-eval-v1,T-533,Would you please review order ORD-ID-cef5e5eeaa? the refund line is still pending in my account The item is Pet grooming brush. Could you look into this for me?,refund_status
+intent-eval-v1,T-205,Would you please review order ORD-ID-3ed69dbfd0? could you point me to the item-specific return terms The item is Building blocks. Could you look into this for me?,return_eligibility
+intent-eval-v1,T-910,Could someone help? I placed order ORD-ID-43597d6d04 for Running shoes; could you point me to the item-specific return terms,return_eligibility
+intent-eval-v1,T-651,Order ORD-ID-6943e4aeab: I rescheduled collection and need the updated status It concerns the Book set.,return_pickup
+intent-eval-v1,T-656,Order ORD-ID-1d383390aa: the parcel is packed; please check the pickup slot It concerns the Dry fruit assortment. Please advise when you can.,return_pickup
+intent-eval-v1,T-054,Would you please review order ORD-ID-cc892505d2? I handed the parcel over and want to know the next step The item is Dog lead. Thanks.,return_status
+intent-eval-v1,T-346,the Minimalist watch from order ORD-ID-e36d0412f0 has an issue. the pickup was booked but nobody came Please advise when you can.,return_status
+intent-eval-v1,T-CTX-EXP-001,When will my reward points expire? Order ORD-ID-61319cc82f.,reward_expiry
+intent-eval-v1,T-CTX-EXP-004,Can you look up the expiration date for my points? Order ORD-ID-193dc96c16.,reward_expiry
+intent-eval-v1,T-CTX-RED-004,"Can I use points for this reward, and what does the policy say? Order ORD-ID-a318f3f692.",reward_redemption
+intent-eval-v1,T-CTX-RED-006,I need help checking a points redemption. Order ORD-ID-c3e395b42e.,reward_redemption
