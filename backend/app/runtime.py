@@ -8,7 +8,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-LOCAL_ENVIRONMENTS = {"local", "dev", "development"}
+LOCAL_ENVIRONMENTS = {
+    "local", "dev", "development"
+}
 
 
 class LocalDevelopmentOnly(RuntimeError):

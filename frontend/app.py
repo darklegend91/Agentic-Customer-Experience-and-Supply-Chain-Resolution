@@ -28,7 +28,7 @@ try:
 except ModuleNotFoundError:
     from chat_context import resolve_order_context
 
-load_dotenv(PROJECT_ROOT / ".env", override=False)
+load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 st.set_page_config(
     page_title="Customer Support Control Room",
@@ -135,7 +135,15 @@ def api_request(
     except ValueError:
         data = {"detail": response.text[:500]}
     if not response.is_success:
-        detail = data.get("detail", f"HTTP {response.status_code}") if isinstance(data, dict) else f"HTTP {response.status_code}"
+        detail = None
+        if isinstance(data, dict):
+            detail = (
+                data.get("detail")
+                or (data.get("error", {}).get("message") if isinstance(data.get("error"), dict) else None)
+                or data.get("message")
+            )
+        if not detail:
+            detail = f"HTTP {response.status_code}"
         raise ApiError(str(detail), response.status_code)
     return data
 
@@ -766,30 +774,23 @@ def main() -> None:
                 "Support bearer token",
                 type="password",
                 key="manual_support_token",
-                help="Can be configured in st.secrets['WORKFLOW_API_TOKEN'].",
+                help="Enter the local support token configured for the API.",
             ).strip()
         if not reviewer_token:
             reviewer_token = st.sidebar.text_input(
                 "Reviewer bearer token",
                 type="password",
                 key="manual_reviewer_token",
-                help="Can be configured in st.secrets['WORKFLOW_REVIEWER_TOKEN'].",
+                help="Enter the local reviewer token configured for the API.",
             ).strip()
 
+    # Fetch Groq API Key strictly from environment/secrets
     groq_token = get_token("GROQ_API_KEY")
+    groq_model = get_token("GROQ_MODEL") or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
     if groq_token and not groq_token.startswith("CHANGE_ME"):
-        groq_model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
         st.sidebar.caption(f"⚡ **Groq LLM Active** (`{groq_model}`)")
     else:
-        user_groq = st.sidebar.text_input(
-            "Groq API Key (Optional)",
-            type="password",
-            key="manual_groq_key",
-            help="Add GROQ_API_KEY in .env or st.secrets for AI-synthesized responses.",
-        ).strip()
-        if user_groq:
-            os.environ["GROQ_API_KEY"] = user_groq
-            st.sidebar.caption("⚡ **Groq Key Set**")
+        st.sidebar.caption(f"⚡ **Groq LLM**: configured via environment (`{groq_model}`)")
 
     # Never carry a previous user's evidence/context across API or token changes.
     context_owner = hashlib.sha256(f"{base_url}\0{support_token}".encode()).hexdigest()
@@ -1061,7 +1062,7 @@ def main() -> None:
                     st.session_state.chat_history.append({
                         "role": "assistant",
                         "avatar": "⚠️",
-                        "content": f"Could not start the workflow: **{exc}**",
+                        "content": f"Could not start the workflow: **{exc}**\n\n*(Tip: You can switch to **⚡ Investigate Tool** mode in the context bar above for direct answers without background database queuing.)*",
                         "meta": None,
                     })
             st.rerun()

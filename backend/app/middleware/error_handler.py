@@ -24,6 +24,7 @@ def _error(request: Request, status_code: int, code: str, message: str, fields: 
         status_code=status_code,
         content={
             "request_id": _request_id(request),
+            "detail": message,
             "error": {
                 "code": code,
                 "message": message,
@@ -57,7 +58,7 @@ def install_error_handlers(app: FastAPI) -> None:
             503: ("service_unavailable", "A required service is unavailable."),
         }
         code, message = codes.get(status, ("request_failed", "The request could not be completed."))
-        if status < 500 and isinstance(exc.detail, str) and len(exc.detail) <= 160:
+        if (status < 500 or status == 503) and isinstance(exc.detail, str) and len(exc.detail) <= 160:
             message = exc.detail
         return _error(request, status, code, message)
 

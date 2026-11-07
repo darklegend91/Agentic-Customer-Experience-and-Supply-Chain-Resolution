@@ -1,5 +1,0 @@
-pymilvus==3.0.2
-sentence-transformers
-scikit-learn
-pypdf
-dotenv

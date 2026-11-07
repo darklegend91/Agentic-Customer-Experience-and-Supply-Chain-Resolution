@@ -48,6 +48,7 @@ def install_request_middleware(app) -> None:
                     status_code=503,
                     content={
                         "request_id": request_id,
+                        "detail": "This service is disabled outside local development.",
                         "error": {
                             "code": "service_unavailable",
                             "message": "This service is disabled outside local development.",

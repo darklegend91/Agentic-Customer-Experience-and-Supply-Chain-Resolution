@@ -1,0 +1,25 @@
+%% Implemented LangGraph workflow at a readable overview level.
+%% Specialists run one at a time; the narrow order-status shortcut is described in project-guide.md.
+flowchart TD
+  start([Ticket received]) --> assess["assess_request<br/>validate, mask, classify, choose route"]
+  assess -->|"supported intent"| specialist["One allowlisted specialist<br/>policy_faq · order_delivery · return_refund<br/>product_issue · loyalty_rewards"]
+  assess -->|"invalid, uncertain, unsafe, fallback"| review["Manual review / safe fallback<br/>no specialist tools"]
+  specialist --> evidence["Evidence consolidation + deterministic rules<br/>typed ledger, source checks, resolution"]
+  evidence --> outcome{"Resolution outcome"}
+  outcome -->|"answer"| response["Draft + validate response<br/>deterministic template by default"]
+  outcome -->|"proposal"| approval["Persist + pause for reviewer<br/>simulation only"]
+  outcome -->|"missing facts or escalation"| review
+  response -->|"valid"| finish(["Finalize and persist status"])
+  response -->|"invalid"| review
+  approval -->|"approve/reject after evidence checks"| finish
+  review --> finish
+
+  classDef service fill:#dce9f6,stroke:#748095,color:#2d3142;
+  classDef agent fill:#e4edda,stroke:#748095,color:#2d3142;
+  classDef decision fill:#faeee9,stroke:#bf4520,color:#2d3142;
+  classDef human fill:#f8e7c9,stroke:#ba8732,color:#2d3142;
+  class assess,evidence,response,review service;
+  class specialist agent;
+  class outcome decision;
+  class approval human;
+  class finish service;

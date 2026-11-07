@@ -12,6 +12,8 @@ This project is a controlled support-assistant MVP. It investigates tickets usin
 - [Security and access boundaries](docs/security_model.md)
 - [Production-oriented architecture](docs/architecture.md)
 - [Private demo deployment runbook](docs/deployment.md)
+- [EC2 investigation demo guide](docs/ec2-run-and-deploy-guide.md)
+- [Complete project guide, UI, techniques, MCP, dependencies, and current diagrams](docs/project-guide.md)
 
 These documents follow the project tree in docs/Project_5.docx, Section 11. Treat this directory as the canonical project root. Keep source code, data, policy files, tests, and documentation under this directory.
 
