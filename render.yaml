@@ -46,7 +46,17 @@ services:
       - key: LANGFUSE_HOST
         value: https://cloud.langfuse.com
       - key: LLM_ENABLED
-        value: "false"
+        value: "true"
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
 
   # 2. Durable LangGraph Background Worker
   - type: worker
@@ -96,6 +106,13 @@ services:
           type: web
           name: agentic-support-api
           envVarKey: WORKFLOW_REVIEWER_TOKEN
+      - key: GROQ_API_KEY
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: GROQ_API_KEY
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
       - key: CLASSIFIER_CONSENSUS_ROUTING_ENABLED
         value: "true"
       - key: CLASSIFIER_BASELINE_MIN_CONFIDENCE
@@ -103,7 +120,17 @@ services:
       - key: LANGFUSE_TRACING_ENABLED
         value: "false"
       - key: LLM_ENABLED
-        value: "false"
+        value: "true"
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
 
   # 3. Streamlit UI Control Room
   - type: web
@@ -132,4 +159,11 @@ services:
           type: web
           name: agentic-support-api
           envVarKey: WORKFLOW_REVIEWER_TOKEN
+      - key: GROQ_API_KEY
+        fromService:
+          type: web
+          name: agentic-support-api
+          envVarKey: GROQ_API_KEY
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
 

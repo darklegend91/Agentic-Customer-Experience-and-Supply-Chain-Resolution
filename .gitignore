@@ -9,6 +9,7 @@ deploy/.env.deploy
 !deploy/.env.api.example
 !deploy/.env.ui.example
 !deploy/.env.deploy.example
+!deploy/.env.ec2.example
 .neon
 .streamlit/secrets.toml
 

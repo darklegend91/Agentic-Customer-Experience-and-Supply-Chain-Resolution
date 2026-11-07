@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import html
 import hashlib
+import html
 import json
 import os
 import sys
@@ -109,6 +109,10 @@ def api_request(
     timeout: float = 60.0,
 ) -> Any:
     headers = {"Accept": "application/json"}
+    configured_api = get_token("API_BASE_URL") or get_token("FASTAPI_BASE_URL")
+    demo_token = get_token("DEMO_API_TOKEN")
+    if demo_token and configured_api and urlparse(base_url).scheme == "https" and base_url.rstrip("/") == configured_api.rstrip("/"):
+        headers["X-Demo-Token"] = demo_token
     if token:
         headers["Authorization"] = f"Bearer {token}"
     if extra_headers:
@@ -161,6 +165,64 @@ def classification_score(classification: dict[str, Any]) -> str:
         return "Rule match"
     score = classification.get("confidence")
     return f"{score:.1%} (raw)" if isinstance(score, (int, float)) else "—"
+
+
+def get_token(key: str) -> str:
+    """Discover a credential from st.secrets, os.environ, or return empty string."""
+    try:
+        if key in st.secrets:
+            return str(st.secrets[key]).strip()
+    except Exception:  # noqa: BLE001, S110
+        pass
+    return os.getenv(key, "").strip()
+
+
+def groq_synthesize_investigation(
+    message: str,
+    answer_lines: list[str],
+    intent: str,
+    *,
+    api_key: str | None = None,
+    model: str | None = None,
+) -> str | None:
+    """Optionally synthesize an empathetic, natural customer response using Groq."""
+    key = api_key or get_token("GROQ_API_KEY")
+    if not key or key.startswith("CHANGE_ME"):
+        return None
+    mdl = model or os.getenv("GROQ_MODEL", "").strip() or "llama-3.3-70b-versatile"
+    facts_text = "\n".join(f"- {line}" for line in answer_lines)
+    payload = {
+        "model": mdl,
+        "temperature": 0.3,
+        "max_tokens": 400,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a friendly, empathetic customer support AI for an e-commerce platform. "
+                    "Draft a warm, polite, natural response directly answering the customer query based ONLY on the verified details below. "
+                    "Explain the order status, items, delivery tracking, or policies clearly and reassuringly. "
+                    "Never promise or claim to have executed refunds, replacements, or cancellations if not explicitly confirmed in the verified facts."
+                ),
+            },
+            {
+                "role": "user",
+                "content": f"Customer Message: {message}\n\nVerified Investigation Facts:\n{facts_text}\n\nPlease respond to the customer:",
+            },
+        ],
+    }
+    try:
+        with httpx.Client(timeout=4.0, trust_env=False) as client:
+            resp = client.post(
+                "https://api.groq.com/openai/v1/chat/completions",
+                json=payload,
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            )
+            if resp.is_success:
+                return resp.json()["choices"][0]["message"]["content"].strip()
+    except Exception:
+        return None
+    return None
 
 
 def render_policy_hits(evidence: dict[str, Any]) -> None:
@@ -693,15 +755,6 @@ def main() -> None:
             help="For local use, keep FastAPI bound to 127.0.0.1.",
         ).strip().rstrip("/")
 
-    # Automatic token discovery: st.secrets -> os.getenv -> manual input fallback
-    def get_token(key: str) -> str:
-        try:
-            if key in st.secrets:
-                return str(st.secrets[key]).strip()
-        except Exception:  # noqa: BLE001, S110
-            pass
-        return os.getenv(key, "").strip()
-
     support_token = get_token("WORKFLOW_API_TOKEN")
     reviewer_token = get_token("WORKFLOW_REVIEWER_TOKEN")
 
@@ -722,6 +775,21 @@ def main() -> None:
                 key="manual_reviewer_token",
                 help="Can be configured in st.secrets['WORKFLOW_REVIEWER_TOKEN'].",
             ).strip()
+
+    groq_token = get_token("GROQ_API_KEY")
+    if groq_token and not groq_token.startswith("CHANGE_ME"):
+        groq_model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+        st.sidebar.caption(f"⚡ **Groq LLM Active** (`{groq_model}`)")
+    else:
+        user_groq = st.sidebar.text_input(
+            "Groq API Key (Optional)",
+            type="password",
+            key="manual_groq_key",
+            help="Add GROQ_API_KEY in .env or st.secrets for AI-synthesized responses.",
+        ).strip()
+        if user_groq:
+            os.environ["GROQ_API_KEY"] = user_groq
+            st.sidebar.caption("⚡ **Groq Key Set**")
 
     # Never carry a previous user's evidence/context across API or token changes.
     context_owner = hashlib.sha256(f"{base_url}\0{support_token}".encode()).hexdigest()
@@ -850,6 +918,7 @@ def main() -> None:
             if mode == "⚡ Investigate Tool":
                 try:
                     payload = {
+                        "schema_version": "1.0",
                         "ticket_id": st.session_state.chat_ticket_id.strip() or None,
                         "message": effective_message,
                         "order_id": order_context,
@@ -857,7 +926,7 @@ def main() -> None:
                         "methods": methods,
                     }
                     with st.spinner("Running investigation tool…"):
-                        res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=20.0)
+                        res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=60.0)
 
                     classification = res.get("classification") or {}
                     order_ev = res.get("order_evidence") or {}
@@ -900,7 +969,19 @@ def main() -> None:
                     if not answer_lines:
                         answer_lines.append("Investigation completed successfully using the investigation tool.")
 
-                    answer = "\n\n".join(answer_lines)
+                    # Check if Groq can synthesize an empathetic conversational response
+                    groq_answer = None
+                    groq_key_to_use = get_token("GROQ_API_KEY")
+                    if groq_key_to_use and not groq_key_to_use.startswith("CHANGE_ME"):
+                        with st.spinner("Synthesizing empathetic response with Groq…"):
+                            groq_answer = groq_synthesize_investigation(
+                                effective_message,
+                                answer_lines,
+                                intent,
+                                api_key=groq_key_to_use,
+                            )
+
+                    answer = groq_answer if groq_answer else "\n\n".join(answer_lines)
                     inv_id = f"tool-inv-{uuid.uuid4().hex[:8]}"
 
                     # Save into workflow / trace session state so processing view renders it
@@ -943,7 +1024,7 @@ def main() -> None:
                         "content": answer,
                         "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Confidence: {conf_str} · Engine: Investigate Tool (instant)",
                     })
-                except Exception as exc:
+                except Exception as exc:  # noqa: BLE001
                     st.session_state.chat_history.append({
                         "role": "assistant",
                         "avatar": "⚠️",
@@ -986,7 +1067,7 @@ def main() -> None:
             st.rerun()
 
         # Clear chat button
-        if st.session_state.chat_history:
+        if st.session_state.chat_history:  # noqa: SIM102
             if st.button(":material/delete_sweep: Clear chat", key="clear_chat"):
                 st.session_state.chat_history = []
                 st.session_state.chat_last_order_id = None
@@ -1020,7 +1101,7 @@ def main() -> None:
                     except ApiError as exc:
                         st.error(f"Classification failed: {exc}")
             if st.session_state.get("explorer_classification"):
-                render_classification(st.session_state.explorer_classification)
+                render_classification(st.session_state.explorer_classification) # type: ignore
             if x2.button("Investigate ticket", key="investigate_ticket"):
                 st.session_state.explorer_investigation = None
                 if not ticket_message.strip() and not ticket_id_input.strip():
@@ -1127,7 +1208,7 @@ def main() -> None:
                         st.error(f"Policy search failed: {exc}")
             if st.session_state.get("policy_search_result"):
                 st.caption("Search results are evidence candidates; draft development policies do not establish customer eligibility.")
-                render_policy_hits(st.session_state.policy_search_result)
+                render_policy_hits(st.session_state.policy_search_result) # type: ignore
 
     elif selected_page == "RAG evaluation lab":
         st.markdown("### Evaluate retrieval quality")
@@ -1161,7 +1242,7 @@ def main() -> None:
                 except ApiError as exc:
                     st.error(f"RAG evaluation failed: {exc}")
             if st.session_state.get("rag_single_result"):
-                render_evaluation(st.session_state.rag_single_result)
+                render_evaluation(st.session_state.rag_single_result) # type: ignore
         with batch_tab:
             st.markdown("Run all checked-in labeled questions against the selected retrievers.")
             batch_top_k = st.slider("Top k for batch", 1, 10, 3, key="batch_top_k")
@@ -1178,7 +1259,7 @@ def main() -> None:
                 except ApiError as exc:
                     st.error(f"Batch evaluation failed: {exc}")
             if st.session_state.get("rag_batch_result"):
-                render_evaluation(st.session_state.rag_batch_result)
+                render_evaluation(st.session_state.rag_batch_result) # type: ignore
 
     elif selected_page == "Agents & data flow":
         render_pipeline_overview()

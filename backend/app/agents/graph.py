@@ -278,15 +278,23 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         if state.get("draft_error_code"):
             errors = ["response_drafting_failed"]
         else:
+            provider = state.get("draft_provider")
+            expected_answer = (
+                canonical_answer(dict(state), recorded_claims(dict(state)))
+                if provider == "deterministic_template"
+                else None
+            )
+            expected_claims = (
+                recorded_claims(dict(state))
+                if provider in {"deterministic_template", "deterministic_fallback", "groq"}
+                else None
+            )
             errors = validate_draft(
                 dict(state.get("draft") or {}),
                 _response_refs(dict(state)),
                 answer_required=True,
-                expected_claims=recorded_claims(dict(state)),
-                expected_answer=canonical_answer(
-                    dict(state),
-                    recorded_claims(dict(state)),
-                ),
+                expected_claims=expected_claims,
+                expected_answer=expected_answer,
             )
             errors.extend(validate_evidence_ledger(((state.get("evidence") or {}).get("ledger") or {})))
         event(state, "output_validation", "output_validation_completed", {

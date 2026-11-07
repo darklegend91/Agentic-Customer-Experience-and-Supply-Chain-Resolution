@@ -16,7 +16,12 @@ RUN apt-get update \
 
 COPY requirements.txt ./requirements.txt
 RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir -r requirements.txt
+    && python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+    && python -m pip install --no-cache-dir -r requirements.txt \
+    && find /usr/local/lib/python3.11/site-packages -type d \( -name "tests" -o -name "test" \) -prune -exec rm -rf {} + \
+    && find /usr/local/lib/python3.11/site-packages -name "*.pyc" -delete \
+    && find /usr/local/lib/python3.11/site-packages -name "*.pyo" -delete \
+    && rm -rf /root/.cache
 
 COPY backend/ ./backend/
 COPY frontend/ ./frontend/
@@ -35,6 +40,7 @@ from huggingface_hub import snapshot_download
 snapshot_download(
     repo_id="sentence-transformers/all-MiniLM-L6-v2",
     cache_dir="/opt/model-cache/hub",
+    ignore_patterns=["*.onnx*", "*.msgpack*", "*.h5*", "*.ot*"],
 )
 PY
 

@@ -26,17 +26,18 @@ def classification(intent: str, *, confidence: float = 0.99, provider: str = "la
         "risk_flags": [] if provider == "laya" else ["laya_unavailable_baseline_fallback"],
         "entities": {"order_ids": [ORDER_ID]},
         "review_threshold": 0.65,
-        "needs_human_review": True,
-        "confidence_calibrated": False,
-        "automatic_routing_enabled": False,
+        "needs_human_review": False if provider == "laya" and confidence >= 0.65 else True,
+        "confidence_calibrated": True,
+        "automatic_routing_enabled": True if provider == "laya" and confidence >= 0.65 else False,
     }
 
 
 def order_evidence() -> dict:
+    from datetime import datetime, timezone
     return {
         "schema_version": "1.0",
         "source_system": "Neon Postgres",
-        "as_of": "2026-11-05T00:00:00Z",
+        "as_of": datetime.now(timezone.utc).isoformat(),
         "status": "found",
         "order_id": ORDER_ID,
         "order": {"order_id": ORDER_ID, "status": "shipped"},

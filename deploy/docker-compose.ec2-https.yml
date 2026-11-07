@@ -1,0 +1,32 @@
+services:
+  proxy:
+    image: caddy:2-alpine@sha256:78bd35025c7ba85961dd149ae670315129954e77abe2383ac47c89106b35ade9
+    env_file:
+      - ../.env.ec2-proxy
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - 'test "$${#DEMO_API_TOKEN}" -ge 32 && test -n "$$PUBLIC_API_IP" && exec caddy run --config /etc/caddy/Caddyfile --adapter caddyfile'
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile.ec2:/etc/caddy/Caddyfile:ro
+      - ec2_caddy_data:/data
+      - ec2_caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    cpus: 0.25
+    mem_limit: 128m
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  ec2_caddy_data:
+  ec2_caddy_config:

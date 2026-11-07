@@ -1,13 +1,22 @@
-"""Evidence-grounded answer drafts with an optional OpenAI-compatible LLM."""
+"""Evidence-grounded answer drafts with an optional OpenAI-compatible LLM or Groq."""
 
 from __future__ import annotations
 
 import json
 import os
+import re
 from typing import Any
 from urllib.parse import urlsplit
 
 import httpx
+
+_UNEXECUTED_ACTION_CLAIM = re.compile(
+    r"\b(?:i|we|your account)\s+(?:have|has)\s+(?:issued|processed|approved|sent|booked|initiated|cancelled|canceled|refunded|replaced)\b|"
+    r"\b(?:refund|replacement|compensation|cancellation)\s+(?:has been|was)\s+(?:issued|processed|approved|sent|completed)\b",
+    flags=re.IGNORECASE,
+)
+_EMAIL = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", flags=re.IGNORECASE)
+_PHONE = re.compile(r"(?<!\d)(?:\+?91[\s-]?)?[6-9]\d{9}(?!\d)")
 
 
 class DraftingUnavailable(RuntimeError):
@@ -284,11 +293,139 @@ def _llm_draft(state: dict[str, Any]) -> dict[str, Any]:
     return draft
 
 
+def _groq_draft(state: dict[str, Any]) -> dict[str, Any] | None:
+    api_key = os.getenv("GROQ_API_KEY", "").strip()
+    if not api_key or api_key.startswith("CHANGE_ME"):
+        return None
+
+    model = os.getenv("GROQ_MODEL", "").strip() or os.getenv("LLM_MODEL", "").strip() or "llama-3.3-70b-versatile"
+    claims = recorded_claims(state)
+    if not claims:
+        return None
+
+    timeout = float(os.getenv("LLM_TIMEOUT_SECONDS", "10"))
+    if not 1 <= timeout <= 60:
+        timeout = 10.0
+
+    facts_map = {f"fact_{i}": claim["text"] for i, claim in enumerate(claims)}
+    intent = str((state.get("classification") or {}).get("intent") or "")
+    order_id = state.get("order_id")
+
+    payload = {
+        "model": model,
+        "temperature": 0.2,
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "grounded_response_plan",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "opening": {"type": "string"},
+                        "facts": {
+                            "type": "object",
+                            "additionalProperties": {"type": "string"},
+                        },
+                        "closing": {"type": "string"},
+                    },
+                    "required": ["opening", "facts", "closing"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are an empathetic, professional customer support agent for an e-commerce platform. "
+                    "Draft a warm, helpful customer response plan using ONLY the provided verified facts. "
+                    "Return a JSON object matching the schema with: "
+                    "- 'opening': a courteous, empathetic opening acknowledging the query without claiming unexecuted actions. "
+                    "- 'facts': an object mapping each fact key (e.g. fact_0) to its exact verified statement. Do NOT alter, omit, or invent facts. "
+                    "- 'closing': a helpful closing or next steps. "
+                    "Never claim that an unexecuted action was completed."
+                ),
+            },
+            {
+                "role": "user",
+                "content": json.dumps(
+                    {
+                        "intent": intent,
+                        "order_id": order_id,
+                        "verified_facts": facts_map,
+                    },
+                    ensure_ascii=False,
+                ),
+            },
+        ],
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+
+    client = httpx.Client(timeout=httpx.Timeout(timeout, connect=min(3.0, timeout)), trust_env=False)
+    try:
+        response = client.post("https://api.groq.com/openai/v1/chat/completions", json=payload, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+        content = data["choices"][0]["message"]["content"]
+        plan = json.loads(content)
+    finally:
+        client.close()
+
+    if not isinstance(plan, dict):
+        return None
+
+    plan_facts = plan.get("facts")
+    if not isinstance(plan_facts, dict) or len(plan_facts) != len(claims):
+        return None
+
+    for i, claim in enumerate(claims):
+        key = f"fact_{i}"
+        if plan_facts.get(key) != claim["text"]:
+            return None
+
+    opening = (plan.get("opening") or "").strip()
+    closing = (plan.get("closing") or "").strip()
+
+    if _UNEXECUTED_ACTION_CLAIM.search(opening) or _UNEXECUTED_ACTION_CLAIM.search(closing):
+        return None
+    if _EMAIL.search(opening) or _PHONE.search(opening) or _EMAIL.search(closing) or _PHONE.search(closing):
+        return None
+
+    verified_fact_texts = [claim["text"] for claim in claims]
+    parts = [part for part in [opening, " ".join(verified_fact_texts), closing] if part]
+    answer = " ".join(parts)
+
+    refs = sorted({ref for claim in claims for ref in claim["evidence_refs"]})
+    return {
+        "answer": answer,
+        "evidence_refs": refs,
+        "claims": claims,
+    }
+
+
 def draft_grounded_response(state: dict[str, Any]) -> dict[str, Any]:
-    if os.getenv("LLM_ENABLED", "false").strip().lower() == "true":
-        draft = _llm_draft(state)
-        provider = "configured_openai_compatible"
-    else:
-        draft = _deterministic_draft(state)
-        provider = "deterministic_template"
-    return {"draft": draft, "draft_provider": provider, "draft_error_code": None}
+    llm_enabled = os.getenv("LLM_ENABLED", "false").strip().lower() == "true"
+    llm_provider = os.getenv("LLM_PROVIDER", "").strip().lower()
+    has_groq_key = bool(os.getenv("GROQ_API_KEY", "").strip()) and not os.getenv("GROQ_API_KEY", "").strip().startswith("CHANGE_ME")
+
+    if llm_enabled and (llm_provider == "groq" or has_groq_key or os.getenv("GROQ_MODEL")):
+        try:
+            draft = _groq_draft(state)
+            if draft is not None:
+                return {"draft": draft, "draft_provider": "groq", "draft_error_code": None}
+        except Exception:
+            pass
+        return {"draft": _deterministic_draft(state), "draft_provider": "deterministic_fallback", "draft_error_code": None}
+
+    if llm_enabled:
+        try:
+            draft = _llm_draft(state)
+            return {"draft": draft, "draft_provider": "configured_openai_compatible", "draft_error_code": None}
+        except Exception:
+            return {"draft": _deterministic_draft(state), "draft_provider": "deterministic_fallback", "draft_error_code": None}
+
+    return {"draft": _deterministic_draft(state), "draft_provider": "deterministic_template", "draft_error_code": None}

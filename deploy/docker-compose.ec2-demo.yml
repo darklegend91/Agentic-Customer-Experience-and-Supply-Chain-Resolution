@@ -1,0 +1,39 @@
+name: agentic-ec2-demo
+
+services:
+  api:
+    image: agentic-support:ec2-demo
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.ec2
+    env_file:
+      - ../.env.ec2
+    environment:
+      APP_ENV: local
+      API_REQUEST_TIMEOUT_SECONDS: "120"
+    # Keep the fixture API private until the HTTPS access layer is configured.
+    ports:
+      - "127.0.0.1:8000:8000"
+    init: true
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 3g
+    memswap_limit: 3g
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 180s

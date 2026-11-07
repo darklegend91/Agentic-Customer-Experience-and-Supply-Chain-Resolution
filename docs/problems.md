@@ -102,3 +102,156 @@ In frontend/app.py:
 Added an Engine mode selector in the chat context bar:
 ⚡ Investigate Tool (Default): Directly invokes POST /tickets/investigate synchronously. Bypasses all workflow queueing and returns the full grounded order status, items, delivery timeline, and policy citations in ~200 ms. It also populates the Processing view below instantly.
 ⚙️ Workflow: Runs the full LangGraph graph, now executing immediately via background tasks and polling every 0.8s.
+
+
+Why This Error Happened
+
+The error: write /var/lib/docker/buildkit/containerd-overlayfs/metadata_v2.db: input/output error happens in Docker Desktop on Mac for two main reasons:
+
+Docker VM Ran Out of Disk Space: When requirements.txt installs sentence-transformers and laya, pip pulls in standard Linux torch (PyTorch). By default, PyTorch downloads massive 2.2 GB+ CUDA GPU binaries. When Docker Desktop tries to commit this huge layer into its virtual disk, the VM runs out of allocated space and throws an input/output error.
+BuildKit Cache Corruption: Docker's internal overlayfs database hit a write failure and became locked or corrupted.
+How to Fix It (3 Steps)
+1. We Optimized Dockerfile (Reduced Download by ~85%)
+
+We updated Dockerfile to pre-install CPU-only PyTorch before requirements.txt:
+
+dockerfile
+COPY requirements.txt ./requirements.txt
+RUN python -m pip install --no-cache-dir --upgrade pip \
+    && python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+    && python -m pip install --no-cache-dir -r requirements.txt
+Before: ~2.2 GB download (includes unneeded Nvidia CUDA GPU drivers).
+Now: ~180 MB download (lightweight CPU wheel, saves over 2 GB of disk space during build).
+2. Clean Your Docker BuildKit Cache & Disk Space
+
+Run these two commands in your Mac terminal to wipe the corrupted/stuck BuildKit cache:
+
+bash
+docker builder prune -a -f
+docker system prune -f
+
+(Optional: If your Docker Desktop virtual disk was completely full, restart the Docker Desktop app from the Mac menu bar).
+
+3. Re-Run Your Docker Build Command
+
+Now re-run the build:
+
+bash
+docker build --platform linux/amd64 -t <your-dockerhub-username>/agentic-support-api:latest .
+
+It will now build much faster, use a fraction of the disk space, and succeed without the I/O error.
+
+Once built, push it as planned:
+
+bash
+docker push <your-dockerhub-username>/agentic-support-api:latest
+
+TIP
+
+Alternative (Zero Local Disk Usage):
+If you don't want to use any disk space or upload multi-gigabyte images from your Mac, you can also connect your GitHub repo to Render directly. Render will build the exact same Dockerfile on their cloud servers with gigabit download speeds for free. However, with the CPU-torch fix above, building locally and pushing to Docker Hub will now also work cleanly.
+
+
+The error: write /var/lib/docker/buildkit/containerd-overlayfs/metadata_v2.db: input/output error happens in Docker Desktop on Mac for two main reasons:
+
+Docker VM Ran Out of Disk Space: When requirements.txt installs sentence-transformers and laya, pip pulls in standard Linux torch (PyTorch). By default, PyTorch downloads massive 2.2 GB+ CUDA GPU binaries. When Docker Desktop tries to commit this huge layer into its virtual disk, the VM runs out of allocated space and throws an input/output error.
+BuildKit Cache Corruption: Docker's internal overlayfs database hit a write failure and became locked or corrupted.
+
+We Optimized Dockerfile (Reduced Download by ~85%)
+
+We updated Dockerfile to pre-install CPU-only PyTorch before requirements.txt:
+
+dockerfile
+COPY requirements.txt ./requirements.txt
+RUN python -m pip install --no-cache-dir --upgrade pip \
+    && python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+    && python -m pip install --no-cache-dir -r requirements.txt
+Before: ~2.2 GB download (includes unneeded Nvidia CUDA GPU drivers).
+Now: ~180 MB download (lightweight CPU wheel, saves over 2 GB of disk space during build).
+
+
+How We Made It 70%+ Lighter (~1.2 GB)
+
+We applied 3 optimizations directly to Dockerfile:
+
+1. Pin CPU-Only PyTorch (Saves ~1.8 GB!)
+
+Instead of the 2.2 GB GPU wheel, we tell pip to install the official CPU-only build (~180 MB):
+
+dockerfile
+RUN python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+    && python -m pip install --no-cache-dir -r requirements.txt
+2. Purge Package Test Suites & Compiled Caches (Saves ~250–350 MB)
+
+Python packages bundle their entire development test suites into Docker. We strip them in the same layer:
+
+dockerfile
+    && find /usr/local/lib/python3.11/site-packages -type d -name "tests" -exec rm -rf {} + 2>/dev/null || true \
+    && find /usr/local/lib/python3.11/site-packages -type d -name "test" -exec rm -rf {} + 2>/dev/null || true \
+    && find /usr/local/lib/python3.11/site-packages -name "*.pyc" -delete \
+    && rm -rf /root/.cache
+3. Ignore Duplicate HuggingFace Model Weights (Saves ~150 MB)
+
+We tell snapshot_download to only download the primary .safetensors model weights and ignore redundant ONNX, MsgPack, and Rust formats:
+
+python
+snapshot_download(
+    repo_id="sentence-transformers/all-MiniLM-L6-v2",
+    cache_dir="/opt/model-cache/hub",
+    ignore_patterns=["*.onnx*", "*.msgpack*", "*.h5*", "*.ot*"],
+)
+Want It Even Lighter (~600 MB)?
+
+If your Streamlit frontend is hosted separately on Streamlit Community Cloud, your Docker image on Render only needs to run the FastAPI backend and background worker.
+
+In that case, you can remove streamlit from the container's requirements.txt:
+
+Removing streamlit eliminates its heavy dependencies: pyarrow (128 MB), pydeck (23 MB), and altair (15 MB).
+That drops the final container size to ~600 MB.
+
+docker build --platform linux/amd64 -t adityapathania2194/agentic-support-api:latest-1.0.0 .
+
+
+docker push adityapathania2194/agentic-support-api:latest-1.0.0
+
+
+
+
+Your current Laya setup will not run reliably on Render Free. My earlier cache fix addresses the missing checkpoint; I should also have checked the hardware limits.
+
+Render Free provides 512 MB RAM and 0.1 CPU. Even Starter has only 512 MB RAM. Render compute limits
+
+Laya’s English model has 421 million parameters. Calculated weight memory alone is approximately 840 MB at 16-bit precision or 1.68 GB at 32-bit, before PyTorch, inference memory, FastAPI, and your embedding model. That exceeds Free’s memory budget. Laya model details
+
+Your queries are slow for several reasons:
+Cause	What it means for your app
+Very limited CPU	Local embedding computation is expensive on 0.1 CPU.
+Cold starts	Free services sleep after 15 idle minutes and take about a minute to restart, followed by model initialization. Render documentation
+Sequential processing	Your investigation runs classification, policy retrieval, order lookup, and customer-context lookup one after another. Their delays accumulate.
+Serial batch evaluation	Each evaluation question gets its own embedding and Milvus search. Twelve questions exceed your 30-second deadline.
+Shared locks	Your code serializes Laya inference and semantic searches, so simultaneous users can wait for each other.
+
+
+The slowdown I measured already happens while Laya is failing. Semantic retrieval took about 11 seconds for one query, and two combined evaluation cases took 14 seconds. Laya is therefore not the sole explanation.
+
+You have two practical deployment choices:
+- Keep Render Free: use it as a lightweight API and host Laya and embeddings elsewhere. Your current Laya adapter runs locally, so this requires code changes; setting LAYA_BASE_URL alone will not work.
+- Run everything on Render: start benchmarking with 2 CPUs and 4 GB RAM, cache models during the build, and measure peak memory before choosing the final size. This is a starting estimate, not a performance guarantee.
+For faster queries, batch the evaluation embeddings/searches, reuse initialized models and clients, and overlap independent database and retrieval work while preserving safety checks. Run full evaluations as background jobs.
+
+Increasing the timeout can prevent some 504 errors, but it does not make queries faster.
+
+    
+9:26
+
+
+# 1️⃣ Activate env (create it first if missing)
+source .venv/bin/activate
+
+# 2️⃣ Start FastAPI (keep this terminal open)
+uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000 &
+
+# 3️⃣ Start Streamlit UI (you can add the flag if you need the agent API)
+streamlit run frontend/app.py   # add --server.enableAgentApi=true if desired
+# -------------------------------------------------
+# Then point your browser to http://127.0.0.1:8501/

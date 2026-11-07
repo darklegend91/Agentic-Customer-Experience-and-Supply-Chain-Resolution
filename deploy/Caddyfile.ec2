@@ -1,0 +1,28 @@
+{
+	default_sni {$PUBLIC_API_IP}
+}
+
+{$PUBLIC_API_IP} {
+	tls {
+		issuer acme {
+			dir https://acme-v02.api.letsencrypt.org/directory
+			profile shortlived
+		}
+	}
+
+	@health path /health
+	handle @health {
+		reverse_proxy api:8000
+	}
+
+	@authorized header X-Demo-Token {$DEMO_API_TOKEN}
+	handle @authorized {
+		reverse_proxy api:8000 {
+			header_up -X-Demo-Token
+		}
+	}
+
+	handle {
+		respond "Authentication required" 401
+	}
+}

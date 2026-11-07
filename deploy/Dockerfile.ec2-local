@@ -1,0 +1,59 @@
+# syntax=docker/dockerfile:1
+# Reuse the existing amd64 dependency image so EC2 does not reinstall PyTorch.
+# The digest pins the inspected CPU-only image; source updates are copied below.
+ARG BASE_IMAGE=adityapathania2194/agentic-support-api@sha256:9a656586c376c4b15ca956627f67da964172d5aab4b3a8ac3f93fa0a2e6e77cf
+ARG MODEL_STAGE=downloaded-model
+FROM ${BASE_IMAGE} AS demo-runtime
+
+ENV LAYA_MODEL=english \
+    LAYA_REVISION=7b928d828b7b0e022f929d9bd2e44165aa270148 \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    USE_TF=0 \
+    OMP_NUM_THREADS=2 \
+    MKL_NUM_THREADS=2 \
+    OPENBLAS_NUM_THREADS=2 \
+    TOKENIZERS_PARALLELISM=false \
+    LANGFUSE_TRACING_ENABLED=false
+
+USER appuser
+WORKDIR /app
+
+# Cache just the English checkpoint before copying frequently changing source.
+# Files are created as appuser: no later recursive chown of large model layers.
+FROM demo-runtime AS downloaded-model
+RUN HF_HUB_OFFLINE=0 TRANSFORMERS_OFFLINE=0 python - <<'PY'
+import os
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="convaiinnovations/laya",
+    revision=os.environ["LAYA_REVISION"],
+    cache_dir="/opt/model-cache/hub",
+    allow_patterns=[
+        "rl_agent_config.json", "model.safetensors", "tokenizer/*", "encoder/*",
+    ],
+    max_workers=2,
+)
+PY
+
+# Optional local build path: a named context supplies the same pinned checkpoint
+# files already cached on the Mac, avoiding a duplicate large download.
+FROM demo-runtime AS local-model
+COPY --from=laya-checkpoint --chown=appuser:appuser / /opt/model-cache/hub/models--convaiinnovations--laya/snapshots/7b928d828b7b0e022f929d9bd2e44165aa270148/
+
+FROM ${MODEL_STAGE} AS final
+COPY --chown=appuser:appuser backend/ ./backend/
+COPY --chown=appuser:appuser scripts/ ./scripts/
+COPY --chown=appuser:appuser knowledge_base/ ./knowledge_base/
+COPY --chown=appuser:appuser data/processed/ ./data/processed/
+COPY --chown=appuser:appuser deploy/start.sh ./deploy/start.sh
+
+# These tiny artifacts must match the current source and prepared dataset.
+RUN python scripts/train_classifier.py \
+    && python scripts/chunk_versioned_policies.py \
+    && python -m pip check
+
+# One API process shares its Laya and MiniLM instances across demo requests.
+# Durable worker deployment remains a separate, larger configuration.
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
