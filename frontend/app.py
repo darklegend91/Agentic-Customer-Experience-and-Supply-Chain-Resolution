@@ -109,6 +109,10 @@ def api_request(
     timeout: float = 60.0,
 ) -> Any:
     headers = {"Accept": "application/json"}
+    configured_api = get_token("API_BASE_URL") or get_token("FASTAPI_BASE_URL")
+    demo_token = get_token("DEMO_API_TOKEN")
+    if demo_token and configured_api and urlparse(base_url).scheme == "https" and base_url.rstrip("/") == configured_api.rstrip("/"):
+        headers["X-Demo-Token"] = demo_token
     if token:
         headers["Authorization"] = f"Bearer {token}"
     if extra_headers:
@@ -161,6 +165,15 @@ def classification_score(classification: dict[str, Any]) -> str:
         return "Rule match"
     score = classification.get("confidence")
     return f"{score:.1%} (raw)" if isinstance(score, (int, float)) else "—"
+
+
+def get_token(key: str) -> str:
+    try:
+        if key in st.secrets:
+            return str(st.secrets[key]).strip()
+    except Exception:  # noqa: BLE001, S110
+        pass
+    return os.getenv(key, "").strip()
 
 
 def render_policy_hits(evidence: dict[str, Any]) -> None:
@@ -693,15 +706,6 @@ def main() -> None:
             help="For local use, keep FastAPI bound to 127.0.0.1.",
         ).strip().rstrip("/")
 
-    # Automatic token discovery: st.secrets -> os.getenv -> manual input fallback
-    def get_token(key: str) -> str:
-        try:
-            if key in st.secrets:
-                return str(st.secrets[key]).strip()
-        except Exception:  # noqa: BLE001, S110
-            pass
-        return os.getenv(key, "").strip()
-
     support_token = get_token("WORKFLOW_API_TOKEN")
     reviewer_token = get_token("WORKFLOW_REVIEWER_TOKEN")
 
@@ -850,6 +854,7 @@ def main() -> None:
             if mode == "⚡ Investigate Tool":
                 try:
                     payload = {
+                        "schema_version": "1.0",
                         "ticket_id": st.session_state.chat_ticket_id.strip() or None,
                         "message": effective_message,
                         "order_id": order_context,
@@ -857,7 +862,7 @@ def main() -> None:
                         "methods": methods,
                     }
                     with st.spinner("Running investigation tool…"):
-                        res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=20.0)
+                        res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=60.0)
 
                     classification = res.get("classification") or {}
                     order_ev = res.get("order_evidence") or {}
