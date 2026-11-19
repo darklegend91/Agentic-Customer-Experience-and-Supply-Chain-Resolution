@@ -32,6 +32,7 @@ The model predicts the customer's business intent. Routing outcomes and security
 | return_eligibility | Customer asks whether a particular item can be returned | Retrieve policy for exact marketplace, item class, and effective date |
 | return_pickup | Customer asks about a return collection or pickup | Read pickup/return events; escalate missing or conflicting events |
 | return_status | Customer asks about the state of an existing return | Read return record and report its timestamped status |
+| unrecognized_package | Customer received a package that may not be connected to an order they placed | Ask whether it is a wrong item in a known order or an unrelated package; confirm the shipping-label order ID before retrieving evidence |
 | loyalty_points | Customer asks about a recorded points balance or transaction | Read the synthetic rewards ledger; report recorded facts only |
 | reward_expiry | Customer asks whether points are due to expire | Read expiry events; policy decisions require an approved policy and review |
 | reward_redemption | Customer asks about a reward redemption | Read redemption status; eligibility or balance changes require human approval |

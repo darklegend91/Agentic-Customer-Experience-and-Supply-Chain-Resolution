@@ -8,6 +8,7 @@ The graph in `backend/app/agents/graph.py` executes:
 
 ```text
 validate and mask input
+  -> deterministic sanitization agent (also screens independent retrieval queries)
   -> Laya triage (TF-IDF fallback is review-only)
   -> deterministic allowlisted supervisor route
   -> one specialist: policy FAQ | order/delivery | returns/refunds | product issue | loyalty/rewards
@@ -38,7 +39,7 @@ Approval requests require an `Idempotency-Key`. Replays with the same key and sa
 Install requirements and configure a write-enabled development Postgres URL distinct from the read-only order URL:
 
 ```bash
-./.venv-multi/bin/python -m pip install -r requirements.txt
+./.venv-multi/bin/python -m pip --isolated install --require-hashes --only-binary=:all: --index-url https://pypi.org/simple -r requirements.lock
 ```
 
 Set these values in the ignored repository-root `.env`:
@@ -66,7 +67,7 @@ Generate two different values. Never use production order credentials for workfl
 ./.venv-multi/bin/python scripts/setup_workflow_storage.py
 ```
 
-This command requires `WORKFLOW_DATABASE_URL`, applies `backend/app/db/migrations/001_workflow_storage.sql` and `003_workflow_job_queue.sql`, then runs LangGraph's Postgres checkpointer setup. It does not alter the order fixture schema.
+This command requires `WORKFLOW_DATABASE_URL`, applies the workflow storage and job queue migrations plus `005_workflow_customer_scope.sql`, then runs LangGraph's Postgres checkpointer setup. Rerun it on existing development workflow databases before using customer ID investigations.
 
 Start Laya and the FastAPI service in separate terminals. Keep FastAPI bound to loopback:
 
@@ -84,7 +85,9 @@ APP_ENV=local ./.venv-multi/bin/python -m backend.app.worker
 
 ## Endpoints
 
-`POST /workflows` starts an investigation. The support token is for workflow creation; local development tokens are scoped to the fictional fixture only.
+`POST /workflows` starts an investigation. The support token is for workflow creation. Local development tokens are scoped to the fictional fixture only.
+
+In the workbench, enter a **Customer ID** or include a fixture ID such as `CUS-8516C1E29C` in the chat message. Customer ID requests use the authenticated workflow automatically. Try “Show this customer's recent orders” or “Check this customer's loyalty balance.” The API also accepts `{"schema_version":"1.0","customer_id":"CUS-8516C1E29C"}` for a customer overview. Customer-wide access requires a `customer_ids` or `allowed_customer_ids` claim on scoped tokens. A request with both IDs also requires the order grant and a matching customer and order.
 
 ```bash
 curl -sS -X POST http://127.0.0.1:8000/workflows \

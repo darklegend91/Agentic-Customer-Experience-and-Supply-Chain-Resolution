@@ -17,6 +17,7 @@ from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 from psycopg_pool import ConnectionPool
 
+from ..observability.tracing import trace_stage
 from ..runtime import LocalDevelopmentOnly, require_local_development
 
 
@@ -83,7 +84,7 @@ def _dsn() -> str:
 
 
 @contextmanager
-def _connection(*, pipelined: bool = False) -> Generator[psycopg.Connection[dict[str, Any]], None, None]:
+def _connection_impl(*, pipelined: bool = False) -> Generator[psycopg.Connection[dict[str, Any]], None, None]:
     try:
         # Pool context commits on success, rolls back on error, and returns the
         # connection. Approval writes retain the same transaction boundaries.
@@ -101,6 +102,17 @@ def _connection(*, pipelined: bool = False) -> Generator[psycopg.Connection[dict
         raise
     except Exception as exc:
         raise WorkflowStoreUnavailable("Workflow database operation failed") from exc
+
+
+@contextmanager
+def _connection(*, pipelined: bool = False) -> Generator[psycopg.Connection[dict[str, Any]], None, None]:
+    """Time each workflow-store transaction without recording SQL or row contents."""
+    with trace_stage("database.workflow_store", {
+        "system": "postgresql",
+        "operation": "pipelined_transaction" if pipelined else "transaction",
+    }):
+        with _connection_impl(pipelined=pipelined) as connection:
+            yield connection
 
 
 def _as_iso(value: Any) -> Any:
@@ -131,15 +143,16 @@ def create_workflow_run(
     ticket_id: str | None,
     order_id: str | None,
     job_payload: dict[str, Any] | None = None,
+    customer_id: str | None = None,
 ) -> None:
     with _connection() as connection:
         connection.execute(
             """
             INSERT INTO workflow_runs
-                (workflow_id, thread_id, request_id, created_by, ticket_id, order_id, status)
-            VALUES (%s, %s, %s, %s, %s, %s, 'running')
+                (workflow_id, thread_id, request_id, created_by, ticket_id, order_id, customer_id, status)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, 'running')
             """,
-            (_uuid(workflow_id), _uuid(thread_id), request_id, created_by, ticket_id, order_id),
+            (_uuid(workflow_id), _uuid(thread_id), request_id, created_by, ticket_id, order_id, customer_id),
         )
         _insert_event(
             connection,
@@ -147,7 +160,8 @@ def create_workflow_run(
             stage="intake",
             event_type="workflow_queued" if job_payload is not None else "workflow_started",
             actor_id=created_by,
-            details={"ticket_reference_present": bool(ticket_id), "order_reference_present": bool(order_id)},
+            details={"ticket_reference_present": bool(ticket_id), "order_reference_present": bool(order_id),
+                     "customer_reference_present": bool(customer_id)},
         )
         if job_payload is not None:
             connection.execute(
@@ -472,7 +486,7 @@ def get_proposal(proposal_id: str) -> dict[str, Any]:
     with _connection() as connection:
         row = connection.execute(
             """
-            SELECT p.*, r.thread_id, r.created_by, r.order_id, r.ticket_id
+            SELECT p.*, r.thread_id, r.created_by, r.order_id, r.ticket_id, r.customer_id
             FROM workflow_proposals p
             JOIN workflow_runs r ON r.workflow_id = p.workflow_id
             WHERE p.proposal_id = %s
@@ -668,7 +682,7 @@ def complete_approval_decision(
 
 
 def evidence_fingerprint(evidence: dict[str, Any]) -> str:
-    """Hash source facts and policy versions, excluding transient timestamps and scores."""
+    """Hash decision-relevant facts and policy versions, excluding snapshots/scores."""
     order = evidence.get("order") or {}
     stable_order = {
         key: value
@@ -693,8 +707,37 @@ def evidence_fingerprint(evidence: dict[str, Any]) -> str:
                 "environment_scope": hit.get("environment_scope"),
             })
     stable_policy.sort(key=lambda row: (str(row.get("document_id")), str(row.get("chunk_id")), str(row.get("method"))))
+    # A loyalty correction is justified by a precise ledger event. It must be
+    # re-approved if the account, any included transaction, or completeness
+    # signal changes while the proposal is waiting for a reviewer.
+    context = evidence.get("customer_context") or {}
+    account = context.get("loyalty_account") or {}
+    stable_account = {
+        key: account.get(key)
+        for key in ("account_id", "loyalty_tier", "points_balance", "account_status", "source")
+        if isinstance(account, dict) and key in account
+    }
+    stable_transactions: list[dict[str, Any]] = []
+    for row in context.get("loyalty_transactions") or []:
+        if not isinstance(row, dict):
+            continue
+        stable_transactions.append({
+            key: row.get(key)
+            for key in (
+                "event_id", "order_id", "event_type", "points_delta", "status",
+                "occurred_at", "expires_at", "reward_code", "source",
+            )
+        })
+    stable_transactions.sort(key=lambda row: str(row.get("event_id") or ""))
+    stable_context = {
+        "status": context.get("status"),
+        "loyalty_account": stable_account,
+        "loyalty_transactions": stable_transactions,
+        "missing_fields": sorted(str(value) for value in context.get("missing_fields") or []),
+        "conflicts": sorted(str(value) for value in context.get("conflicts") or []),
+    }
     canonical = json.dumps(
-        {"order": stable_order, "policy": stable_policy},
+        {"order": stable_order, "policy": stable_policy, "customer_context": stable_context},
         sort_keys=True,
         separators=(",", ":"),
         ensure_ascii=False,

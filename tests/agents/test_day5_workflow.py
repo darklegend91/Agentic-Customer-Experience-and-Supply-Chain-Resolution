@@ -114,6 +114,27 @@ class Day5WorkflowTests(unittest.TestCase):
         self.assertEqual(result["specialist"], "manual_review")
         self.assertEqual(result["status"], "escalated")
 
+    def test_unrecognized_package_workflow_asks_for_disambiguation_without_read_tools(self):
+        state = initial_state(message="I received a package that I did not order.")
+        unrecognized = classification("unrecognized_package")
+        unrecognized.update({
+            "triage_status": "needs_review",
+            "risk_flags": ["unrecognized_package_needs_confirmation"],
+            "needs_human_review": True,
+            "automatic_routing_enabled": False,
+        })
+        with (
+            patch("backend.app.agents.triage.classify_ticket_message", return_value=unrecognized),
+            patch("backend.app.agents.investigation.get_order_investigation") as order_lookup,
+        ):
+            result = self.make_graph().invoke(state, {"configurable": {"thread_id": state["thread_id"]}})
+
+        order_lookup.assert_not_called()
+        self.assertEqual(result["specialist"], "manual_review")
+        self.assertEqual(result["status"], "needs_information")
+        self.assertIn("different item", result["answer"])
+        self.assertIn("not connected", result["answer"])
+
     def test_consequential_proposal_interrupts_then_approves_simulation_only(self):
         state = initial_state(message=f"My item in order {ORDER_ID} arrived damaged")
         state["workflow_id"] = "33333333-3333-4333-8333-333333333333"
@@ -168,6 +189,68 @@ class Day5WorkflowTests(unittest.TestCase):
 
         self.assertEqual(resumed["status"], "approved_simulation")
         self.assertIn("No external", resumed["answer"])
+
+    def test_verified_reversed_loyalty_points_pause_for_a_simulation_review(self):
+        from datetime import datetime, timezone
+
+        state = initial_state(
+            message=f"The points for order {ORDER_ID} were reversed. Please reinstate them.",
+        )
+        state["query"] = "reinstate reversed loyalty points"
+        order = order_evidence()
+        order["order"] = {"order_id": ORDER_ID, "status": "delivered", "marketplace": "Amazon.in"}
+        context = {
+            "schema_version": "1.0",
+            "source_systems": ["Neon Postgres"],
+            "as_of": datetime.now(timezone.utc).isoformat(),
+            "status": "found",
+            "order_id": ORDER_ID,
+            "loyalty_account": {
+                "account_id": "LOYALTY-ACCOUNT-1", "loyalty_tier": "Silver",
+                "points_balance": 0, "account_status": "active",
+                "as_of": datetime.now(timezone.utc).isoformat(), "source": "fixture",
+            },
+            "loyalty_transactions": [{
+                "event_id": "LTX-REVERSED-1", "order_id": ORDER_ID,
+                "event_type": "points_earned", "points_delta": 42, "status": "reversed",
+                "occurred_at": "2026-11-04T10:00:00Z", "expires_at": None,
+                "reward_code": None, "source": "fixture",
+            }],
+            "prior_communications": [],
+            "evidence_refs": {
+                "customer_context_lookup": [f"customer_context:{ORDER_ID}:fixture"],
+                "loyalty_account": ["loyalty_account:LOYALTY-ACCOUNT-1"],
+                "loyalty_transactions": ["loyalty_transaction:LTX-REVERSED-1"],
+                "prior_communications": [],
+            },
+            "missing_fields": [], "conflicts": [],
+        }
+        policy = {
+            "status": "found", "collection": "production-fixture", "corpus_scope": "test fixture",
+            "missing_fields": [], "results": {"keyword": [{
+                "document_id": "LOYALTY-CORRECTION", "policy_id": "LOYALTY-CORRECTION",
+                "policy_version": "1.0.0", "status": "active", "marketplace": "Amazon.in",
+                "environment_scope": "production", "synthetic_demo": False, "jurisdiction": "IN",
+                "locale": "en-IN", "effective_from": "2026-01-01", "effective_to": "",
+                "intents": ["loyalty_points"], "categories": ["all"],
+                "section_id": "reinstatement", "section_title": "Verified reinstatement",
+                "chunk_id": "loyalty-policy-chunk", "source_uri": "policy://loyalty",
+                "source_path": "loyalty.md", "source_file_sha256": "b" * 64,
+                "excerpt": "A verified reversed earning can be proposed for human review.",
+            }]},
+        }
+        with (
+            patch("backend.app.agents.triage.classify_ticket_message", return_value=classification("loyalty_points")),
+            patch("backend.app.agents.investigation.get_order_investigation", return_value=order),
+            patch("backend.app.agents.investigation.get_customer_support_context", return_value=context),
+            patch("backend.app.agents.investigation.retrieve_policy_evidence", return_value=policy),
+        ):
+            result = self.make_graph().invoke(state, {"configurable": {"thread_id": state["thread_id"]}})
+
+        self.assertEqual(result["status"], "pending_approval")
+        self.assertEqual(result["proposal"]["action_kind"], "loyalty_reinstatement_review_simulation")
+        self.assertEqual(result["proposal"]["adjustment_draft"]["points_delta"], 42)
+        self.assertIn("__interrupt__", result)
 
 
 if __name__ == "__main__":

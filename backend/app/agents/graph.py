@@ -9,6 +9,7 @@ import uuid
 from contextlib import contextmanager
 from contextvars import ContextVar
 from datetime import datetime, timezone
+from functools import wraps
 from typing import Any
 from collections.abc import Mapping
 from typing_extensions import TypedDict
@@ -31,8 +32,11 @@ from ..guardrails.evidence_validation import (
     validate_evidence_ledger,
 )
 from ..guardrails.output_validation import validate_draft
+from ..guardrails.content_safety import evidence_risk_codes
+from ..domain.support_messages import cannot_answer, unrecognized_package_clarification
 from ..observability.logging import log_safe_error
-from ..observability.tracing import trace_stage, traced_stage
+from ..observability.tracing import trace_stage, traced_stage, update_trace_span
+from .customer_investigation import investigate_customer
 from .investigation import (
     loyalty_rewards_specialist,
     order_delivery_specialist,
@@ -48,11 +52,38 @@ from .response_generation import (
 )
 from .supervisor import supervisor_route
 from .triage import triage_ticket
+from .sanitization import sanitize_request
 
 logger = logging.getLogger(__name__)
 
 
+def _traced_node(name: str, function):
+    """Wrap one graph node and export only identifiers plus safe result summaries."""
+    @wraps(function)
+    def wrapped(state, *args, **kwargs):
+        metadata = {"langgraph_node": name}
+        if isinstance(state, Mapping):
+            for key in ("workflow_id", "request_id"):
+                value = state.get(key)
+                if isinstance(value, str):
+                    metadata[key] = value
+        with trace_stage(f"langgraph.{name}", metadata) as span:
+            result = function(state, *args, **kwargs)
+            if isinstance(result, Mapping):
+                summary = {
+                    key: result[key]
+                    for key in ("status", "specialist", "disposition", "error_code", "classification", "resolution")
+                    if key in result
+                }
+                if isinstance(result.get("evidence_refs"), list):
+                    summary["result_count"] = len(result["evidence_refs"])
+                update_trace_span(span, output=summary)
+            return result
+    return wrapped
+
+
 class WorkflowState(TypedDict, total=False):
+    sanitization: dict[str, Any]
     workflow_id: str
     thread_id: str
     request_id: str
@@ -60,12 +91,14 @@ class WorkflowState(TypedDict, total=False):
     ticket_id: str | None
     message: str
     order_id: str | None
+    customer_id: str | None
     query: str | None
     methods: list[str]
     top_k: int
     locale: str
     allowed_ticket_ids: list[str]
     allowed_order_ids: list[str]
+    allowed_customer_ids: list[str]
     input_error_code: str | None
     classification: dict[str, Any] | None
     triage_ready: bool
@@ -97,7 +130,7 @@ _CHECKPOINT_DSN: str | None = None
 
 
 def _safe_summary(state: dict[str, Any]) -> dict[str, Any]:
-    classification = state.get("classification") or {}
+    classification = state.get("classification") or None
     proposal = state.get("proposal") or {}
     resolution = state.get("resolution") or {}
     return {
@@ -170,6 +203,24 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         event(state, "input", "input_validated", {"order_reference_present": bool(result.get("order_id"))})
         return result
 
+    def sanitization_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        result = sanitize_request(dict(state))
+        with audit_batch(str(state["workflow_id"])):
+            event(state, "sanitization", "input_screened", result["sanitization"])
+        return result
+
+    def resumed_security_failure(state: Mapping[str, Any]) -> dict[str, Any] | None:
+        # Older durable checkpoints may resume past the new entry node.
+        # Recheck before deterministic decisions, proposal writes or approval.
+        risks = evidence_risk_codes(state.get("evidence") or {})
+        screened = sanitize_request(dict(state))
+        if not risks and not screened.get("input_error_code"):
+            return None
+        code = "unsafe_evidence" if risks else "unsafe_input"
+        return {"evidence": {}, "evidence_refs": [], "proposal": {}, "status": "escalated",
+                "error_code": code, "reason_codes": [code, *risks],
+                "resolution": {"outcome": "escalate", "reason_codes": [code]}}
+
     def triage_node(state: Mapping[str, Any]) -> dict[str, Any]:
         try:
             result = triage_ticket(dict(state))
@@ -204,6 +255,11 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
 
     def specialist_node(state: Mapping[str, Any], name: str, handler) -> dict[str, Any]:
         result = handler(dict(state))
+        risks = evidence_risk_codes(result.get("evidence") or {})
+        if risks:
+            result = {"evidence": {}, "evidence_refs": [], "status": "escalated",
+                      "specialist_error_code": "unsafe_evidence", "error_code": "unsafe_evidence",
+                      "reason_codes": ["unsafe_evidence", *risks]}
         evidence = result.get("evidence") or {}
         order = evidence.get("order") or {}
         policy = evidence.get("policy") or {}
@@ -218,7 +274,18 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         return result
 
     def consolidate_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        risks = evidence_risk_codes(state.get("evidence") or {})
+        if risks or state.get("specialist_error_code") == "unsafe_evidence":
+            return {"evidence": {}, "evidence_refs": [], "status": "escalated",
+                    "specialist_error_code": "unsafe_evidence", "error_code": "unsafe_evidence",
+                    "reason_codes": ["unsafe_evidence", *risks]}
         if state.get("specialist_error_code"):
+            if state["specialist_error_code"] == "customer_order_reference_conflict":
+                return {
+                    "status": "needs_information",
+                    "reason_codes": ["customer_order_reference_conflict"],
+                    "missing_information": ["matching_order_id"],
+                }
             return {
                 "status": "failed_safe",
                 "error_code": state["specialist_error_code"],
@@ -242,6 +309,9 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         }
 
     def resolution_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        security_failure = resumed_security_failure(state)
+        if security_failure:
+            return security_failure
         with trace_stage("rules.deterministic_checks"):
             resolution = evaluate_resolution(dict(state))
         event(state, "policy_rules", "deterministic_rules_evaluated", {
@@ -281,14 +351,10 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             provider = state.get("draft_provider")
             expected_answer = (
                 canonical_answer(dict(state), recorded_claims(dict(state)))
-                if provider == "deterministic_template"
+                if provider != "groq"
                 else None
             )
-            expected_claims = (
-                recorded_claims(dict(state))
-                if provider in {"deterministic_template", "deterministic_fallback", "groq"}
-                else None
-            )
+            expected_claims = recorded_claims(dict(state))
             errors = validate_draft(
                 dict(state.get("draft") or {}),
                 _response_refs(dict(state)),
@@ -317,6 +383,16 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         }
 
     def fallback_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        classification = state.get("classification") or {}
+        if classification.get("intent") == "unrecognized_package":
+            codes = ["unrecognized_package_needs_confirmation"]
+            event(state, "fallback", "safe_fallback_selected", {"status": "needs_information", "reason_codes": codes})
+            return {
+                "status": "needs_information",
+                "answer": unrecognized_package_clarification(state.get("order_id")),
+                "reason_codes": codes,
+                "missing_information": ["shipping_label_order_id", "received_item_description"],
+            }
         current = state.get("status")
         if current not in {"needs_information", "escalated", "failed_safe"}:
             codes = list(state.get("reason_codes") or []) + list(state.get("triage_reason_codes") or [])
@@ -338,8 +414,12 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             codes = list(state.get("triage_reason_codes") or [])
         if state.get("error_code") and state["error_code"] not in codes:
             codes.append(state["error_code"])
+        if "unsupported_account_request" in codes or "unsupported_or_unclear_intent" in codes:
+            answer = cannot_answer(codes, state.get("missing_information"))
+        if "customer_order_reference_conflict" in codes:
+            answer = "I couldn't match that order to the selected customer. Please check both IDs and try again."
         if current == "escalated" and state.get("specialist") == "manual_review":
-            if "model_safety_check_not_passed" in codes or "possible_instruction_override" in codes:
+            if "unsafe_input" in codes or "model_safety_check_not_passed" in codes or "possible_instruction_override" in codes:
                 answer = "The input safety check flagged this message or could not verify it safely. A support agent needs to review it before any investigation tools are used."
             elif "classifier_disagreement" in codes:
                 answer = "The intent classifiers disagree, so I paused before investigating. A support agent needs to confirm the request type."
@@ -349,6 +429,9 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         return {"status": current, "answer": answer, "reason_codes": sorted(set(codes))}
 
     def proposal_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        security_failure = resumed_security_failure(state)
+        if security_failure:
+            return security_failure
         resolution = state.get("resolution") or {}
         candidate = resolution.get("proposal") or {}
         if (
@@ -393,6 +476,9 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         return {"proposal": proposal, "status": "pending_approval", "disposition": "proposal"}
 
     def approval_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        security_failure = resumed_security_failure(state)
+        if security_failure:
+            return security_failure
         proposal = state.get("proposal") or {}
         # interrupt() is the first side effect in this node; resume cannot repeat writes.
         decision = interrupt({
@@ -449,9 +535,11 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
 
     def assess_request_node(state: Mapping[str, Any]) -> dict[str, Any]:
         working = dict(state)
+        if working.get("input_error_code"):
+            return working
         with audit_batch(str(state["workflow_id"])):
             working.update(input_node(working))
-            if not working.get("input_error_code"):
+            if not working.get("input_error_code") and not (working.get("customer_id") and not working.get("order_id")):
                 working.update(triage_node(working))
                 working.update(supervisor_node(working))
                 if select_route(working) == "read_only_order":
@@ -461,6 +549,8 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
     def select_route(state: Mapping[str, Any]) -> str:
         if state.get("input_error_code"):
             return "safe_fallback"
+        if state.get("customer_id") and not state.get("order_id"):
+            return "customer_investigation"
         classification = state.get("classification") or {}
         if (state.get("triage_ready") is True
             and state.get("specialist") == "order_delivery"
@@ -487,33 +577,47 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
                 working.update(fallback_node(working))
         return working
 
-    builder = StateGraph(WorkflowState)
-    builder.add_node("assess_request", assess_request_node)
-    builder.add_node("read_only_order", read_only_order_node)
-    builder.add_node("prepare_input", input_node)
-    builder.add_node("triage", triage_node)
-    builder.add_node("supervisor", supervisor_node)
-    builder.add_node("policy_faq", lambda state: specialist_node(state, "policy_faq", policy_faq_specialist))
-    builder.add_node("order_delivery", lambda state: specialist_node(state, "order_delivery", order_delivery_specialist))
-    builder.add_node("return_refund", lambda state: specialist_node(state, "return_refund", return_refund_specialist))
-    builder.add_node("loyalty_rewards", lambda state: specialist_node(state, "loyalty_rewards", loyalty_rewards_specialist))
-    builder.add_node("product_issue", lambda state: specialist_node(state, "product_issue", product_issue_specialist))
-    builder.add_node("manual_review", fallback_node)
-    builder.add_node("consolidate_evidence", consolidate_node)
-    builder.add_node("deterministic_rules", resolution_node)
-    builder.add_node("draft_response", draft_node)
-    builder.add_node("validate_response", validate_node)
-    builder.add_node("safe_fallback", fallback_node)
-    builder.add_node("persist_proposal", proposal_node)
-    builder.add_node("approval_interrupt", approval_node)
-    builder.add_node("finalize", finalize_node)
+    def customer_investigation_node(state: Mapping[str, Any]) -> dict[str, Any]:
+        with trace_stage("tools.customer_investigation"):
+            result = investigate_customer(dict(state))
+        event(state, "customer_investigation", "customer_investigation_completed", {
+            "status": result["status"],
+            "reason_codes": result["reason_codes"],
+            "reference_count": len(result.get("evidence_refs") or []),
+        })
+        return result
 
-    builder.add_edge(START, "assess_request")
+    builder = StateGraph(WorkflowState)
+    builder.add_node("sanitize_input", _traced_node("sanitize_input", sanitization_node))
+    builder.add_node("assess_request", _traced_node("assess_request", assess_request_node))
+    builder.add_node("read_only_order", _traced_node("read_only_order", read_only_order_node))
+    builder.add_node("customer_investigation", _traced_node("customer_investigation", customer_investigation_node))
+    builder.add_node("prepare_input", _traced_node("prepare_input", input_node))
+    builder.add_node("triage", _traced_node("triage", triage_node))
+    builder.add_node("supervisor", _traced_node("supervisor", supervisor_node))
+    builder.add_node("policy_faq", _traced_node("policy_faq", lambda state: specialist_node(state, "policy_faq", policy_faq_specialist)))
+    builder.add_node("order_delivery", _traced_node("order_delivery", lambda state: specialist_node(state, "order_delivery", order_delivery_specialist)))
+    builder.add_node("return_refund", _traced_node("return_refund", lambda state: specialist_node(state, "return_refund", return_refund_specialist)))
+    builder.add_node("loyalty_rewards", _traced_node("loyalty_rewards", lambda state: specialist_node(state, "loyalty_rewards", loyalty_rewards_specialist)))
+    builder.add_node("product_issue", _traced_node("product_issue", lambda state: specialist_node(state, "product_issue", product_issue_specialist)))
+    builder.add_node("manual_review", _traced_node("manual_review", fallback_node))
+    builder.add_node("consolidate_evidence", _traced_node("consolidate_evidence", consolidate_node))
+    builder.add_node("deterministic_rules", _traced_node("deterministic_rules", resolution_node))
+    builder.add_node("draft_response", _traced_node("draft_response", draft_node))
+    builder.add_node("validate_response", _traced_node("validate_response", validate_node))
+    builder.add_node("safe_fallback", _traced_node("safe_fallback", fallback_node))
+    builder.add_node("persist_proposal", _traced_node("persist_proposal", proposal_node))
+    builder.add_node("approval_interrupt", _traced_node("approval_interrupt", approval_node))
+    builder.add_node("finalize", _traced_node("finalize", finalize_node))
+
+    builder.add_edge(START, "sanitize_input")
+    builder.add_edge("sanitize_input", "assess_request")
     builder.add_conditional_edges("assess_request", select_route, {
-        name: name for name in ("read_only_order", "policy_faq", "order_delivery", "return_refund",
+        name: name for name in ("read_only_order", "customer_investigation", "policy_faq", "order_delivery", "return_refund",
                                 "loyalty_rewards", "product_issue", "manual_review", "safe_fallback")
     })
     builder.add_edge("read_only_order", "finalize")
+    builder.add_edge("customer_investigation", "finalize")
     # Retain old node names/edges so an existing checkpoint can still resume.
     builder.add_conditional_edges(
         "prepare_input",
@@ -551,7 +655,9 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
         lambda state: "valid" if not state.get("validation_errors") else "invalid",
         {"valid": "finalize", "invalid": "safe_fallback"},
     )
-    builder.add_edge("persist_proposal", "approval_interrupt")
+    builder.add_conditional_edges("persist_proposal",
+        lambda state: "approve" if state.get("status") == "pending_approval" else "fallback",
+        {"approve": "approval_interrupt", "fallback": "safe_fallback"})
     builder.add_edge("approval_interrupt", "finalize")
     builder.add_edge("manual_review", "finalize")
     builder.add_edge("safe_fallback", "finalize")

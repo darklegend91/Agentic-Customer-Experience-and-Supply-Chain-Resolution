@@ -186,7 +186,12 @@ def evaluate_resolution(state: dict[str, Any]) -> dict[str, Any]:
             ),
         )
     if intent in {"loyalty_points", "reward_expiry", "reward_redemption"}:
-        return assess_reward_request(state)
+        return assess_reward_request(
+            state,
+            applicable_policy_hits=_authoritative_policy_hits(
+                policy_evidence, intent=intent, evidence_ledger=ledger,
+            ),
+        )
 
     if intent in ORDER_REQUIRED_INTENTS:
         order_status, missing = _relevant_order_status(state, intent)

@@ -20,7 +20,7 @@ from .approval.workflow_state import (
 )
 from .observability.logging import log_safe_error
 from .runtime import load_project_environment, require_local_development
-from .observability.tracing import shutdown_langfuse
+from .observability.tracing import shutdown_langfuse, trace_attributes, trace_stage, update_trace_span
 from .agents.graph import close_workflow_graph
 from .approval.workflow_state import close_workflow_pool
 
@@ -52,7 +52,7 @@ def _heartbeat(workflow_id: str, worker_id: str, stop: threading.Event, lost: th
             )
 
 
-def _handle_job(job: dict[str, Any], worker_id: str) -> None:
+def _handle_job_impl(job: dict[str, Any], worker_id: str) -> str:
     workflow_id = str(job["workflow_id"])
     payload = job.get("payload")
     attempt = int(job.get("attempt") or 1)
@@ -71,8 +71,9 @@ def _handle_job(job: dict[str, Any], worker_id: str) -> None:
             raise ValueError("Persisted workflow job payload is malformed")
         execute_workflow(payload, resume=attempt > 1)
         if lease_lost.is_set():
-            return
+            return "lease_lost"
         complete_workflow_job(workflow_id, worker_id)
+        return "completed"
     except Exception as exc:
         delay = min(60, 2 ** min(attempt, 6))
         try:
@@ -97,9 +98,24 @@ def _handle_job(job: dict[str, Any], worker_id: str) -> None:
             stage="worker_execution",
             error_type=type(exc).__name__,
         )
+        return "retry_scheduled"
     finally:
         heartbeat_stop.set()
         heartbeat.join(timeout=2)
+
+
+def _handle_job(job: dict[str, Any], worker_id: str) -> None:
+    workflow_id = str(job.get("workflow_id") or "unavailable")
+    request_id = _request_id(job.get("payload"))
+    attempt = int(job.get("attempt") or 1)
+    with trace_attributes(session_id=workflow_id, tags=["workflow-execution"]):
+        with trace_stage("worker.workflow_job", {
+            "workflow_id": workflow_id,
+            "request_id": request_id,
+            "attempt": attempt,
+        }) as span:
+            result = _handle_job_impl(job, worker_id)
+            update_trace_span(span, output={"status": result, "attempt": attempt})
 
 
 def run_worker() -> None:

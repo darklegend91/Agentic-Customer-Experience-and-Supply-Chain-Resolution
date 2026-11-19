@@ -164,6 +164,21 @@ def build_evidence_ledger(
                 observed_at=row.get(observed_key) if observed_key else order_as_of,
             )
 
+    recent_orders = state.get("customer_orders") or {}
+    if recent_orders:
+        snapshot_ref = "customer_orders:lookup"
+        add_fact(
+            "customer_orders.lookup", "Recent order lookup",
+            {"count": len(recent_orders["orders"]), "has_more": recent_orders["has_more_orders"]},
+            snapshot_ref, source="Neon Postgres", observed_at=recent_orders["as_of"],
+        )
+        for row in recent_orders["orders"]:
+            order_ref = f"order:{row['order_id']}"
+            add_fact(
+                order_ref, "Recent order summary", row, order_ref,
+                source="Neon Postgres", observed_at=recent_orders["as_of"],
+            )
+
     loyalty_account = customer_context.get("loyalty_account")
     context_refs = customer_context.get("evidence_refs") or {}
     lookup_refs = _field_map(context_refs, "customer_context_lookup")

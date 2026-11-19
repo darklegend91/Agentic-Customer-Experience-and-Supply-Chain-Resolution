@@ -9,6 +9,8 @@ from pathlib import Path
 from huggingface_hub import constants, snapshot_download
 from sentence_transformers import SentenceTransformer
 
+from .observability.tracing import trace_model_call, trace_stage, update_trace_span
+
 
 DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
@@ -26,34 +28,48 @@ def load_embedding_model(model_name: str | None = None) -> SentenceTransformer:
         candidates.append(DEFAULT_MODEL)
 
     for candidate in candidates:
-        local_path = Path(candidate).expanduser()
-        if local_path.exists():
-            return SentenceTransformer(str(local_path.resolve()), local_files_only=True, trust_remote_code=False)
-        repo_cache = Path(constants.HF_HUB_CACHE) / f"models--{candidate.replace('/', '--')}"
-        ref_file = repo_cache / "refs" / "main"
-        snapshot = repo_cache / "snapshots" / ref_file.read_text(encoding="utf-8").strip() if ref_file.exists() else None
-        if snapshot is not None and (snapshot / "modules.json").is_file() and (snapshot / "config.json").is_file():
-            return SentenceTransformer(str(snapshot), local_files_only=True, trust_remote_code=False)
         try:
-            model_path = snapshot_download(repo_id=candidate, local_files_only=True)
-            return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
+            with trace_stage("embedding.model_load", {"model": candidate}):
+                local_path = Path(candidate).expanduser()
+                if local_path.exists():
+                    return SentenceTransformer(str(local_path.resolve()), local_files_only=True, trust_remote_code=False)
+                repo_cache = Path(constants.HF_HUB_CACHE) / f"models--{candidate.replace('/', '--')}"
+                ref_file = repo_cache / "refs" / "main"
+                snapshot = repo_cache / "snapshots" / ref_file.read_text(encoding="utf-8").strip() if ref_file.exists() else None
+                if snapshot is not None and (snapshot / "modules.json").is_file() and (snapshot / "config.json").is_file():
+                    return SentenceTransformer(str(snapshot), local_files_only=True, trust_remote_code=False)
+                model_path = snapshot_download(repo_id=candidate, local_files_only=True)
+                return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
         except Exception:
             continue
 
     # If none found locally, try downloading online
-    model_path = snapshot_download(repo_id=candidates[0], local_files_only=False)
-    return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
+    with trace_stage("embedding.model_download_and_load", {"model": candidates[0]}):
+        model_path = snapshot_download(repo_id=candidates[0], local_files_only=False)
+        return SentenceTransformer(model_path, local_files_only=True, trust_remote_code=False)
 
 
 def encode_texts(texts: list[str], model_name: str | None = None) -> list[list[float]]:
     if not texts:
         return []
     model = load_embedding_model(model_name)
-    vectors = model.encode(
-        texts,
-        batch_size=32,
-        normalize_embeddings=True,
-        convert_to_numpy=True,
-        show_progress_bar=False,
-    )
+    resolved_model = model_name or os.getenv("EMBEDDING_MODEL") or DEFAULT_MODEL
+    with trace_model_call(
+        "embedding.encode_texts",
+        resolved_model,
+        as_type="embedding",
+        metadata={"batch_size": len(texts)},
+    ) as observation:
+        vectors = model.encode(
+            texts,
+            batch_size=32,
+            normalize_embeddings=True,
+            convert_to_numpy=True,
+            show_progress_bar=False,
+        )
+        update_trace_span(observation, metadata={
+            "batch_size": len(texts),
+            "result_count": int(vectors.shape[0]),
+            "dimensions": int(vectors.shape[1]),
+        })
     return vectors.astype("float32").tolist()

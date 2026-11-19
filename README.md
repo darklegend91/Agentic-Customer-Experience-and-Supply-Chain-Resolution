@@ -13,6 +13,7 @@ This project is a controlled support-assistant MVP. It investigates tickets usin
 - [Production-oriented architecture](docs/architecture.md)
 - [Private demo deployment runbook](docs/deployment.md)
 - [EC2 investigation demo guide](docs/ec2-run-and-deploy-guide.md)
+- [Loyalty workflow and integration guide](docs/loyalty-system-guide.md)
 - [Complete project guide, UI, techniques, MCP, dependencies, and current diagrams](docs/project-guide.md)
 
 These documents follow the project tree in docs/Project_5.docx, Section 11. Treat this directory as the canonical project root. Keep source code, data, policy files, tests, and documentation under this directory.
@@ -31,32 +32,54 @@ Day 1's requirements, taxonomy, data plan, policy schema, API contracts, securit
 
 The files in `data/raw/` are fictional development/evaluation fixtures. Synthetic policy and FAQ documents under `knowledge_base/` are drafts scoped to development only. Day 3 provides semantic and keyword RAG plus a Laya/TF-IDF classifier comparison; Laya's reported score is not calibrated and automated routing remains disabled by default. The existing unversioned Milvus collection remains unchanged. Versioned synthetic policy passages use a separate development collection; refresh it after chunking policy changes, since the newly added loyalty policy is only in the local chunks until that index operation is run. Day 4 adds local read-only FastAPI and MCP investigation interfaces, including scoped customer loyalty and prior-contact lookup. Day 5 adds the LangGraph supervisor, five specialist stages, a typed evidence ledger, deterministic evidence gates, durable PostgreSQL checkpoints, and authenticated simulation-only approval flow. Follow [the Day 5 LangGraph workflow guide](docs/day5_langgraph_workflow.md) to configure it.
 
+The loyalty workflow can now create a simulation-only reinstatement proposal only from an active applicable policy, a delivered authorized order, and exact reversed ledger evidence. The bundled fixtures and policy collection remain development-only; follow the [loyalty guide](docs/loyalty-system-guide.md) to publish a real policy and configure a provider adapter safely.
+
 Before production use, the business and security owners still need to approve the requirements, data sources, identity/access design, policy owners and effective dates, retention, and operating targets. See [requirements.md](docs/requirements.md) for the open decisions.
 
 ## Run the project locally
 
 ### Langfuse monitoring
 
-The backend supports Langfuse SDK 5.2. Set `LANGFUSE_PUBLIC_KEY`,
-`LANGFUSE_SECRET_KEY`, and `LANGFUSE_BASE_URL=https://cloud.langfuse.com` in the
-root `.env` for both FastAPI and the workflow worker, then restart both processes.
-`LANGFUSE_HOST` remains supported as a fallback. Set `LANGFUSE_TRACING_ENABLED=false`
-to disable exports. These credentials are not needed in Streamlit.
+Set `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`,
+`LANGFUSE_ENVIRONMENT`, and `LANGFUSE_TRACING_ENABLED=true` in the private API
+runtime environment. The Streamlit server also needs the same Langfuse project
+keys in Streamlit Community Cloud **Secrets** to record its outbound API timing
+and the optional frontend Groq call. These are server-side secrets; they are not
+sent to the browser. Use the same Langfuse project and base URL in both places
+so Streamlit API spans and FastAPI spans can share a trace. `LANGFUSE_HOST` is
+still accepted as a base URL fallback. Set `LANGFUSE_TRACING_ENABLED=false` to
+turn exports off.
 
 Open the [Agentic_support trace dashboard](https://cloud.langfuse.com/project/cmvurpf7c00yzad0et37ns5zr/traces).
-Submit a new investigation and look for `customer-support-investigation`;
-its session ID is the workflow UUID. Expand the trace to inspect model loading,
-input safety, intent classification, SQL lookup, deterministic rules, drafting,
-and output validation. `api.request` traces show endpoint response times and
-request IDs. Health checks and workflow-status polling keep local latency logs
-without generating a cloud trace for every refresh.
+After a new request, open Tracing and look for `frontend.api_request` with its
+nested `api.request` observation. The request ID and Langfuse trace context link
+the Streamlit-to-API round trip. The full workflow profile also exposes
+`worker.workflow_job` and `workflow.graph_invoke`; the workflow UUID groups
+retries and approval resumes into a Langfuse session. Expand the trace tree to inspect graph node
+durations, Laya input-safety and intent generations, response-model generations,
+embedding generation/model loading, semantic Milvus search, keyword retrieval,
+read-only Neon cursor time, workflow-store transactions, aggregate labeled
+retrieval metrics, and deterministic validation stages. Standalone MCP calls
+also get an `mcp.<tool_name>` span.
+Health checks and the 0.8-second workflow status poll are omitted to keep trace
+volume useful.
+
+Model latency charts should list `laya/<checkpoint>` and configured Groq or
+OpenAI-compatible model names after new requests arrive. Provider-reported
+prompt/completion token counts are attached to response generations when the
+provider returns usage. Langfuse can calculate cost only when it has matching
+model pricing data; this project does not invent costs. Local Laya and MiniLM
+calls have no provider token bill, so they report duration/model (and embedding
+dimensions/batch size) without token or cost totals. Older observations cannot
+gain model attributes retroactively.
 
 Exports are batched in the background; request handlers do not call `flush()`.
-Monitoring failures do not bypass checks or fail investigations. Trace payloads
-include diagnostic status/classification fields; customer messages, answers,
-business records, credentials, and raw exception details are omitted. Actor IDs
-are hashed. Full evidence remains in the authorized application workflow view.
-No token or cost totals are fabricated for local Laya inference.
+The trace mask allowlists diagnostic metadata and omits customer messages,
+answers, business records, prompts, embeddings, credentials, and raw exception
+details. Actor IDs are hashed. Full evidence remains in the authorized
+application workflow view. Langfuse export is best-effort; if the configured
+endpoint is unreachable, check the service logs and disable exports while
+network access is repaired.
 
 ### Start the services
 
@@ -67,7 +90,7 @@ Create a virtual environment if you do not already have one, then install the pr
 ```bash
 python3 -m venv .venv-multi
 ./.venv-multi/bin/python -m pip install --upgrade pip
-./.venv-multi/bin/python -m pip install -r requirements.txt
+./.venv-multi/bin/python -m pip --isolated install --require-hashes --only-binary=:all: --index-url https://pypi.org/simple -r requirements.lock
 ```
 
 Configure local credentials in the repository-root `.env`. If it does not exist, copy the root template:
@@ -177,10 +200,10 @@ These checks cover the local fictional fixture and prepared artifacts. They do n
 
 ## Day 3 baselines
 
-Install `requirements.txt` in the development environment. From the repository root:
+Install the hash-locked dependencies in the development environment. From the repository root:
 
 ```bash
-./.venv-multi/bin/python -m pip install -r requirements.txt
+./.venv-multi/bin/python -m pip --isolated install --require-hashes --only-binary=:all: --index-url https://pypi.org/simple -r requirements.lock
 ```
 
 The runtime intent classifier uses Laya's typed-choice endpoint; the held-out set is small and scores are not calibrated, so predictions remain review-only. TF-IDF plus logistic regression remains the explicit fallback and offline baseline. The policy pipeline chunks only versioned synthetic development documents under `knowledge_base/`, uses the locally cached `all-MiniLM-L6-v2` model, and targets the separate `agentic_customer_support_dev_policies_v1` Milvus collection. The existing unversioned collection is left untouched.

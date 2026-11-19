@@ -6,7 +6,7 @@ import logging
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Path, Request
 
-from ...approval.permissions import WorkflowActor, authorize_order, authorize_ticket, require_reviewer
+from ...approval.permissions import WorkflowActor, authorize_resource_scope, require_reviewer
 from ...approval.service import decide_proposal
 from ...approval.workflow_state import (
     WorkflowConflict,
@@ -31,10 +31,7 @@ def decide(
 ) -> dict:
     try:
         proposal = get_proposal(proposal_id)
-        if proposal.get("ticket_id"):
-            authorize_ticket(actor, str(proposal["ticket_id"]))
-        if proposal.get("order_id"):
-            authorize_order(actor, str(proposal["order_id"]))
+        authorize_resource_scope(actor, proposal)
         result = decide_proposal(
             proposal_id=proposal_id,
             actor=actor,

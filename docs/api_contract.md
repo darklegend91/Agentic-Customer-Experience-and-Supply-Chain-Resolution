@@ -38,7 +38,7 @@ Example:
 
 Required fields: schema_version, candidate intent, triage status, risk flags, model score, classifier version, and needs_human_review. Responses also expose `classifier_provider`, `fallback_used`, `baseline_intent`, `models_agree`, `confidence_calibrated`, and `automatic_routing_enabled`. Laya and TF-IDF disagreement, fallback, abstention, or uncalibrated confidence never silently becomes an automatic decision. The current live Laya evaluation is weak; automatic routing is disabled by default.
 
-intent is one of the documented business labels, or `other_or_unsupported`. The current classifier returns a candidate label; confidence is a model-reported value in [0, 1], not a calibrated probability. Entity extraction returns allowlisted order, item, SKU, and return references. Extracted references remain customer-reported hints and do not grant authorization.
+intent is one of the documented business labels, including the clarification-only `unrecognized_package` label, or `other_or_unsupported`. The current classifier returns a candidate label; confidence is a model-reported value in [0, 1], not a calibrated probability. Entity extraction returns allowlisted order, item, SKU, and return references. Extracted references remain customer-reported hints and do not grant authorization.
 
 ## Evidence envelope
 

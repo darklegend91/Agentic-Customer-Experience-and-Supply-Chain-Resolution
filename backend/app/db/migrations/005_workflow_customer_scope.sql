@@ -1,0 +1,1 @@
+ALTER TABLE workflow_runs ADD COLUMN IF NOT EXISTS customer_id VARCHAR(128);

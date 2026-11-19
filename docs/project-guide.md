@@ -75,6 +75,7 @@ The repository does not currently contain final product screenshots for this gui
 | Technique | How this project uses it | Current limit |
 | --- | --- | --- |
 | Structured intent classification | Laya's in-process `Router` returns an allowlisted typed intent and confidence. It also performs an input-safety choice. See [`backend/app/classification/laya.py`](../backend/app/classification/laya.py). | Model scores are not calibrated. A failed/unsafe/abstaining result must be reviewed. The old HTTP-playground instructions in some Day 4 notes do not match the current in-process adapter. |
+| Langfuse observability | When enabled, traces cover Streamlit API round trips, FastAPI requests, Laya and response-model generations, LangGraph nodes, embedding/model-load time, semantic and keyword retrieval, Milvus, and database scopes. Trace context connects Streamlit and FastAPI; workflow UUIDs group worker retries and approvals. | Health and rapid workflow polling are omitted. The small EC2 profile has no durable worker, so worker spans require the full workflow profile. SQL text, customer data, prompts, outputs, credentials, and raw exception details are omitted. |
 | TF-IDF baseline | scikit-learn provides a local fallback classifier. Its result is marked as fallback and cannot authorize automatic routing. | A fallback classification is for human review only. |
 | Confidence-gated allowlisted routing | A deterministic supervisor maps recognized intents to one of five specialist stages. Threshold, safety, fallback, and triage flags can send a request to manual review. | Automatic routing is disabled by default in the workflow configuration; the model cannot pick arbitrary tools or graph nodes. |
 | Semantic and keyword retrieval | Sentence Transformers `all-MiniLM-L6-v2` embeds text for search in a development Milvus collection. A separate keyword baseline searches the local versioned chunks. | The code runs selected methods serially. The indexed corpus contains synthetic development drafts, not approved policy. |
@@ -85,6 +86,41 @@ The repository does not currently contain final product screenshots for this gui
 | Grounded response and validation | A deterministic answer template is the default. An optional configured Groq/OpenAI-compatible model can draft text, with no tools. Output validation rejects unsupported claims or references. | Optional model output is not an authority for policy or approval. General semantic entailment is not proven. |
 | Human-in-the-loop checkpoint | The full LangGraph profile can pause at a proposal, revalidate evidence, and record approve/reject decisions idempotently. | Approval means simulation only. Approval resume is synchronous in the API and has no automatic retry after process failure. |
 | Privacy and safe failure | Input masking, scope checks, bounded schemas, request IDs, safe error categories, and review fallbacks protect the demo flow. | These controls do not replace production identity, retention, audit, and operations controls. |
+
+### Langfuse trace coverage and setup
+
+The trace hierarchy uses these observation names and safe measurements:
+
+| Layer | Langfuse observations | What the timing/metadata shows |
+| --- | --- | --- |
+| Streamlit → API | `frontend.api_request` with nested `api.request` | End-to-end HTTP round-trip, server request duration, route template, HTTP status, and a UUID request ID. The parent relationship is sent with trace-context headers; a random Streamlit session UUID groups UI calls. |
+| Streamlit Groq synthesis | `frontend.groq_synthesis` generation | Exact configured model name, provider, duration, status, and provider-reported token counts when returned by Groq. Prompt and answer are not recorded. |
+| API and local guard | `api.request` | FastAPI request duration, route template, status, and safe error type, including calls rejected by the local-development guard. `/health` and `GET /workflows/*` polling are excluded. |
+| MCP server | `mcp.<tool_name>` | Duration and success/error category for each of the nine read-only MCP tools. Arguments and returned customer/evidence data are not recorded. |
+| Laya | `laya.model_selection_and_load`, `laya.input_safety`, `laya.intent_classification` | Model selection/load duration plus separate model-tagged generation durations for input safety and intent. Laya is local inference, so it has no provider token usage or cost. |
+| Response model | `response.groq_draft`, `response.openai_compatible_draft` | Model and provider, duration, safe status/error, plus input/output token usage only if the provider response supplies it. Cost is shown only if Langfuse has matching model pricing data. |
+| LangGraph workflow | `worker.workflow_job`, `workflow.graph_invoke`, `workflow.approval_resume`, `langgraph.<node>` | Total worker job duration, graph invocation duration, and each executed graph node. Session ID is the workflow UUID, allowing retries and approval resumes to be grouped. These spans require the full workflow worker profile. |
+| Embeddings and retrieval | `embedding.model_load`, `embedding.encode_texts`, `retrieval.semantic_search`, `vector_store.milvus_search`, `retrieval.keyword_search`, `tools.policy_search` | Lazy model load time, local embedding duration, batch size/vector dimensions, retrieval method, top-k, collection and result count. Query text, embedding vectors, and retrieved passages are not recorded. |
+| Retrieval evaluation | `rag.evaluation_run` | Labeled batch size, methods, top-k, and aggregate Hit@1/Hit@k/MRR/scope/citation metrics when labels are present. Individual questions and case IDs are excluded. |
+| Databases | `database.neon_readonly`, `database.workflow_store` | Read-only Neon cursor scope and each workflow-store connection/transaction duration. Credentials, SQL statements/parameters, and row contents are omitted. |
+
+Configure `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`,
+`LANGFUSE_TRACING_ENABLED=true`, and `LANGFUSE_ENVIRONMENT=ec2-demo` in the EC2
+runtime file. Put the same project keys, URL, environment, and enabled flag in
+Streamlit Community Cloud **Manage app → Settings → Secrets**. The credentials
+stay on the Streamlit server and are not sent to the browser. A shared Langfuse
+project is required for the API span to appear as a child of the Streamlit span.
+Do not change `APP_ENV` to label Langfuse; the EC2 demo uses `APP_ENV=local` to
+enable only its synthetic development fixtures behind its private demo access
+layer. Set `LANGFUSE_ENVIRONMENT` independently.
+
+The Langfuse model-latency chart should populate with `laya/<checkpoint>` and
+the exact configured Groq/OpenAI-compatible model names after new requests are
+processed. Embeddings are shown as embedding observations; their local model
+duration does not imply a hosted API bill. Model names and usage can only be
+added to newly created observations; historic traces are not backfilled. If
+the Langfuse endpoint is unreachable, disable tracing while repairing network
+access rather than treating missing observations as application latency.
 
 ## 4. Architecture diagrams
 
@@ -358,6 +394,7 @@ Use the full command sequence, SSH key troubleshooting, security-group rules, an
 5. **Fixture endpoints are development-only.** They expose fictional records and rely on the local environment guard. A proxy token is suitable for a restricted demo path but is not a production identity provider or per-customer authorization system.
 6. **Policy and data are synthetic.** Do not state that the current retrieval index contains approved retailer policy, and do not load project fixtures into production.
 7. **No external actions exist.** Reviewer approval records a simulation; it does not execute a refund, replacement, payment, points adjustment, or customer contact.
+8. **EC2 Langfuse export needs runtime secrets and network access.** The image keeps tracing disabled as its build-time default; `deploy/.env.ec2.example` enables it at runtime. Add real project keys and a reachable base URL to the private runtime file and the same project credentials to Streamlit Community Cloud Secrets. Existing observations do not backfill newly added model or latency attributes.
 
 ## 11. Existing design assets and how to interpret them
 

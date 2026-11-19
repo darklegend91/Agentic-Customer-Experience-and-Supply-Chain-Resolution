@@ -17,6 +17,7 @@ from backend.app.runtime import require_local_development
 
 MIGRATION = PROJECT_ROOT / "backend" / "app" / "db" / "migrations" / "001_workflow_storage.sql"
 JOB_QUEUE_MIGRATION = PROJECT_ROOT / "backend" / "app" / "db" / "migrations" / "003_workflow_job_queue.sql"
+CUSTOMER_SCOPE_MIGRATION = PROJECT_ROOT / "backend" / "app" / "db" / "migrations" / "005_workflow_customer_scope.sql"
 
 
 def main() -> None:
@@ -26,7 +27,7 @@ def main() -> None:
         raise SystemExit("Set WORKFLOW_DATABASE_URL to a dedicated write-enabled workflow database URL.")
 
     statements = []
-    for migration in (MIGRATION, JOB_QUEUE_MIGRATION):
+    for migration in (MIGRATION, JOB_QUEUE_MIGRATION, CUSTOMER_SCOPE_MIGRATION):
         sql = migration.read_text(encoding="utf-8")
         statements.extend(statement.strip() for statement in sql.split(";") if statement.strip())
     try:

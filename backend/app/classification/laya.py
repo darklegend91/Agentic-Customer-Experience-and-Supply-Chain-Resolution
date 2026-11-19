@@ -7,7 +7,7 @@ import os
 import re
 import threading
 from typing import Any
-from ..observability.tracing import trace_stage
+from ..observability.tracing import trace_model_call, trace_stage
 
 _in_process_router: Any = None
 _in_process_lock = threading.Lock()
@@ -43,6 +43,7 @@ INTENT_OPTIONS: dict[str, str] = {
     "return_eligibility": "The customer asks whether a specific item can be returned.",
     "return_pickup": "The customer asks about return collection or pickup progress.",
     "return_status": "The customer asks for the recorded state of an existing return.",
+    "unrecognized_package": "The customer received a package that may not be connected to any order they placed.",
     "reward_expiry": "The customer asks about loyalty points or rewards that are expiring or have expired.",
     "reward_redemption": "The customer asks about a points redemption or reward redemption status.",
     "other_or_unsupported": "The request is unclear, outside these intents, or about an unsupported service.",
@@ -140,11 +141,13 @@ def classify_with_laya(message: str) -> dict[str, Any]:
             if _in_process_router is None:
                 _in_process_router = Router(max_loaded=1, default="english")
             model_override = os.getenv("LAYA_MODEL", "").strip() or None
-            with trace_stage("laya.model_selection_and_load"):
+            with trace_stage("laya.model_selection_and_load", {"provider": "laya"}):
                 decision = _in_process_router.route(state, questions, model=model_override)
                 agent = _in_process_router.load(decision.model)
+            model_name = f"laya/{decision.model}"
             with trace_stage("laya.input_safety", {"model": str(decision.model)}):
-                safety_body = agent.system_one(state, safety_questions)
+                with trace_model_call("laya.input_safety", model_name):
+                    safety_body = agent.system_one(state, safety_questions)
             safety_passed = _safety_passed(safety_body, threshold)
             if not safety_passed:
                 return {
@@ -156,7 +159,8 @@ def classify_with_laya(message: str) -> dict[str, Any]:
                     "safety_passed": False, "input_truncated": False,
                 }
             with trace_stage("laya.intent_classification", {"model": str(decision.model)}):
-                body = agent.system_one(state, questions)
+                with trace_model_call("laya.intent_classification", model_name):
+                    body = agent.system_one(state, questions)
     except LayaClassifierError:
         raise
     except Exception as exc:

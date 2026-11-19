@@ -8,7 +8,10 @@ from typing import Any, Literal
 from ..api.schemas.evidence import PolicySearchResponse
 from ..milvus_index import collection_name
 from ..policy_retrieval import KeywordPolicyRetriever, MilvusPolicyRetriever
+from ..observability.tracing import trace_stage, update_trace_span
 from ..runtime import require_local_development
+from ..guardrails.content_safety import require_safe_evidence, require_safe_text
+from ..security.pii_masking import mask_sensitive_text
 
 
 PolicyMethod = Literal["semantic", "keyword"]
@@ -52,23 +55,33 @@ def search_policy(
 ) -> dict[str, Any]:
     """Search draft synthetic passages; results are not approved customer policy."""
     require_local_development()
+    query = mask_sensitive_text(require_safe_text(query, max_chars=5000))
     selected = list(dict.fromkeys(["semantic", "keyword"] if methods is None else methods))
     if not selected or any(method not in {"semantic", "keyword"} for method in selected):
         raise ValueError("Select semantic, keyword, or both policy methods")
     if not 1 <= top_k <= 10:
         raise ValueError("top_k must be between 1 and 10")
 
-    results = {}
-    for method in selected:
-        retriever = _get_semantic_retriever() if method == "semantic" else _get_keyword_retriever()
-        if method == "semantic":
-            # MilvusClient is retained for process reuse; serialize operations on
-            # that client until a bounded client pool is configured for serving.
-            with _retriever_lock:
+    with trace_stage("tools.policy_search", {
+        "method": "+".join(selected),
+        "top_k": top_k,
+        "locale": locale,
+    }) as span:
+        results = {}
+        for method in selected:
+            retriever = _get_semantic_retriever() if method == "semantic" else _get_keyword_retriever()
+            if method == "semantic":
+                # MilvusClient is retained for process reuse; serialize operations on
+                # that client until a bounded client pool is configured for serving.
+                with _retriever_lock:
+                    results[method] = retriever.search(query, top_k=top_k, locale=locale)
+            else:
                 results[method] = retriever.search(query, top_k=top_k, locale=locale)
-        else:
-            results[method] = retriever.search(query, top_k=top_k, locale=locale)
+        update_trace_span(span, output={
+            "result_count": sum(len(method_results) for method_results in results.values()),
+        })
 
+    require_safe_evidence(results)
     missing_fields = [] if any(results.values()) else ["relevant_policy_passage"]
     result = {
         "status": "found" if not missing_fields else "insufficient_data",

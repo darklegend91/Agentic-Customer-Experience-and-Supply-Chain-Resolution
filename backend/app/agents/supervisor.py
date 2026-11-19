@@ -31,6 +31,7 @@ INTENT_TO_SPECIALIST = {
     "loyalty_points": "loyalty_rewards",
     "reward_expiry": "loyalty_rewards",
     "reward_redemption": "loyalty_rewards",
+    "unrecognized_package": "manual_review",
 }
 
 

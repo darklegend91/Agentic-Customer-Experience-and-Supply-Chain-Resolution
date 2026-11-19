@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic resolution workflow data flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#eaf0f5; --muted:#91a0ae; --teal:#62dec2; --amber:#f3bd69; --red:#ff8b86; --blue:#77b9ff; --font-sans:'Geist',system-ui,sans-serif; --font-mono:'Geist Mono',ui-monospace,monospace; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:32px; min-height:100vh; background:#0a1118; color:var(--ink); font-family:var(--font-sans); }
+    .frame { width:100%; max-width:1280px; margin:0 auto; }
+    .eyebrow { margin:0 0 7px; color:var(--teal); font:500 11px/1.2 var(--font-mono); letter-spacing:.16em; text-transform:uppercase; }
+    h1 { margin:0 0 18px; font-size:27px; line-height:1.15; font-weight:600; letter-spacing:-.025em; }
+    .diagram-container { width:100%; overflow-x:auto; border:1px solid #263443; border-radius:14px; box-shadow:0 18px 55px rgba(0,0,0,.28); }
+    svg { width:100%; min-width:1280px; display:block; }
+    @media print { body { padding:0; } .diagram-container { overflow:visible; border:0; } svg { min-width:0; } }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <p class="eyebrow">Unstructured input → structured artifact · data flow</p>
+    <h1>From customer message to safe resolution</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="workflow-data-flow-title workflow-data-flow-desc">
+        <title id="workflow-data-flow-title">Agentic customer-resolution workflow data flow</title>
+        <desc id="workflow-data-flow-desc">A swimlane data-flow diagram showing a customer issue moving from the control room through FastAPI screening, triage, an allowlisted specialist, read-only evidence, an evidence ledger, deterministic rules, and either a safe answer, a human-review proposal, or an escalation.</desc>
+        <defs>
+          <linearGradient id="workflow-data-flow-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#143340"/><stop offset=".55" stop-color="#0c141d"/><stop offset="1" stop-color="#0a1118"/>
+          </linearGradient>
+          <marker id="workflow-data-flow-arrow-teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#62dec2"/></marker>
+          <marker id="workflow-data-flow-arrow-amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f3bd69"/></marker>
+          <marker id="workflow-data-flow-arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#77b9ff"/></marker>
+          <style>
+            .lane-label { fill:#91a0ae; font:600 9px 'Geist Mono',monospace; letter-spacing:.11em; }
+            .step-number { fill:#62dec2; font:600 10px 'Geist Mono',monospace; letter-spacing:.08em; }
+            .step-label { fill:#91a0ae; font:500 9px 'Geist Mono',monospace; letter-spacing:.06em; }
+            .node-title { fill:#eaf0f5; font:600 13px 'Geist',sans-serif; }
+            .node-detail { fill:#91a0ae; font:400 9px 'Geist Mono',monospace; }
+            .chip { font:600 7.5px 'Geist Mono',monospace; letter-spacing:.08em; }
+            .flow-label { font:500 8px 'Geist Mono',monospace; letter-spacing:.05em; }
+            .callout { fill:#91a0ae; font:400 10px 'Geist',sans-serif; }
+          </style>
+        </defs>
+
+        <rect width="1280" height="720" fill="url(#workflow-data-flow-bg)"/>
+        <text x="52" y="49" fill="#62dec2" class="flow-label">CONTROLLED, EXPLAINABLE RESOLUTION PATH</text>
+        <text x="52" y="75" fill="#eaf0f5" font-family="'Geist',sans-serif" font-size="18" font-weight="600">Every tool result becomes evidence before a customer-facing answer is drafted.</text>
+        <path d="M40 112 H1240" stroke="#263443" stroke-width="1"/>
+
+        <!-- Step rail -->
+        <text x="150" y="141" class="step-number" text-anchor="middle">01</text><text x="150" y="157" class="step-label" text-anchor="middle">SUBMIT</text>
+        <text x="350" y="141" class="step-number" text-anchor="middle">02</text><text x="350" y="157" class="step-label" text-anchor="middle">SCREEN</text>
+        <text x="545" y="141" class="step-number" text-anchor="middle">03</text><text x="545" y="157" class="step-label" text-anchor="middle">ROUTE</text>
+        <text x="745" y="141" class="step-number" text-anchor="middle">04</text><text x="745" y="157" class="step-label" text-anchor="middle">GATHER</text>
+        <text x="950" y="141" class="step-number" text-anchor="middle">05</text><text x="950" y="157" class="step-label" text-anchor="middle">VERIFY</text>
+        <text x="1140" y="141" class="step-number" text-anchor="middle">06</text><text x="1140" y="157" class="step-label" text-anchor="middle">RESOLVE</text>
+
+        <!-- lane fills intentionally have no strokes -->
+        <rect x="40" y="168" width="1200" height="96" rx="12" fill="#111c27" fill-opacity=".58"/>
+        <rect x="40" y="276" width="1200" height="114" rx="12" fill="#162330" fill-opacity=".54"/>
+        <rect x="40" y="402" width="1200" height="112" rx="12" fill="#111c27" fill-opacity=".58"/>
+        <rect x="40" y="526" width="1200" height="96" rx="12" fill="#162330" fill-opacity=".54"/>
+        <text x="53" y="183" class="lane-label">SUPPORT EXPERIENCE</text>
+        <text x="53" y="291" class="lane-label">API + SAFETY BOUNDARY</text>
+        <text x="53" y="417" class="lane-label">LANGGRAPH AGENT ORCHESTRATION</text>
+        <text x="53" y="541" class="lane-label">READ-ONLY EVIDENCE + HUMAN REVIEW</text>
+
+        <!-- connectors behind nodes -->
+        <path d="M230 213 H250 V335 H270" fill="none" stroke="#62dec2" stroke-width="2" marker-end="url(#workflow-data-flow-arrow-teal)"/>
+        <path d="M430 335 H450 V451 H470" fill="none" stroke="#62dec2" stroke-width="2" marker-end="url(#workflow-data-flow-arrow-teal)"/>
+        <path d="M620 451 H665" fill="none" stroke="#62dec2" stroke-width="2" marker-end="url(#workflow-data-flow-arrow-teal)"/>
+        <path d="M745 492 V540" fill="none" stroke="#f3bd69" stroke-width="1.8" marker-end="url(#workflow-data-flow-arrow-amber)"/>
+        <path d="M825 576 H850 V451 H870" fill="none" stroke="#f3bd69" stroke-width="1.8" marker-end="url(#workflow-data-flow-arrow-amber)"/>
+        <path d="M1030 451 H1060" fill="none" stroke="#62dec2" stroke-width="2.1" marker-end="url(#workflow-data-flow-arrow-teal)"/>
+        <path d="M1140 402 V250" fill="none" stroke="#77b9ff" stroke-width="1.7" marker-end="url(#workflow-data-flow-arrow-blue)"/>
+        <path d="M1140 502 V540" fill="none" stroke="#f3bd69" stroke-width="1.8" marker-end="url(#workflow-data-flow-arrow-amber)"/>
+        <path d="M1185 540 V520 H1200 V502" fill="none" stroke="#77b9ff" stroke-width="1.8" marker-end="url(#workflow-data-flow-arrow-blue)"/>
+        <path d="M350 385 V396 H426" fill="none" stroke="#ff8b86" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <path d="M426 388 L436 404 M436 388 L426 404" stroke="#ff8b86" stroke-width="2"/>
+
+        <!-- connector labels in unoccupied space -->
+        <text x="242" y="202" fill="#62dec2" class="flow-label">MESSAGE + ORDER REF</text>
+        <text x="442" y="325" fill="#62dec2" class="flow-label">SANITIZED JOB</text>
+        <text x="632" y="440" fill="#62dec2" class="flow-label">INTENT</text>
+        <text x="755" y="526" fill="#f3bd69" class="flow-label">TOOL QUERY</text>
+        <text x="852" y="438" fill="#f3bd69" class="flow-label">FACTS + POLICY HITS</text>
+        <text x="1043" y="440" fill="#62dec2" class="flow-label">TYPED EVIDENCE</text>
+        <text x="1128" y="347" fill="#77b9ff" class="flow-label" text-anchor="end">SAFE RESPONSE</text>
+        <text x="1128" y="528" fill="#f3bd69" class="flow-label" text-anchor="end">PROPOSAL / ESCALATION</text>
+        <text x="1208" y="528" fill="#77b9ff" class="flow-label">DECISION</text>
+        <text x="423" y="381" fill="#ff8b86" class="flow-label" text-anchor="end">INJECTION / UNSAFE</text>
+
+        <!-- 01 Support UI -->
+        <rect x="70" y="175" width="160" height="75" rx="10" fill="#132937" stroke="#62dec2" stroke-width="1.35"/>
+        <rect x="83" y="188" width="28" height="14" rx="4" fill="#1f4b50"/>
+        <text x="97" y="198.5" fill="#62dec2" class="chip" text-anchor="middle">UI</text>
+        <text x="150" y="219" class="node-title" text-anchor="middle">Control room</text>
+        <text x="150" y="238" class="node-detail" text-anchor="middle">issue + order reference</text>
+
+        <!-- 02 FastAPI -->
+        <rect x="270" y="285" width="160" height="100" rx="10" fill="#132937" stroke="#62dec2" stroke-width="1.45"/>
+        <rect x="283" y="298" width="49" height="14" rx="4" fill="#1f4b50"/>
+        <text x="307" y="308.5" fill="#62dec2" class="chip" text-anchor="middle">GATE</text>
+        <text x="350" y="330" class="node-title" text-anchor="middle">FastAPI intake</text>
+        <text x="350" y="349" class="node-detail" text-anchor="middle">auth · request ID · schema</text>
+        <text x="350" y="365" class="node-detail" text-anchor="middle">sanitize · mask PII · guard</text>
+
+        <!-- 03 triage -->
+        <rect x="470" y="410" width="150" height="82" rx="10" fill="#18312f" stroke="#62dec2" stroke-width="1.45"/>
+        <rect x="483" y="423" width="43" height="14" rx="4" fill="#255449"/>
+        <text x="504" y="433.5" fill="#62dec2" class="chip" text-anchor="middle">ROUTE</text>
+        <text x="545" y="454" class="node-title" text-anchor="middle">Triage + supervisor</text>
+        <text x="545" y="473" class="node-detail" text-anchor="middle">Laya intent · confidence</text>
+
+        <!-- 04 specialist -->
+        <rect x="665" y="410" width="160" height="82" rx="10" fill="#18312f" stroke="#62dec2" stroke-width="1.45"/>
+        <rect x="678" y="423" width="35" height="14" rx="4" fill="#255449"/>
+        <text x="696" y="433.5" fill="#62dec2" class="chip" text-anchor="middle">AGENT</text>
+        <text x="745" y="454" class="node-title" text-anchor="middle">Allowlisted specialist</text>
+        <text x="745" y="473" class="node-detail" text-anchor="middle">policy · delivery · returns · loyalty</text>
+
+        <!-- evidence source -->
+        <rect x="665" y="540" width="160" height="72" rx="10" fill="#2c2921" stroke="#f3bd69" stroke-width="1.3"/>
+        <rect x="678" y="553" width="34" height="14" rx="4" fill="#4d4228"/>
+        <text x="695" y="563.5" fill="#f3bd69" class="chip" text-anchor="middle">READ</text>
+        <text x="745" y="582" class="node-title" text-anchor="middle">Verified evidence</text>
+        <text x="745" y="600" class="node-detail" text-anchor="middle">Neon facts + active policy hits</text>
+
+        <!-- 05 ledger -->
+        <rect x="870" y="410" width="160" height="82" rx="10" fill="#2c2921" stroke="#f3bd69" stroke-width="1.45"/>
+        <rect x="883" y="423" width="36" height="14" rx="4" fill="#4d4228"/>
+        <text x="901" y="433.5" fill="#f3bd69" class="chip" text-anchor="middle">PROOF</text>
+        <text x="950" y="454" class="node-title" text-anchor="middle">Evidence ledger</text>
+        <text x="950" y="473" class="node-detail" text-anchor="middle">completeness · conflict checks</text>
+
+        <!-- 06 deterministic resolution -->
+        <rect x="1060" y="402" width="160" height="100" rx="10" fill="#18312f" stroke="#62dec2" stroke-width="1.65"/>
+        <rect x="1073" y="415" width="36" height="14" rx="4" fill="#255449"/>
+        <text x="1091" y="425.5" fill="#62dec2" class="chip" text-anchor="middle">RULES</text>
+        <text x="1140" y="446" class="node-title" text-anchor="middle">Rules + response guard</text>
+        <text x="1140" y="465" class="node-detail" text-anchor="middle">draft grounded response</text>
+        <text x="1140" y="481" class="node-detail" text-anchor="middle">answer · proposal · escalation</text>
+
+        <!-- response -->
+        <rect x="1060" y="175" width="160" height="75" rx="10" fill="#142637" stroke="#77b9ff" stroke-width="1.35"/>
+        <rect x="1073" y="188" width="35" height="14" rx="4" fill="#21445e"/>
+        <text x="1091" y="198.5" fill="#77b9ff" class="chip" text-anchor="middle">OUT</text>
+        <text x="1140" y="219" class="node-title" text-anchor="middle">Control-room answer</text>
+        <text x="1140" y="238" class="node-detail" text-anchor="middle">reason + confidence + evidence</text>
+
+        <!-- human gate -->
+        <rect x="1060" y="540" width="160" height="72" rx="10" fill="#2c2921" stroke="#f3bd69" stroke-width="1.3"/>
+        <rect x="1073" y="553" width="48" height="14" rx="4" fill="#4d4228"/>
+        <text x="1097" y="563.5" fill="#f3bd69" class="chip" text-anchor="middle">HUMAN</text>
+        <text x="1140" y="582" class="node-title" text-anchor="middle">Review gate</text>
+        <text x="1140" y="600" class="node-detail" text-anchor="middle">re-verify then approve / reject</text>
+
+        <!-- outcome key -->
+        <rect x="70" y="653" width="1130" height="40" rx="10" fill="#111c27"/>
+        <text x="88" y="677" fill="#62dec2" class="flow-label">GUARDRAIL</text>
+        <text x="168" y="677" class="callout">Unsafe content stops before tools. Missing or conflicting evidence never becomes an automated decision. Loyalty changes remain proposals until independently reviewed.</text>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>

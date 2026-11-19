@@ -5,8 +5,10 @@ from __future__ import annotations
 import asyncio
 import logging
 import os
+import re
 import time
 from contextlib import nullcontext
+from uuid import UUID
 from uuid import uuid4
 
 from fastapi import Request
@@ -14,10 +16,36 @@ from fastapi.responses import JSONResponse, Response
 
 from ..runtime import LocalDevelopmentOnly, require_local_development
 from ..observability.logging import log_request_complete
-from ..observability.tracing import trace_stage, update_trace_span
+from ..observability.tracing import trace_attributes, trace_stage, update_trace_span
 
 
 logger = logging.getLogger("agentic_customer_support.requests")
+_LANGFUSE_TRACE_ID = re.compile(r"^[0-9a-f]{32}$")
+_LANGFUSE_SPAN_ID = re.compile(r"^[0-9a-f]{16}$")
+
+
+def _request_id(request: Request) -> str:
+    supplied = request.headers.get("X-Request-ID", "")
+    try:
+        return str(UUID(supplied))
+    except (ValueError, TypeError, AttributeError):
+        return str(uuid4())
+
+
+def _trace_context(request: Request) -> dict[str, str] | None:
+    trace_id = request.headers.get("X-Langfuse-Trace-Id", "").lower()
+    parent_id = request.headers.get("X-Langfuse-Parent-Observation-Id", "").lower()
+    if _LANGFUSE_TRACE_ID.fullmatch(trace_id) and _LANGFUSE_SPAN_ID.fullmatch(parent_id):
+        return {"trace_id": trace_id, "parent_span_id": parent_id}
+    return None
+
+
+def _trace_session_id(request: Request) -> str | None:
+    supplied = request.headers.get("X-Langfuse-Session-Id", "")
+    try:
+        return str(UUID(supplied))
+    except (ValueError, TypeError, AttributeError):
+        return None
 
 
 def _request_timeout_seconds() -> float:
@@ -33,9 +61,10 @@ def install_request_middleware(app) -> None:
 
     @app.middleware("http")
     async def request_middleware(request: Request, call_next) -> Response:
-        request_id = str(uuid4())
+        request_id = _request_id(request)
         request.state.request_id = request_id
         started = time.perf_counter()
+        incoming_trace_context = _trace_context(request)
 
         response = None
         error_type = None
@@ -58,23 +87,36 @@ def install_request_middleware(app) -> None:
                 )
 
         if response is None:
+            span = None
             try:
                 # Health and status polling keep their existing latency logs,
                 # without creating a cloud trace on every UI refresh.
                 monitor = request.url.path != "/health" and not (
                     request.method == "GET" and request.url.path.startswith("/workflows/")
                 )
-                context = trace_stage("api.request", {"request_id": request_id, "method": request.method}) if monitor else nullcontext(None)
-                with context as span:
-                    async with asyncio.timeout(_request_timeout_seconds()):
-                        response = await call_next(request)
-                    update_trace_span(span, output={
-                        "status_code": response.status_code,
-                        "route": getattr(request.scope.get("route"), "path", "unmatched"),
-                        "latency_ms": round((time.perf_counter() - started) * 1000, 2),
-                    })
+                context = trace_stage(
+                    "api.request",
+                    {"request_id": request_id, "method": request.method},
+                    trace_context=incoming_trace_context,
+                ) if monitor else nullcontext(None)
+                with trace_attributes(session_id=_trace_session_id(request), tags=["fastapi-api"]):
+                    with context as active_span:
+                        span = active_span
+                        async with asyncio.timeout(_request_timeout_seconds()):
+                            response = await call_next(request)
+                        update_trace_span(span, output={
+                            "status_code": response.status_code,
+                            "route": getattr(request.scope.get("route"), "path", "unmatched"),
+                            "latency_ms": round((time.perf_counter() - started) * 1000, 2),
+                        })
             except TimeoutError:
                 error_type = "request_timeout"
+                update_trace_span(span, level="ERROR", output={
+                    "status_code": 504,
+                    "route": getattr(request.scope.get("route"), "path", "unmatched"),
+                    "latency_ms": round((time.perf_counter() - started) * 1000, 2),
+                    "error_type": error_type,
+                })
                 response = JSONResponse(
                     status_code=504,
                     content={
@@ -88,6 +130,12 @@ def install_request_middleware(app) -> None:
                 )
             except Exception as exc:
                 error_type = type(exc).__name__
+                update_trace_span(span, level="ERROR", output={
+                    "status_code": 500,
+                    "route": getattr(request.scope.get("route"), "path", "unmatched"),
+                    "latency_ms": round((time.perf_counter() - started) * 1000, 2),
+                    "error_type": error_type,
+                })
                 response = JSONResponse(
                     status_code=500,
                     content={
@@ -99,6 +147,20 @@ def install_request_middleware(app) -> None:
                         },
                     },
                 )
+        elif request.url.path != "/health":
+            # Keep guarded calls visible even though the route is rejected before dispatch.
+            with trace_attributes(session_id=_trace_session_id(request), tags=["fastapi-api"]):
+                with trace_stage(
+                    "api.request",
+                    {"request_id": request_id, "method": request.method, "route": "local_development_guard"},
+                    trace_context=incoming_trace_context,
+                ) as span:
+                    update_trace_span(span, level="WARNING", output={
+                        "status_code": response.status_code,
+                        "route": "local_development_guard",
+                        "latency_ms": round((time.perf_counter() - started) * 1000, 2),
+                        "error_type": error_type,
+                    })
 
         response.headers["X-Request-ID"] = request_id
         route = request.scope.get("route")

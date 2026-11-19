@@ -12,6 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from .embeddings import encode_texts
 from .milvus_index import OUTPUT_FIELDS, VECTOR_FIELD, collection_name, create_client
+from .observability.tracing import trace_stage, traced_stage, update_trace_span
 from .policy_documents import OUTPUT_DIR
 
 
@@ -94,8 +95,10 @@ def _to_result(row: dict[str, Any], score: float, rank: int) -> dict[str, Any]:
 class KeywordPolicyRetriever:
     """A small TF-IDF keyword baseline over the same scoped policy chunks."""
 
+    @traced_stage("retrieval.keyword_index_build")
     def __init__(self, chunks: list[dict[str, Any]] | None = None):
-        self.chunks = chunks if chunks is not None else load_chunks()
+        with trace_stage("retrieval.keyword_index_load", {"method": "keyword"}):
+            self.chunks = chunks if chunks is not None else load_chunks()
         self.eligible = [
             row for row in self.chunks
             if _allowed_dev_record(row, str(row.get("marketplace", "")))
@@ -116,6 +119,7 @@ class KeywordPolicyRetriever:
             )
             self.matrix = self.vectorizer.fit_transform(corpus)
 
+    @traced_stage("retrieval.keyword_search")
     def search(
         self,
         query: str,
@@ -154,6 +158,7 @@ class KeywordPolicyRetriever:
 class MilvusPolicyRetriever:
     """Milvus semantic retrieval restricted to the versioned synthetic dev corpus."""
 
+    @traced_stage("vector_store.milvus_connect_and_load")
     def __init__(self, *, client=None, collection: str | None = None, model_name: str | None = None):
         self.client = client or create_client()
         self.owns_client = client is None
@@ -176,6 +181,7 @@ class MilvusPolicyRetriever:
             f"and locale == {escaped_locale}"
         )
 
+    @traced_stage("retrieval.semantic_search")
     def search(
         self,
         query: str,
@@ -189,16 +195,23 @@ class MilvusPolicyRetriever:
             raise ValueError("Query must not be empty")
         locale = _validate_locale(locale)
         vector = encode_texts([query], model_name=self.model_name)[0]
-        hits = self.client.search(
-            collection_name=self.collection,
-            data=[vector],
-            anns_field=VECTOR_FIELD,
-            filter=self._filter(marketplace, locale),
-            limit=top_k,
-            output_fields=OUTPUT_FIELDS,
-            search_params={"metric_type": "COSINE", "params": {}},
-            timeout=10,
-        )
+        with trace_stage("vector_store.milvus_search", {
+            "system": "milvus",
+            "operation": "search",
+            "top_k": top_k,
+            "collection": self.collection,
+        }) as span:
+            hits = self.client.search(
+                collection_name=self.collection,
+                data=[vector],
+                anns_field=VECTOR_FIELD,
+                filter=self._filter(marketplace, locale),
+                limit=top_k,
+                output_fields=OUTPUT_FIELDS,
+                search_params={"metric_type": "COSINE", "params": {}},
+                timeout=10,
+            )
+            update_trace_span(span, output={"result_count": len(hits[0]) if hits else 0})
         results = []
         for hit in hits[0] if hits else []:
             row = dict(hit.get("entity") or {})

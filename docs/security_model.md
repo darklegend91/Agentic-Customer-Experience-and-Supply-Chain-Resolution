@@ -30,6 +30,70 @@ Production authentication uses an organization-approved OIDC/JWT issuer. Validat
 
 ## Untrusted content
 
+The `sanitize_input` LangGraph agent runs before request assessment. The shared
+guard also runs before job persistence, classification and policy retrieval,
+after stored-ticket lookup, on specialist evidence, and before response drafting.
+Older checkpoints are rescreened before rules, proposal persistence and approval.
+The sanitizer uses deterministic Python and adds no runtime dependencies or tools.
+
+It screens direct instruction overrides, role delimiters, common command/package
+installation and SQL payloads, active markup, Markdown reference links, Unicode
+formatting tricks and bounded HTML/URL/base64/hex/escaped representations. Inputs
+are limited to 5,000 message and 3,000 query characters; oversized stored tickets
+are rejected. Decoding stops with rejection at its work limit. Nested evidence
+has depth, size and type limits. Rejected evidence is cleared before checkpointing
+the stage result. Audit events contain a version, verdict and reason codes only.
+
+Contact identifiers, quoted credential values, Basic/Bearer credentials, private
+keys and database connection strings are masked before initial job/checkpoint
+storage. Encoded credential-like content is rejected. Generated responses are
+checked again for secrets, instructions and unverified links. The generic LLM
+must return the exact canonical answer and claims; Groq can select only fixed
+opening/closing phrases around the exact verified facts. Invalid output uses
+the deterministic fallback or escalates through the existing validation gate.
+
+These are bounded heuristics with false positives and false negatives. They do
+not establish safety against every language, encoding, model jailbreak, poisoned
+source or resource-exhaustion attack. Scoped tools, parameterized queries,
+deterministic rules and separate human approval remain the security boundaries.
+
+## Dependency supply chain
+
+`requirements.lock` pins runtime dependencies and distribution SHA256 hashes;
+`requirements-security.lock` isolates the pinned auditing tools. The runtime
+constraints retain versions audited in the current development environment, with
+Python 3.11-compatible alternatives where a package requires Python 3.12 or newer.
+Use a **fresh virtual environment**: pip does not revalidate hashes of packages
+already installed. Use `--isolated --require-hashes --only-binary=:all:` and the
+explicit `https://pypi.org/simple` index as shown in the README.
+
+Run `python scripts/check_dependency_sources.py` before dependency changes. It
+rejects unreviewed direct package names, unbounded requirements, custom indexes,
+trusted-host bypasses, editable/VCS/URL requirements, escaping/recursive includes,
+and unpinned or unhashed lock entries. It validates the constraints too. New direct
+dependencies require an explicit review of the package allowlist. Resolved names
+must also appear in `.security/dependency_allowlist.json`, preventing lock-only
+package additions from bypassing the direct manifest check. Regenerate with:
+
+```bash
+uv pip compile requirements.txt --constraint requirements.constraints.txt --universal --python-version 3.11 --generate-hashes --default-index https://pypi.org/simple --no-config --output-file requirements.lock
+```
+
+The security workflow runs on pushes, pull requests and a weekly schedule. It
+audits runtime and tool locks separately for known advisories and runs offline
+security regressions in a fresh hash-verified Mac/Python 3.14 environment.
+Actions are pinned by commit and have read-only repository permission.
+The audit script includes all platform/Python marker variants, splitting multiple
+versions of the same package into separate audit invocations.
+
+A clean advisory scan does not prove absence of malicious packages, unpublished
+vulnerabilities, tampered model files or compromised maintainers. Hashes establish
+the selected artifact's identity, not its trustworthiness. Existing CPU-only
+Docker images have their own pinned base-image provenance; these changes do not
+rebuild or scan those images. A separate CPU-specific lock and image scan are
+needed before changing their dependency installation path. No runtime agent has
+a package-install, shell-execution or arbitrary-SQL tool.
+
 Treat customer messages, product descriptions, order notes, captured webpages, policy excerpts, and model output as untrusted data. Flag instruction-override attempts, but do not rely only on keyword matching. Retrieved content cannot modify system instructions, data access, tool permissions, or approval requirements.
 
 Retrieved policy text is usable only after source verification and policy-manager approval. Filter by active version, lifecycle, production scope, marketplace, intent, jurisdiction, and effective date before it can support a decision. The workflow's claim validator compares each claim and its cited references to an allowlisted deterministic source claim and rejects extra or rephrased answer content. This is a conservative source check, not a general semantic entailment proof for arbitrary natural language.

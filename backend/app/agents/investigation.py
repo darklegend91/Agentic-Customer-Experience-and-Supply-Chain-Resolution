@@ -7,6 +7,9 @@ from typing import Any
 from ..observability.tracing import trace_stage
 
 from ..security.pii_masking import mask_sensitive_text
+from ..guardrails.content_safety import evidence_risk_codes
+from ..db.repositories import order_belongs_to_customer
+from .sanitization import sanitize_request
 from ..tools.order_tools import get_order_investigation
 from ..tools.customer_context_tools import get_customer_support_context
 from ..tools.policy_tools import PolicyMethod
@@ -27,9 +30,19 @@ SPECIALIST_REQUIREMENTS = {
 
 
 def prepare_input(state: dict[str, Any]) -> dict[str, Any]:
-    message = str(state.get("message") or "").strip()
+    screened = sanitize_request(state)
+    if screened.get("input_error_code"):
+        return screened
+    message = screened.get("message") or ""
     ticket_id = state.get("ticket_id")
     order_id = state.get("order_id")
+    customer_id = state.get("customer_id")
+    allowed_ticket_ids = set(state.get("allowed_ticket_ids") or [])
+    allowed_customer_ids = set(state.get("allowed_customer_ids") or [])
+    if ticket_id and "*" not in allowed_ticket_ids and ticket_id not in allowed_ticket_ids:
+        return {"input_error_code": "ticket_scope_denied", "status": "failed_safe"}
+    if customer_id and "*" not in allowed_customer_ids and customer_id not in allowed_customer_ids:
+        return {"input_error_code": "customer_scope_denied", "status": "failed_safe"}
 
     if ticket_id:
         try:
@@ -39,14 +52,19 @@ def prepare_input(state: dict[str, Any]) -> dict[str, Any]:
         if ticket.get("status") != "found" or not str(ticket.get("message") or "").strip():
             return {"input_error_code": "ticket_not_found_or_empty", "status": "failed_safe"}
         stored_message = str(ticket["message"]).strip()
-        if message and message not in {stored_message, mask_sensitive_text(stored_message)}:
+        stored_screen = sanitize_request({**state, "message": stored_message})
+        if stored_screen.get("input_error_code"):
+            return stored_screen
+        if message and message != stored_screen["message"]:
             return {"input_error_code": "ticket_message_mismatch", "status": "failed_safe"}
-        message = stored_message
+        message = stored_screen["message"]
         mapped_order_id = ticket.get("order_id")
         if order_id and mapped_order_id and order_id != mapped_order_id:
             return {"input_error_code": "ticket_order_reference_conflict", "status": "failed_safe"}
         order_id = order_id or mapped_order_id
 
+    if not message and customer_id:
+        message = "Show a customer investigation overview."
     if not message:
         return {"input_error_code": "ticket_message_required", "status": "failed_safe"}
 
@@ -57,10 +75,7 @@ def prepare_input(state: dict[str, Any]) -> dict[str, Any]:
         return {"input_error_code": "order_reference_conflict", "status": "needs_information"}
     order_id = order_id or (found_ids[0] if found_ids else None)
 
-    allowed_ticket_ids = set(state.get("allowed_ticket_ids") or [])
     allowed_order_ids = set(state.get("allowed_order_ids") or [])
-    if ticket_id and "*" not in allowed_ticket_ids and ticket_id not in allowed_ticket_ids:
-        return {"input_error_code": "ticket_scope_denied", "status": "failed_safe"}
     if order_id and "*" not in allowed_order_ids and order_id not in allowed_order_ids:
         return {"input_error_code": "order_scope_denied", "status": "failed_safe"}
 
@@ -69,7 +84,8 @@ def prepare_input(state: dict[str, Any]) -> dict[str, Any]:
         return {"input_error_code": "ticket_message_invalid", "status": "failed_safe"}
 
     return {
-        "message": clean_message[:5000],
+        **screened,
+        "message": clean_message,
         "order_id": order_id,
         "status": "running",
         "input_error_code": None,
@@ -89,8 +105,17 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
     methods = list(state.get("methods") or ["semantic", "keyword"])
     top_k = int(state.get("top_k") or 3)
     query = str(state.get("query") or state.get("message") or "")
+    screened = sanitize_request({"message": state.get("message"), "query": query})
+    if screened.get("input_error_code"):
+        return {**screened, "specialist_error_code": "unsafe_input", "evidence": {}, "evidence_refs": []}
+    query = screened["query"]
 
     try:
+        if state.get("customer_id") and state.get("order_id") and not order_belongs_to_customer(
+            str(state["order_id"]), str(state["customer_id"]),
+        ):
+            return {"specialist_error_code": "customer_order_reference_conflict",
+                    "status": "needs_information", "evidence": {}, "evidence_refs": []}
         if needs_order:
             if state.get("order_id"):
                 with trace_stage("tools.order_lookup"):
@@ -144,8 +169,14 @@ def gather_specialist_evidence(state: dict[str, Any], specialist: str) -> dict[s
             "specialist_error_type": type(exc).__name__,
             "specialist_error_code": "evidence_dependency_unavailable",
             "status": "failed_safe",
-            "evidence": evidence,
+            "evidence": {},
         }
+
+    risks = evidence_risk_codes(evidence)
+    if risks:
+        return {"evidence": {}, "evidence_refs": [], "status": "escalated",
+                "specialist_error_code": "unsafe_evidence", "error_code": "unsafe_evidence",
+                "reason_codes": ["unsafe_evidence", *risks]}
 
     refs: set[str] = set()
     order_evidence = evidence.get("order") or {}

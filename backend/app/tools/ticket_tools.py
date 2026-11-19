@@ -11,10 +11,12 @@ from ..classification.laya import LayaClassifierError, classify_with_laya
 from ..db.repositories import RecordNotFound
 from ..db.repositories import get_ticket_readonly
 from ..intent_classifier import classify_ticket as run_intent_classifier
-from ..guardrails.injection_checks import contains_instruction_override
+from ..guardrails.content_safety import inspect_text
 from ..guardrails.input_validation import normalize_ticket_message
+from ..observability.tracing import trace_stage
 from ..runtime import require_local_development
 from ..security.pii_masking import mask_sensitive_text
+from ..domain.support_messages import account_access_request, unrecognized_package_request
 
 
 _ORDER_ID = re.compile(r"\bORD-ID-[A-Za-z0-9][A-Za-z0-9_-]{3,64}\b", flags=re.IGNORECASE)
@@ -71,7 +73,8 @@ def get_ticket_details(ticket_id: str) -> dict[str, Any]:
 def classify_ticket_message(message: str) -> dict[str, Any]:
     """Classify with Laya and a lexical second opinion; route only by explicit policy."""
     require_local_development()
-    normalized = normalize_ticket_message(message)
+    screening = inspect_text(message)
+    normalized = screening.text
     entities = {
         "order_ids": sorted(set(_ORDER_ID.findall(normalized))),
         "item_ids": sorted(set(_ITEM_ID.findall(normalized))),
@@ -96,14 +99,9 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             "confidence_calibrated": False,
             "automatic_routing_enabled": False,
         }).model_dump(mode="json")
-    instruction_override = contains_instruction_override(normalized)
+    instruction_override = bool(screening.risk_codes)
     if instruction_override:
-        # The model sees only masked text and has no tools. A permissive model
-        # verdict can never override this deterministic security rejection.
-        try:
-            classify_with_laya(mask_sensitive_text(normalized))
-        except LayaClassifierError:
-            pass
+        # Rejected payloads never reach either model, even for a second opinion.
         return TicketClassification.model_validate({
             "intent": "other_or_unsupported",
             "confidence": 0.0,
@@ -111,7 +109,7 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             "classifier_provider": "input_guardrail",
             "fallback_used": False,
             "triage_status": "security_review",
-            "risk_flags": ["possible_instruction_override", "model_safety_check_cannot_override_guardrail"],
+            "risk_flags": ["possible_instruction_override", "model_safety_check_cannot_override_guardrail", *screening.risk_codes],
             "entities": entities,
             "review_threshold": _DEFAULT_REVIEW_THRESHOLD,
             "needs_human_review": True,
@@ -121,11 +119,32 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
             "automatic_routing_enabled": False,
         }).model_dump(mode="json")
 
-    safe_message = mask_sensitive_text(normalized)
+    if account_access_request(normalized):
+        return TicketClassification.model_validate({
+            "intent": "other_or_unsupported", "confidence": 0.0,
+            "classifier_version": "support-scope-v1", "classifier_provider": "deterministic_rule",
+            "triage_status": "needs_review", "risk_flags": ["unsupported_account_request"],
+            "entities": entities, "review_threshold": _DEFAULT_REVIEW_THRESHOLD,
+            "needs_human_review": True, "automatic_routing_enabled": False,
+        }).model_dump(mode="json")
+
+    if unrecognized_package_request(normalized):
+        return TicketClassification.model_validate({
+            "intent": "unrecognized_package", "confidence": 1.0,
+            "classifier_version": "unrecognized-package-clarification-v1",
+            "classifier_provider": "deterministic_rule", "fallback_used": False,
+            "triage_status": "needs_review",
+            "risk_flags": ["unrecognized_package_needs_confirmation"],
+            "entities": entities, "review_threshold": _DEFAULT_REVIEW_THRESHOLD,
+            "needs_human_review": True, "automatic_routing_enabled": False,
+        }).model_dump(mode="json")
+
+    safe_message = mask_sensitive_text(normalize_ticket_message(normalized))
     try:
         result = classify_with_laya(safe_message)
     except LayaClassifierError:
-        baseline = run_intent_classifier(safe_message)
+        with trace_stage("classifier.tfidf_fallback", {"provider": "tfidf"}):
+            baseline = run_intent_classifier(safe_message)
         result = {
             **baseline,
             "provider": "tfidf_fallback",
@@ -175,7 +194,8 @@ def classify_ticket_message(message: str) -> dict[str, Any]:
 
     if not fallback_used:
         try:
-            baseline = run_intent_classifier(safe_message)
+            with trace_stage("classifier.tfidf_corroboration", {"provider": "tfidf"}):
+                baseline = run_intent_classifier(safe_message)
             baseline_intent = str(baseline["candidate_intent"])
             baseline_confidence = float(baseline["top_class_probability"])
             models_agree = baseline_intent == intent

@@ -6,7 +6,7 @@ import logging
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Path, Query, Request
 
-from ...approval.permissions import WorkflowActor, authorize_order, authorize_ticket, get_workflow_actor, require_support
+from ...approval.permissions import WorkflowActor, authorize_resource_scope, get_workflow_actor, require_support
 from ...approval.service import (
     execute_workflow,
     get_workflow_events,
@@ -37,10 +37,7 @@ def read_workflow_snapshot(
         row = get_workflow(workflow_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this workflow")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         workflow = get_workflow_response(workflow_id, row=row)
         events = get_workflow_events(workflow_id)
         if workflow["status"] == "running":
@@ -85,10 +82,7 @@ def create_workflow(
     background_tasks: BackgroundTasks,
     actor: WorkflowActor = Depends(require_support),
 ) -> dict:
-    if request.ticket_id:
-        authorize_ticket(actor, request.ticket_id)
-    if request.order_id:
-        authorize_order(actor, request.order_id)
+    authorize_resource_scope(actor, {"ticket_id": request.ticket_id, "order_id": request.order_id})
     try:
         response, state = queue_workflow(
             request_id=http_request.state.request_id,
@@ -96,6 +90,7 @@ def create_workflow(
             ticket_id=request.ticket_id,
             message=request.message,
             order_id=request.order_id,
+            customer_id=request.customer_id,
             query=request.query,
             locale=request.locale,
             top_k=request.top_k,
@@ -130,10 +125,7 @@ def read_workflow(
         row = get_workflow(workflow_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this workflow")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         return get_workflow_response(workflow_id)
     except HTTPException:
         raise
@@ -154,10 +146,7 @@ def read_workflow_trace(
         row = get_workflow(workflow_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this workflow")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         return get_workflow_trace(workflow_id)
     except HTTPException:
         raise
@@ -179,10 +168,7 @@ def read_workflow_events(
         row = get_workflow(workflow_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this workflow")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         events = get_workflow_events(workflow_id, limit=limit)
         return [
             {

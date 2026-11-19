@@ -23,6 +23,7 @@ from ..api.schemas.ticket import (
     TicketInvestigationResponse,
 )
 from ..runtime import require_local_development
+from ..observability.tracing import traced_stage
 from ..tools.customer_context_tools import (
     get_customer_support_context as read_customer_support_context,
 )
@@ -54,6 +55,7 @@ ID_PATTERN = r"^[A-Za-z0-9][A-Za-z0-9._:-]*$"
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.get_ticket_details")
 def get_ticket_details(
     ticket_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
 ) -> TicketDetailsResponse:
@@ -63,6 +65,7 @@ def get_ticket_details(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.classify_ticket")
 def classify_ticket(
     message: Annotated[str, Field(min_length=1, max_length=5000)],
 ) -> TicketClassification:
@@ -72,6 +75,7 @@ def classify_ticket(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.get_order_summary")
 def get_order_summary(
     order_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
 ) -> OrderSummaryResponse:
@@ -81,6 +85,7 @@ def get_order_summary(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.get_order_investigation")
 def get_order_investigation(
     order_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
 ) -> OrderInvestigationEvidence:
@@ -90,6 +95,7 @@ def get_order_investigation(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.list_delivery_events")
 def list_delivery_events(
     order_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
     limit: Annotated[int, Field(ge=1, le=100)] = 100,
@@ -100,6 +106,7 @@ def list_delivery_events(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.get_return_refund_status")
 def get_return_refund_status(
     order_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
     limit: Annotated[int, Field(ge=1, le=50)] = 50,
@@ -110,6 +117,7 @@ def get_return_refund_status(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.get_customer_support_context")
 def get_customer_support_context(
     order_id: Annotated[str, Field(min_length=1, max_length=128, pattern=ID_PATTERN)],
 ) -> CustomerSupportContextResponse:
@@ -119,6 +127,7 @@ def get_customer_support_context(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.search_policy")
 def search_policy(
     query: Annotated[str, Field(min_length=3, max_length=3000)],
     top_k: Annotated[int, Field(ge=1, le=10)] = 3,
@@ -133,6 +142,7 @@ def search_policy(
 
 
 @mcp.tool(annotations=READ_ONLY_TOOL)
+@traced_stage("mcp.investigate_ticket")
 def investigate_ticket(
     request: MCPInvestigationInput,
 ) -> TicketInvestigationResponse:

@@ -113,26 +113,65 @@ def get_order_summary_readonly(order_id: str) -> dict[str, Any]:
     })
 
 
-def get_customer_support_context_readonly(order_id: str) -> dict[str, Any]:
-    """Read loyalty and prior-contact summaries for the customer linked to one order.
+def get_customer_orders_readonly(customer_id: str, *, include_orders: bool = True) -> dict[str, Any]:
+    """Read a bounded list of order references and statuses for an authorized customer."""
+    with readonly_cursor() as cursor:
+        cursor.execute("SELECT 1 FROM customers WHERE customer_id = %s", (customer_id,))
+        exists = cursor.fetchone() is not None
+        orders = []
+        if exists and include_orders:
+            cursor.execute(
+                """
+                SELECT order_id, status, order_date
+                FROM orders
+                WHERE customer_id = %s
+                ORDER BY order_date DESC NULLS LAST, order_id
+                LIMIT 6
+                """,
+                (customer_id,),
+            )
+            orders = _as_dicts(cursor.fetchall())
+    if not exists:
+        raise RecordNotFound("Customer was not found in the available records")
+    return _as_json({
+        "as_of": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "orders": orders[:5],
+        "has_more_orders": len(orders) > 5,
+    })
+
+
+def order_belongs_to_customer(order_id: str, customer_id: str) -> bool:
+    with readonly_cursor() as cursor:
+        cursor.execute(
+            "SELECT 1 FROM orders WHERE order_id = %s AND customer_id = %s",
+            (order_id, customer_id),
+        )
+        return cursor.fetchone() is not None
+
+
+def get_customer_support_context_readonly(
+    order_id: str | None = None, *, customer_id: str | None = None,
+) -> dict[str, Any]:
+    """Read loyalty and support history by customer ID or by its linked order.
 
     Customer identifiers are used only to join bounded rows and are never returned.
-    The order identifier is the external scope key; callers must authorize it first.
+    Callers must authorize the supplied scope before reading records.
     """
     try:
         with readonly_cursor() as cursor:
-            cursor.execute(
-                """
-                SELECT o.customer_id
-                FROM orders AS o
-                WHERE o.order_id = %s
-                LIMIT 1
-                """,
-                (order_id,),
-            )
-            order_row = _as_dict(cursor.fetchone())
-            if order_row is not None:
-                customer_id = str(order_row["customer_id"])
+            if order_id is not None:
+                cursor.execute(
+                    """
+                    SELECT o.customer_id
+                    FROM orders AS o
+                    WHERE o.order_id = %s
+                    LIMIT 1
+                    """,
+                    (order_id,),
+                )
+                order_row = _as_dict(cursor.fetchone())
+                customer_id = str(order_row["customer_id"]) if order_row is not None else None
+            if customer_id is not None:
                 cursor.execute(
                     """
                     SELECT account_id, loyalty_tier, points_balance, account_status, as_of, source
@@ -202,7 +241,7 @@ def get_customer_support_context_readonly(order_id: str) -> dict[str, Any]:
     except Exception as exc:
         raise DatabaseUnavailable("Customer support context lookup failed") from exc
 
-    if order_row is None:
+    if customer_id is None:
         raise RecordNotFound("Order was not found in the development fixture")
 
     conflicts: list[str] = []
@@ -238,7 +277,7 @@ def get_customer_support_context_readonly(order_id: str) -> dict[str, Any]:
         "evidence_refs": {
             # This reference records the bounded lookup itself, including a
             # successful empty result, without inventing a row identifier.
-            "customer_context_lookup": [f"customer_context:{order_id}:{as_of}"],
+            "customer_context_lookup": [f"customer_context:{order_id or 'customer_scope'}:{as_of}"],
             "loyalty_account": [f"loyalty_account:{account['account_id']}"] if account else [],
             "loyalty_transactions": [f"loyalty_transaction:{row['event_id']}" for row in transactions],
             "prior_communications": [f"customer_communication:{row['communication_id']}" for row in communications],

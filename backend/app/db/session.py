@@ -7,9 +7,11 @@ from contextlib import contextmanager
 from threading import Lock
 from typing import Iterator
 
+import psycopg2
 from psycopg2.extras import RealDictCursor
 from psycopg2.pool import ThreadedConnectionPool
 
+from ..observability.tracing import trace_stage
 from ..runtime import require_local_development
 
 
@@ -42,7 +44,7 @@ def _get_readonly_pool(dsn: str) -> ThreadedConnectionPool:
 
 
 @contextmanager
-def readonly_cursor() -> Iterator[RealDictCursor]:
+def _readonly_cursor_impl() -> Iterator[RealDictCursor]:
     """Yield a cursor from the shared pool, in a read-only transaction."""
     require_local_development()
     dsn = os.getenv("DATABASE_URL", "").strip()
@@ -79,3 +81,14 @@ def readonly_cursor() -> Iterator[RealDictCursor]:
                         pool.putconn(connection, close=discard_connection or bool(connection.closed))
                     else:
                         connection.close()
+
+
+@contextmanager
+def readonly_cursor() -> Iterator[RealDictCursor]:
+    """Yield a cursor and record read-only database latency without SQL or row data."""
+    with trace_stage("database.neon_readonly", {
+        "system": "neon-postgresql",
+        "operation": "read",
+    }):
+        with _readonly_cursor_impl() as cursor:
+            yield cursor

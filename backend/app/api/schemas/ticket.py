@@ -32,7 +32,7 @@ TicketIntent = Literal[
     "non_delivery", "order_cancellation", "order_status", "partial_delivery",
     "payment_question", "price_difference", "product_question", "refund_status",
     "return_eligibility", "return_pickup", "return_status", "reward_expiry",
-    "reward_redemption", "other_or_unsupported",
+    "reward_redemption", "unrecognized_package", "other_or_unsupported",
 ]
 
 
@@ -107,6 +107,10 @@ class TicketClassificationResponse(VersionedResponse):
 
 class TicketInvestigationResponse(VersionedResponse):
     request_id: str
+    status: Literal["answer_ready", "needs_information", "escalated", "failed_safe"] = "escalated"
+    answer: str | None = None
+    reason_codes: list[str] = Field(default_factory=list)
+    evidence_refs: list[str] = Field(default_factory=list)
     evidence_status: Literal["found", "insufficient_data"]
     ticket: TicketDetailsResponse | None
     classification: TicketClassification

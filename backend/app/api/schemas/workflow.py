@@ -23,18 +23,29 @@ WorkflowStatus = Literal[
 ]
 
 
+class LoyaltyAdjustmentDraft(VersionedResponse):
+    """Evidence-derived points change shown to a reviewer, never auto-applied."""
+
+    order_id: str
+    account_id: str = Field(min_length=1, max_length=128)
+    points_delta: int = Field(gt=0, le=100_000)
+    reason_code: Literal["reinstate_reversed_points"]
+    source_event_ids: list[str] = Field(min_length=1, max_length=50)
+
+
 class WorkflowStartRequest(MethodsRequest):
     ticket_id: OpaqueId | None = None
     message: TicketMessage | None = None
     order_id: OpaqueId | None = None
+    customer_id: OpaqueId | None = None
     query: SearchQuery | None = None
     locale: LocaleCode = "en-IN"
     top_k: int = Field(default=3, ge=1, le=10)
 
     @model_validator(mode="after")
-    def require_ticket_or_message(self):
-        if not self.ticket_id and not self.message:
-            raise ValueError("provide a ticket_id, a message, or both")
+    def require_investigation_input(self):
+        if not self.ticket_id and not self.message and not self.customer_id:
+            raise ValueError("provide a ticket_id, a message, or a customer_id")
         return self
 
 
@@ -55,6 +66,7 @@ class WorkflowProposal(VersionedResponse):
     evidence_refs: list[str] = Field(default_factory=list)
     policy_versions: list[str] = Field(default_factory=list)
     evidence_fingerprint: str
+    adjustment_draft: LoyaltyAdjustmentDraft | None = None
     created_at: str | None = None
 
 

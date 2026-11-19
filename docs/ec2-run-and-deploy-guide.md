@@ -82,7 +82,7 @@ ssh -i ~/.ssh/agentic-support-server-key-pair.pem ubuntu@3.27.207.159
 cd ~/agentic-support
 ```
 
-Create the private runtime file from the checked-in example, then edit it. Use development-only credentials. `DATABASE_URL` must be the read-only development fixture connection; `MILVUS_URI` and `MILVUS_TOKEN` must point to the development policy collection. Keep LLM and Langfuse tracing disabled for this demo. Do not reuse tokens copied from old reports or example files.
+Create the private runtime file from the checked-in example, then edit it. Use development-only credentials. `DATABASE_URL` must be the read-only development fixture connection; `MILVUS_URI` and `MILVUS_TOKEN` must point to the development policy collection. Keep the optional response LLM disabled unless you intend to use it. For Langfuse, enter the project keys and base URL in this private runtime file, leave `LANGFUSE_TRACING_ENABLED=true`, and set `LANGFUSE_ENVIRONMENT=ec2-demo`. Put the same Langfuse project keys and environment in Streamlit Community Cloud Secrets to link the frontend and API observations. Do not reuse tokens copied from old reports or example files.
 
 ```bash
 cp deploy/.env.ec2.example .env.ec2
@@ -136,9 +136,14 @@ API_BASE_URL = "https://3.27.207.159"
 API_BASE_URL_LOCKED = "true"
 ALLOW_REMOTE_API = "true"
 DEMO_API_TOKEN = "the same random token configured in .env.ec2-proxy"
+LANGFUSE_PUBLIC_KEY = "the public key for the same Langfuse project used by EC2"
+LANGFUSE_SECRET_KEY = "the secret key for that Langfuse project"
+LANGFUSE_BASE_URL = "https://cloud.langfuse.com"
+LANGFUSE_ENVIRONMENT = "ec2-demo"
+LANGFUSE_TRACING_ENABLED = "true"
 ```
 
-Use the current public IP if it differs. Save the settings, open the **Investigation workbench**, check API health, then run a sample investigation. A Laya-backed result should identify provider `laya`; `tfidf_fallback` means the model did not answer and the request requires human review.
+Use the current public IP if it differs. Streamlit stores these values server-side; do not put them in frontend source or commit them. Save the settings, open the **Investigation workbench**, check API health, then run a sample investigation. A Laya-backed result should identify provider `laya`; `tfidf_fallback` means the model did not answer and the request requires human review. In Langfuse, the Streamlit request and nested API request should share one trace; model and retrieval observations appear after a new request is made.
 
 ## Updating after a code change
 

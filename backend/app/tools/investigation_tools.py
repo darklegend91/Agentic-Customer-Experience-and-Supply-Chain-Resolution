@@ -6,12 +6,17 @@ from typing import Any
 
 from ..api.schemas.ticket import TicketInvestigationResponse
 from ..guardrails.evidence_validation import build_evidence_ledger
+from ..guardrails.content_safety import require_safe_evidence, require_safe_text
+from ..security.pii_masking import mask_sensitive_text
 from ..db.repositories import RecordNotFound
 from ..runtime import require_local_development
 from .order_tools import get_order_investigation
 from .customer_context_tools import get_customer_support_context
 from .policy_tools import PolicyMethod, search_policy
 from .ticket_tools import classify_ticket_message, get_ticket_details
+from ..agents.investigation_reply import investigation_reply
+from ..domain.customer_references import customer_references
+from ..domain.resolution_rules import ORDER_REQUIRED_INTENTS
 
 
 _ORDER_DEPENDENT_INTENTS = {
@@ -43,6 +48,12 @@ def investigate_ticket(
     require_local_development()
     if not ticket_id and not message:
         raise ValueError("Provide a ticket_id, a message, or both")
+    if message is not None:
+        require_safe_text(message)
+        if customer_references(message):
+            raise ValueError("Customer ID investigations require the authenticated Workflow")
+    if query is not None:
+        query = mask_sensitive_text(require_safe_text(query, max_chars=3000))
 
     ticket = None
     if ticket_id:
@@ -61,12 +72,27 @@ def investigate_ticket(
         order_id = order_id or mapped_order_id
 
     assert message is not None
+    message = mask_sensitive_text(require_safe_text(message))
+    if ticket is not None:
+        ticket = {**ticket, "message": message}
     classification = classify_ticket_message(message)
     extracted_order_ids = classification.get("entities", {}).get("order_ids", [])
     extracted_order_id = extracted_order_ids[0] if len(extracted_order_ids) == 1 else None
     if order_id and extracted_order_id and order_id != extracted_order_id:
         raise ValueError("order_id conflicts with the order reference in the ticket message")
     order_id = order_id or extracted_order_id
+    needs_clarification = classification.get("intent") == "unrecognized_package"
+    if classification.get("intent") == "other_or_unsupported" or classification.get("triage_status") == "security_review" or needs_clarification or (classification.get("intent") in ORDER_REQUIRED_INTENTS and not order_id):
+        result = {"evidence_status": "insufficient_data", "ticket": ticket, "classification": classification,
+                  "order_evidence": None, "customer_context": None, "evidence_ledger": None,
+                  "policy_evidence": {"status": "insufficient_data", "results": {}, "collection": None,
+                                      "corpus_scope": "not searched until the request is in scope and has sufficient details", "missing_fields": []},
+                  "missing_information": (
+                      ["shipping_label_order_id", "received_item_description"] if needs_clarification
+                      else ["order_id"] if classification.get("intent") in ORDER_REQUIRED_INTENTS and not order_id else []
+                  ), "limitations": ["No evidence tools were called because this request needs clarification or support review."]}
+        result.update(investigation_reply(result, message=message, order_id=order_id, locale=locale))
+        return TicketInvestigationResponse.model_validate({"request_id": "pending", **result}).model_dump(mode="json", exclude={"request_id"})
     policy_evidence = search_policy(query or message, top_k=top_k, methods=methods, locale=locale)
 
     order_evidence = None
@@ -98,6 +124,7 @@ def investigate_ticket(
         "customer_context": customer_context,
         "policy": policy_evidence,
     }
+    require_safe_evidence(evidence)
     evidence_ledger = build_evidence_ledger(
         message=message or "",
         ticket_id=ticket_id,
@@ -128,6 +155,7 @@ def investigate_ticket(
         ],
     }
     # Validate the complete internal result before API or MCP serializers see it.
+    result.update(investigation_reply(result, message=message, order_id=order_id, locale=locale))
     return TicketInvestigationResponse.model_validate({"request_id": "pending", **result}).model_dump(
         mode="json", exclude={"request_id"}
     )

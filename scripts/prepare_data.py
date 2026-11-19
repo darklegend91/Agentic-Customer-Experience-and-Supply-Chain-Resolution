@@ -51,6 +51,7 @@ BUSINESS_INTENTS = (
     "return_eligibility",
     "return_pickup",
     "return_status",
+    "unrecognized_package",
     "loyalty_points",
     "reward_expiry",
     "reward_redemption",

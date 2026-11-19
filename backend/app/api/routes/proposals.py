@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Path
 
-from ...approval.permissions import WorkflowActor, authorize_order, authorize_ticket, get_workflow_actor
+from ...approval.permissions import WorkflowActor, authorize_resource_scope, get_workflow_actor
 from ...approval.service import _proposal_payload, get_workflow_response
 from ...approval.workflow_state import WorkflowNotFound, WorkflowStoreUnavailable, get_proposal
 from ..schemas.workflow import WorkflowProposal, WorkflowResponse
@@ -21,10 +21,7 @@ def read_proposal(
         row = get_proposal(proposal_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this proposal")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         payload = _proposal_payload(row)
         assert payload is not None
         return payload
@@ -47,10 +44,7 @@ def read_proposal_workflow(
         row = get_proposal(proposal_id)
         if row.get("created_by") != actor.subject and "support_reviewer" not in actor.roles:
             raise HTTPException(status_code=403, detail="Caller is not authorized for this proposal")
-        if row.get("ticket_id"):
-            authorize_ticket(actor, str(row["ticket_id"]))
-        if row.get("order_id"):
-            authorize_order(actor, str(row["order_id"]))
+        authorize_resource_scope(actor, row)
         return get_workflow_response(str(row["workflow_id"]))
     except HTTPException:
         raise

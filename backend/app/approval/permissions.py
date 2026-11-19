@@ -22,6 +22,7 @@ class WorkflowActor:
     allowed_order_ids: frozenset[str]
     allowed_ticket_ids: frozenset[str]
     tenant_id: str | None = None
+    allowed_customer_ids: frozenset[str] = frozenset()
 
     @property
     def role(self) -> str:
@@ -82,6 +83,7 @@ def _from_oidc(token: str) -> WorkflowActor:
         allowed_order_ids=_string_set(claims.get("order_ids")) | _string_set(claims.get("allowed_order_ids")),
         allowed_ticket_ids=_string_set(claims.get("ticket_ids")) | _string_set(claims.get("allowed_ticket_ids")),
         tenant_id=str(claims.get("tenant_id")) if claims.get("tenant_id") is not None else None,
+        allowed_customer_ids=_string_set(claims.get("customer_ids")) | _string_set(claims.get("allowed_customer_ids")),
     )
 
 
@@ -111,6 +113,7 @@ def get_workflow_actor(authorization: str | None = Header(default=None)) -> Work
             roles=frozenset({"support_reviewer"}),
             allowed_order_ids=frozenset({"*"}),
             allowed_ticket_ids=frozenset({"*"}),
+            allowed_customer_ids=frozenset({"*"}),
         )
     if hmac.compare_digest(supplied, api_token):
         return WorkflowActor(
@@ -118,6 +121,7 @@ def get_workflow_actor(authorization: str | None = Header(default=None)) -> Work
             roles=frozenset({"support_agent"}),
             allowed_order_ids=frozenset({"*"}),
             allowed_ticket_ids=frozenset({"*"}),
+            allowed_customer_ids=frozenset({"*"}),
         )
     raise HTTPException(status_code=401, detail="Bearer token is invalid")
 
@@ -142,3 +146,17 @@ def authorize_order(actor: WorkflowActor, order_id: str) -> None:
 def authorize_ticket(actor: WorkflowActor, ticket_id: str) -> None:
     if "*" not in actor.allowed_ticket_ids and ticket_id not in actor.allowed_ticket_ids:
         raise HTTPException(status_code=403, detail="Caller is not authorized for this ticket")
+
+
+def authorize_customer(actor: WorkflowActor, customer_id: str) -> None:
+    if "*" not in actor.allowed_customer_ids and customer_id not in actor.allowed_customer_ids:
+        raise HTTPException(status_code=403, detail="Caller is not authorized for this customer")
+
+
+def authorize_resource_scope(actor: WorkflowActor, row: dict[str, Any]) -> None:
+    if row.get("ticket_id"):
+        authorize_ticket(actor, str(row["ticket_id"]))
+    if row.get("order_id"):
+        authorize_order(actor, str(row["order_id"]))
+    if row.get("customer_id"):
+        authorize_customer(actor, str(row["customer_id"]))

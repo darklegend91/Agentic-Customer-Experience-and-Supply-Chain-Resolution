@@ -8,14 +8,17 @@ import psycopg
 import uuid
 from typing import Any
 
+from fastapi import HTTPException
 from langgraph.types import Command
 
 from ..agents.graph import get_workflow_graph
 from ..agents.investigation import gather_specialist_evidence
+from ..agents.sanitization import sanitize_request
 from ..api.schemas.workflow import WorkflowResponse, WorkflowTraceResponse
+from ..domain.customer_references import CUSTOMER_REFERENCE, customer_references
 from ..observability.logging import log_safe_error
 from ..security.pii_masking import mask_sensitive_text
-from .permissions import WorkflowActor
+from .permissions import WorkflowActor, authorize_customer
 from .workflow_state import (
     WorkflowConflict,
     WorkflowNotFound,
@@ -29,7 +32,7 @@ from .workflow_state import (
     record_approval_decision,
     update_workflow,
 )
-from ..observability.tracing import get_langfuse_callback
+from ..observability.tracing import get_langfuse_callback, trace_attributes, trace_stage
 
 logger = logging.getLogger(__name__)
 
@@ -75,7 +78,7 @@ def _summary_response(
         "workflow_id": workflow_id,
         "thread_id": thread_id,
         "status": status,
-        "classification": summary.get("classification"),
+        "classification": summary.get("classification") or None,
         "specialist": summary.get("specialist"),
         "answer": summary.get("answer"),
         "disposition": summary.get("disposition"),
@@ -105,6 +108,7 @@ def _proposal_payload(row: dict[str, Any] | None) -> dict[str, Any] | None:
         "evidence_refs": row.get("evidence_refs") or [],
         "policy_versions": row.get("policy_versions") or [],
         "evidence_fingerprint": str(row["evidence_fingerprint"]),
+        "adjustment_draft": payload.get("adjustment_draft"),
         "created_at": row.get("created_at"),
     }
 
@@ -137,7 +141,17 @@ def queue_workflow(
     methods: list[str],
     locale: str = "en-IN",
     persist_job: bool = True,
+    customer_id: str | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    screened = sanitize_request({"message": message, "query": query})
+    if customer_id and CUSTOMER_REFERENCE.fullmatch(customer_id):
+        customer_id = customer_id.upper()
+    references = customer_references(screened.get("message") or "")
+    if len(references) > 1 or (customer_id and references and customer_id not in references):
+        raise HTTPException(status_code=422, detail="Provide one customer ID that matches the message")
+    customer_id = customer_id or next(iter(references), None)
+    if customer_id:
+        authorize_customer(actor, customer_id)
     workflow_id = str(uuid.uuid4())
     # Use a separate graph thread identifier so API/database IDs remain opaque.
     thread_id = str(uuid.uuid4())
@@ -149,15 +163,18 @@ def queue_workflow(
         "ticket_id": ticket_id,
         # Mask before the initial LangGraph checkpoint so raw contact/payment values
         # never enter durable graph state.
-        "message": mask_sensitive_text(message or ""),
+        "message": screened.get("message") or "",
         "order_id": order_id,
-        "query": mask_sensitive_text(query) if query else None,
+        "customer_id": customer_id,
+        "query": screened.get("query"),
         "locale": locale,
         "top_k": top_k,
         "methods": methods,
         "allowed_ticket_ids": sorted(actor.allowed_ticket_ids),
         "allowed_order_ids": sorted(actor.allowed_order_ids),
+        "allowed_customer_ids": sorted(actor.allowed_customer_ids),
         "status": "running",
+        **screened,
     }
     create_workflow_run(
         workflow_id=workflow_id,
@@ -166,6 +183,7 @@ def queue_workflow(
         created_by=actor.subject,
         ticket_id=ticket_id,
         order_id=order_id,
+        customer_id=customer_id,
         job_payload=state if persist_job else None,
     )
     response = _summary_response(
@@ -196,7 +214,17 @@ def execute_workflow(state: dict[str, Any], *, resume: bool = False) -> None:
         graph = get_workflow_graph()
         # Resume a partially checkpointed attempt after transient DB failure.
         checkpoint = graph.get_state(config) if resume else None
-        graph.invoke(None if checkpoint is not None and checkpoint.next else state, config)
+        with trace_attributes(
+            session_id=workflow_id,
+            tags=["workflow-execution"],
+            metadata={"workflow_id": workflow_id, "request_id": request_id},
+        ):
+            with trace_stage("workflow.graph_invoke", {
+                "workflow_id": workflow_id,
+                "request_id": request_id,
+                "attempt": int(state.get("attempt") or 1),
+            }):
+                graph.invoke(None if checkpoint is not None and checkpoint.next else state, config)
     except (psycopg.OperationalError, WorkflowStoreUnavailable):
         # The durable worker owns bounded retries. Do not permanently fail a
         # read-only investigation because a pooled connection dropped once.
@@ -239,6 +267,7 @@ def start_workflow(
     top_k: int,
     methods: list[str],
     locale: str = "en-IN",
+    customer_id: str | None = None,
 ) -> dict[str, Any]:
     """Synchronous service helper retained for direct callers and local scripts."""
     response, state = queue_workflow(
@@ -252,6 +281,7 @@ def start_workflow(
         top_k=top_k,
         methods=methods,
         persist_job=False,
+        customer_id=customer_id,
     )
     execute_workflow(state)
     return get_workflow_response(response["workflow_id"])
@@ -270,8 +300,10 @@ def get_workflow_response(workflow_id: str, *, row: dict[str, Any] | None = None
 
 
 _NODE_LABELS = {
+    "sanitize_input": "Sanitization agent screens input and masks sensitive values",
     "assess_request": "Validate access, screen the message and select a specialist",
     "read_only_order": "Read order facts and validate the answer",
+    "customer_investigation": "Read and verify authorized customer records",
     "prepare_input": "Validate and mask ticket input",
     "triage": "Classify intent with Laya",
     "supervisor": "Supervisor selects an allowlisted specialist",
@@ -414,7 +446,17 @@ def decide_proposal(
         "actor_id": actor.subject,
         "expected_proposal_version": expected_version,
     }
-    result = graph.invoke(Command(resume=resume), config)
+    with trace_attributes(
+        session_id=workflow_id,
+        tags=["workflow-approval"],
+        metadata={"workflow_id": workflow_id, "request_id": str(state.get("request_id") or "unavailable")},
+    ):
+        with trace_stage("workflow.approval_resume", {
+            "workflow_id": workflow_id,
+            "request_id": str(state.get("request_id") or "unavailable"),
+            "outcome": resume_decision,
+        }):
+            result = graph.invoke(Command(resume=resume), config)
     final_state = result if isinstance(result, dict) else {}
     workflow_status = str(final_state.get("status") or "failed_safe")
     if workflow_status not in {"approved_simulation", "rejected", "invalidated"}:

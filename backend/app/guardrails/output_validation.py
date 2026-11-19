@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import re
 from typing import Any
+from .content_safety import inspect_text
+from ..security.pii_masking import mask_sensitive_text
 
 
 _UNEXECUTED_ACTION_CLAIM = re.compile(
@@ -30,6 +32,14 @@ def validate_draft(
         return errors
     if len(answer) > 4000:
         errors.append("answer_too_long")
+    if inspect_text(answer, max_chars=4000).risk_codes:
+        errors.append("unsafe_response_content")
+    if mask_sensitive_text(answer) != answer:
+        errors.append("sensitive_response_content")
+    # No response schema currently carries a verified URL allowlist. Plain and
+    # Markdown links could become phishing/exfiltration targets when rendered.
+    if re.search(r"https?\s*://|\]\s*\(|\bwww\.", inspect_text(answer, max_chars=4000).text, re.IGNORECASE):
+        errors.append("unverified_response_link")
     if _UNEXECUTED_ACTION_CLAIM.search(answer):
         errors.append("claims_action_was_executed")
     if _EMAIL.search(answer) or _PHONE.search(answer):

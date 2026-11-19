@@ -26,6 +26,7 @@ class Day4McpTests(unittest.TestCase):
                     "get_order_investigation",
                     "list_delivery_events",
                     "get_return_refund_status",
+                    "get_customer_support_context",
                     "search_policy",
                     "investigate_ticket",
                 })
