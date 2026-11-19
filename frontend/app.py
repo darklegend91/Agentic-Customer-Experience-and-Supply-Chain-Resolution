@@ -35,17 +35,31 @@ from backend.app.observability.tracing import (
     update_trace_span,
 )
 
+import importlib
+
 try:
+    import frontend.chat_context as _chat_context_mod
+    importlib.reload(_chat_context_mod)
     from frontend.chat_context import (
+        _CUSTOMER_ID,
+        resolve_conversation_context,
         resolve_customer_context,
         resolve_order_context,
     )
+    import frontend.chat_replies as _chat_replies_mod
+    importlib.reload(_chat_replies_mod)
     from frontend.chat_replies import chat_error, chat_reply, repair_legacy_turns
 except ModuleNotFoundError:
+    import chat_context as _chat_context_mod
+    importlib.reload(_chat_context_mod)
     from chat_context import (
+        _CUSTOMER_ID,
+        resolve_conversation_context,
         resolve_customer_context,
         resolve_order_context,
     )
+    import chat_replies as _chat_replies_mod
+    importlib.reload(_chat_replies_mod)
     from chat_replies import chat_error, chat_reply, repair_legacy_turns
 
 load_dotenv(PROJECT_ROOT / ".env", override=True)
@@ -1216,16 +1230,16 @@ def main() -> None:
 
         if user_input:
             methods = st.session_state.chat_methods or ["keyword"]
-            customer_context = resolve_customer_context(
+            resolved_ctx = resolve_conversation_context(
                 user_input,
-                customer_field,
-                st.session_state.get("chat_last_customer_id"),
+                manual_order_id=st.session_state.chat_order_id,
+                manual_customer_id=customer_field,
+                previous_order_id=st.session_state.get("chat_last_order_id"),
+                previous_customer_id=st.session_state.get("chat_last_customer_id"),
+                autolink=True,
             )
-            order_context = resolve_order_context(
-                user_input,
-                st.session_state.chat_order_id,
-                st.session_state.get("chat_last_order_id"),
-            )
+            customer_context = resolved_ctx["customer_id"]
+            order_context = resolved_ctx["order_id"]
 
             if customer_context:
                 st.session_state.chat_last_customer_id = customer_context
@@ -1256,16 +1270,22 @@ def main() -> None:
 
             # ── 1. FAST DIRECT INVESTIGATION MODE ────────────────────────────
             if mode == "⚡ Investigate Tool":
-                if customer_context and not order_context:
+                is_customer_topic = bool(
+                    _CUSTOMER_ID.search(effective_message)
+                    or re.search(r"\b(?:orders of|customer orders|list orders|customer account|loyalty points|loyalty balance|rewards balance)\b", effective_message, re.IGNORECASE)
+                    or (customer_context and not order_context)
+                ) and not re.search(r"\b(?:where is|damaged|delivery delay|track|return eligibility|return status|refund status)\b", effective_message, re.IGNORECASE)
+
+                if is_customer_topic and customer_context:
                     try:
-                        from backend.app.agents.customer_investigation import investigate_customer
+                        payload = {
+                            "customer_id": customer_context,
+                            "message": effective_message,
+                            "ticket_id": st.session_state.chat_ticket_id.strip() or None,
+                            "allowed_customer_ids": ["*"],
+                        }
                         with st.spinner("Investigating customer records…"):
-                            res = investigate_customer({
-                                "message": effective_message,
-                                "customer_id": customer_context,
-                                "allowed_customer_ids": ["*"],
-                                "ticket_id": st.session_state.chat_ticket_id.strip() or None,
-                            })
+                            res = api_request("POST", "/customers/investigate", base_url=base_url, payload=payload, timeout=60.0)
                         reply_status = res.get("status", "answer_ready")
                         answer = res.get("answer", "No records found.")
                         inv_id = f"tool-cust-{uuid.uuid4().hex[:8]}"
@@ -1317,7 +1337,7 @@ def main() -> None:
                             "methods": methods,
                         }
                         with st.spinner("Running investigation tool…"):
-                            res = local_api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=60.0)
+                            res = api_request("POST", "/tickets/investigate", base_url=base_url, payload=payload, timeout=60.0)
 
                         classification = res.get("classification") or {}
                         order_ev = res.get("order_evidence") or {}
@@ -1569,12 +1589,17 @@ def main() -> None:
                 if not cust_input.strip():
                     st.error("Enter a customer ID.")
                 else:
+                    cid = quote(cust_input.strip().upper(), safe="")
                     try:
-                        from backend.app.db.repositories import get_customer_orders_readonly
-                        orders_data = get_customer_orders_readonly(cust_input.strip().upper())
+                        orders_data = api_request("GET", f"/customers/{cid}/orders", base_url=base_url)
                         st.session_state.cust_orders_result = orders_data
-                    except Exception as exc:
-                        st.error(f"Customer order lookup failed: {exc}")
+                    except Exception:
+                        try:
+                            from backend.app.db.repositories import get_customer_orders_readonly
+                            orders_data = get_customer_orders_readonly(cust_input.strip().upper())
+                            st.session_state.cust_orders_result = orders_data
+                        except Exception as exc:
+                            st.error(f"Customer order lookup failed: {exc}")
             if st.session_state.get("cust_orders_result"):
                 show_json_result("Customer order history", st.session_state.cust_orders_result)
 
@@ -1583,12 +1608,17 @@ def main() -> None:
                 if not cust_input.strip():
                     st.error("Enter a customer ID.")
                 else:
+                    cid = quote(cust_input.strip().upper(), safe="")
                     try:
-                        from backend.app.db.repositories import get_customer_support_context_readonly
-                        ctx_data = get_customer_support_context_readonly(customer_id=cust_input.strip().upper())
+                        ctx_data = api_request("GET", f"/customers/{cid}/context", base_url=base_url)
                         st.session_state.cust_context_direct_result = ctx_data
-                    except Exception as exc:
-                        st.error(f"Customer context lookup failed: {exc}")
+                    except Exception:
+                        try:
+                            from backend.app.db.repositories import get_customer_support_context_readonly
+                            ctx_data = get_customer_support_context_readonly(customer_id=cust_input.strip().upper())
+                            st.session_state.cust_context_direct_result = ctx_data
+                        except Exception as exc:
+                            st.error(f"Customer context lookup failed: {exc}")
             if st.session_state.get("cust_context_direct_result"):
                 show_json_result("Customer loyalty & support history ledger", st.session_state.cust_context_direct_result)
 

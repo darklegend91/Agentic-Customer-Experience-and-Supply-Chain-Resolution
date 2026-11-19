@@ -25,6 +25,7 @@ from backend.app.api.routes.tickets import router as tickets_router
 from backend.app.api.routes.workflows import router as workflows_router
 from backend.app.api.routes.proposals import router as proposals_router
 from backend.app.api.routes.approvals import router as approvals_router
+from backend.app.api.routes.customers import router as customers_router
 from backend.app.api.routes.loyalty import router as loyalty_router
 from backend.app.agents.graph import close_workflow_graph
 from backend.app.approval.workflow_state import close_workflow_pool
@@ -355,6 +356,7 @@ app.include_router(workflows_router)
 app.include_router(proposals_router)
 app.include_router(approvals_router)
 app.include_router(loyalty_router)
+app.include_router(customers_router)
 
 
 @app.post("/rag/evaluate", response_model=EvaluationResponse)

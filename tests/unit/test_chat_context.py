@@ -1,5 +1,11 @@
 import unittest
-from frontend.chat_context import resolve_order_context, resolve_customer_context, resolve_conversation_context
+from frontend.chat_context import (
+    find_customer_for_order,
+    find_latest_order_for_customer,
+    resolve_conversation_context,
+    resolve_customer_context,
+    resolve_order_context,
+)
 
 
 class ChatContextTests(unittest.TestCase):
@@ -38,3 +44,21 @@ class ChatContextTests(unittest.TestCase):
         )
         self.assertEqual(ctx['order_id'], 'ORD-ID-022d195439')
         self.assertEqual(ctx['customer_id'], 'CUS-0097A0C5B0')
+
+    def test_autolink_order_populates_linked_customer_id(self):
+        """When an order is given, its linked customer ID is automatically resolved."""
+        ctx = resolve_conversation_context('Where is my order ORD-ID-9c07956d06?')
+        self.assertEqual(ctx['order_id'], 'ORD-ID-9c07956d06')
+        self.assertEqual(ctx['customer_id'], 'CUS-0097A0C5B0')
+
+    def test_autolink_customer_populates_linked_order_id(self):
+        """When a customer is given, their linked order ID is automatically resolved."""
+        ctx = resolve_conversation_context('tell me orders of CUS-0097A0C5B0')
+        self.assertEqual(ctx['customer_id'], 'CUS-0097A0C5B0')
+        self.assertEqual(ctx['order_id'], 'ORD-ID-9c07956d06')
+
+    def test_direct_mapping_lookups(self):
+        self.assertEqual(find_customer_for_order('ORD-ID-9c07956d06'), 'CUS-0097A0C5B0')
+        self.assertEqual(find_latest_order_for_customer('CUS-0097A0C5B0'), 'ORD-ID-9c07956d06')
+        self.assertIsNone(find_customer_for_order('ORD-ID-nonexistent'))
+        self.assertIsNone(find_latest_order_for_customer('CUS-NONEXISTENT'))

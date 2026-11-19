@@ -2,11 +2,64 @@
 
 from __future__ import annotations
 
+import csv
+from pathlib import Path
 import re
 from typing import Any
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+_ORDERS_CSV = PROJECT_ROOT / "data" / "processed" / "clean_orders.csv"
+
 _ORDER_ID = re.compile(r"\bORD-ID-[A-Za-z0-9][A-Za-z0-9_-]{3,64}\b", re.IGNORECASE)
 _CUSTOMER_ID = re.compile(r"(?<![\w-])CUS-[0-9A-F]{10}(?![\w-])", re.IGNORECASE)
+
+_ORDER_TO_CUSTOMER: dict[str, str] = {}
+_CUSTOMER_TO_ORDERS: dict[str, list[str]] = {}
+_MAP_LOADED = False
+
+
+def _ensure_mappings_loaded() -> None:
+    global _MAP_LOADED
+    if _MAP_LOADED:
+        return
+    if _ORDERS_CSV.exists():
+        try:
+            with open(_ORDERS_CSV, newline="", encoding="utf-8-sig") as f:
+                for row in csv.DictReader(f):
+                    oid = row.get("order_id", "").strip()
+                    cid = row.get("customer_id", "").strip().upper()
+                    if oid and cid:
+                        _ORDER_TO_CUSTOMER[oid.upper()] = cid
+                        _ORDER_TO_CUSTOMER[oid] = cid
+                        _CUSTOMER_TO_ORDERS.setdefault(cid, []).append(oid)
+            _MAP_LOADED = True
+        except Exception:
+            pass
+
+
+def find_customer_for_order(order_id: str | None) -> str | None:
+    """Return the linked customer ID for a given order ID, if known."""
+    if not order_id:
+        return None
+    _ensure_mappings_loaded()
+    return _ORDER_TO_CUSTOMER.get(order_id) or _ORDER_TO_CUSTOMER.get(order_id.upper())
+
+
+def find_latest_order_for_customer(customer_id: str | None) -> str | None:
+    """Return the most recent linked order ID for a given customer ID, if known."""
+    if not customer_id:
+        return None
+    _ensure_mappings_loaded()
+    orders = _CUSTOMER_TO_ORDERS.get(customer_id.upper()) or []
+    return orders[0] if orders else None
+
+
+def find_all_orders_for_customer(customer_id: str | None) -> list[str]:
+    """Return all known linked orders for a given customer ID."""
+    if not customer_id:
+        return []
+    _ensure_mappings_loaded()
+    return list(_CUSTOMER_TO_ORDERS.get(customer_id.upper()) or [])
 
 
 def resolve_order_context(message: str, manual_order_id: str, previous_order_id: str | None) -> str | None:
@@ -36,10 +89,32 @@ def resolve_conversation_context(
     manual_customer_id: str = "",
     previous_order_id: str | None = None,
     previous_customer_id: str | None = None,
+    autolink: bool = True,
+    **kwargs: Any,
 ) -> dict[str, str | None]:
-    """Unified helper returning the active operational context for the current turn."""
+    """Unified helper returning the active operational context for the current turn.
+
+    When autolink is enabled (default):
+    - Mentioning an order automatically populates its linked customer ID into context.
+    - Mentioning a customer automatically populates their linked order ID into context.
+    Explicit user inputs (manual fields or in the current message) always take precedence.
+    """
     order_id = resolve_order_context(message, manual_order_id, previous_order_id)
     customer_id = resolve_customer_context(message, manual_customer_id, previous_customer_id)
+
+    if autolink:
+        # Autolink customer from order if customer is missing
+        if order_id and not customer_id:
+            inferred_cust = find_customer_for_order(order_id)
+            if inferred_cust:
+                customer_id = inferred_cust
+
+        # Autolink order from customer if order is missing
+        if customer_id and not order_id:
+            inferred_ord = find_latest_order_for_customer(customer_id)
+            if inferred_ord:
+                order_id = inferred_ord
+
     return {
         "order_id": order_id,
         "customer_id": customer_id,

@@ -31,8 +31,7 @@ jobs:
 
   agent-regressions:
     needs: dependency-audit
-    # Matches the developer's Mac and avoids installing CUDA dependencies.
-    runs-on: macos-14
+    runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
       APP_ENV: local
@@ -48,7 +47,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
-          python-version: "3.14"
+          python-version: "3.11"
       - name: Install hash-verified runtime into a fresh environment
         run: |
           python -m venv .test-venv
