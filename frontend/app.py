@@ -947,19 +947,31 @@ def render_security_center() -> None:
         st.caption("Executes unit, graph, and tool safety boundary penetration tests (`tests/security/test_sanitization.py`).")
 
         if st.button("▶️ Run 37 Penetration Tests", type="primary", key="btn_run_sec_tests"):
+            import importlib.util
             import subprocess
+
+            has_pytest = importlib.util.find_spec("pytest") is not None
+            test_cmd = (
+                [sys.executable, "-m", "pytest", "tests/security/test_sanitization.py", "-v", "--tb=short"]
+                if has_pytest
+                else [sys.executable, "-m", "unittest", "tests/security/test_sanitization.py", "-v"]
+            )
+            test_env = {**os.environ, "LANGFUSE_TRACING_ENABLED": "false", "TOKENIZERS_PARALLELISM": "false"}
+
             with st.spinner("Running adversarial test suite…"):
                 result = subprocess.run(
-                    [sys.executable, "-m", "pytest", "tests/security/test_sanitization.py", "-v", "--tb=short"],
+                    test_cmd,
                     capture_output=True,
                     text=True,
                     cwd=str(PROJECT_ROOT),
+                    env=test_env,
                 )
+            output = (result.stdout or "") + ("\n" + result.stderr if result.stderr else "")
             if result.returncode == 0:
                 st.success("✅ **ALL 37 SECURITY PENETRATION TESTS PASSED!**", icon=":material/verified_user:")
             else:
                 st.error("Some tests failed. Review output below:")
-            st.code(result.stdout[-2500:] if result.stdout else result.stderr, language="text")
+            st.code(output[-2500:] if output.strip() else (result.stdout or result.stderr or "No output recorded"), language="text")
 
     with sec_tab3:
         st.markdown("#### Documented Penetration Test Benchmark (30/30 Security Checks Passed)")
