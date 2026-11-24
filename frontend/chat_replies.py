@@ -26,7 +26,7 @@ def chat_reply(result: dict[str, Any], message: str = "") -> dict[str, Any]:
     elif classification.get("intent") in ORDER_REQUIRED_INTENTS and not ((result.get("order_evidence") or {}).get("order") or {}).get("order_id"):
         codes = ["order_id_required"]
     return {
-        "status": "needs_information" if "order_id_required" in codes else "escalated",
+        "status": "needs_information" if ("order_id_required" in codes or "unsupported_request" in codes) else "escalated",
         "answer": cannot_answer(codes, result.get("missing_information")),
         "reason_codes": codes,
     }

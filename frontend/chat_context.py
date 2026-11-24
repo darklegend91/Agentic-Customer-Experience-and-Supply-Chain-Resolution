@@ -82,6 +82,17 @@ def resolve_customer_context(message: str, manual_customer_id: str, previous_cus
     return previous_customer_id or None
 
 
+def detect_customer_mismatch(message: str, active_customer_id: str | None) -> str | None:
+    """If the message explicitly specifies a customer ID that differs from active session customer, return it."""
+    if not active_customer_id:
+        return None
+    references = sorted({match.upper() for match in _CUSTOMER_ID.findall(message)})
+    for ref in references:
+        if ref != active_customer_id.upper():
+            return ref
+    return None
+
+
 def resolve_conversation_context(
     message: str,
     *,
@@ -101,6 +112,17 @@ def resolve_conversation_context(
     """
     order_id = resolve_order_context(message, manual_order_id, previous_order_id)
     customer_id = resolve_customer_context(message, manual_customer_id, previous_customer_id)
+
+    # Disconnect order if it belongs to a different customer
+    if order_id and customer_id:
+        linked_cust = find_customer_for_order(order_id)
+        if linked_cust and linked_cust.upper() != customer_id.upper():
+            msg_orders = _ORDER_ID.findall(message)
+            msg_custs = _CUSTOMER_ID.findall(message)
+            if msg_custs and not msg_orders:
+                order_id = find_latest_order_for_customer(customer_id)
+            elif msg_orders and not msg_custs:
+                customer_id = linked_cust
 
     if autolink:
         # Autolink customer from order if customer is missing

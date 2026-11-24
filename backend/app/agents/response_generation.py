@@ -57,6 +57,13 @@ def _recorded_facts(state: dict[str, Any]) -> list[str]:
         subject = f"Your order {order_id}" if order_id else "Your order"
         status = str(order["status"]).replace("_", " ")
         facts.append(f"{subject} is marked as {status}.")
+        items = order_evidence.get("items") or []
+        if items:
+            names = [
+                f"{item.get('product_name') or 'unnamed item'} (quantity {item.get('quantity')})"
+                for item in items[:10]
+            ]
+            facts.append("The order record lists: " + "; ".join(names) + ".")
     if intent in {"delivery_delay", "delivery_dispute", "non_delivery", "partial_delivery"}:
         events = order_evidence.get("delivery_events") or []
         if events:
@@ -150,7 +157,10 @@ def _refs_for_claim(state: dict[str, Any], claim_index: int) -> list[str]:
     context_refs = customer_context.get("evidence_refs") or {}
 
     if intent in {"order_status", "order_cancellation"}:
-        selected = order_refs.get("order") or []
+        if claim_index == 0:
+            selected = order_refs.get("order") or []
+        else:
+            selected = order_refs.get("items") or order_refs.get("order") or []
     elif intent in {"delivery_delay", "delivery_dispute", "non_delivery", "partial_delivery"}:
         selected = order_refs.get("delivery_events") or []
     elif intent in {"product_question", "missing_accessory", "damaged_item", "incorrect_item", "exchange_request"}:

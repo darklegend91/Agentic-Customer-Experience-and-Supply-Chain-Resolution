@@ -42,6 +42,7 @@ try:
     importlib.reload(_chat_context_mod)
     from frontend.chat_context import (
         _CUSTOMER_ID,
+        detect_customer_mismatch,
         resolve_conversation_context,
         resolve_customer_context,
         resolve_order_context,
@@ -54,6 +55,7 @@ except ModuleNotFoundError:
     importlib.reload(_chat_context_mod)
     from chat_context import (
         _CUSTOMER_ID,
+        detect_customer_mismatch,
         resolve_conversation_context,
         resolve_customer_context,
         resolve_order_context,
@@ -1241,6 +1243,33 @@ def main() -> None:
             st.caption("🔒 Enter a support token in the sidebar to enable chat.")
 
         if user_input:
+            # Check for unauthorized cross-customer ID request
+            active_customer = customer_field.strip().upper() or st.session_state.get("chat_last_customer_id")
+            mismatched_cust = detect_customer_mismatch(user_input, active_customer)
+            if mismatched_cust and active_customer:
+                meta_parts = []
+                if st.session_state.chat_ticket_id:
+                    meta_parts.append(f"Ticket: `{st.session_state.chat_ticket_id}`")
+                if st.session_state.get("chat_last_order_id"):
+                    meta_parts.append(f"Order: `{st.session_state.get('chat_last_order_id')}`")
+                meta_parts.append(f"Customer: `{active_customer}`")
+                st.session_state.chat_history.append({
+                    "role": "user",
+                    "avatar": "🧑‍💼",
+                    "content": user_input,
+                    "meta": " · ".join(meta_parts),
+                })
+                st.session_state.chat_history.append({
+                    "role": "assistant",
+                    "avatar": "🔒",
+                    "content": (
+                        f"You are currently authenticated as customer **{active_customer}**. "
+                        f"For security and privacy, you cannot access records or orders belonging to another customer account ({mismatched_cust})."
+                    ),
+                    "meta": "Access Denied · Authorization boundary",
+                })
+                st.rerun()
+
             methods = st.session_state.chat_methods or ["keyword"]
             resolved_ctx = resolve_conversation_context(
                 user_input,
@@ -1284,7 +1313,12 @@ def main() -> None:
             if mode == "⚡ Investigate Tool":
                 is_customer_topic = bool(
                     _CUSTOMER_ID.search(effective_message)
-                    or re.search(r"\b(?:orders of|customer orders|list orders|customer account|loyalty points|loyalty balance|rewards balance)\b", effective_message, re.IGNORECASE)
+                    or re.search(
+                        r"\b(?:orders of|customer orders|list orders|customer account|loyalty points|loyalty balance|rewards balance|"
+                        r"my orders?|what are my orders|all my orders|order history|past orders|recent orders|purchases?|my purchases|my account)\b",
+                        effective_message,
+                        re.IGNORECASE,
+                    )
                     or (customer_context and not order_context)
                 ) and not re.search(r"\b(?:where is|damaged|delivery delay|track|return eligibility|return status|refund status)\b", effective_message, re.IGNORECASE)
 
