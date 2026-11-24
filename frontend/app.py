@@ -815,56 +815,399 @@ def render_evaluation(result: dict[str, Any]) -> None:
 
 
 def render_pipeline_overview() -> None:
-    st.markdown("### One ticket, controlled evidence, visible decisions")
-    stages = [
-        ("01", "Intake contract", "FastAPI validates ticket text or a ticket ID, order reference, retrieval methods, and limits."),
-        ("02", "Laya triage", "Laya returns an allowlisted intent and confidence. Fallback or low confidence pauses for review."),
-        ("03", "Supervisor", "A deterministic intent map selects one specialist. The model cannot pick arbitrary tools or graph nodes."),
-        ("04", "Specialist tools", "Order specialists read bounded Neon facts; policy specialists search versioned Milvus passages."),
-        ("05", "Evidence gate", "Deterministic rules check source sufficiency and policy scope before a grounded answer or proposal."),
-        ("06", "Review checkpoint", "A proposal pauses in LangGraph. A separate reviewer can approve a simulation or reject it."),
-    ]
-    for start in range(0, len(stages), 3):
-        cols = st.columns(3, gap="medium")
-        for col, (number, title, copy) in zip(cols, stages[start : start + 3]):
-            with col:
-                st.markdown(
-                    f"<div class='stage-card'><div class='stage-num'>STAGE {number}</div>"
-                    f"<div class='stage-title'>{html.escape(title)}</div>"
-                    f"<div class='stage-copy'>{html.escape(copy)}</div></div>",
-                    unsafe_allow_html=True,
-                )
+    # ── Tabs for the page ──────────────────────────────────────────────
+    overview_tab, agents_tab, guardrails_tab, mcp_tab, lifecycle_tab, db_tab = st.tabs([
+        "🏗️ Pipeline stages",
+        "🤖 Core workflow agents",
+        "🛡️ Sanitization & guardrails",
+        "🔧 MCP read-only tools",
+        "🔄 End-to-end message lifecycle",
+        "🗄️ Neon PostgreSQL evidence strategy",
+    ])
 
-    st.markdown("### Data path and guardrails")
-    st.dataframe(
-        [
-            {"Stage": "Ticket intake", "Input": "Ticket text / ticket ID", "Processor": "Pydantic + masking + scope checks", "Output": "Safe workflow state"},
-            {"Stage": "Classification", "Input": "Masked ticket message", "Processor": "Laya; TF-IDF fallback is review-only", "Output": "Intent, confidence, risk flags"},
-            {"Stage": "Order evidence", "Input": "Authorized order ID", "Processor": "Read-only allowlisted SQL", "Output": "Order, item, delivery, return facts"},
-            {"Stage": "Policy evidence", "Input": "Question and intent", "Processor": "Milvus semantic + keyword retrieval", "Output": "Document/version/section citations"},
-            {"Stage": "Resolution", "Input": "Evidence plus intent", "Processor": "Deterministic policy checks", "Output": "Answer, clarification, escalation, or proposal"},
-            {"Stage": "Workflow state", "Input": "Masked state and decisions", "Processor": "LangGraph Postgres checkpointer + audit tables", "Output": "Resumable, versioned review"},
-        ],
-        hide_index=True,
-        width="stretch",
-    )
+    # ── TAB 1: Pipeline stages (existing content) ─────────────────────
+    with overview_tab:
+        st.markdown("### One ticket, controlled evidence, visible decisions")
+        stages = [
+            ("01", "Intake contract", "FastAPI validates ticket text or a ticket ID, order reference, retrieval methods, and limits."),
+            ("02", "Laya triage", "Laya returns an allowlisted intent and confidence. Fallback or low confidence pauses for review."),
+            ("03", "Supervisor", "A deterministic intent map selects one specialist. The model cannot pick arbitrary tools or graph nodes."),
+            ("04", "Specialist tools", "Order specialists read bounded Neon facts; policy specialists search versioned Milvus passages."),
+            ("05", "Evidence gate", "Deterministic rules check source sufficiency and policy scope before a grounded answer or proposal."),
+            ("06", "Review checkpoint", "A proposal pauses in LangGraph. A separate reviewer can approve a simulation or reject it."),
+        ]
+        for start in range(0, len(stages), 3):
+            cols = st.columns(3, gap="medium")
+            for col, (number, title, copy) in zip(cols, stages[start : start + 3]):
+                with col:
+                    st.markdown(
+                        f"<div class='stage-card'><div class='stage-num'>STAGE {number}</div>"
+                        f"<div class='stage-title'>{html.escape(title)}</div>"
+                        f"<div class='stage-copy'>{html.escape(copy)}</div></div>",
+                        unsafe_allow_html=True,
+                    )
 
-    try:
-        manifest = json.loads((PROJECT_ROOT / "data/processed/data_quality_manifest.json").read_text(encoding="utf-8"))
-        classifier = json.loads((PROJECT_ROOT / "data/processed/intent_baseline_metrics_v1.json").read_text(encoding="utf-8"))
-        rag = json.loads((PROJECT_ROOT / "data/processed/rag_retrieval_metrics_v1.json").read_text(encoding="utf-8"))
-        st.markdown("### Prepared data and baseline snapshot")
-        m1, m2, m3, m4 = st.columns(4)
-        m1.metric("Clean orders", f"{manifest['output_row_counts'].get('clean_orders', 0):,}")
-        m2.metric("Training tickets", f"{classifier.get('training_rows', 0):,}")
-        m3.metric("Classifier macro F1", f"{classifier.get('macro_f1', 0):.2f}")
-        m4.metric("Intent labels", str(classifier.get("label_count", 0)))
-        r1, r2, r3 = st.columns(3)
-        r1.metric("RAG keyword Hit@1", f"{rag.get('keyword', {}).get('hit_at_1', 0):.0%}")
-        r2.metric("RAG semantic Hit@1", f"{rag.get('semantic_milvus', {}).get('hit_at_1', 0):.0%}")
-        r3.metric("RAG Hit@3", f"{rag.get('keyword', {}).get('hit_at_3', 0):.0%}")
-    except Exception:
-        st.info("Offline preparation or baseline metric files are not available in this checkout.")
+        st.markdown("### Data path and guardrails")
+        st.dataframe(
+            [
+                {"Stage": "Ticket intake", "Input": "Ticket text / ticket ID", "Processor": "Pydantic + masking + scope checks", "Output": "Safe workflow state"},
+                {"Stage": "Classification", "Input": "Masked ticket message", "Processor": "Laya; TF-IDF fallback is review-only", "Output": "Intent, confidence, risk flags"},
+                {"Stage": "Order evidence", "Input": "Authorized order ID", "Processor": "Read-only allowlisted SQL", "Output": "Order, item, delivery, return facts"},
+                {"Stage": "Policy evidence", "Input": "Question and intent", "Processor": "Milvus semantic + keyword retrieval", "Output": "Document/version/section citations"},
+                {"Stage": "Resolution", "Input": "Evidence plus intent", "Processor": "Deterministic policy checks", "Output": "Answer, clarification, escalation, or proposal"},
+                {"Stage": "Workflow state", "Input": "Masked state and decisions", "Processor": "LangGraph Postgres checkpointer + audit tables", "Output": "Resumable, versioned review"},
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+        try:
+            manifest = json.loads((PROJECT_ROOT / "data/processed/data_quality_manifest.json").read_text(encoding="utf-8"))
+            classifier = json.loads((PROJECT_ROOT / "data/processed/intent_baseline_metrics_v1.json").read_text(encoding="utf-8"))
+            rag = json.loads((PROJECT_ROOT / "data/processed/rag_retrieval_metrics_v1.json").read_text(encoding="utf-8"))
+            st.markdown("### Prepared data and baseline snapshot")
+            m1, m2, m3, m4 = st.columns(4)
+            m1.metric("Clean orders", f"{manifest['output_row_counts'].get('clean_orders', 0):,}")
+            m2.metric("Training tickets", f"{classifier.get('training_rows', 0):,}")
+            m3.metric("Classifier macro F1", f"{classifier.get('macro_f1', 0):.2f}")
+            m4.metric("Intent labels", str(classifier.get("label_count", 0)))
+            r1, r2, r3 = st.columns(3)
+            r1.metric("RAG keyword Hit@1", f"{rag.get('keyword', {}).get('hit_at_1', 0):.0%}")
+            r2.metric("RAG semantic Hit@1", f"{rag.get('semantic_milvus', {}).get('hit_at_1', 0):.0%}")
+            r3.metric("RAG Hit@3", f"{rag.get('keyword', {}).get('hit_at_3', 0):.0%}")
+        except Exception:
+            st.info("Offline preparation or baseline metric files are not available in this checkout.")
+
+    # ── TAB 2: Core workflow agents ───────────────────────────────────
+    with agents_tab:
+        st.markdown("### Core workflow agents")
+        st.caption("Each agent is a LangGraph node with a single responsibility. The supervisor routes deterministically — the LLM cannot choose its own tools or graph path.")
+        st.dataframe(
+            [
+                {
+                    "Agent": "SanitizationAgent",
+                    "File": "backend/app/agents/sanitization.py",
+                    "Responsibility": "PII masking, prompt-injection screening, Unicode normalization, scope checks",
+                    "Contribution": "Strips sensitive data and attack payloads before any LLM or DB call",
+                    "Why needed": "Defense-in-depth: prevents credential leaks, injection, and data exfiltration at the entry gate",
+                },
+                {
+                    "Agent": "TriageAgent",
+                    "File": "backend/app/agents/triage.py",
+                    "Responsibility": "Dual-classifier intent detection (Laya primary, TF-IDF fallback) with confidence scoring",
+                    "Contribution": "Returns an allowlisted intent label + confidence; low-confidence results trigger review-only mode",
+                    "Why needed": "Deterministic routing depends on a trusted label — fallback ensures the system never silently guesses",
+                },
+                {
+                    "Agent": "SupervisorAgent",
+                    "File": "backend/app/agents/supervisor.py",
+                    "Responsibility": "Deterministic intent-to-specialist routing via INTENT_TO_SPECIALIST map",
+                    "Contribution": "Selects exactly one specialist stage; blocks the model from choosing arbitrary tools or nodes",
+                    "Why needed": "Prevents prompt-based routing hijack — the model never decides which specialist to call",
+                },
+                {
+                    "Agent": "InvestigationAgent",
+                    "File": "backend/app/agents/investigation.py",
+                    "Responsibility": "Order evidence collection via bounded, read-only SQL from Neon Postgres",
+                    "Contribution": "Fetches order, items, delivery events, returns/refunds in one CTE query with row limits",
+                    "Why needed": "Provides grounded factual evidence for order-related intents (tracking, returns, damage, etc.)",
+                },
+                {
+                    "Agent": "PolicyRetrievalAgent",
+                    "File": "backend/app/agents/policy_retrieval.py",
+                    "Responsibility": "Milvus semantic + BM25 keyword retrieval of versioned policy passages",
+                    "Contribution": "Returns cited policy documents with version, section, applicability metadata",
+                    "Why needed": "Grounds policy answers in versioned, citable passages rather than LLM training data",
+                },
+                {
+                    "Agent": "ResponseGenerationAgent",
+                    "File": "backend/app/agents/response_generation.py",
+                    "Responsibility": "Grounded response drafting from evidence ledger + deterministic rule outcome",
+                    "Contribution": "Generates customer-facing answer with evidence citations and claim validation",
+                    "Why needed": "Ensures every answer is backed by specific evidence refs — no hallucinated facts or actions",
+                },
+                {
+                    "Agent": "CustomerInvestigationAgent",
+                    "File": "backend/app/agents/customer_investigation.py",
+                    "Responsibility": "Customer-level specialist for account, loyalty, and cross-order queries",
+                    "Contribution": "Fetches customer orders, loyalty account, transactions, and prior communications",
+                    "Why needed": "Handles multi-order customer queries that go beyond a single order scope",
+                },
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+        st.markdown("### Agent orchestration: LangGraph workflow")
+        st.caption("Compiled in `backend/app/agents/graph.py` — each node is a pure function; edges are deterministic.")
+        graph_steps = [
+            ("01", "sanitize_input", "Run SanitizationAgent to mask PII, detect injections, and normalize text"),
+            ("02", "classify_request", "Run TriageAgent for intent + confidence (Laya → TF-IDF fallback)"),
+            ("03", "route_specialist", "SupervisorAgent picks the specialist from the deterministic intent map"),
+            ("04", "collect_evidence", "Selected specialist (Investigation/Policy/Customer) gathers bounded evidence"),
+            ("05", "build_evidence_ledger", "Deterministic rules validate source sufficiency, policy scope, and freshness"),
+            ("06", "generate_response", "ResponseGenerationAgent drafts a grounded answer with evidence citations"),
+            ("07", "validate_output", "Output validator checks for hallucination claims, PII leaks, unsafe content"),
+            ("08", "checkpoint_or_pause", "LangGraph persists state; proposals pause for human reviewer approval"),
+        ]
+        for start in range(0, len(graph_steps), 4):
+            cols = st.columns(4, gap="medium")
+            for col, (number, name, desc) in zip(cols, graph_steps[start : start + 4]):
+                with col:
+                    st.markdown(
+                        f"<div class='stage-card'><div class='stage-num'>NODE {number}</div>"
+                        f"<div class='stage-title'>{html.escape(name)}</div>"
+                        f"<div class='stage-copy'>{html.escape(desc)}</div></div>",
+                        unsafe_allow_html=True,
+                    )
+
+    # ── TAB 3: Sanitization & guardrail modules ──────────────────────
+    with guardrails_tab:
+        st.markdown("### Sanitization & guardrail modules")
+        st.caption("Defense-in-depth: each module runs independently. No single bypass disables all protections.")
+        st.dataframe(
+            [
+                {
+                    "Module": "inspect_text()",
+                    "File": "backend/app/guardrails/content_safety.py",
+                    "What it does": "Multi-layer prompt-injection detection: regex patterns for instruction overrides, role spoofing, executable payloads, active content (XSS/markdown), plus Unicode homoglyph normalization, hex/base64 decoding, and entropy-based token detection",
+                    "Risk codes": "instruction_override, role_spoofing, executable_payload, active_content, encoded_attack",
+                    "When it runs": "Inbound message screening (before triage) + outbound response validation",
+                },
+                {
+                    "Module": "mask_sensitive_text()",
+                    "File": "backend/app/security/pii_masking.py",
+                    "What it does": "Redacts PII patterns — Aadhaar numbers, PAN cards, phone numbers, email addresses, credit card numbers — replacing them with [REDACTED] tokens before any LLM or database call",
+                    "Risk codes": "N/A (transforms text in-place)",
+                    "When it runs": "Input sanitization stage + output validation stage",
+                },
+                {
+                    "Module": "build_evidence_ledger() + validate_evidence_ledger()",
+                    "File": "backend/app/guardrails/evidence_validation.py",
+                    "What it does": "Builds a typed ledger separating source-record facts, retrieved policy statements, customer reports, model assumptions, and missing information. Validates freshness (configurable max age), policy applicability (marketplace, intent scope, lifecycle status), and provenance (SHA-256 source hash, version)",
+                    "Risk codes": "stale_evidence, inapplicable_policy, missing_provenance, unresolvable_conflict",
+                    "When it runs": "After specialist evidence collection, before response generation",
+                },
+                {
+                    "Module": "validate_draft()",
+                    "File": "backend/app/guardrails/output_validation.py",
+                    "What it does": "Validates the response draft: checks for hallucinated action claims ('refund has been issued'), PII in output, unsafe content, unverified URLs, unknown evidence references, missing citations, and duplicate references",
+                    "Risk codes": "claims_action_was_executed, sensitive_response_content, unsafe_response_content, unverified_response_link, unknown_evidence_reference",
+                    "When it runs": "After response generation, before delivering the answer to the customer",
+                },
+                {
+                    "Module": "detect_customer_mismatch()",
+                    "File": "frontend/chat_context.py",
+                    "What it does": "IDOR (Insecure Direct Object Reference) guard: ensures the customer asking about an order actually owns it. Blocks cross-customer data access attempts in the chat interface",
+                    "Risk codes": "customer_mismatch (blocks the request entirely)",
+                    "When it runs": "Chat ingress — before any investigation or DB lookup begins",
+                },
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+    # ── TAB 4: MCP read-only tools ───────────────────────────────────
+    with mcp_tab:
+        st.markdown("### MCP read-only tool catalog")
+        st.caption("All 9 tools are annotated `read_only_hint=True, open_world_hint=False`. They require `APP_ENV=local` via `require_local_development()`.")
+        st.dataframe(
+            [
+                {
+                    "Tool": "get_ticket_details",
+                    "Input": "ticket_id",
+                    "What it returns": "Ticket ID, message text, and linked order hint from the local fixture",
+                    "DB tables touched": "tickets",
+                    "Why it exists": "Allows MCP clients (Claude Desktop, Inspector) to read a ticket without direct DB access",
+                },
+                {
+                    "Tool": "classify_ticket",
+                    "Input": "message (text up to 5000 chars)",
+                    "What it returns": "Suggested intent label and confidence — marked as review-only, not routing",
+                    "DB tables touched": "None (uses classifier model)",
+                    "Why it exists": "Exposes the triage classifier for human review without triggering the full workflow",
+                },
+                {
+                    "Tool": "get_order_summary",
+                    "Input": "order_id",
+                    "What it returns": "Order header (status, dates, marketplace) + bounded item list (≤50 rows)",
+                    "DB tables touched": "orders, order_items",
+                    "Why it exists": "Quick order overview without the full investigation CTE",
+                },
+                {
+                    "Tool": "get_order_investigation",
+                    "Input": "order_id",
+                    "What it returns": "Order + items + delivery events + returns/refunds in one bounded snapshot",
+                    "DB tables touched": "orders, order_items, delivery_events, returns_refunds",
+                    "Why it exists": "Full evidence collection in a single read-only SQL statement (CTE + jsonb_agg)",
+                },
+                {
+                    "Tool": "list_delivery_events",
+                    "Input": "order_id, limit (≤100)",
+                    "What it returns": "Chronological delivery scan events (type, time, location, source)",
+                    "DB tables touched": "delivery_events",
+                    "Why it exists": "Focused tracking view for 'where is my order' investigations",
+                },
+                {
+                    "Tool": "get_return_refund_status",
+                    "Input": "order_id, limit (≤50)",
+                    "What it returns": "Return/refund records with inspection status and refund status",
+                    "DB tables touched": "returns_refunds",
+                    "Why it exists": "Return eligibility checks without exposing mutation endpoints",
+                },
+                {
+                    "Tool": "get_customer_support_context",
+                    "Input": "order_id (resolves to customer_id internally)",
+                    "What it returns": "Loyalty account, transaction ledger (≤50 rows), prior communication summaries (≤20 rows)",
+                    "DB tables touched": "orders → customers → customer_loyalty_accounts, loyalty_transactions, customer_communications",
+                    "Why it exists": "Cross-table customer context without exposing raw customer identifiers",
+                },
+                {
+                    "Tool": "search_policy",
+                    "Input": "query, top_k (≤10), methods (semantic/keyword), locale",
+                    "What it returns": "Versioned policy passages with document ID, version, section, score, applicability metadata",
+                    "DB tables touched": "None (Milvus vector DB + BM25 index)",
+                    "Why it exists": "Dual-retrieval policy search — results carry provenance for evidence validation",
+                },
+                {
+                    "Tool": "investigate_ticket",
+                    "Input": "MCPInvestigationInput (message, ticket_id, order_id, top_k, methods)",
+                    "What it returns": "Combined triage classification + order evidence + policy evidence in one call",
+                    "DB tables touched": "tickets, orders, order_items, delivery_events, returns_refunds + Milvus",
+                    "Why it exists": "Full investigation pipeline exposed as a single MCP tool for external agents",
+                },
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+    # ── TAB 5: End-to-end message lifecycle ──────────────────────────
+    with lifecycle_tab:
+        st.markdown("### End-to-end message lifecycle")
+        st.caption("From the moment a customer sends a chat message to the final validated answer.")
+
+        lifecycle_steps = [
+            ("01", "Ingress & IDOR check",
+             "Chat message arrives → `detect_customer_mismatch()` verifies the customer owns the referenced order. "
+             "If the customer ID doesn't match the order's owner, the request is blocked immediately."),
+            ("02", "Input sanitization",
+             "`mask_sensitive_text()` redacts PII (Aadhaar, PAN, phone, email, card numbers). "
+             "`inspect_text()` scans for prompt injection, role spoofing, executable payloads, and active content. "
+             "Unicode homoglyphs are normalized; base64/hex payloads are decoded and re-scanned."),
+            ("03", "Dual triage classification",
+             "Laya classifier returns an allowlisted intent + confidence score. "
+             "If Laya is unavailable, TF-IDF fallback provides a review-only classification (never used for routing). "
+             "Low-confidence results pause the workflow for human review."),
+            ("04", "Deterministic supervisor routing",
+             "`INTENT_TO_SPECIALIST` map selects exactly one specialist. The LLM has no say in routing. "
+             "Example: `order_status` → InvestigationAgent, `policy_inquiry` → PolicyRetrievalAgent, "
+             "`account_query` → CustomerInvestigationAgent."),
+            ("05", "Specialist evidence collection",
+             "**Order specialist:** One CTE + `jsonb_agg` query fetches order, items, delivery events, and returns in a single bounded read. "
+             "**Policy specialist:** Milvus semantic + BM25 keyword retrieval returns versioned, cited passages. "
+             "**Customer specialist:** Joins loyalty accounts, transactions, and prior communications."),
+            ("06", "Evidence ledger validation",
+             "`build_evidence_ledger()` separates source facts, policy statements, customer reports, and model assumptions. "
+             "`validate_evidence_ledger()` checks freshness (max age configurable via EVIDENCE_MAX_AGE_SECONDS), "
+             "policy applicability (marketplace match, intent scope, lifecycle status), and provenance (SHA-256, version)."),
+            ("07", "Grounded response drafting",
+             "ResponseGenerationAgent drafts the answer using only evidence from the validated ledger. "
+             "Every claim must cite an `evidence_ref`. The draft includes a structured `claims` array for verification."),
+            ("08", "Output validation gate",
+             "`validate_draft()` checks for: hallucinated action claims, PII in response, unsafe content, "
+             "unverified URLs, unknown evidence references, and missing citations. "
+             "Failing drafts are rejected — the customer gets a safe fallback, never an unvalidated response."),
+        ]
+        for step_num, step_title, step_desc in lifecycle_steps:
+            st.markdown(
+                f"<div class='stage-card' style='margin-bottom:8px;'>"
+                f"<div class='stage-num'>STEP {step_num}</div>"
+                f"<div class='stage-title'>{html.escape(step_title)}</div>"
+                f"<div class='stage-copy'>{html.escape(step_desc)}</div></div>",
+                unsafe_allow_html=True,
+            )
+
+    # ── TAB 6: Neon PostgreSQL evidence strategy ─────────────────────
+    with db_tab:
+        st.markdown("### Neon PostgreSQL table architecture")
+        st.caption("All reads are bounded, read-only, and use a single transaction with `statement_timeout`.")
+
+        st.markdown("#### Database tables and their roles")
+        st.dataframe(
+            [
+                {"Table": "customers", "Primary key": "customer_id", "Role": "Customer identity — name, city, state, language, loyalty tier, segment. Never exposed to the LLM.", "Joined by": "orders.customer_id"},
+                {"Table": "orders", "Primary key": "order_id", "Role": "Order header — status, dates, seller type, marketplace. The root of every investigation.", "Joined by": "customer_id FK → customers"},
+                {"Table": "order_items", "Primary key": "item_id", "Role": "Line items — product name, category, quantity, price, condition reported.", "Joined by": "order_id FK → orders"},
+                {"Table": "delivery_events", "Primary key": "event_id", "Role": "Chronological tracking scans — event type, time, location, source.", "Joined by": "order_id FK → orders"},
+                {"Table": "returns_refunds", "Primary key": "return_id", "Role": "Return/refund records — status, inspection status, refund status, source.", "Joined by": "order_id FK → orders"},
+                {"Table": "customer_loyalty_accounts", "Primary key": "account_id", "Role": "Loyalty program — tier, points balance, account status.", "Joined by": "customer_id FK → customers"},
+                {"Table": "loyalty_transactions", "Primary key": "event_id", "Role": "Points ledger — event type, delta, status, reward codes.", "Joined by": "customer_id FK → customers"},
+                {"Table": "customer_communications", "Primary key": "communication_id", "Role": "Prior contact history — channel, direction, topic, summary, outcome.", "Joined by": "customer_id FK → customers"},
+                {"Table": "tickets", "Primary key": "ticket_id", "Role": "Support tickets — message text and linked order hint.", "Joined by": "order_id FK → orders"},
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+        st.markdown("#### Single-query CTE + jsonb_agg pattern")
+        st.markdown(
+            "The order investigation query (`get_order_investigation_readonly`) uses a **CTE with correlated "
+            "subqueries and `jsonb_agg`** to fetch all evidence in **one SQL statement, one round-trip**:"
+        )
+        st.code(
+            """WITH request_config AS MATERIALIZED (
+    SELECT set_config('statement_timeout', '5000', true)
+)
+SELECT
+    jsonb_build_object('order_id', o.order_id, 'status', o.status, ...)
+        AS order_record,
+    COALESCE((
+        SELECT jsonb_agg(...)
+        FROM (SELECT ... FROM order_items WHERE order_id = o.order_id
+              ORDER BY item_id LIMIT $1) AS item_data
+    ), '[]'::jsonb) AS items,
+    COALESCE((
+        SELECT jsonb_agg(...)
+        FROM (SELECT ... FROM delivery_events WHERE order_id = o.order_id
+              ORDER BY event_time LIMIT $2) AS event_data
+    ), '[]'::jsonb) AS delivery_events,
+    COALESCE((
+        SELECT jsonb_agg(...)
+        FROM (SELECT ... FROM returns_refunds WHERE order_id = o.order_id
+              ORDER BY requested_at LIMIT $3) AS return_data
+    ), '[]'::jsonb) AS returns_refunds
+FROM orders AS o
+CROSS JOIN request_config
+WHERE o.order_id = $4
+LIMIT 1""",
+            language="sql",
+        )
+        st.markdown("**Why this pattern?**")
+        st.dataframe(
+            [
+                {"Design choice": "CTE with set_config", "Reason": "Enforces a 5-second statement timeout at the transaction level — prevents runaway queries"},
+                {"Design choice": "jsonb_agg in correlated subqueries", "Reason": "Returns related rows as JSON arrays inside the parent row — one round-trip instead of N+1 queries"},
+                {"Design choice": "LIMIT on each subquery", "Reason": "Bounded row counts (items ≤ 50, events ≤ 100, returns ≤ 50) prevent memory/bandwidth abuse"},
+                {"Design choice": "COALESCE with '[]'::jsonb", "Reason": "Guarantees an empty array for missing data instead of NULL — simplifies downstream code"},
+                {"Design choice": "ORDER BY before LIMIT", "Reason": "Deterministic row selection — newest or most relevant rows within the bound"},
+                {"Design choice": "Read-only cursor", "Reason": "All queries run through readonly_cursor() — no INSERT, UPDATE, DELETE, or DDL is possible"},
+            ],
+            hide_index=True,
+            width="stretch",
+        )
+
+        st.markdown("#### Entity relationships")
+        st.markdown(
+            "```\n"
+            "customers ─┬─ orders ─┬─ order_items\n"
+            "           │          ├─ delivery_events\n"
+            "           │          ├─ returns_refunds\n"
+            "           │          └─ tickets\n"
+            "           ├─ customer_loyalty_accounts\n"
+            "           ├─ loyalty_transactions\n"
+            "           └─ customer_communications\n"
+            "```"
+        )
 
 
 def render_security_center() -> None:
@@ -1571,13 +1914,36 @@ def main() -> None:
                 if not order_lookup_id.strip():
                     st.error("Enter an order ID.")
                 else:
+                    ctx = None
                     try:
                         encoded_order_id = quote(order_lookup_id.strip(), safe="")
-                        st.session_state.customer_context_result = local_api_request(
+                        ctx = local_api_request(
                             "GET", f"/orders/{encoded_order_id}/customer-context", base_url=base_url
                         )
-                    except ApiError as exc:
-                        st.error(f"Customer context lookup failed: {exc}")
+                    except ApiError:
+                        # Fallback: try direct DB query by order_id
+                        try:
+                            from backend.app.db.repositories import get_customer_support_context_readonly
+                            ctx = get_customer_support_context_readonly(order_id=order_lookup_id.strip())
+                        except Exception:
+                            pass
+                    if ctx is not None:
+                        st.session_state.customer_context_result = ctx
+                    else:
+                        st.session_state.customer_context_result = {
+                            "schema_version": "1.0",
+                            "status": "insufficient_data",
+                            "loyalty_account": None,
+                            "loyalty_transactions": [],
+                            "prior_communications": [],
+                            "missing_fields": ["database_unavailable"],
+                            "conflicts": [],
+                        }
+                        st.info(
+                            "Loyalty and prior-contact context requires a live database connection. "
+                            "The local API and Neon DB are both unreachable for this order. "
+                            "This is expected in local development without DATABASE_URL configured."
+                        )
             if st.session_state.get("customer_context_result"):
                 context = st.session_state.customer_context_result
                 assert context is not None
@@ -1635,17 +2001,47 @@ def main() -> None:
                 if not cust_input.strip():
                     st.error("Enter a customer ID.")
                 else:
-                    cid = quote(cust_input.strip().upper(), safe="")
+                    cid_raw = cust_input.strip().upper()
+                    cid = quote(cid_raw, safe="")
+                    orders_data = None
+                    # 1) Try the remote/local API
                     try:
                         orders_data = api_request("GET", f"/customers/{cid}/orders", base_url=base_url)
-                        st.session_state.cust_orders_result = orders_data
                     except Exception:
+                        pass
+                    # 2) Fallback: direct Neon DB query
+                    if orders_data is None:
                         try:
                             from backend.app.db.repositories import get_customer_orders_readonly
-                            orders_data = get_customer_orders_readonly(cust_input.strip().upper())
-                            st.session_state.cust_orders_result = orders_data
-                        except Exception as exc:
-                            st.error(f"Customer order lookup failed: {exc}")
+                            orders_data = get_customer_orders_readonly(cid_raw)
+                        except Exception:
+                            pass
+                    # 3) Fallback: read from CSV fixture
+                    if orders_data is None:
+                        try:
+                            import csv
+                            csv_path = PROJECT_ROOT / "data" / "processed" / "clean_orders.csv"
+                            if csv_path.exists():
+                                with open(csv_path, encoding="utf-8") as f:
+                                    reader = csv.DictReader(f)
+                                    matched = [
+                                        {"order_id": r.get("order_id", ""), "status": r.get("status", ""), "order_date": r.get("order_date", "")}
+                                        for r in reader if r.get("customer_id", "").strip().upper() == cid_raw
+                                    ]
+                                if matched:
+                                    orders_data = {"as_of": "CSV fixture", "orders": matched[:5], "has_more_orders": len(matched) > 5, "source": "local CSV fallback"}
+                                    st.info("Loaded from local CSV fixture (Neon DB and remote API are unavailable).")
+                        except Exception:
+                            pass
+                    if orders_data is not None:
+                        st.session_state.cust_orders_result = orders_data
+                    else:
+                        st.warning(
+                            f"Customer order lookup for **{cid_raw}** could not complete. "
+                            "Both the remote API and local Neon database are unreachable, "
+                            "and no matching CSV fixture data was found. "
+                            "Ensure the FastAPI service is running or DATABASE_URL is set."
+                        )
             if st.session_state.get("cust_orders_result"):
                 show_json_result("Customer order history", st.session_state.cust_orders_result)
 
@@ -1654,17 +2050,40 @@ def main() -> None:
                 if not cust_input.strip():
                     st.error("Enter a customer ID.")
                 else:
-                    cid = quote(cust_input.strip().upper(), safe="")
+                    cid_raw = cust_input.strip().upper()
+                    cid = quote(cid_raw, safe="")
+                    ctx_data = None
+                    # 1) Try the remote/local API
                     try:
                         ctx_data = api_request("GET", f"/customers/{cid}/context", base_url=base_url)
-                        st.session_state.cust_context_direct_result = ctx_data
                     except Exception:
+                        pass
+                    # 2) Fallback: direct Neon DB query
+                    if ctx_data is None:
                         try:
                             from backend.app.db.repositories import get_customer_support_context_readonly
-                            ctx_data = get_customer_support_context_readonly(customer_id=cust_input.strip().upper())
-                            st.session_state.cust_context_direct_result = ctx_data
-                        except Exception as exc:
-                            st.error(f"Customer context lookup failed: {exc}")
+                            ctx_data = get_customer_support_context_readonly(customer_id=cid_raw)
+                        except Exception:
+                            pass
+                    # 3) Fallback: graceful degradation with explanation
+                    if ctx_data is None:
+                        ctx_data = {
+                            "schema_version": "1.0",
+                            "source_systems": ["unavailable"],
+                            "status": "insufficient_data",
+                            "loyalty_account": None,
+                            "loyalty_transactions": [],
+                            "prior_communications": [],
+                            "missing_fields": ["loyalty_tables_unavailable", "communications_unavailable"],
+                            "conflicts": [],
+                            "note": "Both the remote API and local Neon database are unreachable. Loyalty and communication tables require a live database connection.",
+                        }
+                        st.info(
+                            "Customer loyalty and contact data requires a live database connection. "
+                            "The remote API and local Neon DB are both unreachable. "
+                            "Showing a placeholder response below."
+                        )
+                    st.session_state.cust_context_direct_result = ctx_data
             if st.session_state.get("cust_context_direct_result"):
                 show_json_result("Customer loyalty & support history ledger", st.session_state.cust_context_direct_result)
 
