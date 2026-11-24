@@ -45,20 +45,21 @@ def chat_error(status_code: int | None, detail: str) -> str:
     if status_code == 503:
         if "database" in detail_lower or "workflowstore" in detail_lower or "timeout" in detail_lower:
             return (
-                "⚠️ **Workflow Database Unavailable (HTTP 503)**\n\n"
+                "**Workflow Database Unavailable (HTTP 503)**\n\n"
                 "The background PostgreSQL workflow store could not be reached. "
-                "You can switch to **⚡ Investigate Tool** mode in the context bar above for instant direct answers "
+                "You can switch to **Investigate Tool** mode in the context bar above for instant direct answers "
                 "without background database queuing."
             )
         if "milvus" in detail_lower or "rag" in detail_lower:
-            return "⚠️ Vector database (Milvus) is currently unavailable. You can retry with keyword search mode."
+            return "Vector database (Milvus) is currently unavailable. You can retry with keyword search mode."
         return cannot_answer(["dependency_unavailable"])
-    return f"⚠️ Request could not be completed: {detail}"
+    return f"Request could not be completed: {detail}"
 
 
 def repair_legacy_turns(history: list[dict[str, Any]]) -> None:
     previous_message = ""
     for turn in history:
+        turn.pop("avatar", None)
         if turn.get("role") == "user":
             previous_message = turn.get("content") or ""
         elif turn.get("content") in {"Investigation completed successfully using the investigation tool.", "Order status investigated."}:
