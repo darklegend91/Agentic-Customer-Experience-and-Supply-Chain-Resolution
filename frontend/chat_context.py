@@ -42,7 +42,19 @@ def find_customer_for_order(order_id: str | None) -> str | None:
     if not order_id:
         return None
     _ensure_mappings_loaded()
-    return _ORDER_TO_CUSTOMER.get(order_id) or _ORDER_TO_CUSTOMER.get(order_id.upper())
+    res = _ORDER_TO_CUSTOMER.get(order_id) or _ORDER_TO_CUSTOMER.get(order_id.upper())
+    if res:
+        return res
+    try:
+        from backend.app.db.database import get_db_cursor
+        with get_db_cursor() as cursor:
+            cursor.execute("SELECT customer_id FROM orders WHERE order_id = %s", (order_id.strip(),))
+            row = cursor.fetchone()
+            if row and row.get("customer_id"):
+                return str(row["customer_id"]).strip().upper()
+    except Exception:
+        pass
+    return None
 
 
 def find_latest_order_for_customer(customer_id: str | None) -> str | None:
@@ -82,14 +94,33 @@ def resolve_customer_context(message: str, manual_customer_id: str, previous_cus
     return previous_customer_id or None
 
 
-def detect_customer_mismatch(message: str, active_customer_id: str | None) -> str | None:
-    """If the message explicitly specifies a customer ID that differs from active session customer, return it."""
+def detect_customer_mismatch(
+    message: str,
+    active_customer_id: str | None,
+    order_id: str | None = None,
+) -> str | None:
+    """If the message or input explicitly specifies a customer ID that differs from active session customer,
+    or references an order belonging to another customer account, return that conflicting customer ID.
+    """
     if not active_customer_id:
         return None
+    active_upper = active_customer_id.strip().upper()
+
+    # 1. Direct customer reference mismatch in message
     references = sorted({match.upper() for match in _CUSTOMER_ID.findall(message)})
     for ref in references:
-        if ref != active_customer_id.upper():
+        if ref != active_upper:
             return ref
+
+    # 2. Order reference in message or input belonging to another customer account
+    order_refs = sorted(set(_ORDER_ID.findall(message)))
+    if order_id and order_id not in order_refs:
+        order_refs.append(order_id)
+    for ord_ref in order_refs:
+        linked_cust = find_customer_for_order(ord_ref)
+        if linked_cust and linked_cust.upper() != active_upper:
+            return linked_cust.upper()
+
     return None
 
 
@@ -122,7 +153,10 @@ def resolve_conversation_context(
             if msg_custs and not msg_orders:
                 order_id = find_latest_order_for_customer(customer_id)
             elif msg_orders and not msg_custs:
-                customer_id = linked_cust
+                # Do NOT silently switch customer_id to linked_cust if a customer was already active!
+                # If an active customer session exists, customer_id remains authoritative.
+                if not (manual_customer_id or previous_customer_id):
+                    customer_id = linked_cust
 
     if autolink:
         # Autolink customer from order if customer is missing
