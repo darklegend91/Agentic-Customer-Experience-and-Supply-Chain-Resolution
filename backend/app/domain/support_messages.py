@@ -1,8 +1,10 @@
 """Reviewed conversational explanations for requests this app cannot answer."""
 
 import re
+from typing import Any
 
 SUPPORT_SCOPE = "I can help with orders, deliveries, returns, refunds, product issues, and rewards."
+TICKET_ORDER_PRODUCT_MISMATCH = "ticket_order_product_mismatch"
 _ACCOUNT_ACCESS = re.compile(
     r"\b(?:reset|change|forgot|forgotten|recover)\b.{0,40}\bpassword\b|"
     r"\bpassword\b.{0,30}\b(?:reset|recovery|change|forgot|recover)\b|"
@@ -46,7 +48,39 @@ def unrecognized_package_clarification(order_id: str | None) -> str:
     )
 
 
-def cannot_answer(reason_codes: list[str], missing_information: list[str] | None = None) -> str:
+def unrecognized_package_reply(message: str, order_id: str | None) -> dict[str, Any]:
+    if unrecognized_package_request(message):
+        answer = unrecognized_package_clarification(order_id)
+        reason = "unrecognized_package_needs_confirmation"
+        missing = ["shipping_label_order_id", "received_item_description"]
+    else:
+        answer = "Are you asking what items are listed on your order? Please tell me what you'd like to check."
+        reason = "package_request_unclear"
+        missing = ["request_details"]
+    return {
+        "status": "needs_information", "answer": answer, "reason_codes": [reason], "missing_information": missing,
+    }
+
+
+def ticket_order_conflict_reply(ledger: dict[str, Any]) -> dict[str, Any] | None:
+    conflict = next(
+        (row for row in ledger.get("conflicts", []) if row.get("conflict_id") == TICKET_ORDER_PRODUCT_MISMATCH),
+        None,
+    )
+    if conflict is None:
+        return None
+    return {
+        "status": "needs_information",
+        "answer": conflict["description"] + " Please confirm the order ID you meant.",
+        "reason_codes": [TICKET_ORDER_PRODUCT_MISMATCH],
+        "missing_information": ["confirmed_order_id"],
+        "evidence_refs": conflict["evidence_refs"],
+    }
+
+
+def cannot_answer(
+    reason_codes: list[str], missing_information: list[str] | None = None, *, intent: str | None = None,
+) -> str:
     codes = set(reason_codes)
     if "unsupported_account_request" in codes:
         return ("I can't reset passwords or access account credentials in this chat. "
@@ -72,6 +106,9 @@ def cannot_answer(reason_codes: list[str], missing_information: list[str] | None
     if codes & {"no_approved_applicable_policy", "policy_answer_requires_human_review"}:
         return ("I can't confirm an answer because an approved policy for this request isn't available. "
                 "A support specialist needs to review it before any decision can be made.")
+    if "required_source_fields_not_available" in codes and intent == "price_difference":
+        return ("The investigation needs the verified receipt total and a breakdown of charges to explain the price difference. "
+                "A support specialist needs to review the case.")
     if missing_information:
         return ("I don't have enough verified information to answer that yet. "
                 "Please describe what happened and which item is affected. "

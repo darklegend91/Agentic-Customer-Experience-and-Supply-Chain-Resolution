@@ -88,8 +88,7 @@ def investigate_ticket(
                   "policy_evidence": {"status": "insufficient_data", "results": {}, "collection": None,
                                       "corpus_scope": "not searched until the request is in scope and has sufficient details", "missing_fields": []},
                   "missing_information": (
-                      ["shipping_label_order_id", "received_item_description"] if needs_clarification
-                      else ["order_id"] if classification.get("intent") in ORDER_REQUIRED_INTENTS and not order_id else []
+                      ["order_id"] if classification.get("intent") in ORDER_REQUIRED_INTENTS and not order_id else []
                   ), "limitations": ["No evidence tools were called because this request needs clarification or support review."]}
         result.update(investigation_reply(result, message=message, order_id=order_id, locale=locale))
         return TicketInvestigationResponse.model_validate({"request_id": "pending", **result}).model_dump(mode="json", exclude={"request_id"})

@@ -8,6 +8,7 @@ from .escalation import evidence_references, require_human_review
 from .refund_eligibility import assess_refund_eligibility
 from .return_eligibility import assess_return_eligibility
 from .reward_rules import assess_reward_request
+from .support_messages import TICKET_ORDER_PRODUCT_MISMATCH, ticket_order_conflict_reply
 
 
 ORDER_REQUIRED_INTENTS = {
@@ -140,6 +141,11 @@ def evaluate_resolution(state: dict[str, Any]) -> dict[str, Any]:
     ledger = evidence.get("ledger") or {}
     refs = evidence_references(state)
 
+    if conflict := ticket_order_conflict_reply(ledger):
+        return require_human_review(
+            TICKET_ORDER_PRODUCT_MISMATCH, outcome="needs_information",
+            missing_information=conflict["missing_information"], evidence_refs=conflict["evidence_refs"],
+        )
     if ledger.get("conflicts"):
         return require_human_review("conflicting_source_evidence", evidence_refs=refs)
     ledger_missing = [

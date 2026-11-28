@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import os
 from contextlib import contextmanager
+from functools import wraps
 from threading import Lock
-from typing import Iterator
+from typing import Callable, Iterator, ParamSpec, TypeVar
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -17,6 +18,30 @@ from ..runtime import require_local_development
 
 class DatabaseUnavailable(RuntimeError):
     """The local read-only data source is not available."""
+
+
+P = ParamSpec("P")
+T = TypeVar("T")
+
+
+def retry_readonly_connection(read: Callable[P, T]) -> Callable[P, T]:
+    """Retry a complete read-only operation once after a connection failure."""
+    @wraps(read)
+    def wrapped(*args: P.args, **kwargs: P.kwargs) -> T:
+        try:
+            return read(*args, **kwargs)
+        except DatabaseUnavailable as exc:
+            cause = exc.__cause__
+            connection_error = isinstance(cause, psycopg2.InterfaceError) or (
+                isinstance(cause, psycopg2.OperationalError)
+                and (cause.pgcode in {None, "57P01", "57P02", "57P03"} or cause.pgcode.startswith("08"))
+            )
+            if not connection_error:
+                raise
+            with trace_stage("database.neon_readonly_retry", {"error_type": type(cause).__name__}):
+                return read(*args, **kwargs)
+
+    return wrapped
 
 
 _pool: ThreadedConnectionPool | None = None
@@ -51,36 +76,26 @@ def _readonly_cursor_impl() -> Iterator[RealDictCursor]:
     if not dsn:
         raise DatabaseUnavailable("DATABASE_URL is not configured")
 
-    connection = None
-    cursor = None
-    pool = None
-    discard_connection = False
     try:
         pool = _get_readonly_pool(dsn)
         connection = pool.getconn()
-        connection.rollback()
-        connection.set_session(readonly=True, autocommit=False)
-        cursor = connection.cursor(cursor_factory=RealDictCursor)
-        yield cursor
+        discard_connection = True
+        try:
+            connection.rollback()
+            connection.set_session(readonly=True, autocommit=False)
+            cursor = connection.cursor(cursor_factory=RealDictCursor)
+            try:
+                yield cursor
+            finally:
+                cursor.close()
+            connection.rollback()
+            discard_connection = False
+        finally:
+            pool.putconn(connection, close=discard_connection or bool(connection.closed))
     except DatabaseUnavailable:
-        discard_connection = connection is not None and bool(connection.closed)
         raise
     except Exception as exc:
-        discard_connection = connection is not None
         raise DatabaseUnavailable("Neon read-only lookup failed") from exc
-    finally:
-        try:
-            if cursor is not None:
-                cursor.close()
-        finally:
-            if connection is not None:
-                try:
-                    connection.rollback()
-                finally:
-                    if pool is not None:
-                        pool.putconn(connection, close=discard_connection or bool(connection.closed))
-                    else:
-                        connection.close()
 
 
 @contextmanager

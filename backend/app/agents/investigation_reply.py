@@ -3,11 +3,15 @@
 from typing import Any
 
 from ..domain.resolution_rules import ORDER_REQUIRED_INTENTS, evaluate_resolution
-from ..domain.support_messages import cannot_answer, unrecognized_package_clarification
-from ..guardrails.output_validation import validate_draft
+from ..domain.support_messages import cannot_answer, ticket_order_conflict_reply, unrecognized_package_reply
 from ..guardrails.evidence_validation import validate_evidence_ledger
-from .response_generation import canonical_answer, draft_grounded_response, recorded_claims
+from ..guardrails.output_validation import validate_draft
 from .policy_retrieval import policy_evidence_references
+from .response_generation import (
+    canonical_answer,
+    draft_grounded_response,
+    recorded_claims,
+)
 
 
 def investigation_reply(result: dict[str, Any], *, message: str, order_id: str | None, locale: str) -> dict[str, Any]:
@@ -21,12 +25,7 @@ def investigation_reply(result: dict[str, Any], *, message: str, order_id: str |
     elif classification.get("triage_status") == "security_review":
         codes = ["unsafe_input"]
     elif intent == "unrecognized_package":
-        return {
-            "status": "needs_information",
-            "answer": unrecognized_package_clarification(order_id),
-            "reason_codes": ["unrecognized_package_needs_confirmation"],
-            "evidence_refs": [],
-        }
+        return {**unrecognized_package_reply(message, order_id), "evidence_refs": []}
     elif intent == "other_or_unsupported":
         codes = ["unsupported_request"]
     elif intent in ORDER_REQUIRED_INTENTS and not order_id:
@@ -50,10 +49,12 @@ def investigation_reply(result: dict[str, Any], *, message: str, order_id: str |
     resolution = evaluate_resolution(state)
     state["resolution"] = resolution
     if resolution.get("outcome") != "answer":
+        if conflict := ticket_order_conflict_reply(result.get("evidence_ledger") or {}):
+            return conflict
         codes = resolution.get("reason_codes") or ["requires_human_review"]
         missing = resolution.get("missing_information") or missing
         return {"status": "needs_information" if resolution.get("outcome") == "needs_information" else "escalated",
-                "answer": cannot_answer(codes, missing), "reason_codes": codes, "evidence_refs": refs}
+                "answer": cannot_answer(codes, missing, intent=intent), "reason_codes": codes, "evidence_refs": refs}
     try:
         if validate_evidence_ledger(result.get("evidence_ledger") or {}):
             return {"status": "failed_safe", "answer": cannot_answer(["evidence_validation_failed"]),

@@ -5,12 +5,24 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from ..db.repositories import RecordNotFound, get_customer_orders_readonly, get_customer_support_context_readonly
+from ..db.repositories import (
+    RecordNotFound,
+    get_customer_orders_readonly,
+    get_customer_support_context_readonly,
+)
 from ..db.session import DatabaseUnavailable
 from ..domain.customer_references import CUSTOMER_REFERENCE
-from ..domain.support_messages import account_access_request, cannot_answer, unrecognized_package_clarification, unrecognized_package_request
+from ..domain.support_messages import (
+    account_access_request,
+    cannot_answer,
+    unrecognized_package_clarification,
+    unrecognized_package_request,
+)
 from ..guardrails.content_safety import evidence_risk_codes
-from ..guardrails.evidence_validation import build_evidence_ledger, validate_evidence_ledger
+from ..guardrails.evidence_validation import (
+    build_evidence_ledger,
+    validate_evidence_ledger,
+)
 from ..guardrails.output_validation import validate_draft
 from .sanitization import sanitize_request
 

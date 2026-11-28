@@ -6,7 +6,7 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any
 
-from .session import DatabaseUnavailable, readonly_cursor
+from .session import DatabaseUnavailable, readonly_cursor, retry_readonly_connection
 
 
 class RecordNotFound(LookupError):
@@ -33,6 +33,7 @@ def _as_dicts(rows: list[Any]) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
+@retry_readonly_connection
 def get_ticket_readonly(ticket_id: str) -> dict[str, Any]:
     """Read only user-facing ticket fields; never select expected labels."""
     try:
@@ -56,6 +57,7 @@ def get_ticket_readonly(ticket_id: str) -> dict[str, Any]:
     return _as_json(row)
 
 
+@retry_readonly_connection
 def get_order_summary_readonly(order_id: str) -> dict[str, Any]:
     """Read one order and at most 50 item rows, omitting customer identifiers."""
     try:
@@ -147,6 +149,80 @@ def order_belongs_to_customer(order_id: str, customer_id: str) -> bool:
             (order_id, customer_id),
         )
         return cursor.fetchone() is not None
+
+
+@retry_readonly_connection
+def get_chat_anchor_readonly(
+    *, ticket_id: str | None, order_id: str | None, customer_id: str | None,
+) -> dict[str, Any]:
+    """Resolve the most specific chat reference without reading ticket text or contact details."""
+    with readonly_cursor() as cursor:
+        if ticket_id:
+            cursor.execute(
+                """
+                SELECT t.ticket_id, o.order_id, o.customer_id
+                FROM tickets AS t LEFT JOIN orders AS o ON o.order_id = t.order_id
+                WHERE t.ticket_id = %s
+                """,
+                (ticket_id,),
+            )
+        elif order_id:
+            cursor.execute(
+                "SELECT NULL AS ticket_id, order_id, customer_id FROM orders WHERE order_id = %s",
+                (order_id,),
+            )
+        else:
+            cursor.execute(
+                "SELECT NULL AS ticket_id, NULL AS order_id, customer_id FROM customers WHERE customer_id = %s",
+                (customer_id,),
+            )
+        row = _as_dict(cursor.fetchone())
+    if row is None:
+        raise RecordNotFound("The ticket, order, or customer was not found in the available records")
+    return row
+
+
+@retry_readonly_connection
+def get_chat_relationships_readonly(
+    *, order_id: str | None, customer_id: str | None,
+    allowed_order_ids: frozenset[str], allowed_ticket_ids: frozenset[str],
+) -> dict[str, Any]:
+    """Read the profile and related references inside the caller's verified scope."""
+    with readonly_cursor() as cursor:
+        cursor.execute(
+            """
+            WITH visible_orders AS (
+                SELECT order_id, status, order_date
+                FROM orders
+                WHERE (customer_id = %(customer_id)s OR (%(customer_id)s IS NULL AND order_id = %(order_id)s))
+                  AND (%(all_orders)s OR order_id = ANY(%(allowed_orders)s))
+            )
+            SELECT (
+                SELECT jsonb_build_object(
+                    'loyalty_tier', loyalty_tier,
+                    'preferred_language', preferred_language,
+                    'account_created_date', account_created_date
+                )
+                FROM customers WHERE customer_id = %(customer_id)s
+            ) AS customer,
+            COALESCE((
+                SELECT jsonb_agg(to_jsonb(o) ORDER BY o.order_date DESC NULLS LAST, o.order_id)
+                FROM visible_orders AS o
+            ), '[]'::jsonb) AS orders,
+            COALESCE((
+                SELECT jsonb_agg(jsonb_build_object('ticket_id', t.ticket_id, 'order_id', t.order_id)
+                                 ORDER BY t.ticket_id)
+                FROM tickets AS t JOIN visible_orders AS o ON o.order_id = t.order_id
+                WHERE %(all_tickets)s OR t.ticket_id = ANY(%(allowed_tickets)s)
+            ), '[]'::jsonb) AS tickets
+            """,
+            {
+                "order_id": order_id, "customer_id": customer_id,
+                "all_orders": "*" in allowed_order_ids, "allowed_orders": list(allowed_order_ids),
+                "all_tickets": "*" in allowed_ticket_ids, "allowed_tickets": list(allowed_ticket_ids),
+            },
+        )
+        return dict(cursor.fetchone())
 
 
 def get_customer_support_context_readonly(
@@ -287,9 +363,11 @@ def get_customer_support_context_readonly(
     })
 
 
+@retry_readonly_connection
 def get_order_investigation_readonly(
     order_id: str,
     *,
+    customer_id: str | None = None,
     item_limit: int = 50,
     event_limit: int = 100,
     return_limit: int = 50,
@@ -371,10 +449,10 @@ def get_order_investigation_readonly(
                     ), '[]'::jsonb) AS returns_refunds
                 FROM orders AS o
                 CROSS JOIN request_config
-                WHERE o.order_id = %s
+                WHERE o.order_id = %s AND (%s IS NULL OR o.customer_id = %s)
                 LIMIT 1
                 """,
-                (item_limit, event_limit, return_limit, order_id),
+                (item_limit, event_limit, return_limit, order_id, customer_id, customer_id),
             )
             row = _as_dict(cursor.fetchone())
     except DatabaseUnavailable:

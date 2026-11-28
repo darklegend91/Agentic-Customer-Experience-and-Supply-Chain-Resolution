@@ -6,16 +6,16 @@ import logging
 import os
 import threading
 import uuid
+from collections.abc import Mapping
 from contextlib import contextmanager
 from contextvars import ContextVar
 from datetime import datetime, timezone
 from functools import wraps
 from typing import Any
-from collections.abc import Mapping
-from typing_extensions import TypedDict
 
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
+from typing_extensions import TypedDict
 
 from ..approval.workflow_state import (
     WorkflowStoreUnavailable,
@@ -27,13 +27,18 @@ from ..approval.workflow_state import (
     update_workflow_order_scope,
 )
 from ..domain.resolution_rules import evaluate_resolution
+from ..domain.support_messages import (
+    TICKET_ORDER_PRODUCT_MISMATCH,
+    cannot_answer,
+    ticket_order_conflict_reply,
+    unrecognized_package_reply,
+)
+from ..guardrails.content_safety import evidence_risk_codes
 from ..guardrails.evidence_validation import (
     build_evidence_ledger,
     validate_evidence_ledger,
 )
 from ..guardrails.output_validation import validate_draft
-from ..guardrails.content_safety import evidence_risk_codes
-from ..domain.support_messages import cannot_answer, unrecognized_package_clarification
 from ..observability.logging import log_safe_error
 from ..observability.tracing import trace_stage, traced_stage, update_trace_span
 from .customer_investigation import investigate_customer
@@ -50,9 +55,9 @@ from .response_generation import (
     draft_grounded_response,
     recorded_claims,
 )
+from .sanitization import sanitize_request
 from .supervisor import supervisor_route
 from .triage import triage_ticket
-from .sanitization import sanitize_request
 
 logger = logging.getLogger(__name__)
 
@@ -384,15 +389,23 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
 
     def fallback_node(state: Mapping[str, Any]) -> dict[str, Any]:
         classification = state.get("classification") or {}
-        if classification.get("intent") == "unrecognized_package":
-            codes = ["unrecognized_package_needs_confirmation"]
-            event(state, "fallback", "safe_fallback_selected", {"status": "needs_information", "reason_codes": codes})
-            return {
-                "status": "needs_information",
-                "answer": unrecognized_package_clarification(state.get("order_id")),
-                "reason_codes": codes,
-                "missing_information": ["shipping_label_order_id", "received_item_description"],
-            }
+        if TICKET_ORDER_PRODUCT_MISMATCH in (state.get("reason_codes") or []):
+            ledger = (state.get("evidence") or {}).get("ledger") or {}
+            if conflict := ticket_order_conflict_reply(ledger):
+                event(state, "fallback", "safe_fallback_selected", {
+                    "status": conflict["status"], "reason_codes": conflict["reason_codes"],
+                })
+                return conflict
+        if (
+            classification.get("intent") == "unrecognized_package"
+            and classification.get("triage_status") != "security_review"
+            and not state.get("input_error_code")
+        ):
+            reply = unrecognized_package_reply(str(state.get("message") or ""), state.get("order_id"))
+            event(state, "fallback", "safe_fallback_selected", {
+                "status": reply["status"], "reason_codes": reply["reason_codes"],
+            })
+            return reply
         current = state.get("status")
         if current not in {"needs_information", "escalated", "failed_safe"}:
             codes = list(state.get("reason_codes") or []) + list(state.get("triage_reason_codes") or [])
@@ -414,8 +427,8 @@ def build_workflow_graph(*, checkpointer: Any = None, persistence_enabled: bool 
             codes = list(state.get("triage_reason_codes") or [])
         if state.get("error_code") and state["error_code"] not in codes:
             codes.append(state["error_code"])
-        if "unsupported_account_request" in codes or "unsupported_or_unclear_intent" in codes:
-            answer = cannot_answer(codes, state.get("missing_information"))
+        if set(codes) & {"unsupported_account_request", "unsupported_or_unclear_intent", "required_source_fields_not_available"}:
+            answer = cannot_answer(codes, state.get("missing_information"), intent=classification.get("intent"))
         if "customer_order_reference_conflict" in codes:
             answer = "I couldn't match that order to the selected customer. Please check both IDs and try again."
         if current == "escalated" and state.get("specialist") == "manual_review":

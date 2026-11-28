@@ -3,10 +3,63 @@
 from __future__ import annotations
 
 import os
+import re
 from datetime import date, datetime, timezone
 from typing import Any
 
 from ..api.schemas.evidence import EvidenceLedger
+from ..domain.support_messages import TICKET_ORDER_PRODUCT_MISMATCH
+
+
+_NAMED_ORDER_REQUEST = re.compile(
+    r"(?:what(?: is|'s) happening with|what(?: is|'s) the status of|where(?: is|'s)|track|check the status of) "
+    r"(?:my|the|this) (?P<product>[\w'-]+(?: [\w'-]+){0,5}) order[?.!]*",
+    re.IGNORECASE,
+)
+_GENERAL_ORDER_WORDS = {
+    "current", "delayed", "earlier", "first", "last", "latest", "missing", "most", "new", "next",
+    "old", "online", "other", "pending", "previous", "processing", "recent", "second",
+}
+
+
+def _product_words(name: str) -> set[str]:
+    return {word.removesuffix("s") for word in re.findall(r"\w+", name.casefold())}
+
+
+def _ticket_order_product_conflict(
+    message: str, ticket_id: str, order_evidence: dict[str, Any],
+) -> dict[str, Any] | None:
+    match = _NAMED_ORDER_REQUEST.fullmatch(" ".join(message.split()))
+    order = order_evidence.get("order") or {}
+    items = order_evidence.get("items") or []
+    if not match or not order.get("order_id") or not items or any(not item.get("product_name") for item in items):
+        return None
+    product = match["product"]
+    terms = _product_words(product) - _GENERAL_ORDER_WORDS
+    if not terms or any(
+        terms <= _product_words(item["product_name"]) | _product_words(item.get("category") or "")
+        for item in items
+    ):
+        return None
+
+    names = []
+    for item in items[:10]:
+        quantity = item.get("quantity")
+        suffix = f" (quantity {quantity})" if quantity is not None else ""
+        names.append(item["product_name"] + suffix)
+    order_id = order["order_id"]
+    description = f"The ticket mentions {product}. The linked order `{order_id}` lists {', '.join(names)}."
+    if status := order.get("status"):
+        description += f" Its recorded status is {status.replace('_', ' ')}."
+    source_refs = order_evidence.get("evidence_refs") or {}
+    order_refs = _field_map(source_refs, "order") or [f"order:{order_id}"]
+    item_refs = _field_map(source_refs, "items") or [f"items:{item['item_id']}" for item in items]
+    return {
+        "conflict_id": TICKET_ORDER_PRODUCT_MISMATCH,
+        "description": description,
+        "evidence_refs": [f"ticket:{ticket_id}", *order_refs, *item_refs],
+        "resolution": "unresolved",
+    }
 
 
 def _parse_time(value: Any) -> datetime | None:
@@ -376,6 +429,8 @@ def build_evidence_ledger(
             "evidence_refs": [order_ref, delivered_ref],
             "resolution": "human_review_required",
         })
+    if ticket_id and (product_conflict := _ticket_order_product_conflict(message, ticket_id, order_evidence)):
+        conflicts.append(product_conflict)
 
     ledger = {
         "status": "conflict" if conflicts else "incomplete" if missing else "complete",
