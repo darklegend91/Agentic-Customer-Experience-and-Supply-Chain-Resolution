@@ -40,9 +40,13 @@ def chat_error(status_code: int | None, detail: str) -> str:
         return "Please provide one customer ID, and make sure it matches the Customer ID field."
     if status_code == 422:
         return f"I couldn't process those details ({detail}). Please check the IDs and try again with a short description."
+    if status_code == 403 and "active customer context" in detail_lower:
+        return "I couldn't verify that this record belongs to the active customer."
     if status_code in {401, 403}:
         return "I can't access this request with the current permissions. Please check your support bearer token in the sidebar."
     if status_code == 503:
+        if "related records" in detail_lower:
+            return "I couldn't load the related records right now. Please try again shortly."
         if "database" in detail_lower or "workflowstore" in detail_lower or "timeout" in detail_lower:
             return (
                 "**Workflow Database Unavailable (HTTP 503)**\n\n"

@@ -43,10 +43,12 @@ try:
     importlib.reload(_chat_context_mod)
     from frontend.chat_context import (
         _CUSTOMER_ID,
-        detect_customer_mismatch,
-        resolve_conversation_context,
-        resolve_customer_context,
-        resolve_order_context,
+        context_needs_order_details,
+        context_needs_refresh,
+        match_context_questions,
+        reply_from_chat_context,
+        resolve_chat_references,
+        tickets_for_active_order,
     )
     import frontend.chat_replies as _chat_replies_mod
     importlib.reload(_chat_replies_mod)
@@ -56,10 +58,12 @@ except ModuleNotFoundError:
     importlib.reload(_chat_context_mod)
     from chat_context import (
         _CUSTOMER_ID,
-        detect_customer_mismatch,
-        resolve_conversation_context,
-        resolve_customer_context,
-        resolve_order_context,
+        context_needs_order_details,
+        context_needs_refresh,
+        match_context_questions,
+        reply_from_chat_context,
+        resolve_chat_references,
+        tickets_for_active_order,
     )
     import chat_replies as _chat_replies_mod
     importlib.reload(_chat_replies_mod)
@@ -276,9 +280,10 @@ st.markdown(
 
 
 class ApiError(RuntimeError):
-    def __init__(self, message: str, status_code: int | None = None):
+    def __init__(self, message: str, status_code: int | None = None, *, request_id: str | None = None):
         super().__init__(message)
         self.status_code = status_code
+        self.request_id = request_id
 
 
 def _safe_route(method: str, path: str) -> str:
@@ -287,11 +292,13 @@ def _safe_route(method: str, path: str) -> str:
     fixed = {
         "/health", "/tickets/classify", "/tickets/investigate", "/support/investigate",
         "/policies/search", "/rag/evaluate", "/rag/evaluate/labeled-set", "/workflows",
-        "/loyalty/provider-status",
+        "/loyalty/provider-status", "/customers/chat-context",
     }
     if route in fixed:
         return route
     parts = [part for part in route.strip("/").split("/") if part]
+    if method.upper() == "GET" and len(parts) == 2 and parts[0] == "tickets":
+        return "/tickets/{id}"
     if len(parts) == 3 and parts[0] == "workflows" and parts[2] in {"snapshot", "events", "trace"}:
         return f"/workflows/{{id}}/{parts[2]}"
     if len(parts) == 3 and parts[0] == "orders" and parts[2] in {"investigation", "customer-context"}:
@@ -364,13 +371,19 @@ def api_request(
                 "error_type": "TimeoutException",
                 "latency_ms": round((time.perf_counter() - started) * 1000, 2),
             })
-            raise ApiError("The API request timed out. Check that FastAPI and its data services are running.") from exc
+            raise ApiError(
+                "The API request timed out. Check that FastAPI and its data services are running.",
+                request_id=request_id,
+            ) from exc
         except httpx.HTTPError as exc:
             update_trace_span(span, level="ERROR", output={
                 "error_type": type(exc).__name__,
                 "latency_ms": round((time.perf_counter() - started) * 1000, 2),
             })
-            raise ApiError("Could not reach the FastAPI service. Check the API URL and server status.") from exc
+            raise ApiError(
+                "Could not reach the FastAPI service. Check the API URL and server status.",
+                request_id=request_id,
+            ) from exc
 
         try:
             data = response.json()
@@ -393,7 +406,7 @@ def api_request(
                 )
             if not detail:
                 detail = f"HTTP {response.status_code}"
-            raise ApiError(str(detail), response.status_code)
+            raise ApiError(str(detail), response.status_code, request_id=request_id)
         update_trace_span(span, output={
             "status_code": response.status_code,
             "latency_ms": latency_ms,
@@ -426,6 +439,11 @@ def classification_score(classification: dict[str, Any]) -> str:
         return "Rule match"
     score = classification.get("confidence")
     return f"{score:.1%} (raw)" if isinstance(score, (int, float)) else "—"
+
+
+def investigation_status_label(status: str) -> str:
+    label = "Specialist review required" if status == "escalated" else status.replace("_", " ").capitalize()
+    return f"Investigation status · {label}"
 
 
 def get_token(key: str) -> str:
@@ -658,6 +676,8 @@ def render_workflow_panel(base_url: str, support_token: str) -> None:
                 status_final = result.get("status", "unknown")
                 intent = (trace.get("classification") or result.get("classification") or {}).get("intent", "—")
                 conf_str = classification_score(trace.get("classification") or result.get("classification") or {})
+                status_label = investigation_status_label(status_final)
+                caption = f"{status_label} · Intent: {str(intent).replace('_', ' ').title()} · Score: {conf_str}"
                 chat_hist = st.session_state.get("chat_history", [])
                 already_resolved = any(
                     m["role"] == "assistant" and m.get("resolved_workflow_id") == wid
@@ -666,27 +686,27 @@ def render_workflow_panel(base_url: str, support_token: str) -> None:
                 if not already_resolved:
                     for turn in chat_hist:
                         if turn.get("started_workflow_id") == wid:
-                            turn["content"] = "I’ve checked your request. Please see the response below."
-                            turn["meta"] = f"Status: {status_final.replace('_', ' ')}"
+                            turn["content"] = f"Investigation submitted as workflow `{wid[:8]}…`."
+                            turn["meta"] = None
                     if answer:
                         chat_hist.append({
                             "role": "assistant",
                             "content": answer,
-                            "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Score: {conf_str} · {status_final.replace('_', ' ').title()}",
+                            "meta": caption,
                             "resolved_workflow_id": wid,
                         })
                     elif status_final == "pending_approval":
                         chat_hist.append({
                             "role": "assistant",
                             "content": "Workflow needs **human approval**. Use the approval gate below.",
-                            "meta": f"Intent: {str(intent).replace('_', ' ').title()} · Score: {conf_str}",
+                            "meta": caption,
                             "resolved_workflow_id": wid,
                         })
                     else:
                         chat_hist.append({
                             "role": "assistant",
                             "content": f"Workflow ended: **{status_final.replace('_', ' ')}**",
-                            "meta": f"Reason codes: {', '.join(result.get('reason_codes') or ['—'])}",
+                            "meta": f"{status_label} · Reason codes: {', '.join(result.get('reason_codes') or ['—'])}",
                             "resolved_workflow_id": wid,
                         })
                     st.session_state.chat_history = chat_hist
@@ -1029,11 +1049,11 @@ def render_pipeline_overview() -> None:
                     "When it runs": "After response generation, before delivering the answer to the customer",
                 },
                 {
-                    "Module": "detect_customer_mismatch()",
-                    "File": "frontend/chat_context.py",
-                    "What it does": "IDOR (Insecure Direct Object Reference) guard: ensures the customer asking about an order actually owns it. Blocks cross-customer data access attempts in the chat interface",
-                    "Risk codes": "customer_mismatch (blocks the request entirely)",
-                    "When it runs": "Chat ingress — before any investigation or DB lookup begins",
+                    "Module": "read_chat_context()",
+                    "File": "backend/app/api/routes/customers.py",
+                    "What it does": "Checks the support actor's permissions and verifies ticket, order, and customer relationships before returning related records",
+                    "Risk codes": "HTTP 403 for resources outside the allowed scope",
+                    "When it runs": "When the chat selects a new ticket, order, or customer",
                 },
             ],
             hide_index=True,
@@ -1120,9 +1140,9 @@ def render_pipeline_overview() -> None:
         st.caption("From the moment a customer sends a chat message to the final validated answer.")
 
         lifecycle_steps = [
-            ("01", "Ingress & IDOR check",
-             "Chat message arrives → `detect_customer_mismatch()` verifies the customer owns the referenced order. "
-             "If the customer ID doesn't match the order's owner, the request is blocked immediately."),
+            ("01", "Verify linked records",
+             "`POST /customers/chat-context` checks the support token and verifies how the ticket, order, and customer are linked. "
+             "Follow-up questions about IDs and lists use those verified records."),
             ("02", "Input sanitization",
              "`mask_sensitive_text()` redacts PII (Aadhaar, PAN, phone, email, card numbers). "
              "`inspect_text()` scans for prompt injection, role spoofing, executable payloads, and active content. "
@@ -1377,6 +1397,16 @@ def render_security_center() -> None:
                 st.write(desc)
 
 
+def clear_investigation_context() -> None:
+    for key in (
+        "chat_linked_context", "chat_context_loaded_at", "chat_last_order_id", "chat_last_customer_id",
+        "chat_order_id", "chat_ticket_id", "ctx_order_id", "ctx_ticket_id", "ctx_customer_id",
+        "active_workflow_id", "active_workflow", "active_trace", "active_events",
+        "workflow_polling", "workflow_poll_error", "st_injected_prompt",
+    ):
+        st.session_state.pop(key, None)
+
+
 def main() -> None:
     st.session_state.setdefault("langfuse_session_id", str(uuid.uuid4()))
     public_key = get_token("LANGFUSE_PUBLIC_KEY")
@@ -1466,13 +1496,8 @@ def main() -> None:
 
     context_owner = hashlib.sha256(f"{base_url}\0{support_token}".encode()).hexdigest()
     if st.session_state.get("chat_context_owner") != context_owner:
-        for key in (
-            "chat_history", "chat_last_order_id", "chat_last_customer_id",
-            "active_workflow_id", "active_workflow", "active_trace", "active_events",
-            "workflow_polling", "chat_order_id", "chat_ticket_id", "ctx_order_id",
-            "ctx_ticket_id", "ctx_customer_id"
-        ):
-            st.session_state.pop(key, None)
+        clear_investigation_context()
+        st.session_state.pop("chat_history", None)
         st.session_state.chat_context_owner = context_owner
     st.session_state.support_token = support_token
     st.session_state.reviewer_token = reviewer_token
@@ -1525,12 +1550,14 @@ def main() -> None:
 
         st.markdown("### Investigation chat")
 
-        # Active Context Status Bar
-        active_customer = st.session_state.get("chat_last_customer_id")
-        active_order = st.session_state.get("chat_last_order_id")
-        active_ticket = st.session_state.get("chat_ticket_id")
+        linked_context = st.session_state.get("chat_linked_context") or {}
+        active_customer = linked_context.get("customer_id") or st.session_state.get("chat_last_customer_id")
+        active_order = linked_context.get("order_id") or st.session_state.get("chat_last_order_id")
+        active_ticket = linked_context.get("ticket_id")
 
-        if active_customer or active_order or active_ticket:
+        if active_customer or active_order or active_ticket or any(
+            st.session_state.get(key) for key in ("ctx_ticket_id", "ctx_order_id", "ctx_customer_id")
+        ):
             b_col1, b_col2 = st.columns([5, 1])
             badges = []
             if active_customer:
@@ -1539,16 +1566,17 @@ def main() -> None:
                 badges.append(f"<span class='badge'>Order: {html.escape(active_order)}</span>")
             if active_ticket:
                 badges.append(f"<span class='badge badge-amber'>Ticket: {html.escape(active_ticket)}</span>")
-            b_col1.markdown("<div class='context-banner'><span style='color:var(--muted); font-size:0.8rem; margin-right:4px;'>Active context:</span> " + " ".join(badges) + "</div>", unsafe_allow_html=True)
-            if b_col2.button(":material/close: Clear context", key="btn_clear_active_context", help="Reset active customer and order context"):
-                st.session_state.chat_last_customer_id = None
-                st.session_state.chat_last_order_id = None
-                st.session_state.chat_order_id = ""
-                st.session_state.chat_ticket_id = ""
-                st.session_state.pop("ctx_order_id", None)
-                st.session_state.pop("ctx_customer_id", None)
-                st.session_state.pop("ctx_ticket_id", None)
+            if badges:
+                b_col1.markdown("<div class='context-banner'><span style='color:var(--muted); font-size:0.8rem; margin-right:4px;'>Active context</span> " + " ".join(badges) + "</div>", unsafe_allow_html=True)
+            if b_col2.button(":material/close: Clear context", key="btn_clear_active_context", help="Clear the active ticket, order, and customer"):
+                clear_investigation_context()
                 st.rerun()
+            if linked_context.get("orders") or linked_context.get("tickets"):
+                with st.expander(f"Related records · {len(linked_context['orders'])} orders · {len(linked_context['tickets'])} tickets"):
+                    if linked_context["orders"]:
+                        st.dataframe(linked_context["orders"], hide_index=True)
+                    if linked_context["tickets"]:
+                        st.dataframe(linked_context["tickets"], hide_index=True)
 
         # Context strip — inline settings above the chat
         with st.container(border=True):
@@ -1567,7 +1595,6 @@ def main() -> None:
             )
             customer_field = customer_col.text_input(
                 "Customer ID",
-                value=st.session_state.get("chat_last_customer_id") or "",
                 placeholder="CUS-…",
                 key="ctx_customer_id",
             ).strip()
@@ -1596,13 +1623,11 @@ def main() -> None:
             st.caption("Quick actions:")
             q1, q2, q3, q4, q5 = st.columns(5)
             if q1.button("Orders for CUS-0097A0C5B0", width="stretch", key="quick_q1"):
-                st.session_state["st_injected_prompt"] = "tell me orders of CUS-0097A0C5B0"
-                st.session_state["chat_last_customer_id"] = "CUS-0097A0C5B0"
+                st.session_state["st_injected_prompt"] = "list orders for customer CUS-0097A0C5B0"
             if q2.button("Check loyalty points", width="stretch", key="quick_q2"):
                 st.session_state["st_injected_prompt"] = "What is the loyalty points balance?"
             if q3.button("Where is ORD-ID-9c07956d06?", width="stretch", key="quick_q3"):
                 st.session_state["st_injected_prompt"] = "Where is my order ORD-ID-9c07956d06?"
-                st.session_state["chat_last_order_id"] = "ORD-ID-9c07956d06"
             if q4.button("Return eligibility rules", width="stretch", key="quick_q4"):
                 st.session_state["st_injected_prompt"] = "Is a damaged item eligible for return?"
             if q5.button("Test prompt injection", width="stretch", key="quick_q5"):
@@ -1618,19 +1643,26 @@ def main() -> None:
                 st.markdown(
                     "<div style='text-align:center;color:var(--muted);padding:45px 0 15px'>"
                     "<div style='font-size:.93rem;margin-top:.5rem'>Send a customer message to start an investigation.<br>"
-                    "Previous customer and order IDs are automatically preserved as context.</div></div>",
+                    "Linked tickets, orders, and the customer are kept in context across turns.</div></div>",
                     unsafe_allow_html=True,
                 )
             repair_legacy_turns(st.session_state.chat_history)
             for turn in st.session_state.chat_history:
                 with st.chat_message(turn["role"]):
+                    if ticket := turn.get("ticket"):
+                        label = f"Original customer report · Ticket {ticket['ticket_id']}"
+                        if linked_order := ticket.get("order_id"):
+                            label += f" · Linked order {linked_order}"
+                        st.caption(label)
+                        st.text(ticket["message"])
+                        st.caption("Investigation result")
                     st.markdown(turn["content"])
                     if turn.get("meta"):
                         st.caption(turn["meta"])
 
         injected_prompt = st.session_state.pop("st_injected_prompt", None)
         user_input = st.chat_input(
-            "Describe the customer's issue or ask about an order / customer ID…",
+            "Describe the issue or enter a ticket, order, or customer ID…",
             key="investigation_chat_input",
             disabled=not bool(support_token),
         )
@@ -1640,56 +1672,72 @@ def main() -> None:
         if not support_token:
             st.caption("🔒 Enter a support token in the sidebar to enable chat.")
 
-        if user_input:
-            # Check for unauthorized cross-customer ID request
-            active_customer = customer_field.strip().upper() or st.session_state.get("chat_last_customer_id")
-            mismatched_cust = detect_customer_mismatch(
-                user_input,
-                active_customer,
-                order_id=st.session_state.chat_order_id.strip() or None,
-            )
-            if mismatched_cust and active_customer:
-                meta_parts = []
-                if st.session_state.chat_ticket_id:
-                    meta_parts.append(f"Ticket: `{st.session_state.chat_ticket_id}`")
-                if st.session_state.get("chat_last_order_id"):
-                    meta_parts.append(f"Order: `{st.session_state.get('chat_last_order_id')}`")
-                meta_parts.append(f"Customer: `{active_customer}`")
-                st.session_state.chat_history.append({
-                    "role": "user",
-                    "content": user_input,
-                    "meta": " · ".join(meta_parts),
-                })
-                st.session_state.chat_history.append({
-                    "role": "assistant",
-                    "content": (
-                        f"You are currently authenticated as customer **{active_customer}**. "
-                        f"For security and privacy, you cannot access records or orders belonging to another customer account ({mismatched_cust})."
-                    ),
-                    "meta": "Access Denied · Authorization boundary",
-                })
+        if user_input and support_token:
+            previous_context = None
+            order_details = None
+            try:
+                references, ticket_lookup = resolve_chat_references(
+                    user_input,
+                    manual_ticket_id=st.session_state.chat_ticket_id,
+                    manual_order_id=st.session_state.chat_order_id,
+                    manual_customer_id=customer_field,
+                    active_customer_id=active_customer,
+                )
+                questions = match_context_questions(user_input)
+                if not linked_context and not (references["ticket_id"] or references["order_id"]):
+                    references["order_id"] = active_order  # Reverify context from an older chat session.
+                references_changed = any(value and linked_context.get(key) != value for key, value in references.items())
+                loaded_at = st.session_state.get("chat_context_loaded_at")
+                age_seconds = None if loaded_at is None else time.monotonic() - loaded_at
+                refresh_context = bool(linked_context) and context_needs_refresh(
+                    user_input, age_seconds=age_seconds, questions=questions,
+                )
+                if references_changed or refresh_context:
+                    if not references_changed:
+                        previous_context = linked_context
+                        references = {key: linked_context.get(key) for key in references}
+                    payload = {**references, "include_order_details": True} if context_needs_order_details(questions) else references
+                    with st.spinner("Looking up linked records…"):
+                        linked_context = api_request(
+                            "POST", "/customers/chat-context", base_url=base_url,
+                            token=support_token, payload=payload, timeout=15.0,
+                        )
+                    order_details = linked_context.pop("order_details", None)
+                    st.session_state.chat_linked_context = linked_context
+                    st.session_state.chat_context_loaded_at = time.monotonic()
+                    st.session_state.pop("chat_last_order_id", None)
+                    st.session_state.pop("chat_last_customer_id", None)
+            except ValueError as exc:
+                st.session_state.chat_history.extend([
+                    {"role": "user", "content": user_input},
+                    {"role": "assistant", "content": str(exc), "meta": "Needs information"},
+                ])
+                st.rerun()
+            except ApiError as exc:
+                meta = "Related records"
+                if exc.request_id:
+                    meta += f" · Request ID `{exc.request_id}`"
+                st.session_state.chat_history.extend([
+                    {"role": "user", "content": user_input},
+                    {"role": "assistant", "content": chat_error(exc.status_code, str(exc)), "meta": meta},
+                ])
                 st.rerun()
 
+            ticket_id = linked_context.get("ticket_id")
+            order_context = linked_context.get("order_id")
+            customer_context = linked_context.get("customer_id")
+            if ticket_lookup and not ticket_id:
+                ticket_rows = tickets_for_active_order(linked_context)
+                if len(ticket_rows) == 1:
+                    ticket_id = ticket_rows[0]["ticket_id"]
+                    linked_context = {**linked_context, "ticket_id": ticket_id, "order_id": ticket_rows[0]["order_id"]}
+                    st.session_state.chat_linked_context = linked_context
+                    order_context = linked_context["order_id"]
             methods = st.session_state.chat_methods or ["keyword"]
-            resolved_ctx = resolve_conversation_context(
-                user_input,
-                manual_order_id=st.session_state.chat_order_id,
-                manual_customer_id=customer_field,
-                previous_order_id=st.session_state.get("chat_last_order_id"),
-                previous_customer_id=st.session_state.get("chat_last_customer_id"),
-                autolink=True,
-            )
-            customer_context = resolved_ctx["customer_id"]
-            order_context = resolved_ctx["order_id"]
-
-            if customer_context:
-                st.session_state.chat_last_customer_id = customer_context
-            if order_context:
-                st.session_state.chat_last_order_id = order_context
 
             meta_parts = []
-            if st.session_state.chat_ticket_id:
-                meta_parts.append(f"Ticket: `{st.session_state.chat_ticket_id}`")
+            if ticket_id:
+                meta_parts.append(f"Ticket: `{ticket_id}`")
             if order_context:
                 meta_parts.append(f"Order: `{order_context}`")
             if customer_context:
@@ -1702,31 +1750,39 @@ def main() -> None:
                 "meta": " · ".join(meta_parts),
             })
 
-            effective_message = user_input.strip()
-            if order_context and not customer_context and order_context not in effective_message:
-                effective_message = f"{effective_message} for order {order_context}"
+            context_reply = reply_from_chat_context(
+                user_input, linked_context,
+                previous_context=previous_context, order_details=order_details, questions=questions,
+            )
+            if ticket_lookup and not ticket_id:
+                context_reply = reply_from_chat_context("what is my ticket number", linked_context)
+            if context_reply:
+                answer, status = context_reply
+                st.session_state.chat_history.append({"role": "assistant", "content": answer, "meta": status})
+                st.rerun()
+
+            investigation_ticket_id = ticket_id if ticket_lookup else None
+            effective_message = None if ticket_lookup else user_input.strip()
+            is_customer_topic = customer_context and effective_message and bool(re.search(
+                r"\b(?:orders of|customer orders|list orders|customer account|loyalty points|loyalty balance|"
+                r"rewards balance|order history|past orders|recent orders|my purchases|my account|"
+                r"support history|prior contacts?|loyalty transactions)\b",
+                effective_message, re.IGNORECASE,
+            ) or (_CUSTOMER_ID.search(effective_message) and not order_context))
+            account_orders = linked_context.get("orders", [])
+            investigation_order_id = None if is_customer_topic else order_context
+            if not (is_customer_topic or investigation_order_id) and len(account_orders) == 1:
+                investigation_order_id = account_orders[0]["order_id"]
 
             mode = str(st.session_state.get("chat_engine_mode") or "Investigate Tool")
 
             # ── 1. FAST DIRECT INVESTIGATION MODE ────────────────────────────
             if "Investigate Tool" in mode:
-                is_customer_topic = bool(
-                    _CUSTOMER_ID.search(effective_message)
-                    or re.search(
-                        r"\b(?:orders of|customer orders|list orders|customer account|loyalty points|loyalty balance|rewards balance|"
-                        r"my orders?|what are my orders|all my orders|order history|past orders|recent orders|purchases?|my purchases|my account)\b",
-                        effective_message,
-                        re.IGNORECASE,
-                    )
-                    or (customer_context and not order_context)
-                ) and not re.search(r"\b(?:where is|damaged|delivery delay|track|return eligibility|return status|refund status)\b", effective_message, re.IGNORECASE)
-
-                if is_customer_topic and customer_context:
+                if is_customer_topic:
                     try:
                         payload = {
                             "customer_id": customer_context,
                             "message": effective_message,
-                            "ticket_id": st.session_state.chat_ticket_id.strip() or None,
                             "allowed_customer_ids": ["*"],
                         }
                         with st.spinner("Investigating customer records…"):
@@ -1773,9 +1829,9 @@ def main() -> None:
                     try:
                         payload = {
                             "schema_version": "1.0",
-                            "ticket_id": st.session_state.chat_ticket_id.strip() or None,
+                            "ticket_id": investigation_ticket_id,
                             "message": effective_message,
-                            "order_id": order_context,
+                            "order_id": investigation_order_id,
                             "top_k": st.session_state.chat_top_k,
                             "methods": methods,
                         }
@@ -1825,11 +1881,18 @@ def main() -> None:
                             {"stage": "evidence", "event_type": "clarification_requested" if reply_status == "needs_information" and not order_ev and not (policy_ev.get("results") or {}) else "evidence_retrieved", "details": {"order_found": bool(order), "items_count": len(items)}, "occurred_at": datetime.now().isoformat()},
                             {"stage": "resolution", "event_type": "response_prepared", "details": {"status": reply_status}, "occurred_at": datetime.now().isoformat()},
                         ]
-                        st.session_state.chat_history.append({
+                        turn: dict[str, Any] = {
                             "role": "assistant",
                             "content": answer,
-                            "meta": reply_status.replace("_", " ").capitalize(),
-                        })
+                            "meta": investigation_status_label(reply_status),
+                        }
+                        if ticket_lookup and (ticket := res.get("ticket")) and ticket.get("message"):
+                            turn["ticket"] = {
+                                "ticket_id": ticket.get("ticket_id") or ticket_id,
+                                "order_id": ticket.get("order_id"),
+                                "message": ticket["message"],
+                            }
+                        st.session_state.chat_history.append(turn)
                     except Exception as exc:
                         st.session_state.active_workflow_id = None
                         st.session_state.workflow_polling = False
@@ -1843,9 +1906,9 @@ def main() -> None:
             else:
                 payload = {
                     "schema_version": "1.0",
-                    "ticket_id": st.session_state.chat_ticket_id.strip() or None,
+                    "ticket_id": investigation_ticket_id,
                     "message": effective_message,
-                    "order_id": order_context,
+                    "order_id": investigation_order_id,
                     "customer_id": customer_context,
                     "top_k": st.session_state.chat_top_k,
                     "methods": methods,
@@ -1877,10 +1940,7 @@ def main() -> None:
         if st.session_state.chat_history:
             if st.button(":material/delete_sweep: Clear chat history", key="clear_chat"):
                 st.session_state.chat_history = []
-                st.session_state.chat_last_order_id = None
-                st.session_state.chat_last_customer_id = None
-                st.session_state.active_workflow_id = None
-                st.session_state.workflow_polling = False
+                clear_investigation_context()
                 st.rerun()
 
         st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)

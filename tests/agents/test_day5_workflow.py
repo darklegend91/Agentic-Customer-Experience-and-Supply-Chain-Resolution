@@ -135,6 +135,58 @@ class Day5WorkflowTests(unittest.TestCase):
         self.assertIn("different item", result["answer"])
         self.assertIn("not connected", result["answer"])
 
+    def test_uncertain_package_prediction_does_not_assume_that_something_arrived(self):
+        state = initial_state(message="what do my order contain ?")
+        with (
+            patch("backend.app.agents.triage.classify_ticket_message",
+                  return_value=classification("unrecognized_package", confidence=0.505)),
+            patch("backend.app.agents.investigation.get_order_investigation") as order_lookup,
+        ):
+            result = self.make_graph().invoke(state, {"configurable": {"thread_id": state["thread_id"]}})
+
+        order_lookup.assert_not_called()
+        self.assertEqual(result["status"], "needs_information")
+        self.assertIn("what items are listed", result["answer"])
+        self.assertNotIn("shipping label", result["answer"])
+        self.assertEqual(result["missing_information"], ["request_details"])
+
+    def test_ticket_and_order_product_mismatch_pauses_workflow_for_confirmation(self):
+        state = {**initial_state(), "ticket_id": "T-009", "message": ""}
+        ticket = {
+            "ticket_id": "T-009", "order_id": ORDER_ID, "status": "found",
+            "message": "What is happening with my yoga mat order?",
+        }
+        evidence = order_evidence()
+        evidence["items"][0]["product_name"] = "Travel essays"
+        with (
+            patch("backend.app.agents.investigation.get_ticket_details", return_value=ticket),
+            patch("backend.app.agents.triage.classify_ticket_message", return_value=classification("order_status")),
+            patch("backend.app.agents.investigation.get_order_investigation", return_value=evidence),
+        ):
+            result = self.make_graph().invoke(state, {"configurable": {"thread_id": state["thread_id"]}})
+
+        self.assertEqual(result["status"], "needs_information", result.get("answer"))
+        self.assertIn("ticket_order_product_mismatch", result["reason_codes"])
+        self.assertIn("yoga mat", result["answer"])
+        self.assertIn("Travel essays", result["answer"])
+        self.assertIn("shipped", result["answer"])
+        self.assertIn("confirm the order ID", result["answer"])
+
+    def test_receipt_discrepancy_explains_what_is_needed_for_workflow_review(self):
+        state = initial_state(message="The receipt shows a different total than I expected.")
+        with (
+            patch("backend.app.agents.triage.classify_ticket_message", return_value=classification("price_difference")),
+            patch("backend.app.agents.investigation.get_order_investigation", return_value=order_evidence()),
+            patch("backend.app.agents.investigation.get_customer_support_context", return_value=None),
+        ):
+            result = self.make_graph().invoke(state, {"configurable": {"thread_id": state["thread_id"]}})
+
+        self.assertEqual(result["status"], "escalated")
+        self.assertIn("required_source_fields_not_available", result["reason_codes"])
+        self.assertIn("investigation", result["answer"])
+        self.assertIn("receipt total", result["answer"])
+        self.assertIn("breakdown of charges", result["answer"])
+
     def test_consequential_proposal_interrupts_then_approves_simulation_only(self):
         state = initial_state(message=f"My item in order {ORDER_ID} arrived damaged")
         state["workflow_id"] = "33333333-3333-4333-8333-333333333333"

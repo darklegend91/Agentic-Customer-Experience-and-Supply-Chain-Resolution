@@ -55,6 +55,49 @@ class ChatAnswerTests(unittest.TestCase):
         policy.assert_not_called()
         orders.assert_not_called()
 
+    def test_package_prediction_without_a_report_of_unexpected_delivery_asks_neutrally(self):
+        uncertain = {
+            **classification("unrecognized_package"), "confidence": 0.505, "triage_status": "needs_review",
+            "needs_human_review": True, "automatic_routing_enabled": False,
+        }
+        with patch(
+            "backend.app.tools.investigation_tools.classify_ticket_message", return_value=uncertain,
+        ), patch("backend.app.tools.investigation_tools.get_order_investigation") as orders:
+            result = investigate_ticket(message="what do my order contain ?", order_id="ORD-ID-Abcd1234")
+
+        self.assertEqual(result["status"], "needs_information")
+        self.assertIn("what items are listed", result["answer"])
+        self.assertNotIn("shipping label", result["answer"])
+        self.assertEqual(result["missing_information"], ["request_details"])
+        orders.assert_not_called()
+
+    def test_ticket_product_mismatch_reports_the_record_and_requests_confirmation(self):
+        ticket = {
+            "ticket_id": "T-009", "message": "What is happening with my yoga mat order?",
+            "order_id": "ORD-ID-Abcd1234", "status": "found",
+        }
+        evidence = order_evidence()
+        for item_name, status in (("Travel essays", "needs_information"), ("Yoga mats", "answer_ready")):
+            with self.subTest(item_name=item_name):
+                evidence["items"][0]["product_name"] = item_name
+                with (
+                    patch("backend.app.tools.investigation_tools.get_ticket_details", return_value=ticket),
+                    patch("backend.app.tools.investigation_tools.classify_ticket_message", return_value=classification("order_status")),
+                    patch("backend.app.tools.investigation_tools.search_policy", return_value=EMPTY_POLICY),
+                    patch("backend.app.tools.investigation_tools.get_order_investigation", return_value=evidence),
+                    patch("backend.app.tools.investigation_tools.get_customer_support_context", return_value=None),
+                ):
+                    result = investigate_ticket(ticket_id="T-009")
+                self.assertEqual(result["status"], status, result["answer"])
+                if status == "needs_information":
+                    self.assertIn("yoga mat", result["answer"])
+                    self.assertIn("Travel essays", result["answer"])
+                    self.assertIn("shipped", result["answer"])
+                    self.assertIn("confirm the order ID", result["answer"])
+                    conflict = result["evidence_ledger"]["conflicts"][0]
+                    self.assertIn("ticket:T-009", conflict["evidence_refs"])
+                    self.assertIn("item:ITEM-1", conflict["evidence_refs"])
+
     def test_password_reset_is_unsupported_without_calling_models(self):
         with patch("backend.app.tools.ticket_tools.classify_with_laya", return_value={
             "candidate_intent": "exchange_request", "top_class_probability": .99, "model_version": "test", "safety_passed": True,
@@ -119,6 +162,27 @@ class ChatAnswerTests(unittest.TestCase):
         self.assertEqual(result["status"], "answer_ready")
         self.assertIn("is marked as shipped", result["answer"])
         self.assertTrue(result["evidence_refs"])
+
+    def test_receipt_discrepancy_explains_which_evidence_the_investigation_needs(self):
+        ticket = {
+            "ticket_id": "T-045", "order_id": "ORD-ID-Abcd1234", "status": "found",
+            "message": "The receipt shows a different total than I expected.",
+        }
+        with (
+            patch("backend.app.tools.investigation_tools.get_ticket_details", return_value=ticket),
+            patch("backend.app.tools.investigation_tools.classify_ticket_message", return_value=classification("price_difference")),
+            patch("backend.app.tools.investigation_tools.search_policy", return_value=EMPTY_POLICY),
+            patch("backend.app.tools.investigation_tools.get_order_investigation", return_value=order_evidence()),
+            patch("backend.app.tools.investigation_tools.get_customer_support_context", return_value=None),
+        ):
+            result = investigate_ticket(ticket_id="T-045")
+
+        self.assertEqual(result["ticket"]["message"], ticket["message"])
+        self.assertEqual(result["status"], "escalated")
+        self.assertIn("required_source_fields_not_available", result["reason_codes"])
+        self.assertIn("investigation", result["answer"])
+        self.assertIn("receipt total", result["answer"])
+        self.assertIn("breakdown of charges", result["answer"])
 
     def test_invalid_source_provenance_cannot_be_presented_as_answered(self):
         evidence = order_evidence()
