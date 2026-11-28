@@ -20,8 +20,13 @@ class GroqResponseTests(unittest.TestCase):
 
     @patch.dict(os.environ, ENV)
     def test_groq_composes_grounded_answer_and_does_not_send_raw_ticket(self):
-        s=state(); fact=response.recorded_claims(s)[0]['text']
-        plan={'opening':"I've checked the details for you.",'facts':{'fact_0':fact},'closing':'If it hasn’t arrived, please let us know.'}
+        s = state()
+        facts = {f"fact_{index}": claim["text"] for index, claim in enumerate(response.recorded_claims(s))}
+        plan = {
+            "opening": "I've checked the details for you.",
+            "facts": facts,
+            "closing": "If it hasn’t arrived, please let us know.",
+        }
         with patch('httpx.Client.post',return_value=self.completion(plan)) as post:
             result=response.draft_grounded_response(s)
         self.assertEqual(result['draft_provider'],'groq')
@@ -36,9 +41,14 @@ class GroqResponseTests(unittest.TestCase):
 
     @patch.dict(os.environ, ENV)
     def test_invented_refund_or_missing_fact_falls_back(self):
-        for plan in ({'opening':'','facts':{'fact_0':'Your refund is approved.'},'closing':''}, {'opening':'','facts':{},'closing':''}):
+        s = state()
+        facts = {f"fact_{index}": claim["text"] for index, claim in enumerate(response.recorded_claims(s))}
+        for plan in (
+            {"opening": "", "facts": {**facts, "fact_0": "Your refund is approved."}, "closing": ""},
+            {"opening": "", "facts": {}, "closing": ""},
+        ):
             with self.subTest(plan=plan),patch('httpx.Client.post',return_value=self.completion(plan)):
-                result=response.draft_grounded_response(state())
+                result=response.draft_grounded_response(s)
             self.assertEqual(result['draft_provider'],'deterministic_fallback')
             self.assertNotIn('approved',result['draft']['answer'])
 
